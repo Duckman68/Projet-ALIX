@@ -65,7 +65,7 @@ section h1 {
     font-weight: bold;
 }
 
-.remember-forgot a:hoover, .register-link a {
+.remember-forgot a:hover, .register-link a {
     text-decoration: underline
 }
 
@@ -80,7 +80,7 @@ section h1 {
     transition: 0.5s
 }
 
-.login:hoover {
+.login:hover {
     background-color: transparent;
     border: 2px solid rgba(255,255,255,0.2);
     color: #fff;
