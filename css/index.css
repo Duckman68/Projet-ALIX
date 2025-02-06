@@ -11,6 +11,8 @@ body {
 
 div.top{
 	display: flex;
+	width: 100%;
+	position:fixed;
 	align-items: center;
 	justify-content: space-between;
 	background-color: black;
@@ -28,7 +30,7 @@ div.topleft{
 }
 
 div.body{
-	background-color: white;
+	background-color: black; /*peut etre mettre du gris foncé partout*/
 }
 
 div.exemple{
@@ -75,10 +77,42 @@ img.logo{
 	color: white;
 }
 
-.right h1,p{
+.droite h1,p{
 	margin: 50px;
+	color : white;
+}
+
+.droite a {
+    background-color: darkblue; /*changer la coueleur */
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    transition: 0.3s; 
+}
+
+.droite a:hover {
+    background-color: #082c4c; /* changer la couleur */
+    transform: scale(1.05); 
 }
 
 img.planete{
 	width: 800px;
 }
+
+.boutique {
+	width : 100%;
+	height : 400px;
+	background-color: black;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;.
+}
+
+.produit {
+    object-fit: cover;
+
+
+}
+
+
+
