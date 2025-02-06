@@ -1,11 +1,45 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
 body {
 	background-image: url("../img/index.jpg");
 	background-size: cover;
-	color: white;
 	text-align: center;
-
 }
 
+div.top{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: black;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div.espace{
+	height: 700px;
+}
+
+div.topleft{
+	display: flex;
+	align-items: center;
+}
+
+div.body{
+	background-color: white;
+}
+
+div.exemple{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+div.droite{
+	text-align: center;
+}
 
 li, a {
 	display: inline-block;
@@ -18,3 +52,33 @@ p {
 	font-size: 18px;
 }
 
+video.fond{
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+img.logo{
+	width: 75px;
+}
+
+.topleft h1{
+	font-size: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+}
+
+.right h1,p{
+	margin: 50px;
+}
+
+img.planete{
+	width: 800px;
+}
