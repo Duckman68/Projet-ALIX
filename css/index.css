@@ -2,6 +2,7 @@
 	padding: 0px;
 	margin: 0px;
 	font-family: 'Aspirin', sans-serif;
+	box-sizing: border-box;
 }
 
 body {
@@ -17,7 +18,7 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.8);
 	padding: 20px;
 }
 
@@ -59,6 +60,7 @@ div.textebot{
 li, a {
 	display: inline-block;
 	font-size: 20px;
+	margin: 0 10px;
 	text-decoration: none;
 	color: white;
 }

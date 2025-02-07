@@ -7,19 +7,54 @@
 
 </head>
 <body>
-    <div class="option-vol">
-        <select>
-            <option>Aller-retour</option>
-            <option>Aller simple</option>
-        </select>
-        <input type="text" placeholder="Départ de">
-        <input type="text" placeholder="Arrivée à">
-        <input type="text" placeholder="Dates de voyage">
-        <input type="text" placeholder="1 adulte">
-        <input type="text" placeholder="class">
-    </div>
-    <div>
-        <button>Rechercher</button>
+	<div class="top">
+		<div class="topleft">
+			<img class="logo" src="../img/logo.png">
+			<h1>A.L.I.X.</h1>
+		</div>
+		<ul>
+			<li><a href="aboutus.html">A propos</a></li>
+			<li>|</li>
+			<li><a href="voyager.html">Voyager</a></li>
+			<li>|</li>
+			<li><a href="login_form.html">Connexion</a></li>
+			<li>|</li>
+			<li><a href="sign-up.html">Inscription</a></li>
+		</ul>
+	</div>
+	<video class="fond" autoplay loop muted>
+		<source src="../img/video.mp4">
+	</video>
+
+    <section class="flight">    
+        <div class="flight-class">
+            <button class="class-btn">Economy Class</button>
+            <button class="class-btn">Business Class</button>
+            <button class="class-btn">First Class</button>
+        </div>
+        <div class="flight-inputs">
+            <select name="depart" id="depart">
+                <option value="#">Départ de</option>
+            </select>
+            <select name="arrivee" id="arrivee">
+                <option value="#">Arrivée à</option>
+            </select>
+            <input type="date" id="date-voyage" name="date-voyage">
+            <select name="adultes" id="adultes">
+                <option value="#">Nombre d'adultes</option>
+            </select>
+        </div>
+            <button class="search-btn">Rechercher</button>
+    </section>
+
+    <div class="bottom">
+        <h1>Crédits</h1>
+        <div class="textebot">
+            <h2>Nassim</h2>
+            <h2>Atahan</h2>
+            <h2>Romain</h2>
+            <h2>Gabin</h2>
+        </div>
     </div>
 </body>
 </html>
