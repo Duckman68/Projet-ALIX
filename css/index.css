@@ -15,7 +15,7 @@ body {
 div.top{
 	display: flex;
 	width: 100%;
-	position:fixed;
+	position: fixed;
 	align-items: center;
 	justify-content: space-between;
 	background-color: rgba(0, 0, 0, 0.8);
@@ -24,6 +24,7 @@ div.top{
 
 div.espace{
 	height: 700px;
+	width: 100%;
 }
 
 div.topleft{
@@ -33,6 +34,8 @@ div.topleft{
 
 div.body{
 	background-color: black; /*peut etre mettre du gris foncé partout*/
+	position: absolute;
+	z-index: -1;
 }
 
 div.exemple{
@@ -49,12 +52,29 @@ div.bottom{
 	height: 50vh;
 	background-color:rgb(22, 22, 22);
 	padding: 20px;
+	bottom: 20px;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.6);
+}
+	
+.bottom h1 {
+	font-size: 16px;
+	margin-bottom: 5px;
 }
 
-div.textebot{
-	padding: 50px;
-	display: flex;
-	justify-content: space-around;
+.textebot h2 {
+	font-size: 14px;
+	margin: 2px 0;
+	display: inline;
+	margin-right: 10px;
+}
+
+.textebot h2:not(:last-child)::after {
+	content: "|";
+	margin-left: 10px;
+	color: rgba(255, 255, 255, 0.6);
 }
 
 li, a {
@@ -78,7 +98,7 @@ video.fond{
 	right: 0;
 	top: 0;
 	bottom: 0;
-	z-index: -1;
+	z-index: -2;
 }
 
 img.logo{

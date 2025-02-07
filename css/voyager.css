@@ -43,13 +43,20 @@ video.fond {
 .top ul {
     display: flex;
     list-style: none;
+    padding-left: 20px;
+	padding-right: 20px;
+	margin: 20px;
 }
 
-.top ul li {
-    margin: 0 10px;
+li, a {
+	display: inline-block;
+	font-size: 20px;
+	margin: 0 10px;
+	text-decoration: none;
+	color: white;
 }
 
-.top ul a {
+.top ul {
     color: white;
     text-decoration: none;
     font-size: 20px;
