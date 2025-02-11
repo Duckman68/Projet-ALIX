@@ -89,3 +89,7 @@ section h1, p {
     justify-content: space-between;
     color : white;
 }
+
+a {
+    text-decoration: none;
+}

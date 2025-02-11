@@ -140,3 +140,7 @@ section h1 {
 .dejainscrit a {
     text-decoration: underline
 }
+
+a {
+    text-decoration: none;
+}
