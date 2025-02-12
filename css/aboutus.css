@@ -67,7 +67,7 @@ img.logo {
     width: 75px;
 }
 
-section {
+section.about {
     padding: 70px;
     width: 1500px;
     background-color: transparent;
@@ -75,7 +75,7 @@ section {
     backdrop-filter: blur(20px);
 }
 
-section h1 {
+section.about h1 {
     font-size: 30px;
     text-align: left;
     justify-content: space-between;
@@ -84,7 +84,7 @@ section h1 {
     
 }
 
-section h1, p {
+section.about h1, p {
     font-size: 18px;
     justify-content: space-between;
     color : white;

@@ -6,92 +6,180 @@
 }
 
 body {
-	background-image: url("../img/index.jpg");
-	background-size: cover;
-	text-align: center;
+	margin: 0;
+	padding: 0;
+	font-family: 'Orbitron', sans-serif;
+	background-color: black;
 	color: white;
+	overflow-x: hidden;
 }
 
-div.top{
+/* Barre de navigation */
+.top {
 	display: flex;
-	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background: rgba(0, 0, 0, 0.8);
 	position: fixed;
-	align-items: center;
-	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.8);
-	padding: 20px;
-}
-
-div.espace{
-	height: 700px;
 	width: 100%;
+	top: 0;
+	z-index: 1000;
 }
 
-div.topleft{
+.topleft {
 	display: flex;
 	align-items: center;
 }
 
-div.body{
-	background-color: black; /*peut etre mettre du gris foncé partout*/
-	position: absolute;
-	z-index: -1;
-}
-
-div.exemple{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
-
-div.droite{
-	text-align: center;
-}
-
-div.bottom{
-	height: 50vh;
-	background-color:rgb(22, 22, 22);
-	padding: 20px;
-	bottom: 20px;
-	text-align: center;
-	width: 100%;
-	font-size: 14px;
-	color: rgba(255, 255, 255, 0.6);
-}
-	
-.bottom h1 {
-	font-size: 16px;
-	margin-bottom: 5px;
-}
-
-.textebot h2 {
-	font-size: 14px;
-	margin: 2px 0;
-	display: inline;
+.logo {
+	height: 50px;
 	margin-right: 10px;
 }
 
-.textebot h2:not(:last-child)::after {
-	content: "|";
-	margin-left: 10px;
-	color: rgba(255, 255, 255, 0.6);
+.top ul {
+	list-style-type: none;
+	display: flex;
+	gap: 15px;
+	padding: 0;
 }
 
-li, a {
-	display: inline-block;
-	font-size: 20px;
-	margin: 0 10px;
+.top ul li {
+	display: inline;
+}
+
+.top ul li a {
 	text-decoration: none;
 	color: white;
+	font-weight: bold;
+	transition: color 0.3s;
 }
 
-p {
-	font-size: 18px;
+.top ul li a:hover {
+	color: cyan;
+}
+
+/* Vidéo de fond */
+.fond {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -1;
+}
+
+/* Contenu principal */
+.espace {
+	height: 100px;
+}
+
+.body {
+	text-align: center;
+	padding: 50px;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+/* Section centrale */
+.exemple {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+}
+
+.planete {
+	width: 300px;
+	border-radius: 50%;
+	box-shadow: 0 0 20px cyan;
+}
+
+.droite {
+	max-width: 500px;
+	padding-left: 20px;
+	text-align: left;
+}
+
+.droite h1 {
+	font-size: 24px;
+	color: cyan;
+}
+
+.droite p {
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+/* Bouton */
+.droite a h2 {
+	display: inline-block;
+	padding: 10px 20px;
+	background: cyan;
+	color: black;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: background 0.3s;
+}
+
+.droite a h2:hover {
+	background: white;
+}
+
+/* Boutique */
+.boutique {
+	margin-top: 50px;
+}
+
+.boutique table {
+	width: 100%;
+	text-align: center;
+}
+
+.produit {
+	width: 120px;
+	height: auto;
+	border-radius: 10px;
+	transition: transform 0.3s;
+}
+
+.produit:hover {
+	transform: scale(1.1);
+}
+
+.boutton a h2 {
+	padding: 10px 20px;
+	background: blue;
+	color: white;
+	border-radius: 5px;
+	transition: background 0.3s;
+}
+
+.boutton a h2:hover {
+	background: cyan;
+	color: black;
+}
+
+/* Pied de page */
+.bottom {
+	margin-top: 50px;
+	padding: 20px;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.bottom h1 {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.textebot h2 {
+	display: inline-block;
+	margin: 5px 15px;
 }
 
 video.fond{
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
 	position: fixed;
 	left: 0;
@@ -99,80 +187,4 @@ video.fond{
 	top: 0;
 	bottom: 0;
 	z-index: -2;
-}
-
-img.logo{
-	width: 75px;
-}
-
-.topleft h1{
-	font-size: 50px;
-	margin-left: 20px;
-	margin-right: 20px;
-	color: white;
-}
-
-.droite h1,p{
-	margin: 50px;
-	color : white;
-}
-
-.droite a {
-    background-color: darkblue; /*changer la coueleur */
-    color: white;
-    padding: 10px 20px; 
-    border-radius: 10px; 
-    transition: 0.3s; 
-}
-
-.droite a:hover {
-    background-color: #082c4c; /* changer la couleur */
-    transform: scale(1.05); 
-}
-
-.boutton a {
-    background-color: darkblue; /*changer la coueleur */
-    color: white;
-    padding: 10px 20px; 
-    border-radius: 10px; 
-    transition: 0.3s; 
-	margin: 40px;
-}
-
-.boutton a:hover {
-    background-color: #082c4c; /* changer la couleur */
-    transform: scale(1.05); 
-	margin: 40px;
-}
-
-img.planete{
-	width: 800px;
-}
-
-.boutique {
-	width : 100%;
-	height : 400px;
-	background-color: black;
-}
-
-.produit {
-    object-fit: cover;
-	width: 300px;
-	padding:0px;
-}
-
-.top ul{
-	padding-left: 20px;
-	padding-right: 20px;
-	margin: 20px;
-}
-
-.boutique table{
-	margin: auto;
-	padding: auto;
-}
-
-.boutique td{
-	text-align: center;
-	width: 300px;
 }

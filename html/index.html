@@ -3,10 +3,12 @@
 <head>	
 	<meta charset="UTF-8">
 	<title>A.L.I.X.</title>
-	<link href="../css/index.css" rel="stylesheet" />
+	<link href="../css/style.css" rel="stylesheet" />
 </head>
-
 <body>
+	<video class="fond" autoplay loop muted>
+		<source src="../img/video.mp4">
+	</video>
 	<div class="top">
 		<div class="topleft">
 			<img class="logo" src="../img/logo.png">
@@ -22,87 +24,95 @@
 			<li><a href="sign-up.html">Inscription</a></li>
 		</ul>
 	</div>
-	<video class="fond" autoplay loop muted>
-		<source src="../img/video.mp4">
-	</video>
-	<div class="espace">
+	<div class="en-tete"></div>
+	<div class="espace"></div>
+	<div class="recherche">
+		<table class="recherche">
+			<tr>
+				<td class="recherche">
+					<label for="depart">Date de départ :</label>
+					<input type="date" id="depart" name="depart">
+				</td>
+				<td lass="recherche">
+					<label for="arrivee">Date d'arrivée :</label>
+					<input type="date" id="arrivee" name="arrivee">
+				</td>
+				<td class="recherche">
+					<input type="text" id="searchInput" placeholder="Recherche de destination">
+					<button onclick="search()">🔍</button>
+				</td>
+			</tr>
+			<tr>
+				<table class="nbr-passager">
+					<tr>
+						<td class="passager">
+							<div>
+								<label>Adultes :</label>
+								<button onclick="changeValue('adultes', -1)">-</button>
+								<span id="adultes">1</span>
+								<button onclick="changeValue('adultes', 1)">+</button> 
+							</div>
+						</td>
+						<td class="passager">
+							<div class="passager">
+								<label>Enfants :</label>
+								<button onclick="changeValue('enfants', -1)">-</button>
+								<span id="enfants">0</span>
+								<button onclick="changeValue('enfants', 1)">+</button> 
+							</div>
+						</td>
+						<td class="passager">
+							<div class="passager">
+								<label>Bébés :</label>
+								<button onclick="changeValue('bebes', -1)">-</button>
+								<span id="bebes">0</span>
+								<button onclick="changeValue('bebes', 1)">+</button> 
+							</div>
+						</td>
+					</tr>
+				</table>
+			</tr>
+		</table>
 	</div>
-	<div class="body">
-<section>
-    <div class="recherche">
-        <input type="text" id="searchInput" placeholder="Recherche de destination">
-        <button onclick="search()">🔍</button>
+	<div class="decouvrir">
+		<table class="decouvrir">
+			<tr>
+				<td><img class="planete" src="../img/tatooine.jpg"></td>
+				<td>
+					<h1>A.L.I.X. - Astral Light Intergalactic Expeditions</h1>
+				<p>BLABLABLA super voyage incroyable de la vie de la terre</p>
 
-        <div class="date-selection">
-            <label for="depart">Date de départ :</label>
-            <input type="date" id="depart" name="depart">
-
-            <label for="arrivee">Date d'arrivée :</label>
-            <input type="date" id="arrivee" name="arrivee">
-        </div>
-
-        <div class="bouton-passager">
-            <div class="nbr-passagerS" onclick="toggleNbrPassager()">
-                <span id="summary-text">1 Adulte</span>
-            </div>
-
-            <div class="nbr-passager" id="nbr-passager">
-                <div class="passager">
-                    <label>Adultes :</label>
-                    <button onclick="changeValue('adultes', -1)">-</button>
-                    <span id="adultes">1</span>
-                    <button onclick="changeValue('adultes', 1)">+</button> 
-                </div>
-                <div class="passager">
-                    <label>Enfants :</label>
-                    <button onclick="changeValue('enfants', -1)">-</button>
-                    <span id="enfants">0</span>
-                    <button onclick="changeValue('enfants', 1)">+</button> 
-                </div>
-                <div class="passager">
-                    <label>Bébés :</label>
-                    <button onclick="changeValue('bebes', -1)">-</button>
-                    <span id="bebes">0</span>
-                    <button onclick="changeValue('bebes', 1)">+</button> 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-	<div class="pub">
-		<table>
-				<tr>
-					<td><a href="produit1.html"> <img src = "../img/produit1.jpg" class="promo"> </a></td>
-					<td><a href="produit2.html"> <img src = "../img/produit2.jpg" class="promo"> </a></td>
-					<td><a href="produit3.html"> <img src = "../img/produit3.jpg" class="promo"> </a></td>
-					<td><a href="produit4.html"> <img src = "../img/produit4.jpg" class="promo"> </a></td>
+				<p>blalalalalalalalal</p>
 					
+				<p>nbaknajbhfjhizbehbverzhubahuebfyhuazghcudbzqyhfujieqaghifabzhuegh fi jezabnufh uehtfguizabnhivcfhbzeajib gfhuabzejifvbnhjiezabnfgjuiàzahkjpfhazujipepghfuidsnquyio.</p>
+					
+				<p>Erahuy_ègeazyèçgefyhuhaeçgyèefbyauegyhbhfuyiae rgryufobn azehjuig bnafdczsuh feazguahgefdzauyghfhuhiazg uezfaghauy_ghfyuebhuh.</p>
+				
+				<a href="voyager.html"><h2><strong>Je découvre</strong></h2></a>
+				</td>
+			</tr>
+		</table>
 	</div>
-
-
-		
-		<div class = "boutique">
-			<table>
-				<tr>
-					<td><a href="produit1.html"> <img src = "../img/produit1.jpg" class="produit"> </a></td>
-					<td><a href="produit2.html"> <img src = "../img/produit2.jpg" class="produit"> </a></td>
-					<td><a href="produit3.html"> <img src = "../img/produit3.jpg" class="produit"> </a></td>
-					<td><a href="produit4.html"> <img src = "../img/produit4.jpg" class="produit"> </a></td>
-					<td class="boutton"><a href = "boutique.html" ><h2><strong>Aller a la boutique</strong></h2></a></td>
-				</tr>
-			</table>
-		</div>
-		<div class="bottom">
-			<h1>Crédits</h1>
-			<div class="textebot">
-				<h2>Nassim</h2>
-				<h2>Atahan</h2>
-				<h2>Romain</h2>
-				<h2>Gabin</h2>
-			</div>
+	<div class = "boutique">
+		<table>
+			<tr>
+				<td><a href="produit1.html"> <img src = "../img/produit1.jpg" class="produit"> </a></td>
+				<td><a href="produit2.html"> <img src = "../img/produit2.jpg" class="produit"> </a></td>
+				<td><a href="produit3.html"> <img src = "../img/produit3.jpg" class="produit"> </a></td>
+				<td><a href="produit4.html"> <img src = "../img/produit4.jpg" class="produit"> </a></td>
+				<td class="boutton"><a href = "boutique.html" ><h2><strong>Aller a la boutique</strong></h2></a></td>
+			</tr>
+		</table>
+	</div>
+	<div class="bottom">
+		<h1>Crédits</h1>
+		<div class="textebot">
+			<h2>Nassim</h2>
+			<h2>Atahan</h2>
+			<h2>Romain</h2>
+			<h2>Gabin</h2>
 		</div>
 	</div>
-
 </body>
 </html>
 

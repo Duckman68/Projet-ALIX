@@ -1,0 +1,219 @@
+html{
+    overflow-x: hidden;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+	color: white;
+    font-family: 'Aspirin', sans-serif;
+    overflow-x: hidden;
+}
+
+video.fond{
+	width: 100vw;
+	height: 100vh;
+	object-fit: cover;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+div.top{
+    display: flex;
+	width: 100%;
+	position:fixed;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	z-index: 3;
+}
+
+div.topleft{
+	display: flex;
+	align-items: center;
+}
+
+div.en-tete{
+    height: 115px;
+    width: 100vw;
+}
+
+div.espace{
+    height: 50vh;
+    width: 100vw;
+}
+
+div.decouvrir{
+    background-color: black;
+    width: 100vw;
+    display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+div.boutique {
+	width : 100vw;
+	height : 400px;
+	background-color: black;
+}
+
+div.bottom{
+	height: 50vh;
+    width : 100vw;
+	background-color:rgb(22, 22, 22);
+	padding: 20px;
+}
+
+div.recherche{
+	position: relative;
+	top: 4vh;
+    margin-left: 30%;
+	margin-right: 30%;
+    background-color: rgba(41, 8, 78, 0.9);
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+.top li, a {
+	display: inline-block;
+	font-size: 20px;
+	margin: 0 10px;
+	text-decoration: none;
+	color: white;
+}
+
+.top ul{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 20px;
+}
+
+img.logo{
+	width: 75px;
+}
+
+img.planete{
+	width: 800px;
+}
+
+.topleft h1{
+	font-size: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	color: white;
+}
+
+.bottom h1 {
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.textebot h2 {
+	display: inline-block;
+	margin: 5px 15px;
+}
+
+.decouvrir a {
+    background-color: darkblue; /*changer la coueleur */
+    color: white;
+    padding: 0px 10px;
+    border-radius: 10px; 
+    transition: 0.3s; 
+}
+
+.decouvrir a:hover {
+    background-color: #082c4c; /* changer la couleur */
+    transform: scale(1.05); 
+}
+
+.boutton a {
+    background-color: darkblue; /*changer la coueleur */
+    color: white;
+    padding: 10px 20px; 
+    border-radius: 10px; 
+    transition: 0.3s; 
+	margin: 40px;
+}
+
+.decouvrir table{
+    margin: auto;
+	padding: auto;
+}
+
+.boutique table{
+	margin: auto;
+	padding: auto;
+}
+
+table.recherche{
+	margin: auto;
+}
+
+table.nbr-passager{
+	margin: auto;
+}
+
+td.recherche{
+	display: flex;
+	align-items: center;
+	margin: 5px;
+}
+
+td.passager{
+	padding: 0px 10px;
+}
+
+.decouvrir td{
+	text-align: center;
+    width: 50vw;
+}
+
+.boutique td{
+	text-align: center;
+    width: 300px;}
+
+td.sel-passager{
+	column-span: 3;
+	text-align: center;
+}
+
+input, label{
+	font-family: 'Aspirin', sans-serif;
+}
+
+/*about us*/
+
+section.about {
+    padding: 70px;
+    width: 1500px;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+	margin: auto;
+	margin-top: 10%;
+}
+
+section.about h1 {
+    font-size: 30px;
+    text-align: left;
+    justify-content: space-between;
+    color: #fff;
+    margin-bottom: 20px;
+    
+}
+
+section.about h2, p {
+    font-size: 18px;
+    justify-content: space-between;
+    color : white;
+}
