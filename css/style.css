@@ -248,6 +248,22 @@ div.espace-bottom-voyager{
     width: 100vw;
 }
 
+div.systemes{
+    background-color: black;
+}
+
+.systemes table{
+    margin: auto;
+    border-spacing: 20px;
+}
+
+.systemes td{
+    margin: 50px;
+    border: 5px solid rgba(41, 8, 78, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+}
+
 section.about h1 {
     font-size: 30px;
     text-align: left;
