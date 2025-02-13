@@ -67,7 +67,7 @@ img.logo {
     width: 75px;
 }
 
-section {
+section.login {
     padding: 30px;
     width: 420px;
     background-color: transparent;
@@ -75,7 +75,7 @@ section {
     backdrop-filter: blur(20px);
 }
 
-section h1 {
+section.login h1 {
     font-size: 30px;
     text-align: center;
     color: #fff;
@@ -89,7 +89,7 @@ section h1 {
 }
 
 .input-box input {
-    width: 100%;
+    width: 30px;
     padding: 15px;
     outline: none;
     background-color: transparent;

@@ -31,7 +31,7 @@ div.top{
 	justify-content: space-between;
 	background-color: rgba(0, 0, 0, 0.8);
 	padding: 20px;
-	z-index: 3;
+	z-index: 10;
 }
 
 div.topleft{
@@ -65,7 +65,7 @@ div.boutique {
 }
 
 div.bottom{
-	height: 50vh;
+	height: 25vh;
     width : 100vw;
 	background-color:rgb(22, 22, 22);
 	padding: 20px;
@@ -114,13 +114,21 @@ img.planete{
 }
 
 .bottom h1 {
-	font-size: 22px;
-	margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .textebot h2 {
-	display: inline-block;
-	margin: 5px 15px;
+    font-size: 14px;
+    margin: 2px 0;
+    display: inline;
+    margin-right: 10px;
+}
+
+.textebot h2:not(:last-child)::after {
+    content: "|";
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .decouvrir a {
@@ -193,14 +201,36 @@ input, label{
 
 /*about us*/
 
+div.espace-about{
+	height: 10vh;
+	width: 100vw;
+}
+
+div.espace-bottom-about{
+    height: 10vh;
+    width: 100vw;
+}
+
 section.about {
     padding: 70px;
-    width: 1500px;
+    width: 1000px;
     background-color: transparent;
     border: 2px solid rgba(255,255,255,0.2);
     backdrop-filter: blur(20px);
 	margin: auto;
-	margin-top: 10%;
+}
+
+
+/*voyager*/
+
+div.espace-voyager{
+	height: 10vh;
+	width: 100vw;
+}
+
+div.espace-bottom-voyager{
+    height: 20vh;
+    width: 100vw;
 }
 
 section.about h1 {
@@ -216,4 +246,262 @@ section.about h2, p {
     font-size: 18px;
     justify-content: space-between;
     color : white;
+}
+
+.flight {
+    margin-top: 5%;
+    padding: 40px;
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    margin: auto;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.flight-class {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.class-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    border: none;
+    color: white;
+    font-size: 16px;
+}
+
+.class-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.flight-inputs select, .flight-inputs input[type="text"], .flight-inputs input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.flight-input input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.flight-inputs input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) grayscale(100%);
+    opacity: 0.6;
+}
+
+.search-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: rgb(25, 23, 49);
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.search-btn:hover {
+    background-color: #505b64;
+    transform: scale(1.05);
+}
+
+.flight-inputs option, optgroup{
+	background-color: #505b64;
+}
+
+/*login*/
+
+div.espace-login{
+    height: 10vh;
+    width: 100vw;
+}
+
+div.espace-bottom-login{
+    height: 17vh;
+    width: 100vw;
+}
+
+section.login {
+    padding: 30px;
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    margin:auto;
+}
+
+section.login h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.input-box {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input {
+    width: 75%;
+    padding: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding-right: 40px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 25px;
+}
+
+.remember-forgot a, .register-link a{
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.remember-forgot a:hover, .register-link a {
+    text-decoration: underline
+}
+
+.login {
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.5s
+}
+
+.login:hover {
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    color: #fff;
+    font-size: 14px;
+}
+
+/*singup*/
+
+div.espace-singup{
+    height: 5vh;
+    width: 100vw;
+}
+
+div.espace-bottom-singup{
+    height: 5vh;
+    width: 100vw;
+}
+
+section.singup {
+    padding: 30px;
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    margin:auto;
+}
+
+section.singup h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group input {
+    width: 75%;
+    padding: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding-right: 40px;
+}
+
+.form-group input::placeholder {
+    color: #fff;
+}
+
+.submit {
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: 0.5s
+}
+
+.submit:hover {
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.dejainscrit {
+    text-align: center;
+    margin-top: 25px;
+    color: #fff;
+    font-size: 14px;
+
+}
+
+.dejainscrit p{
+    font-size: 14px;
+}
+
+.dejainscrit a{
+    color: #fff;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.dejainscrit a {
+    text-decoration: underline
 }
