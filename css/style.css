@@ -224,6 +224,7 @@ div.espace-about{
 div.espace-bottom-about{
     height: 10vh;
     width: 100vw;
+    padding-top: 10%;
 }
 
 section.about {
@@ -365,6 +366,7 @@ div.espace-login{
 div.espace-bottom-login{
     height: 17vh;
     width: 100vw;
+    padding-top: 10%;
 }
 
 section.login {
@@ -458,6 +460,7 @@ div.espace-singup{
 div.espace-bottom-singup{
     height: 5vh;
     width: 100vw;
+    padding-top: 10%;
 }
 
 section.singup {
