@@ -330,12 +330,26 @@ section.about h2, p {
     color: rgba(255, 255, 255, 0.2);
 }
 
+.flight-inputs input[type="date"] {
+    max-width: 96.25%;
+}
+
 .flight-inputs input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1) grayscale(100%);
     opacity: 0.6;
+    margin-right: -5px;
+}
+
+.options {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .search-btn {
+    margin-top: 20px;
     width: 100%;
     padding: 15px;
     background-color: rgb(25, 23, 49);
@@ -422,7 +436,7 @@ section.login h1 {
     font-weight: bold;
 }
 
-.remember-forgot a:hover, .register-link a {
+.remember-forgot a:hover, .register-link a:hover {
     text-decoration: underline
 }
 
@@ -432,7 +446,6 @@ section.login h1 {
     outline: none;
     border: 0;
     font-weight: bold;
-    cursor: pointer;
     border: 2px solid transparent;
     transition: 0.5s
 }
@@ -450,17 +463,22 @@ section.login h1 {
     font-size: 14px;
 }
 
+.register-link p {
+    font-size: 14px;
+    font-weight: lighter;
+}
+
 /*singup*/
 
 div.espace-singup{
-    height: 5vh;
+    height: 10vh;
     width: 100vw;
 }
 
 div.espace-bottom-singup{
-    height: 5vh;
+    height: 17vh;
     width: 100vw;
-    padding-top: 10%;
+    padding-top: 6.5%;
 }
 
 section.singup {
@@ -486,7 +504,7 @@ section.singup h1 {
 }
 
 .form-group input {
-    width: 75%;
+    width: 100%;
     padding: 15px;
     outline: none;
     background-color: transparent;
@@ -524,7 +542,7 @@ section.singup h1 {
 
 }
 
-.dejainscrit p{
+.dejainscrit p {
     font-size: 14px;
 }
 
@@ -534,9 +552,6 @@ section.singup h1 {
     transition: 0.5s;
     font-weight: bold;
     font-size: 14px;
-}
-
-.dejainscrit a {
     text-decoration: underline
 }
 
