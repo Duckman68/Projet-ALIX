@@ -22,8 +22,6 @@
 			<li><a href="login_form.html">Connexion</a></li>
 			<li>|</li>
 			<li><a href="sign-up.html">Inscription</a></li>
-			<li>|</li>
-			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.html">
     			<img src="../img/icon.jpg" alt="Profil" class="pfp">
@@ -33,12 +31,22 @@
 
     <div class="admin-container">
         <h2>Liste des Utilisateurs</h2>
+        <div class="bouton-recherche">
+            <button>Tous</button> <button>VIP</button> <button>Membre</button> <button>Banni</button>
+        </div>
+    </br>
+        <div class="admin-recherche">
+            <input type="text" id="searchInput" placeholder="Recherche des membres">
+			<button onclick="search()">🔍</button>
+        </div>
+
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nom</th>
                     <th>Email</th>
+                    <th>Statut</th>
                     <th colspan="2">Action</th>
                 </tr>
             </thead>
@@ -47,6 +55,7 @@
                     <td>1</td>
                     <td>Luke Skywalker</td>
                     <td>luke.skywalker@example.com</td>
+                    <td>VIP</td>
                     <td><button>Modifier</button></td>
 					<td><button>Supprimer</button></td>
                 </tr>
@@ -54,6 +63,7 @@
                     <td>2</td>
                     <td>Spock</td>
                     <td>spock@example.com</td>
+                    <td>Membre</td>
                     <td><button>Modifier</button></td>
 					<td><button>Supprimer</button></td>
                 </tr>
@@ -61,11 +71,21 @@
                     <td>3</td>
                     <td>Obi-Wan Kenobi</td>
                     <td>obibikenobi@example.com</td>
+                    <td>Banni</td>
                     <td><button>Modifier</button></td>
 					<td><button>Supprimer</button></td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <div class="bottom">
+		<h1>Crédits</h1>
+		<div class="textebot">
+			<h2>Nassim</h2>
+			<h2>Atahan</h2>
+			<h2>Romain</h2>
+			<h2>Gabin</h2>
+		</div>
+	</div>
 </body>
 </html>

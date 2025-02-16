@@ -684,7 +684,7 @@ section.singup h1 {
 }
 
 .admin-container th {
-    background: rgba(41, 8, 78, 0.9);;
+    background: rgb(46, 0, 70);
     text-transform: uppercase;
 }
 
@@ -693,7 +693,7 @@ section.singup h1 {
 }
 
 .admin-container button {
-    background-color: #007BFF;
+    background-color: darkblue;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -704,6 +704,14 @@ section.singup h1 {
 }
 
 .admin-container button:hover {
-    background-color: #0056b3;
+    background-color: rgb(1, 1, 100);
     transform: scale(1.05);
+}
+
+.bouton-recherche{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+
+
 }
