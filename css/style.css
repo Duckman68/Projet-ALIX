@@ -64,8 +64,7 @@ div.promotion2{
 
 .promo{
     width: 100%;
-    max-width: 200px; 
-    margin-top: 50px;
+    max-width: 300px; 
 }
 
 
@@ -103,6 +102,7 @@ div.promotion2{
 
 
 div.boutique {
+    padding-top: 50px;
 	width : 100vw;
 	height : 400px;
 	background-color: black;
@@ -144,8 +144,20 @@ img.logo{
 	width: 75px;
 }
 
+.pfp {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	object-fit: cover;
+    margin-right: 90px;
+}
+
 img.planete{
 	width: 800px;
+}
+
+.promotion2 h1{
+    margin-top: 50px;
 }
 
 .topleft h1{
@@ -187,6 +199,11 @@ table.recherche{
 
 table.nbr-passager{
 	margin: auto;
+}
+
+.recherche tr{
+    display: flex;
+	align-items: center;
 }
 
 td.recherche{
@@ -235,7 +252,6 @@ section.about {
     backdrop-filter: blur(20px);
 	margin: auto;
 }
-
 
 /*voyager*/
 
@@ -330,29 +346,16 @@ section.about h2, p {
     color: rgba(255, 255, 255, 0.2);
 }
 
-.flight-inputs input[type="date"] {
-    max-width: 96.25%;
-}
-
 .flight-inputs input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1) grayscale(100%);
     opacity: 0.6;
-    margin-right: -5px;
-}
-
-.options {
-    display: block;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 5px;
-    margin-top: 20px;
 }
 
 .search-btn {
-    margin-top: 20px;
+    margin-top: 5px;
     width: 100%;
     padding: 15px;
-    background-color: rgb(25, 23, 49);
+    background-color: #007BFF;;
     color: white;
     font-size: 18px;
     border: none;
@@ -362,12 +365,32 @@ section.about h2, p {
 }
 
 .search-btn:hover {
-    background-color: #505b64;
+    background-color: #0056b3;
     transform: scale(1.05);
 }
 
 .flight-inputs option, optgroup{
 	background-color: #505b64;
+}
+
+td.solaire{
+    background-image: url("../img/solaire.png");
+    background-size: cover;
+}
+
+td.innuendo{
+    background-image: url("../img/innuendo.png");
+    background-size: cover;
+}
+
+td.tou-doom{
+    background-image: url("../img/tou-doom.png");
+    background-size: cover;
+}
+
+td.ikea{
+    background-image: url("../img/ikea.png");
+    background-size: cover;
 }
 
 /*login*/
@@ -504,7 +527,7 @@ section.singup h1 {
 }
 
 .form-group input {
-    width: 100%;
+    width: 75%;
     padding: 15px;
     outline: none;
     background-color: transparent;
@@ -552,16 +575,12 @@ section.singup h1 {
     transition: 0.5s;
     font-weight: bold;
     font-size: 14px;
+}
+
+.dejainscrit a:hover{
     text-decoration: underline
 }
 
-.pfp {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	object-fit: cover;
-    margin-right: 90px;
-}
 
 /* Profil Section */
 .espace-profil {
@@ -589,26 +608,29 @@ section.singup h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-group {
+.form-group-login {
     margin-bottom: 15px;
 }
 
-.form-group label {
+.form-group-login label {
     display: block;
     font-size: 16px;
     margin-bottom: 5px;
     color: white;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.form-group-login input {
+    width: 75%;
+    padding: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding-right: 40px;
+    font-size: 16px
 }
 
-.form-group input:focus {
+.form-group-login input:focus {
     border-color: #007BFF;
     outline: none;
 }
@@ -627,8 +649,8 @@ section.singup h1 {
 
 .btn-submit:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
-
 
 /* Page Admin */
 
@@ -637,11 +659,11 @@ section.singup h1 {
     margin: 50px auto;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
-    border-radius: 10px;
     backdrop-filter: blur(10px);
-    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
 }
-
 
 
 .admin-container h2 {
@@ -655,14 +677,14 @@ section.singup h1 {
     margin-top: 20px;
 }
 
-.admin-container th, td {
+.admin-container th, .admin-container td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .admin-container th {
-    background: rgba(0, 255, 255, 0.3);
+    background: rgba(41, 8, 78, 0.9);;
     text-transform: uppercase;
 }
 
@@ -671,7 +693,8 @@ section.singup h1 {
 }
 
 .admin-container button {
-    color: #000;
+    background-color: #007BFF;
+    color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
@@ -681,5 +704,6 @@ section.singup h1 {
 }
 
 .admin-container button:hover {
-    color: #fff;
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
