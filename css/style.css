@@ -269,6 +269,11 @@ div.systemes{
     background-color: black;
 }
 
+.systemes {
+    width: 100%;
+    table-layout: fixed;
+}
+
 .systemes table{
     margin: auto;
     border-spacing: 20px;
@@ -276,7 +281,7 @@ div.systemes{
 
 .systemes td{
     margin: 50px;
-    border: 5px solid rgba(41, 8, 78, 0.9);
+    border: 2px solid rgba(30, 6, 58, 0.9);
     padding: 100px;
     border-radius: 10px;
 }
@@ -287,7 +292,11 @@ div.systemes{
     height: 100%;
     text-decoration: none;
     color: inherit;
-    
+}
+
+.systemes td {
+    font-size: 20px;
+    text-align: center;
 }
 
 section.about h1 {
@@ -343,7 +352,7 @@ section.about h2, p {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 5px;
     color: white;
@@ -358,6 +367,10 @@ section.about h2, p {
 .flight-inputs input[type="date"]::-webkit-calendar-picker-indicator {
     filter: invert(1) grayscale(100%);
     opacity: 0.6;
+}
+
+.flight-inputs input[type="date"] {
+    max-width: 96.45%;
 }
 
 .search-btn {
@@ -601,7 +614,13 @@ section.singup h1 {
     padding: 30px;
 }
 
-
+.profil-form-login {
+    padding: 30px;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    margin:auto;
+}
 
 .profil-img {
 	width: 150px;
@@ -738,10 +757,26 @@ section.singup h1 {
     }
     
     
-    .innuendo {
-        background-image: url("../img/innuendo.jpg");
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 1000px;
-    }
+.innuendo {
+    background-image: url("../img/innuendo.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+}
+
+.tou-doum {
+    background-image: url("../img/voy-tou-doom.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+}
+
+.ikea {
+    background-image: url("../img/voy-ikea.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1000px;
+}
