@@ -19,11 +19,11 @@
 			<li>|</li>
 			<li><a href="voyager.html">Voyager</a></li>
 			<li>|</li>
-			<li><a href="sign-up.html">Inscription</a></li>
+			<li><a href="sign-up.php">Inscription</a></li>
 			<li>|</li>
 			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
-		<a href="user.html">
+		<a href="user.php">
     			<img src="../img/icon.jpg" alt="Profil" class="pfp">
 		</a>
 	</div>
@@ -31,23 +31,32 @@
     <div class="espace-login"></div>
     <section class="login">
         <h1>Connexion</h1>
-        <div class="input-box">
-            <input type="text" placeholder="Nom utilisateur">
-        </div>
+        <?php
+        // Affiche les messages d'erreur
+        if (isset($_SESSION['erreur'])) {
+            echo '<div class="erreur">' . $_SESSION['erreur'] . '</div>';
+            unset($_SESSION['erreur']); // Supprime le message d'erreur après l'affichage
+        }
+        ?>
+        <form action="login_form.php" method="POST">
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Adresse e-mail" required>
+            </div>
 
-        <div class="input-box">
-            <input type="text" placeholder="Mot de passe">
-        </div>
+            <div class="input-box">
+                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+            </div>
 
-        <div class="remember-forgot">
-            <label><input type="checkbox"> Se souvenir de moi</label>
-            <a href="#">Mot de passe oublié ?</a>
-        </div>
+            <div class="remember-forgot">
+                <label><input type="checkbox"> Se souvenir de moi</label>
+                <a href="#">Mot de passe oublié ?</a>
+            </div>
 
-        <button class="login">Se connecter</button>
+            <button type="submit" class="login">Se connecter</button>
+        </form>
 
         <div class="register-link">
-            <p>Pas de compte ? <a href="sign-up.html">Inscription</a></p>
+            <p>Pas de compte ? <a href="sign-up.php">Inscription</a></p>
         </div>
     </section>
 	<div class="espace-bottom-login"></div>

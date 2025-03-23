@@ -32,15 +32,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li>|</li>
             <li><a href="voyager.html">Voyager</a></li>
             <li>|</li>
-            <li><a href="login_form.html">Connexion</a></li>
+            <li><a href="login.php">Connexion</a></li>
             <li>|</li>
-            <li><a href="sign-up.html">Inscription</a></li>
+            <li><a href="sign-up.php">Inscription</a></li>
             <li>|</li>
             <li><a href="admin.html">Bouton admin temporaire</a></li>
         </ul>
         <a href="user.php">
-            <img src="../img/icon.png" alt="Profil" class="pfp">
-        </a>
+    		<img src="../img/icon.jpg" alt="Profil" class="pfp">
+		</a>
     </div>
     <div class="en-tete"></div>
 
