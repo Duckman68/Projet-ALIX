@@ -1,3 +1,37 @@
+<?php
+session_start();
+
+
+$json_file = "../json/utilisateurs.json";
+$json = file_get_contents($json_file);
+$data = json_decode($json, true);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['mot_de_passe'];
+
+    foreach ($data["user"] as $user) {
+        if ($user["email"] === $email && $user["mot_de_passe"] === $password) {
+            $_SESSION['email'] = $email;
+            header("Location: user.php");
+            exit();
+        }
+    }
+
+	foreach ($data["admin"] as $admin) {
+        if ($admin["email"] === $email && $admin["mot_de_passe"] === $password) {
+            $_SESSION['email'] = $email;
+            header("Location: user.php");
+            exit();
+        }
+    }
+    
+    $_SESSION['erreur'] = "Email ou mot de passe incorrect.";
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>	
@@ -24,21 +58,20 @@
 			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.php">
-    			<img src="../img/icon.jpg" alt="Profil" class="pfp">
+			<img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
 		</a>
 	</div>
 	<div class="en-tete"></div>
     <div class="espace-login"></div>
     <section class="login">
         <h1>Connexion</h1>
-        <?php
-        // Affiche les messages d'erreur
-        if (isset($_SESSION['erreur'])) {
-            echo '<div class="erreur">' . $_SESSION['erreur'] . '</div>';
-            unset($_SESSION['erreur']); // Supprime le message d'erreur après l'affichage
-        }
-        ?>
-        <form action="login_form.php" method="POST">
+		<?php
+    	if (isset($_SESSION['erreur'])) {
+        	echo '<div class="erreur">' . $_SESSION['erreur'] . '</div>';
+        	unset($_SESSION['erreur']);
+    	}
+    	?>
+        <form action="login.php" method="POST">
             <div class="input-box">
                 <input type="email" name="email" placeholder="Adresse e-mail" required>
             </div>

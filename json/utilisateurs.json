@@ -1,8 +1,34 @@
-[
-    {
-        "nom": "Landier",
-        "prenom": "Gabin",
-        "email": "gabinlandier@gmail.com",
-        "mot_de_passe": "$2y$12$VdmwC9rcHkkvV7MyM9qfHeAHwGG7ADYz.qqYzsXA2C3Qj1z1swpue"
-    }
-]
+{
+    "admin": [
+        {
+            "nom": "Landier",
+            "prenom": "Gabin",
+            "email": "gabinlandier@alix.cy",
+            "mot_de_passe": "gabinou",
+            "phone": "0762626262",
+            "address": "93200 St Denis"
+        },
+        {
+            "nom": "Berrandou",
+            "prenom": "Nassim",
+            "email": "berrandoun@alix.cy",
+            "mot_de_passe": "1234",
+            "phone": "063456789",
+            "address": "95000 Cergy",
+            "pp":  "../img/ppnass.jpg"
+        }
+
+    ],
+
+    "user": [
+        {
+            "nom": "Han",
+            "prenom": "Solo",
+            "email": "hansolo@alix.cy",
+            "mot_de_passe": "fauconmille",
+            "phone": "123456789",
+            "address": "Faucon Millénium, Galaxie Lointaine",
+            "pp": "../img/pphan.jpg"
+        }
+    ]
+}
