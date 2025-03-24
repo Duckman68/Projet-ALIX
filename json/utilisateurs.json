@@ -15,11 +15,9 @@
             "mot_de_passe": "1234",
             "phone": "063456789",
             "address": "95000 Cergy",
-            "pp":  "../img/ppnass.jpg"
+            "pp": "..\/img\/ppnass.jpg"
         }
-
     ],
-
     "user": [
         {
             "nom": "Han",
@@ -27,8 +25,8 @@
             "email": "hansolo@alix.cy",
             "mot_de_passe": "fauconmille",
             "phone": "123456789",
-            "address": "Faucon Millénium, Galaxie Lointaine",
-            "pp": "../img/pphan.jpg"
+            "address": "Faucon Millelinum, Galaxie Lointaine",
+            "pp": "..\/img\/pphan.jpg"
         }
     ]
 }

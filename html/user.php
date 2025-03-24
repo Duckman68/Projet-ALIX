@@ -7,7 +7,6 @@ if (!isset($_SESSION['email'])) {
 }
 
 $json_file = "../json/utilisateurs.json";
-
 $json = file_get_contents($json_file);
 $data = json_decode($json, true);
 
@@ -45,13 +44,49 @@ if (empty($pp)) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom = $_POST['name'];
-    $prenom = $_POST['name'];
+    $nom_complet = $_POST['name'];
     $email = $_POST['email'];
-    $phone= $_POST['phone'];
+    $phone = $_POST['phone'];
     $address = $_POST['address'];
 
+    $nomPrenom = explode(' ', trim($nom_complet), 2);
+    $nom = $nomPrenom[0];
+    $prenom = isset($nomPrenom[1]) ? $nomPrenom[1] : '';
+
+    if ($data === null) {
+        die("Erreur lors de la lecture du JSON");
+    }
+
+    foreach ($data["user"] as &$user) {
+        if ($user["email"] === $_SESSION['email']) {
+            $user["nom"] = $nom;
+            $user["prenom"] = $prenom;
+            $user["phone"] = $phone;
+            $user["address"] = $address;
+            $user["email"] = $email;
+            $_SESSION['email'] = $email;
+            break;
+        }
+    }
+    
+    foreach ($data["admin"] as &$admin) {
+        if ($admin["email"] === $_SESSION['email']) {
+            $admin["nom"] = $nom;
+            $admin["prenom"] = $prenom;
+            $admin["phone"] = $phone;
+            $admin["address"] = $address;
+            $admin["email"] = $email;
+            $_SESSION['email'] = $email;
+            break;
+        }
+    }
+
+    file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+    header("Location: user.php");
+    exit();
 }
+
+
 
 ?>
 
