@@ -31,13 +31,9 @@
 	<div class="en-tete"></div>
     <div class="espace-voyager"></div>
 	<section class="flight">    
-        <div class="flight-class">
-            <button class="class-btn">Economy Class</button>
-            <button class="class-btn">Business Class</button>
-            <button class="class-btn">First Class</button>
-        </div>
+        
         <div class="flight-inputs">
-            <select name="depart" id="depart">
+            <!--<select name="depart" id="depart">
     		<option value="#">Départ de</option>
     
     		<optgroup label="Système Solaire">
@@ -89,10 +85,10 @@
               		<option value="slattika">Slattika</option>
               		<option value="akernejlika">Akernejlika</option>
             	</optgroup>
-            </select>
+            </select>-->
 
             <select name="arrivee" id="arrivee">
-                <option value="#">Arrivée à</option>
+                <option value="#">destination</option>
                 
                 <optgroup label="Système Solaire">
                 	<option value="mercure">Mercure</option>
@@ -145,26 +141,46 @@
             	</optgroup>
             </select>
             
-            <input type="date" id="date-voyage" name="date-voyage">
-            <select name="adultes" id="adultes">
-                <option value="#">Nombre d'adultes</option>
-                <option value="#">1</option>
-                <option value="#">2</option>
-                <option value="#">3</option>
-                <option value="#">4</option>
-                <option value="#">5</option>
-                <option value="#">6</option>
-            </select>
+            <label for="date-voyage">Date de départ :</label>
+			<input type="date" id="date-voyage" name="date-voyage">
+			<label for="date-voyage">Date d'arrivée :</label>
+			<input type="date" id="date-arrivée" name="date-arrivée">
 
-			<span class="options">Options</span>
-			<select name="equipage" id="equipage">
-                <option value="#">Équipage</option>
-				<option value="#">Humain</option>
-                <option value="#">Droïde</option>
-                <option value="#">Mixte</option>
-			</select>
-			<input type="checkbox" id="no-escale">
-			<label for="no-escale">Sans escale</label> 
+			<table class="nbr-passager">
+				<tr>
+					<td class="passager">
+						<div>
+							<label>Adultes :</label>
+							<button onclick="changeValue('adultes', -1)">-</button>
+							<span id="adultes">1</span>
+							<button onclick="changeValue('adultes', 1)">+</button> 
+						</div>
+					</td>
+					<td class="passager">
+						<div class="passager">
+							<label>Enfants :</label>
+							<button onclick="changeValue('enfants', -1)">-</button>
+							<span id="enfants">0</span>
+							<button onclick="changeValue('enfants', 1)">+</button> 
+						</div>
+					</td>
+					<td class="passager">
+						<div class="passager">
+							<label>Bébés :</label>
+							<button onclick="changeValue('bebes', -1)">-</button>
+							<span id="bebes">0</span>
+							<button onclick="changeValue('bebes', 1)">+</button> 
+						</div>
+					</td>
+				</tr>
+			</table>
+			</div>
+		<input type="checkbox" id="no-escale">
+		<label for="no-escale">Sans escale</label> 
+		<div class="flight-class">
+            <button class="class-btn">Economy Class</button>
+            <button class="class-btn">Business Class</button>
+            <button class="class-btn">First Class</button>
         </div>
             <button class="search-btn">Rechercher</button>
     </section>
