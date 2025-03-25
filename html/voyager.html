@@ -18,26 +18,22 @@
 		<ul>
 			<li><a href="aboutus.html">A propos</a></li>
 			<li>|</li>
-			<li><a href="login_form.html">Connexion</a></li>
+			<li><a href="login.php">Connexion</a></li>
 			<li>|</li>
-			<li><a href="sign-up.html">Inscription</a></li>
+			<li><a href="sign-up.php">Inscription</a></li>
 			<li>|</li>
 			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
-		<a href="user.html">
+		<a href="user.php">
     			<img src="../img/icon.jpg" alt="Profil" class="pfp">
 		</a>
 	</div>
 	<div class="en-tete"></div>
     <div class="espace-voyager"></div>
 	<section class="flight">    
-        <div class="flight-class">
-            <button class="class-btn">Economy Class</button>
-            <button class="class-btn">Business Class</button>
-            <button class="class-btn">First Class</button>
-        </div>
+        
         <div class="flight-inputs">
-            <select name="depart" id="depart">
+            <!--<select name="depart" id="depart">
     		<option value="#">Départ de</option>
     
     		<optgroup label="Système Solaire">
@@ -89,10 +85,10 @@
               		<option value="slattika">Slattika</option>
               		<option value="akernejlika">Akernejlika</option>
             	</optgroup>
-            </select>
+            </select>*/-->
 
             <select name="arrivee" id="arrivee">
-                <option value="#">Arrivée à</option>
+                <option value="#">Destination</option>
                 
                 <optgroup label="Système Solaire">
                 	<option value="mercure">Mercure</option>
@@ -145,8 +141,13 @@
             	</optgroup>
             </select>
             
-            <input type="date" id="date-voyage" name="date-voyage">
-            <select name="adultes" id="adultes">
+            <label for="date-voyage">Date du départ :</label>
+			<input type="date" id="date-voyage" name="date-voyage" placeholder="Sélectionnez une date">
+			
+			<label for="date-voyage">Date de retour :</label>
+			<input type="date" id="date-voyage" name="date-voyage">
+            
+			<select name="adultes" id="adultes">
                 <option value="#">Nombre d'adultes</option>
                 <option value="#">1</option>
                 <option value="#">2</option>
@@ -156,13 +157,18 @@
                 <option value="#">6</option>
             </select>
 
-			<span class="options">Options</span>
+			<!--<span class="options">Options</span>
 			<select name="equipage" id="equipage">
                 <option value="#">Équipage</option>
 				<option value="#">Humain</option>
                 <option value="#">Droïde</option>
                 <option value="#">Mixte</option>
-			</select>
+			</select>-->
+		<div class="flight-class">
+            <button class="class-btn">Economy Class</button>
+            <button class="class-btn">Business Class</button>
+            <button class="class-btn">First Class</button>
+        </div>
 			<input type="checkbox" id="no-escale">
 			<label for="no-escale">Sans escale</label> 
         </div>
