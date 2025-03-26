@@ -33,6 +33,15 @@ div.top{
 	padding: 20px;
 	z-index: 10;
 }
+div.topv2{
+    display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(0, 0, 0,1);
+	padding: 20px;
+	z-index: 10;
+}
 
 div.topleft{
 	display: flex;
@@ -134,10 +143,44 @@ div.recherche{
 	color: white;
 }
 
+.topv2 li, a {
+	display: inline-block;
+	font-size: 20px;
+	margin: 0 10px;
+	text-decoration: none;
+	color: white;
+}
+
 .top ul{
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: 20px;
+}
+.topv2 ul{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 20px;
+}
+
+.option{
+    background-color: black;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.option_bouton {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.option_bouton:hover {
+    background-color: #003e80;
 }
 
 img.logo{

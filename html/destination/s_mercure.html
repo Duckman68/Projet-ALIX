@@ -7,9 +7,9 @@
     
     </head>
 <body>
-    <div class="top">
+    <div class="topv2">
 		<div class="topleft">
-			<img class="logo" src="../img/logo.png">
+			<img class="logo" src="../../img/logo.png">
 			<a href="index.html"><h1>A.L.I.X.</h1></a>
 		</div>
 		<ul>
@@ -25,7 +25,61 @@
     			<img src="../img/icon.jpg" alt="Profil" class="pfp">
 		</a>
 	</div>
-
+	<div class="option">
+		<a href="s_mercure.html" class="option_bouton">Hébergement</a> 
+		<a href="s_mercure_vol.html" class="option_bouton">Vol</a> 
+		<a href="s_mercure_activite.html" class="option_bouton">Activité</a> 
+		<a href="s_mercure_location.html" class="option_bouton">Location</a> 
+	</div>
+	
+	<div class="recherche">
+		<table class="recherche">
+			<tr>
+				<td class="recherche">
+					<label for="depart">Date de départ :</label>
+					<input type="date" id="depart" name="depart">
+				</td>
+				<td class="recherche">
+					<label for="arrivee">Date d'arrivée :</label>
+					<input type="date" id="arrivee" name="arrivee">
+				</td>
+				<td class="recherche">
+					<input type="text" id="searchInput" placeholder="Recherche de destination">
+					<button onclick="search()">🔍</button>
+				</td>
+			</tr>
+			<tr>
+				<table class="nbr-passager">
+					<tr>
+						<td class="passager">
+							<div>
+								<label>Adultes :</label>
+								<button onclick="changeValue('adultes', -1)">-</button>
+								<span id="adultes">1</span>
+								<button onclick="changeValue('adultes', 1)">+</button> 
+							</div>
+						</td>
+						<td class="passager">
+							<div class="passager">
+								<label>Enfants :</label>
+								<button onclick="changeValue('enfants', -1)">-</button>
+								<span id="enfants">0</span>
+								<button onclick="changeValue('enfants', 1)">+</button> 
+							</div>
+						</td>
+						<td class="passager">
+							<div class="passager">
+								<label>Bébés :</label>
+								<button onclick="changeValue('bebes', -1)">-</button>
+								<span id="bebes">0</span>
+								<button onclick="changeValue('bebes', 1)">+</button> 
+							</div>
+						</td>
+					</tr>
+				</table>
+			</tr>
+		</table>
+	</div>
 
 
 
