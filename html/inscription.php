@@ -1,51 +1,72 @@
 <?php
-// Vérifie si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupération des données du formulaire
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $email = $_POST['email'];
-    $mot_de_passe = $_POST['mot_de_passe'];
-    $confirmation_mot_de_passe = $_POST['confirmation_mot_de_passe'];
+session_start();
 
-    // Validation des données
-    if ($mot_de_passe !== $confirmation_mot_de_passe) {
-        die("Les mots de passe ne correspondent pas.");
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nom = trim($_POST['nom']);
+    $prenom = trim($_POST['prenom']);
+    $email = trim($_POST['email']);
+    $mot_de_passe = $_POST['mot_de_passe'];
+    $confirmation = $_POST['confirmation_mot_de_passe'];
+
+    // Validation
+    if (empty($nom) || empty($prenom) || empty($email) || empty($mot_de_passe)) {
+        $_SESSION['inscription_error'] = "Tous les champs sont obligatoires.";
+        header("Location: sign-up.php");
+        exit();
     }
 
-    // Hachage du mot de passe
-    $mot_de_passe_hash = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+    if ($mot_de_passe !== $confirmation) {
+        $_SESSION['inscription_error'] = "Les mots de passe ne correspondent pas.";
+        header("Location: sign-up.php");
+        exit();
+    }
 
-    // Création d'un tableau avec les données de l'utilisateur
+
+    // Vérification email existant
+    $fichier_json = '../json/utilisateurs.json';
+    $donnees = [];
+
+    if (file_exists($fichier_json)) {
+        $contenu = file_get_contents($fichier_json);
+        $donnees = json_decode($contenu, true) ?? ['user' => []];
+    }
+
+    foreach ($donnees['user'] ?? [] as $utilisateur) {
+        if (strtolower($utilisateur['email']) === strtolower($email)) {
+            $_SESSION['inscription_error'] = "Cet email est déjà utilisé.";
+            header("Location: sign-up.php");
+            exit();
+        }
+    }
+
+    // Création utilisateur
     $utilisateur = [
+        'role' => "membre",
         'nom' => $nom,
         'prenom' => $prenom,
         'email' => $email,
-        'mot_de_passe' => $mot_de_passe_hash
+        'mot_de_passe' => $mot_de_passe,
+        'phone' => "",
+        'address' => "",
+        'sign-date' => date("d/m/Y"),
+        'login-date' => "",
+        'historique' => "",
+        'pp' => "../img/default.png",
     ];
 
-    // Chemin du fichier JSON
-    $fichier_json = '../json/utilisateurs.json';
+    $donnees['user'][] = $utilisateur;
 
-    // Lecture du fichier JSON existant
-    if (file_exists($fichier_json)) {
-        $donnees_existantes = file_get_contents($fichier_json);
-        $utilisateurs = json_decode($donnees_existantes, true);
+    if (file_put_contents($fichier_json, json_encode($donnees, JSON_PRETTY_PRINT))) {
+        $_SESSION['inscription_success'] = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
+        header("Location: login.php");
+        exit();
     } else {
-        $utilisateurs = [];
-    }
-
-    // Ajout du nouvel utilisateur
-    $utilisateurs[] = $utilisateur;
-
-    // Encodage des données en JSON
-    $donnees_json = json_encode($utilisateurs, JSON_PRETTY_PRINT);
-
-    // Écriture des données dans le fichier JSON
-    if (file_put_contents($fichier_json, $donnees_json)) {
+        $_SESSION['inscription_error'] = "Erreur lors de l'enregistrement. Veuillez réessayer.";
         header("Location: sign-up.php");
-    } else {
-        header("Location: sign-up.php");
+        exit();
     }
 }
+
+header("Location: sign-up.php");
+exit();
 ?>

@@ -36,7 +36,7 @@
             "phone": "123456789",
             "address": "Faucon Millelinum, Galaxie Lointaine",
             "sign-date": "",
-            "login-date": "",
+            "login-date": "28-03-2025 20:26",
             "historique": "",
             "pp": "..\/img\/pphan.jpg"
         },
@@ -49,7 +49,7 @@
             "phone": "822-9300",
             "address": "Los Angeles",
             "sign-date": "",
-            "login-date": "28-03-2025 10:23",
+            "login-date": "28-03-2025 21:06",
             "historique": "",
             "pp": "..\/img\/padme.jpg"
         },
@@ -62,9 +62,35 @@
             "phone": "2265 2270",
             "address": "Enterprise, San Francisco",
             "sign-date": "",
+            "login-date": "28-03-2025 20:25",
+            "historique": "",
+            "pp": "..\/img\/spock.jpg"
+        },
+        {
+            "role": "membre",
+            "nom": "Marley",
+            "prenom": "Bob",
+            "email": "bobmarley@alix.cy",
+            "mot_de_passe": "puff4life",
+            "phone": "911",
+            "address": "Tr\u00e8s loin",
+            "sign-date": "28\/03\/2025",
+            "login-date": "28-03-2025 21:07",
+            "historique": "",
+            "pp": "..\/img\/rastalion.jpg"
+        },
+        {
+            "role": "membre",
+            "nom": "Git",
+            "prenom": "Hub",
+            "email": "github@alix.cy",
+            "mot_de_passe": "github",
+            "phone": "",
+            "address": "",
+            "sign-date": "28\/03\/2025",
             "login-date": "",
             "historique": "",
-            "pp": ""
+            "pp": "..\/img\/default.png"
         }
     ]
 }

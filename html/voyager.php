@@ -1,3 +1,39 @@
+<?php
+session_start();
+
+$pp = "../img/default.png"; // Valeur par défaut
+
+if (isset($_SESSION['email'])) {
+	$json_file = "../json/utilisateurs.json";
+	$json = file_get_contents($json_file);
+	$data = json_decode($json, true);
+
+	if ($data !== null) {
+		$email = $_SESSION['email'];
+		
+		// Chercher dans les users
+		foreach ($data["user"] as $user) {
+			if ($user["email"] === $email) {
+				if (!empty($user["pp"])) {
+					$pp = $user["pp"];
+				}
+				break;
+			}
+		}
+		
+		// Chercher dans les admins
+		foreach ($data["admin"] as $admin) {
+			if ($admin["email"] === $email) {
+				if (!empty($admin["pp"])) {
+					$pp = $admin["pp"];
+				}
+				break;
+			}
+		}
+	}
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,20 +48,23 @@
 	</video>
 	<div class="top">
 		<div class="topleft">
-			<img class="logo" src="../img/logo.png">
-			<a href="index.html"><h1>A.L.I.X.</h1></a>
+			<a href="index.html">
+				<video class="logo" autoplay muted>
+					<source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
+				</video>
+			</a>
 		</div>
 		<ul>
-			<li><a href="aboutus.html">A propos</a></li>
+			<li><a href="aboutus.php">A propos</a></li>
 			<li>|</li>
 			<li><a href="login.php">Connexion</a></li>
 			<li>|</li>
 			<li><a href="sign-up.php">Inscription</a></li>
 			<li>|</li>
-			<li><a href="admin.html">Bouton admin temporaire</a></li>
+			<li><a href="admin.php">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.php">
-    			<img src="../img/icon.jpg" alt="Profil" class="pfp">
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
 		</a>
 	</div>
 	<div class="en-tete"></div>
