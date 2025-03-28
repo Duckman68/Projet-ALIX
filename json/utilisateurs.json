@@ -1,32 +1,70 @@
 {
     "admin": [
         {
+            "role": "admin",
             "nom": "Landier",
             "prenom": "Gabin",
             "email": "gabinlandier@alix.cy",
             "mot_de_passe": "gabinou",
             "phone": "0762626262",
-            "address": "93200 St Denis"
+            "address": "93200 St Denis",
+            "sign-date": "",
+            "login-date": "",
+            "historique": ""
         },
         {
+            "role": "admin",
             "nom": "Berrandou",
             "prenom": "Nassim",
             "email": "berrandoun@alix.cy",
             "mot_de_passe": "1234",
             "phone": "063456789",
             "address": "95000 Cergy",
+            "sign-date": "",
+            "login-date": "28-03-2025 10:00",
+            "historique": "",
             "pp": "..\/img\/ppnass.jpg"
         }
     ],
     "user": [
         {
+            "role": "membre",
             "nom": "Han",
             "prenom": "Solo",
             "email": "hansolo@alix.cy",
             "mot_de_passe": "fauconmille",
             "phone": "123456789",
             "address": "Faucon Millelinum, Galaxie Lointaine",
+            "sign-date": "",
+            "login-date": "",
+            "historique": "",
             "pp": "..\/img\/pphan.jpg"
+        },
+        {
+            "role": "vip",
+            "nom": "Portman",
+            "prenom": "Natalie",
+            "email": "nataliepo@alix.cy",
+            "mot_de_passe": "nassimmonmari",
+            "phone": "822-9300",
+            "address": "Los Angeles",
+            "sign-date": "",
+            "login-date": "28-03-2025 10:23",
+            "historique": "",
+            "pp": "..\/img\/padme.jpg"
+        },
+        {
+            "role": "membre",
+            "nom": "Spock",
+            "prenom": "",
+            "email": "spock@alix.cy",
+            "mot_de_passe": "starfleet",
+            "phone": "2265 2270",
+            "address": "Enterprise, San Francisco",
+            "sign-date": "",
+            "login-date": "",
+            "historique": "",
+            "pp": ""
         }
     ]
 }

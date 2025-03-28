@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 $json_file = "../json/utilisateurs.json";
 $json = file_get_contents($json_file);
 $data = json_decode($json, true);
@@ -9,18 +8,29 @@ $data = json_decode($json, true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['mot_de_passe'];
+    $login_date = date('d-m-Y H:i');
 
-    foreach ($data["user"] as $user) {
+    // Vérification pour les utilisateurs normaux
+    foreach ($data["user"] as &$user) {
         if ($user["email"] === $email && $user["mot_de_passe"] === $password) {
             $_SESSION['email'] = $email;
+            $user["login-date"] = $login_date;
+            
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+            
             header("Location: user.php");
             exit();
         }
     }
 
-	foreach ($data["admin"] as $admin) {
+    // Vérification pour les admins
+    foreach ($data["admin"] as &$admin) {
         if ($admin["email"] === $email && $admin["mot_de_passe"] === $password) {
             $_SESSION['email'] = $email;
+            $admin["login-date"] = $login_date;
+            
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+            
             header("Location: user.php");
             exit();
         }
