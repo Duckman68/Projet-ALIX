@@ -29,7 +29,7 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: black;
 	padding: 20px;
 	z-index: 10;
 }
@@ -47,6 +47,13 @@ div.topleft{
 	display: flex;
 	align-items: center;
 }
+
+video.logo {
+    width: 100%;
+    height: 95px;
+    object-fit: cover;
+}
+
 
 div.en-tete{
     height: 115px;
@@ -201,15 +208,6 @@ img.planete{
 
 .promotion2 h1{
     margin-top: 50px;
-}
-
-.topleft h1{
-	font-size: 50px;
-	margin-left: 20px;
-	margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-	color: white;
 }
 
 .bottom h1 {
