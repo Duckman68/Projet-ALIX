@@ -5,12 +5,13 @@
             "nom": "Landier",
             "prenom": "Gabin",
             "email": "gabinlandier@alix.cy",
-            "mot_de_passe": "gabinou",
+            "mot_de_passe": "mdp",
             "phone": "0762626262",
             "address": "93200 St Denis",
             "sign-date": "",
-            "login-date": "",
-            "historique": ""
+            "login-date": "29-03-2025 17:00",
+            "historique": "",
+            "pp": "..\/img\/cartman.jpg"
         },
         {
             "role": "admin",
@@ -75,7 +76,7 @@
             "phone": "911",
             "address": "Tr\u00e8s loin",
             "sign-date": "28\/03\/2025",
-            "login-date": "28-03-2025 21:07",
+            "login-date": "29-03-2025 16:57",
             "historique": "",
             "pp": "..\/img\/rastalion.jpg"
         },

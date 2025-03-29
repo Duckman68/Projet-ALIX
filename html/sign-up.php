@@ -59,8 +59,6 @@ if (isset($_SESSION['email'])) {
 			<li><a href="voyager.php">Voyager</a></li>
 			<li>|</li>
 			<li><a href="login.php">Connexion</a></li>
-			<li>|</li>
-			<li><a href="admin.php">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

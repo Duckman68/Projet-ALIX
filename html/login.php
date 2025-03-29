@@ -101,8 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<li><a href="voyager.php">Voyager</a></li>
 			<li>|</li>
 			<li><a href="sign-up.php">Inscription</a></li>
-			<li>|</li>
-			<li><a href="admin.php">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

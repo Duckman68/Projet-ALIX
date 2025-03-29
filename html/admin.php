@@ -1,36 +1,50 @@
 <?php
 session_start();
 
-$pp = "../img/default.png"; // Valeur par défaut
+$pp = "../img/default.png";
+$isLoggedIn = false;
+$isAdmin = false;
 
 if (isset($_SESSION['email'])) {
-	$json_file = "../json/utilisateurs.json";
-	$json = file_get_contents($json_file);
-	$data = json_decode($json, true);
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
 
-	if ($data !== null) {
-		$email = $_SESSION['email'];
-		
-		// Chercher dans les users
-		foreach ($data["user"] as $user) {
-			if ($user["email"] === $email) {
-				if (!empty($user["pp"])) {
-					$pp = $user["pp"];
-				}
-				break;
-			}
-		}
-		
-		// Chercher dans les admins
-		foreach ($data["admin"] as $admin) {
-			if ($admin["email"] === $email) {
-				if (!empty($admin["pp"])) {
-					$pp = $admin["pp"];
-				}
-				break;
-			}
-		}
-	}
+    if ($data !== null) {
+        $email = $_SESSION['email'];
+        
+        foreach ($data["admin"] as $admin) {
+            if ($admin["email"] === $email) {
+                $isAdmin = true;
+                if (!empty($admin["pp"])) {
+                    $pp = $admin["pp"];
+                }
+                break;
+            }
+        }
+        
+        if (!$isAdmin) {
+            foreach ($data["user"] as $user) {
+                if ($user["email"] === $email) {
+                    if (!empty($user["pp"])) {
+                        $pp = $user["pp"];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+if (!$isAdmin) {
+    header("Location: index.php");
+    exit();
+}
+
+$users = [];
+if (isset($data["user"])) {
+    $users = $data["user"];
 }
 ?>
 
@@ -57,10 +71,6 @@ if (isset($_SESSION['email'])) {
 			<li><a href="aboutus.php">A propos</a></li>
 			<li>|</li>
 			<li><a href="voyager.php">Voyager</a></li>
-			<li>|</li>
-			<li><a href="login.php">Connexion</a></li>
-			<li>|</li>
-			<li><a href="sign-up.php">Inscription</a></li>
 		</ul>
 		<a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
@@ -69,54 +79,45 @@ if (isset($_SESSION['email'])) {
 	<div class="en-tete"></div>
 
     <div class="admin-container">
-        <h2>Liste des Utilisateurs</h2>
-        <div class="bouton-recherche">
-            <button>Tous</button> <button>VIP</button> <button>Membre</button> <button>Banni</button>
-        </div>
-    </br>
-        <div class="admin-recherche">
-            <input type="text" id="searchInput" placeholder="Recherche des membres">
-			<button onclick="search()">🔍</button>
-        </div>
+		<h2>Liste des Utilisateurs</h2>
+		<div class="bouton-recherche">
+			<button>Tous</button> 
+			<button>VIP</button> 
+			<button>Membre</button> 
+			<button>Banni</button>
+		</div>
+		<br>
+		<div class="admin-recherche">
+			<input type="text" placeholder="Recherche des membres">
+			<button>🔍</button>
+		</div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                    <th>Email</th>
-                    <th>Statut</th>
-                    <th colspan="2">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Luke Skywalker</td>
-                    <td>luke.skywalker@example.com</td>
-                    <td>VIP</td>
-                    <td><button>Modifier</button></td>
-					<td><button>Supprimer</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Spock</td>
-                    <td>spock@example.com</td>
-                    <td>Membre</td>
-                    <td><button>Modifier</button></td>
-					<td><button>Supprimer</button></td>
-                </tr>
+		<table>
+			<thead>
 				<tr>
-                    <td>3</td>
-                    <td>Obi-Wan Kenobi</td>
-                    <td>obibikenobi@example.com</td>
-                    <td>Banni</td>
-                    <td><button>Modifier</button></td>
-					<td><button>Supprimer</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Email</th>
+					<th>Statut</th>
+					<th>Date d'inscription</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php foreach ($users as $user): ?>
+					<tr>
+						<td><?php echo htmlspecialchars($user['nom']); ?></td>
+						<td><?php echo htmlspecialchars($user['prenom']); ?></td>
+						<td><?php echo htmlspecialchars($user['email']); ?></td>
+						<td><?php echo htmlspecialchars($user['role']); ?></td>
+						<td><?php echo htmlspecialchars($user['sign-date'] ?? 'N/A'); ?></td>
+						<td><button>Modifier</button></td>
+						<td><button>Supprimer</button></td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
     <div class="bottom">
 		<h1>Crédits</h1>
 		<div class="textebot">
