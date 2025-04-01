@@ -162,6 +162,7 @@ if (isset($_SESSION['email'])) {
 			</tr>
 		</table>
 	</div>
+	
 	<div class="bottom">
 		<h1>Crédits</h1>
 		<div class="textebot">

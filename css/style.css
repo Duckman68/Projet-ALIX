@@ -29,7 +29,7 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.8);
 	padding: 20px;
 	z-index: 10;
 }
@@ -47,13 +47,6 @@ div.topleft{
 	display: flex;
 	align-items: center;
 }
-
-video.logo {
-    width: 100%;
-    height: 95px;
-    object-fit: cover;
-}
-
 
 div.en-tete{
     height: 115px;
@@ -141,6 +134,17 @@ div.recherche{
     border-radius: 10px;
     z-index: 2;
 }
+div.recherchev2{
+	position: relative;
+	top: -5vh;
+    margin-left: 30%;
+	margin-right: 30%;
+    background-color: rgba(41, 8, 78, 0.9);
+    padding: 5px;
+    border-radius: 10px;
+    z-index: 2;
+
+}
 
 .top li, a {
 	display: inline-block;
@@ -174,13 +178,12 @@ div.recherche{
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
 }
 
 .option_bouton {
     background-color: #0056b3;
     color: white;
-    padding: 10px 20px;
+    padding: 10px  20px;
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s ease;
@@ -188,6 +191,15 @@ div.recherche{
 
 .option_bouton:hover {
     background-color: #003e80;
+}
+
+.imgplanete{
+	width:100%;
+	height:250px;
+
+	z-index: -1;
+
+
 }
 
 img.logo{
@@ -208,6 +220,15 @@ img.planete{
 
 .promotion2 h1{
     margin-top: 50px;
+}
+
+.topleft h1{
+	font-size: 50px;
+	margin-left: 20px;
+	margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	color: white;
 }
 
 .bottom h1 {
@@ -454,6 +475,10 @@ section.about h2, p {
 .voy-ikea{
     background-image: url("../img/voy-ikea.png");
     background-size: cover;
+}
+/*destination*/
+.fondpage{
+	background: black;
 }
 
 
@@ -722,23 +747,6 @@ section.singup h1 {
     transform: scale(1.05);
 }
 
-.btn-logout {
-    width: 150px;
-    padding: 12px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn-logout:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
 /* Page Admin */
 
 .admin-container {
@@ -837,4 +845,75 @@ section.singup h1 {
     background-position: center;
     width: 100%;
     height: 1000px;
+}
+
+/*destination*/
+
+
+.logement-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.selection-logement {
+    display: block;
+    width: 250px; /* Ajuste la largeur selon tes besoins */
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.selection-logement input {
+    display: none;
+}
+
+.selection-logement .button-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333; /* Gris foncé */
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.selection-logement img {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.selection-logement input:checked + .button-content {
+    background-color: #007bff; /* Bleu */
+    color: white;
+    transform: scale(1.05);
+}
+.btn-envoyer {
+    background-color: #007bff; /* Bleu */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 30px auto; /* Centre horizontalement et ajoute un espace en haut */
+    display: block; /* Pour le centrer correctement */
+    text-align: center;
+}
+
+
+.btn-envoyer:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+    transform: scale(1.05);
 }
