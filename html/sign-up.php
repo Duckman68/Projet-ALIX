@@ -19,11 +19,11 @@
 			<li>|</li>
 			<li><a href="voyager.html">Voyager</a></li>
 			<li>|</li>
-			<li><a href="login_form.html">Connexion</a></li>
+			<li><a href="login.php">Connexion</a></li>
 			<li>|</li>
 			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
-		<a href="user.html">
+		<a href="user.php">
     			<img src="../img/icon.jpg" alt="Profil" class="pfp">
 		</a>
 	</div>
@@ -31,30 +31,32 @@
     <div class="espace-singup"></div>
     <section class="singup">
         <h1>Inscription</h1>
-        <div class="form-group">
-            <input type="text" placeholder="Nom">
-        </div>
+        <form action="inscription.php" method="POST">
+            <div class="form-group">
+                <input type="text" name="nom" placeholder="Nom" required>
+            </div>
 
-		<div class="form-group">
-            <input type="text" placeholder="Prénom">
-        </div>
+            <div class="form-group">
+                <input type="text" name="prenom" placeholder="Prénom" required>
+            </div>
 
-        <div class="form-group">
-            <input type="email" placeholder="Adresse e-mail">
-        </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Adresse e-mail" required>
+            </div>
 
-        <div class="form-group">
-            <input type="text" placeholder="Mot de passe">
-        </div>
+            <div class="form-group">
+                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+            </div>
 
-        <div class="form-group">
-            <input type="text" placeholder="Confirmation du mot de passe">
-        </div>
+            <div class="form-group">
+                <input type="password" name="confirmation_mot_de_passe" placeholder="Confirmation du mot de passe" required>
+            </div>
 
-        <button class="submit">S'inscrire</button>
+            <button type="submit" class="submit">S'inscrire</button>
+        </form>
             
         <div class="dejainscrit">
-            <p>Déjà un compte ? <a href="login_form.html">Se connecter</a></p>
+            <p>Déjà un compte ? <a href="login.php">Se connecter</a></p>
         </div>
     </section>
     <div class="espace-bottom-singup"></div>

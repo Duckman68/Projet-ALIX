@@ -1,14 +1,93 @@
 <?php
 session_start();
 
-//mettre les infos du compte appeler
+if (!isset($_SESSION['email'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$json_file = "../json/utilisateurs.json";
+$json = file_get_contents($json_file);
+$data = json_decode($json, true);
+
+if ($data === null) {
+    die("Erreur lors de la lecture du JSON");
+}
+
+$nom = $prenom = $email = $phone = $address = "";
+$email = $_SESSION['email'];
+
+foreach ($data["user"] as $user) {
+    if ($user["email"] === $email) {
+        $nom = $user["nom"];
+        $prenom = $user["prenom"];
+        $phone = $user["phone"];
+        $address = $user["address"];
+        $pp = $user["pp"];
+        break;
+    }
+}
+
+foreach ($data["admin"] as $admin) {
+    if ($admin["email"] === $email) {
+        $nom = $admin["nom"];
+        $prenom = $admin["prenom"];
+        $phone = $admin["phone"];
+        $address = $admin["address"];
+        $pp = $admin["pp"];
+        break;
+    }
+}
+
+if (empty($pp)) {
+    $pp = "../img/default.png"; 
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['user'] = $_POST['user'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['phone'] = $_POST['phone'];
-    $_SESSION['address'] = $_POST['address'];
+    $nom_complet = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+
+    $nomPrenom = explode(' ', trim($nom_complet), 2);
+    $nom = $nomPrenom[0];
+    $prenom = isset($nomPrenom[1]) ? $nomPrenom[1] : '';
+
+    if ($data === null) {
+        die("Erreur lors de la lecture du JSON");
+    }
+
+    foreach ($data["user"] as &$user) {
+        if ($user["email"] === $_SESSION['email']) {
+            $user["nom"] = $nom;
+            $user["prenom"] = $prenom;
+            $user["phone"] = $phone;
+            $user["address"] = $address;
+            $user["email"] = $email;
+            $_SESSION['email'] = $email;
+            break;
+        }
+    }
+    
+    foreach ($data["admin"] as &$admin) {
+        if ($admin["email"] === $_SESSION['email']) {
+            $admin["nom"] = $nom;
+            $admin["prenom"] = $prenom;
+            $admin["phone"] = $phone;
+            $admin["address"] = $address;
+            $admin["email"] = $email;
+            $_SESSION['email'] = $email;
+            break;
+        }
+    }
+
+    file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+    header("Location: user.php");
+    exit();
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,39 +111,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li>|</li>
             <li><a href="voyager.html">Voyager</a></li>
             <li>|</li>
-            <li><a href="login_form.html">Connexion</a></li>
+            <li><a href="login.php">Connexion</a></li>
             <li>|</li>
-            <li><a href="sign-up.html">Inscription</a></li>
+            <li><a href="sign-up.php">Inscription</a></li>
             <li>|</li>
             <li><a href="admin.html">Bouton admin temporaire</a></li>
         </ul>
         <a href="user.php">
-            <img src="../img/icon.png" alt="Profil" class="pfp">
-        </a>
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+		</a>
     </div>
     <div class="en-tete"></div>
 
     <div class="espace-profil">
         <section class="profil-form-login">
-            <input type="image" src="../img/icon.jpg" class="profil-img">
+            <input type="image" src="<?php echo htmlspecialchars($pp); ?>" class="profil-img">
             <h2>Mon Profil</h2>
             
             <form method="POST" action="user.php">
                 <div class="form-group">
                     <label for="name">Nom :</label>
-                    <input type="text" id="name" name="user" value="<?php echo htmlspecialchars($_SESSION['user']); ?>" required>
+                    <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($nom . ' ' . $prenom); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" required>
+                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Tél :</label>
-                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($_SESSION['phone']); ?>">
+                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
                 </div>
                 <div class="form-group">
                     <label for="address">Adresse :</label>
-                    <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($_SESSION['address']); ?>">
+                    <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>">
                 </div>
                 <button type="submit" class="btn-submit">Mettre à jour</button>
             </form>
