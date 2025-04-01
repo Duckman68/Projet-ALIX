@@ -1,0 +1,13 @@
+{
+  "options": [
+    {
+      "id": "OPT1",
+      "type": "activite",
+      "valeurs_possibles": ["", ""], // exemple le siege de starfleet ou etoile de la mort
+      "choix": "",  //choix du boug
+      "nb_personne": "",
+      "prix_par_personne": "??",
+      "specifiques": "jsp"
+    }
+  ]
+}

@@ -1,32 +1,113 @@
 {
     "admin": [
         {
+            "id_user": "User1",
+            "role": "admin",
             "nom": "Landier",
             "prenom": "Gabin",
             "email": "gabinlandier@alix.cy",
-            "mot_de_passe": "gabinou",
+            "mot_de_passe": "mdp",
             "phone": "0762626262",
-            "address": "93200 St Denis"
+            "address": "93200 St Denis",
+            "sign-date": "",
+            "login-date": "29-03-2025 23:10",
+            "historique": "",
+            "pp": "..\/img\/cartman.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
         },
         {
+            "id_user": "User2",
+            "role": "admin",
             "nom": "Berrandou",
             "prenom": "Nassim",
             "email": "berrandoun@alix.cy",
             "mot_de_passe": "1234",
             "phone": "063456789",
             "address": "95000 Cergy",
-            "pp": "..\/img\/ppnass.jpg"
+            "sign-date": "",
+            "login-date": "30-03-2025 19:08",
+            "historique": "",
+            "pp": "..\/img\/ppnass.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
         }
     ],
     "user": [
         {
+            "id_user": "User3",
+            "role": "membre",
             "nom": "Han",
             "prenom": "Solo",
             "email": "hansolo@alix.cy",
             "mot_de_passe": "fauconmille",
             "phone": "123456789",
             "address": "Faucon Millelinum, Galaxie Lointaine",
-            "pp": "..\/img\/pphan.jpg"
+            "sign-date": "",
+            "login-date": "30-03-2025 17:57",
+            "pp": "..\/img\/pphan.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
+        },
+        {
+            "id_user": "User4",
+            "role": "vip",
+            "nom": "Portman",
+            "prenom": "Natalie",
+            "email": "nataliepo@alix.cy",
+            "mot_de_passe": "nassimmonmari",
+            "phone": "822-9300",
+            "address": "Los Angeles",
+            "sign-date": "",
+            "login-date": "30-03-2025 18:00",
+            "historique": "",
+            "pp": "..\/img\/padme.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
+        },
+        {
+            "id_user": "User5",
+            "role": "membre",
+            "nom": "Spock",
+            "prenom": "",
+            "email": "spock@alix.cy",
+            "mot_de_passe": "starfleet",
+            "phone": "2265 2270",
+            "address": "Enterprise, San Francisco",
+            "sign-date": "",
+            "login-date": "28-03-2025 20:25",
+            "historique": "",
+            "pp": "..\/img\/spock.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
+        },
+        {
+            "id_user": "User6",
+            "role": "membre",
+            "nom": "Marley",
+            "prenom": "Bob",
+            "email": "bobmarley@alix.cy",
+            "mot_de_passe": "puff4life",
+            "phone": "911",
+            "address": "Tr\u00e8s loin",
+            "sign-date": "28\/03\/2025",
+            "login-date": "29-03-2025 23:07",
+            "historique": "",
+            "pp": "..\/img\/rastalion.jpg",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
         }
     ]
 }

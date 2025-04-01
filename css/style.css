@@ -29,7 +29,16 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: black;
+	padding: 20px;
+	z-index: 10;
+}
+div.topv2{
+    display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(0, 0, 0,1);
 	padding: 20px;
 	z-index: 10;
 }
@@ -47,6 +56,13 @@ div.topleft{
 	display: flex;
 	align-items: center;
 }
+
+video.logo {
+    width: 100%;
+    height: 95px;
+    object-fit: cover;
+}
+
 
 div.en-tete{
     height: 115px;
@@ -178,12 +194,20 @@ div.recherchev2{
     display: flex;
     gap: 10px;
     justify-content: center;
+<<<<<<< HEAD
+=======
+    margin-top: 20px;
+>>>>>>> 91893f26ea9e60421d49833b3c46de0b278e4472
 }
 
 .option_bouton {
     background-color: #0056b3;
     color: white;
+<<<<<<< HEAD
     padding: 10px  20px;
+=======
+    padding: 10px 20px;
+>>>>>>> 91893f26ea9e60421d49833b3c46de0b278e4472
     text-decoration: none;
     border-radius: 20px;
     transition: background-color 0.3s ease;
@@ -192,6 +216,7 @@ div.recherchev2{
 .option_bouton:hover {
     background-color: #003e80;
 }
+<<<<<<< HEAD
 
 .imgplanete{
 	width:100%;
@@ -201,6 +226,8 @@ div.recherchev2{
 
 
 }
+=======
+>>>>>>> 91893f26ea9e60421d49833b3c46de0b278e4472
 
 img.logo{
 	width: 75px;
@@ -220,15 +247,6 @@ img.planete{
 
 .promotion2 h1{
     margin-top: 50px;
-}
-
-.topleft h1{
-	font-size: 50px;
-	margin-left: 20px;
-	margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-	color: white;
 }
 
 .bottom h1 {
@@ -743,6 +761,23 @@ section.singup h1 {
 }
 
 .btn-submit:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-logout {
+    width: 150px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
