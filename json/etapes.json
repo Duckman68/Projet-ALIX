@@ -1,0 +1,16 @@
+{
+  "etapes": [
+    {
+      "id": "ETAPE1",
+      "titre": "",
+      "dates": {
+        "arrivee": "",
+        "depart": "",
+        "duree_heures": ""
+      },
+      "position": "",
+      "options": ["OPT1", "OPT2"], // Référence vers options.json
+      "personne++": ["USER789"] // Amis qui rejoignent
+    }
+  ]
+}

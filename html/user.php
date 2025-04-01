@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+// Gestion de la déconnexion
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+
+// Redirection si non connecté
 if (!isset($_SESSION['email'])) {
     header("Location: login.php");
     exit();
@@ -14,20 +22,14 @@ if ($data === null) {
     die("Erreur lors de la lecture du JSON");
 }
 
-$nom = $prenom = $email = $phone = $address = "";
+// Initialisation avec valeurs par défaut
+$nom = $prenom = $phone = $address = "";
 $email = $_SESSION['email'];
+$pp = "../img/default.png";
+$isAdmin = false;
+$isLoggedIn = true;
 
-foreach ($data["user"] as $user) {
-    if ($user["email"] === $email) {
-        $nom = $user["nom"];
-        $prenom = $user["prenom"];
-        $phone = $user["phone"];
-        $address = $user["address"];
-        $pp = $user["pp"];
-        break;
-    }
-}
-
+// Recherche dans les admins d'abord
 foreach ($data["admin"] as $admin) {
     if ($admin["email"] === $email) {
         $nom = $admin["nom"];
@@ -35,14 +37,26 @@ foreach ($data["admin"] as $admin) {
         $phone = $admin["phone"];
         $address = $admin["address"];
         $pp = $admin["pp"];
+        $isAdmin = true;
         break;
     }
 }
 
-if (empty($pp)) {
-    $pp = "../img/default.png"; 
+// Si pas admin, recherche dans les users
+if (empty($nom)) {
+    foreach ($data["user"] as $user) {
+        if ($user["email"] === $email) {
+            $nom = $user["nom"];
+            $prenom = $user["prenom"];
+            $phone = $user["phone"];
+            $address = $user["address"];
+            $pp = $user["pp"] ?? $pp;
+            break;
+        }
+    }
 }
 
+// Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom_complet = $_POST['name'];
     $email = $_POST['email'];
@@ -51,11 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nomPrenom = explode(' ', trim($nom_complet), 2);
     $nom = $nomPrenom[0];
-    $prenom = isset($nomPrenom[1]) ? $nomPrenom[1] : '';
-
-    if ($data === null) {
-        die("Erreur lors de la lecture du JSON");
-    }
+    $prenom = $nomPrenom[1];
 
     foreach ($data["user"] as &$user) {
         if ($user["email"] === $_SESSION['email']) {
@@ -69,15 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     
-    foreach ($data["admin"] as &$admin) {
-        if ($admin["email"] === $_SESSION['email']) {
-            $admin["nom"] = $nom;
-            $admin["prenom"] = $prenom;
-            $admin["phone"] = $phone;
-            $admin["address"] = $address;
-            $admin["email"] = $email;
-            $_SESSION['email'] = $email;
-            break;
+    if ($isAdmin) {
+        foreach ($data["admin"] as &$admin) {
+            if ($admin["email"] === $_SESSION['email']) {
+                $admin["nom"] = $nom;
+                $admin["prenom"] = $prenom;
+                $admin["phone"] = $phone;
+                $admin["address"] = $address;
+                $admin["email"] = $email;
+                break;
+            }
         }
     }
 
@@ -85,9 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: user.php");
     exit();
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -103,19 +111,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </video>
     <div class="top">
         <div class="topleft">
-            <img class="logo" src="../img/logo.png">
-            <a href="index.html"><h1>A.L.I.X.</h1></a>
+            <a href="index.php">
+				<video class="logo" autoplay muted>
+					<source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
+				</video>
+			</a>
         </div>
         <ul>
-            <li><a href="aboutus.html">A propos</a></li>
+            <li><a href="aboutus.php">A propos</a></li>
             <li>|</li>
-            <li><a href="voyager.html">Voyager</a></li>
-            <li>|</li>
-            <li><a href="login.php">Connexion</a></li>
-            <li>|</li>
-            <li><a href="sign-up.php">Inscription</a></li>
-            <li>|</li>
-            <li><a href="admin.html">Bouton admin temporaire</a></li>
+            <li><a href="voyager.php">Voyager</a></li>
+            <?php if (!$isLoggedIn): ?>
+                <li>|</li>
+                <li><a href="login.php">Connexion</a></li>
+                <li>|</li>
+                <li><a href="sign-up.php">Inscription</a></li>
+            <?php else: ?>
+                <?php if ($isAdmin): ?>
+                    <li>|</li>
+                    <li><a href="admin.php">Admin</a></li>
+                <?php endif; ?>
+            <?php endif; ?>
         </ul>
         <a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
@@ -146,6 +162,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>">
                 </div>
                 <button type="submit" class="btn-submit">Mettre à jour</button>
+                <a href="?logout=1" class="btn-logout">Se déconnecter</a>
             </form>
         </section>
     </div>

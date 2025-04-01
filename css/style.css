@@ -29,7 +29,16 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: black;
+	padding: 20px;
+	z-index: 10;
+}
+div.topv2{
+    display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgb(0, 0, 0,1);
 	padding: 20px;
 	z-index: 10;
 }
@@ -38,6 +47,13 @@ div.topleft{
 	display: flex;
 	align-items: center;
 }
+
+video.logo {
+    width: 100%;
+    height: 95px;
+    object-fit: cover;
+}
+
 
 div.en-tete{
     height: 115px;
@@ -134,10 +150,44 @@ div.recherche{
 	color: white;
 }
 
+.topv2 li, a {
+	display: inline-block;
+	font-size: 20px;
+	margin: 0 10px;
+	text-decoration: none;
+	color: white;
+}
+
 .top ul{
 	padding-left: 20px;
 	padding-right: 20px;
 	margin: 20px;
+}
+.topv2 ul{
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: 20px;
+}
+
+.option{
+    background-color: black;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.option_bouton {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.option_bouton:hover {
+    background-color: #003e80;
 }
 
 img.logo{
@@ -158,15 +208,6 @@ img.planete{
 
 .promotion2 h1{
     margin-top: 50px;
-}
-
-.topleft h1{
-	font-size: 50px;
-	margin-left: 20px;
-	margin-right: 20px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-	color: white;
 }
 
 .bottom h1 {
@@ -677,6 +718,23 @@ section.singup h1 {
 }
 
 .btn-submit:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn-logout {
+    width: 150px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }

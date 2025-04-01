@@ -2,6 +2,39 @@
 session_start();
 
 
+
+$pp = "../img/default.png"; // Valeur par défaut
+
+if (isset($_SESSION['email'])) {
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+
+    if ($data !== null) {
+        $email = $_SESSION['email'];
+        
+        // Chercher dans les users
+        foreach ($data["user"] as $user) {
+            if ($user["email"] === $email) {
+                if (!empty($user["pp"])) {
+                    $pp = $user["pp"];
+                }
+                break;
+            }
+        }
+        
+        // Chercher dans les admins
+        foreach ($data["admin"] as $admin) {
+            if ($admin["email"] === $email) {
+                if (!empty($admin["pp"])) {
+                    $pp = $admin["pp"];
+                }
+                break;
+            }
+        }
+    }
+}
+
 $json_file = "../json/utilisateurs.json";
 $json = file_get_contents($json_file);
 $data = json_decode($json, true);
@@ -9,18 +42,29 @@ $data = json_decode($json, true);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['mot_de_passe'];
+    $login_date = date('d-m-Y H:i');
 
-    foreach ($data["user"] as $user) {
+    // Vérification pour les utilisateurs normaux
+    foreach ($data["user"] as &$user) {
         if ($user["email"] === $email && $user["mot_de_passe"] === $password) {
             $_SESSION['email'] = $email;
+            $user["login-date"] = $login_date;
+            
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+            
             header("Location: user.php");
             exit();
         }
     }
 
-	foreach ($data["admin"] as $admin) {
+    // Vérification pour les admins
+    foreach ($data["admin"] as &$admin) {
         if ($admin["email"] === $email && $admin["mot_de_passe"] === $password) {
             $_SESSION['email'] = $email;
+            $admin["login-date"] = $login_date;
+            
+            file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+            
             header("Location: user.php");
             exit();
         }
@@ -45,20 +89,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	</video>
 	<div class="top">
 		<div class="topleft">
-			<img class="logo" src="../img/logo.png">
-			<a href="index.html"><h1>A.L.I.X.</h1></a>
+            <a href="index.php">
+				<video class="logo" autoplay muted>
+					<source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
+				</video>
+			</a>
 		</div>
 		<ul>
-			<li><a href="aboutus.html">A propos</a></li>
+			<li><a href="aboutus.php">A propos</a></li>
 			<li>|</li>
-			<li><a href="voyager.html">Voyager</a></li>
+			<li><a href="voyager.php">Voyager</a></li>
 			<li>|</li>
 			<li><a href="sign-up.php">Inscription</a></li>
-			<li>|</li>
-			<li><a href="admin.html">Bouton admin temporaire</a></li>
 		</ul>
 		<a href="user.php">
-			<img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
 		</a>
 	</div>
 	<div class="en-tete"></div>

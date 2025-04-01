@@ -1,0 +1,19 @@
+{
+    "voyages": [
+      {
+        "id": "VOY1",
+        "titre": "",
+        "dates": {
+          "debut": "",
+          "fin": "",
+          "duree_jours": ""
+        },
+
+        "etapes": ["", ""], // Référence vers etapes.json
+        "specificites": ["", ""], // exemple gastronomie etc
+        "participants": ["", ""], // liste voyageur avec id
+        "prix_total": "", // prix a definjr
+        "statut": ""  // payer, en cours etc
+      }
+    ]
+}
