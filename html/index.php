@@ -1,3 +1,45 @@
+<?php
+session_start();
+
+$pp = "../img/default.png";
+$isLoggedIn = false;
+$isAdmin = false; // Nouvelle variable pour vérifier le statut admin
+
+if (isset($_SESSION['email'])) {
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+
+    if ($data !== null) {
+        $email = $_SESSION['email'];
+        
+        // Vérification dans la section admin
+        foreach ($data["admin"] as $admin) {
+            if ($admin["email"] === $email) {
+                $isAdmin = true;
+                if (!empty($admin["pp"])) {
+                    $pp = $admin["pp"];
+                }
+                break;
+            }
+        }
+        
+        // Si pas admin, vérification dans la section user
+        if (!$isAdmin) {
+            foreach ($data["user"] as $user) {
+                if ($user["email"] === $email) {
+                    if (!empty($user["pp"])) {
+                        $pp = $user["pp"];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>	
@@ -11,22 +53,30 @@
 	</video>
 	<div class="top">
 		<div class="topleft">
-			<img class="logo" src="../img/logo.png">
-			<a href="index.html"><h1>A.L.I.X.</h1></a>
+			<a href="index.php">
+				<video class="logo" autoplay muted>
+					<source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
+				</video>
+			</a>
 		</div>
 		<ul>
-			<li><a href="aboutus.html">A propos</a></li>
+			<li><a href="aboutus.php">A propos</a></li>
 			<li>|</li>
-			<li><a href="voyager.html">Voyager</a></li>
-			<li>|</li>
-			<li><a href="login.php">Connexion</a></li>
-			<li>|</li>
-			<li><a href="sign-up.php">Inscription</a></li>
-			<li>|</li>
-			<li><a href="admin.html">Bouton admin temporaire</a></li>
+			<li><a href="voyager.php">Voyager</a></li>
+			<?php if (!$isLoggedIn): ?>
+				<li>|</li>
+				<li><a href="login.php">Connexion</a></li>
+				<li>|</li>
+				<li><a href="sign-up.php">Inscription</a></li>
+			<?php else: ?>
+				<?php if ($isAdmin): ?>
+					<li>|</li>
+					<li><a href="admin.php">Admin</a></li>
+				<?php endif; ?>
+			<?php endif; ?>
 		</ul>
 		<a href="user.php">
-    			<img src="../img/icon.jpg" alt="Profil" class="pfp">
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
 		</a>
 	</div>
 	<div class="en-tete"></div>
@@ -112,6 +162,7 @@
 			</tr>
 		</table>
 	</div>
+	
 	<div class="bottom">
 		<h1>Crédits</h1>
 		<div class="textebot">
