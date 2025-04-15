@@ -54,6 +54,7 @@ if (isset($data["user"])) {
 	<meta charset="UTF-8">
 	<title>A.L.I.X.</title>
 	<link href="../css/style.css" rel="stylesheet" />
+	<script src="../js/admin.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -81,15 +82,15 @@ if (isset($data["user"])) {
     <div class="admin-container">
 		<h2>Liste des Utilisateurs</h2>
 		<div class="bouton-recherche">
-			<button>Tous</button> 
-			<button>VIP</button> 
-			<button>Membre</button> 
-			<button>Banni</button>
+			<button data-filter="all">Tous</button> 
+			<button data-filter="vip">VIP</button> 
+			<button data-filter="membre">Membre</button> 
+			<button data-filter="banni">Banni</button>
 		</div>
 		<br>
 		<div class="admin-recherche">
-			<input type="text" placeholder="Recherche des membres">
-			<button>🔍</button>
+			<input type="text" id="search-input" placeholder="Recherche des membres">
+			<button id="search-button">🔍</button>
 		</div>
 
 		<table>
@@ -104,32 +105,34 @@ if (isset($data["user"])) {
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($users as $index => $user): ?>
-					<tr>
-						<td><?php echo htmlspecialchars($user['nom']); ?></td>
-						<td><?php echo htmlspecialchars($user['prenom']); ?></td>
-						<td><?php echo htmlspecialchars($user['email']); ?></td>
-						<td>
-							<form method="post" action="update_role.php" style="display:inline;">
-								<input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
-								<select name="new_role" onchange="this.form.submit()">
-									<option value="vip" <?php echo $user['role'] === 'vip' ? 'selected' : ''; ?>>VIP</option>
-									<option value="membre" <?php echo $user['role'] === 'membre' ? 'selected' : ''; ?>>Membre</option>
-									<option value="banni" <?php echo $user['role'] === 'banni' ? 'selected' : ''; ?>>Banni</option>
-								</select>
-							</form>
-						</td>
-						<td><?php echo htmlspecialchars($user['sign-date'] ?? 'N/A'); ?></td>
-						<td>
-							<form method="post" action="delete_user.php" style="display:inline;">
-								<input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
-								<button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
-							</form>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
+			<?php foreach ($users as $index => $user): ?>
+				<tr data-role="<?php echo htmlspecialchars($user['role']); ?>">
+					<td><?php echo htmlspecialchars($user['nom']); ?></td>
+					<td><?php echo htmlspecialchars($user['prenom']); ?></td>
+					<td><?php echo htmlspecialchars($user['email']); ?></td>
+					<td>
+						<form method="post" action="update_role.php" style="display:inline;">
+							<input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
+							<select name="new_role" onchange="this.form.submit()">
+								<option value="vip" <?php echo $user['role'] === 'vip' ? 'selected' : ''; ?>>VIP</option>
+								<option value="membre" <?php echo $user['role'] === 'membre' ? 'selected' : ''; ?>>Membre</option>
+								<option value="banni" <?php echo $user['role'] === 'banni' ? 'selected' : ''; ?>>Banni</option>
+							</select>
+						</form>
+					</td>
+					<td><?php echo htmlspecialchars($user['sign-date'] ?? 'N/A'); ?></td>
+					<td>
+						<form method="post" action="delete_user.php" style="display:inline;">
+							<input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
+							<button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')">Supprimer</button>
+						</form>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
 		</table>
+	</div>
+	<div class="espace-admin">
 	</div>
     <div class="bottom">
 		<h1>Crédits</h1>

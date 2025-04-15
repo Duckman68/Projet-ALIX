@@ -21,17 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-
     // Vérification email existant
     $fichier_json = '../json/utilisateurs.json';
     $donnees = [];
 
     if (file_exists($fichier_json)) {
         $contenu = file_get_contents($fichier_json);
-        $donnees = json_decode($contenu, true) ?? ['user' => []];
+        $donnees = json_decode($contenu, true) ?? ['user' => [], 'admin' => []];
     }
 
-    foreach ($donnees['user'] ?? [] as $utilisateur) {
+    foreach (array_merge($donnees['user'] ?? [], $donnees['admin'] ?? []) as $utilisateur) {
         if (strtolower($utilisateur['email']) === strtolower($email)) {
             $_SESSION['inscription_error'] = "Cet email est déjà utilisé.";
             header("Location: sign-up.php");
@@ -39,8 +38,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // Génération de l'ID
+    $max_id = 0;
+    
+    // Parcourir les admins pour trouver l'ID max
+    foreach ($donnees['admin'] ?? [] as $admin) {
+        if (isset($admin['id_user']) && intval($admin['id_user']) > $max_id) {
+            $max_id = intval($admin['id_user']);
+        }
+    }
+    
+    // Parcourir les users pour trouver l'ID max
+    foreach ($donnees['user'] ?? [] as $user) {
+        if (isset($user['id_user']) && intval($user['id_user']) > $max_id) {
+            $max_id = intval($user['id_user']);
+        }
+    }
+    
+    $nouvel_id = strval($max_id + 1); // Nouvel ID (le max + 1)
+
     // Création utilisateur
     $utilisateur = [
+        'id_user' => $nouvel_id, // Ajout de l'ID généré
         'role' => "membre",
         'nom' => $nom,
         'prenom' => $prenom,
@@ -52,11 +71,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'login-date' => "",
         'historique' => "",
         'pp' => "../img/default.png",
+        'voyage' => [ // Ajout de la structure voyage pour cohérence
+            'consultes' => [],
+            'achetes' => []
+        ]
     ];
 
     $donnees['user'][] = $utilisateur;
 
-    if (file_put_contents($fichier_json, json_encode($donnees, JSON_PRETTY_PRINT))) {
+    if (file_put_contents($fichier_json, json_encode($donnees, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
         $_SESSION['inscription_success'] = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
         header("Location: login.php");
         exit();

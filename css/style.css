@@ -29,7 +29,7 @@ div.top{
 	position:fixed;
 	align-items: center;
 	justify-content: space-between;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgb(0, 0, 0);
 	padding: 20px;
 	z-index: 10;
 }
@@ -204,6 +204,10 @@ div.recherchev2{
 
 img.logo{
 	width: 75px;
+}
+
+video.logo{
+    width: 170px; 
 }
 
 .pfp {
@@ -811,6 +815,9 @@ section.singup h1 {
 
 }
 
+.espace-admin{
+    height: 300px;
+}
 
 /*Carte Interactive*/
 
