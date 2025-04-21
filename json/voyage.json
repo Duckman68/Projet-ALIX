@@ -1,19 +1,304 @@
 {
     "voyages": [
-      {
-        "id": "VOY1",
-        "titre": "",
-        "dates": {
-          "debut": "",
-          "fin": "",
-          "duree_jours": ""
+        {
+            "id": "VOY1",
+            "titre": "Tour des Terrestres",
+            "dates": {
+                "debut": "2020-03-20",
+                "fin": "2020-03-30",
+                "duree_jours": 10
+            },
+            "etapes": [
+                "Mercure",
+                "Vénus",
+                "Terre"
+            ],
+            "specificites": [
+                "randonnées extrêmes",
+                "nuages acides",
+                "vue sur la Lune"
+            ],
+            "prix_total": 3500
         },
-
-        "etapes": ["", ""], // Référence vers etapes.json
-        "specificites": ["", ""], // exemple gastronomie etc
-        "participants": ["", ""], // liste voyageur avec id
-        "prix_total": "", // prix a definjr
-        "statut": ""  // payer, en cours etc
-      }
+        {
+            "id": "VOY2",
+            "titre": "Odyssée Martienne",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Terre",
+                "Mars",
+                "Cérès"
+            ],
+            "specificites": [
+                "visite de colonies",
+                "Rallye",
+                "chasse aux météorites"
+            ],
+            "prix_total": 4200
+        },
+        {
+            "id": "VOY3",
+            "titre": "Ballet des Géantes",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Jupiter",
+                "Saturne",
+                "Uranus"
+            ],
+            "specificites": [
+                "survol des anneaux",
+                "tempêtes géantes",
+                "lunes diamant"
+            ],
+            "prix_total": 5000
+        },
+        {
+            "id": "VOY4",
+            "titre": "Voyage aux Confins",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Neptune",
+                "Pluton",
+                "Terre"
+            ],
+            "specificites": [
+                "glaces bleutées",
+                "cœurs glacés",
+                "retour nostalgique"
+            ],
+            "prix_total": 4800
+        },
+        {
+            "id": "VOY5",
+            "titre": "Safari Lunaire",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Terre",
+                "Lune",
+                "Mars"
+            ],
+            "specificites": [
+                "base lunaire VIP",
+                "dômes martiens",
+                "photos 0G"
+            ],
+            "prix_total": 3800
+        },
+        {
+            "id": "VOY6",
+            "titre": "Trilogie Électro",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète Tomorrowland",
+                "Plénière Delta",
+                "Planète Veillecharue"
+            ],
+            "specificites": [
+                "scènes orbitales",
+                "villas DJ",
+                "after dans les nuages"
+            ],
+            "prix_total": 2200
+        },
+        {
+            "id": "VOY7",
+            "titre": "Metal Orbital",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète Hellfest",
+                "Planète ardente",
+                "Planète Lollapalooza"
+            ],
+            "specificites": [
+                "soirée en apesanteur",
+                "guitares plasma",
+                "bars métal"
+            ],
+            "prix_total": 2400
+        },
+        {
+            "id": "VOY8",
+            "titre": "Green Tour",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète we love Green",
+                "Planète Lhuma",
+                "Planète Solidays"
+            ],
+            "specificites": [
+                "forêts idyllique",
+                "concerts solaires",
+                "villages écolos"
+            ],
+            "prix_total": 1900
+        },
+        {
+            "id": "VOY9",
+            "titre": "Rave Interstellaire",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète Solidays",
+                "Planète Tomorrowland",
+                "Planète ardente"
+            ],
+            "specificites": [
+                "neon cosmique",
+                "pistes de danse flottantes",
+                "bars à oxygène"
+            ],
+            "prix_total": 2100
+        },
+        {
+            "id": "VOY10",
+            "titre": "Ultimate Festival",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète Hellfest",
+                "Planète Lollapalooza",
+                "Plénière Delta"
+            ],
+            "specificites": [
+                "24h\/24 de concerts",
+                "campings thématisés",
+                "food trucks galactiques"
+            ],
+            "prix_total": 2300
+        },
+        {
+            "id": "VOY11",
+            "titre": "Guerre des Étoiles",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Tatooine",
+                "Stark",
+                "Ragnar"
+            ],
+            "specificites": [
+                "combats de sabres",
+                "écoles de Jedi",
+                "cantinas aliens"
+            ],
+            "prix_total": 2700
+        },
+        {
+            "id": "VOY12",
+            "titre": "Mission Vulcain",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Spock",
+                "Gazorpazorp",
+                "Eleven"
+            ],
+            "specificites": [
+                "méditation klingon",
+                "bars à warp",
+                "simulateurs de téléportation"
+            ],
+            "prix_total": 2500
+        },
+        {
+            "id": "VOY13",
+            "titre": "Aventure Spinjitzu",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Spinjitsu",
+                "Croutard",
+                "Razmo"
+            ],
+            "specificites": [
+                "arts martiaux spatiaux",
+                "parcours ninja",
+                "salon de thé intergalactique"
+            ],
+            "prix_total": 2300
+        },
+        {
+            "id": "VOY14",
+            "titre": "Festival Martien",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Mars",
+                "Planète Hellfest",
+                "Tatooine"
+            ],
+            "specificites": [
+                "concerts sous dôme",
+                "sandboarding",
+                "bars à oxygène"
+            ],
+            "prix_total": 3100
+        },
+        {
+            "id": "VOY15",
+            "titre": "Geek & Nature",
+            "dates": {
+                "debut": "0000-00-00",
+                "fin": "0000-00-00",
+                "duree_jours": 0
+            },
+            "etapes": [
+                "Planète we love Green",
+                "Spock",
+                "Terre"
+            ],
+            "specificites": [
+                "randonnées futuristes",
+                "végétaux aliens",
+                "conférences écolos"
+            ],
+            "prix_total": 2900
+        }
     ]
 }
