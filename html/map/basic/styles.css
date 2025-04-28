@@ -79,7 +79,7 @@ section.solar-section {
 .SunRing1,
 .SunRing1_2,
 .SunRing1_3 {
-    transform-origin: 216.5px 473.05px; /* à ajuster selon ton svg */
+    transform-origin: 216.5px 473.05px; /* à ajuster selon svg */
     animation: SunRingAnimation 1.5s linear infinite;
     opacity: 1;
     transform: scale(1);
@@ -105,6 +105,7 @@ section.solar-section {
     }
 }
 
+/*
 #AsteroidBelt {
     transform-origin: 215.5px 472.05px;
     animation: AsteroidBeltAnimation 50s linear infinite;
@@ -119,6 +120,7 @@ section.solar-section {
         transform: rotate(360deg);
     }
 }
+    */
 
 /* Tu peux garder le style graphique sur SunRing2 */
 .SunRing2 {
@@ -169,13 +171,11 @@ section.solar-section {
     transform-origin: 1611.75px 472.55px;
 }
   
-/* Vidéo logo (optionnel) */
 video.logo {
     height: 60px;
     width: auto;
 }
 
-/* Image de profil */
 .pfp {
     width: 50px;
     height: 50px;
@@ -183,14 +183,12 @@ video.logo {
     object-fit: cover;
 }
 
-/* Ajout des styles pour l'interactivité */
-
 /* Sidebar */
 .sidebar {
-    position: relative; /* Au lieu de fixed ou absolute */
-    width: 20%; /* Prend exactement le reste de l'espace */
+    position: relative; 
+    width: 20%; 
     height: auto;
-    background-color: black; /* Assure-toi que c'est la même couleur que le fond */
+    background-color: black;
     padding: 0px;
     padding-top: 20px;
     z-index: 10;
@@ -237,7 +235,7 @@ video.logo {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateX(5px);
     opacity: 1;
-    box-shadow: 0 0 15px rgba(100, 149, 237, 0.4); /* Lueur plus prononcée au survol */
+    box-shadow: 0 0 15px rgba(100, 149, 237, 0.4); /* Lueur au survol */
     border-color: rgba(100, 149, 237, 0.7); /* Bordure plus visible au survol */
 }
 
@@ -347,7 +345,7 @@ video.logo {
     background-size: cover;
     background-position: center;
     position: relative;
-    box-shadow: 0 0 20px; /* La couleur sera définie dynamiquement */
+    box-shadow: 0 0 20px;
 }
 
 .popup-planet-icon.sun-glow {

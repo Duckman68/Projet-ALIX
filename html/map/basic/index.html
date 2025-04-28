@@ -433,7 +433,6 @@
                 allSvgElements.forEach(el => {
                     el.classList.add("planet-dimmed");
                     el.classList.remove("planet-highlight");
-                    // Suppression des références à sun-glow
                 });
                 
                 if (!p) return;
@@ -441,7 +440,6 @@
                     document.querySelectorAll(`.${cls}`).forEach(el => {
                         el.classList.add("planet-highlight");
                         el.classList.remove("planet-dimmed");
-                        // Suppression des références à sun-glow
                     });
                 });
                 }
@@ -449,7 +447,6 @@
                 function resetPlanets() {
                     allSvgElements.forEach(el => {
                         el.classList.remove("planet-highlight", "planet-dimmed");
-                        // Suppression des références à sun-glow
                     });
                 }
 
