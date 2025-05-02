@@ -2,12 +2,223 @@
   "options": [
     {
       "id": "OPT1",
-      "type": "activite",
-      "valeurs_possibles": ["", ""], // exemple le siege de starfleet ou etoile de la mort
-      "choix": "",  //choix du boug
-      "nb_personne": "",
-      "prix_par_personne": "??",
-      "specifiques": "jsp"
+      "activités": ["randonnées extrêmes"],
+      "prix_par_personne": 150
+    },
+    {
+      "id": "OPT2",
+      "activités": ["nuages acides"],
+      "prix_par_personne": 80
+    },
+    {
+      "id": "OPT3",
+      "activités": ["vue sur la Lune"],
+      "prix_par_personne": 50
+    },
+    {
+      "id": "OPT4",
+      "activités": ["visite de colonies"],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "OPT5",
+      "activités": ["Rallye"],
+      "prix_par_personne": 300
+    },
+    {
+      "id": "OPT6",
+      "activités": ["chasse aux météorites"],
+      "prix_par_personne": 250
+    },
+    {
+      "id": "OPT7",
+      "activités": ["survol des anneaux"],
+      "prix_par_personne": 400
+    },
+    {
+      "id": "OPT8",
+      "activités": ["tempêtes géantes"],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "OPT9",
+      "activités": ["lunes diamant"],
+      "prix_par_personne": 220
+    },
+    {
+      "id": "OPT10",
+      "activités": ["glaces bleutées"],
+      "prix_par_personne": 120
+    },
+    {
+      "id": "OPT11",
+      "activités": ["cœurs glacés"],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "OPT12",
+      "activités": ["retour nostalgique"],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "OPT13",
+      "activités": ["base lunaire VIP"],
+      "prix_par_personne": 500
+    },
+    {
+      "id": "OPT14",
+      "activités": ["dômes martiens"],
+      "prix_par_personne": 350
+    },
+    {
+      "id": "OPT15",
+      "activités": ["photos 0G"],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "OPT16",
+      "activités": ["scènes orbitales"],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "OPT17",
+      "activités": ["villas DJ"],
+      "prix_par_personne": 400
+    },
+    {
+      "id": "OPT18",
+      "activités": ["after dans les nuages"],
+      "prix_par_personne": 150
+    },
+    {
+      "id": "OPT19",
+      "activités": ["soirée en apesanteur"],
+      "prix_par_personne": 300
+    },
+    {
+      "id": "OPT20",
+      "activités": ["guitares plasma"],
+      "prix_par_personne": 100
+    },
+    {
+      "id": "OPT21",
+      "activités": ["bars métal"],
+      "prix_par_personne": 70
+    },
+    {
+      "id": "OPT22",
+      "activités": ["forêts idyllique"],
+      "prix_par_personne": 80
+    },
+    {
+      "id": "OPT23",
+      "activités": ["concerts solaires"],
+      "prix_par_personne": 120
+    },
+    {
+      "id": "OPT24",
+      "activités": ["villages écolos"],
+      "prix_par_personne": 60
+    },
+    {
+      "id": "OPT25",
+      "activités": ["neon cosmique"],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "OPT26",
+      "activités": ["pistes de danse flottantes"],
+      "prix_par_personne": 110
+    },
+    {
+      "id": "OPT27",
+      "activités": ["bars à oxygène"],
+      "prix_par_personne": 75
+    },
+    {
+      "id": "OPT28",
+      "activités": ["24h/24 de concerts"],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "OPT29",
+      "activités": ["campings thématisés"],
+      "prix_par_personne": 85
+    },
+    {
+      "id": "OPT30",
+      "activités": ["food trucks galactiques"],
+      "prix_par_personne": 45
+    },
+    {
+      "id": "OPT31",
+      "activités": ["combats de sabres"],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "OPT32",
+      "activités": ["écoles de Jedi"],
+      "prix_par_personne": 220
+    },
+    {
+      "id": "OPT33",
+      "activités": ["cantinas aliens"],
+      "prix_par_personne": 65
+    },
+    {
+      "id": "OPT34",
+      "activités": ["méditation klingon"],
+      "prix_par_personne": 95
+    },
+    {
+      "id": "OPT35",
+      "activités": ["bars à warp"],
+      "prix_par_personne": 55
+    },
+    {
+      "id": "OPT36",
+      "activités": ["simulateurs de téléportation"],
+      "prix_par_personne": 150
+    },
+    {
+      "id": "OPT37",
+      "activités": ["arts martiaux spatiaux"],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "OPT38",
+      "activités": ["parcours ninja"],
+      "prix_par_personne": 170
+    },
+    {
+      "id": "OPT39",
+      "activités": ["salon de thé intergalactique"],
+      "prix_par_personne": 40
+    },
+    {
+      "id": "OPT40",
+      "activités": ["concerts sous dôme"],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "OPT41",
+      "activités": ["sandboarding"],
+      "prix_par_personne": 140
+    },
+    {
+      "id": "OPT42",
+      "activités": ["randonnées futuristes"],
+      "prix_par_personne": 110
+    },
+    {
+      "id": "OPT43",
+      "activités": ["végétaux aliens"],
+      "prix_par_personne": 70
+    },
+    {
+      "id": "OPT44",
+      "activités": ["conférences écolos"],
+      "prix_par_personne": 50
     }
   ]
 }

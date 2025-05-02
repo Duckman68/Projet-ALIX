@@ -2,15 +2,311 @@
   "etapes": [
     {
       "id": "ETAPE1",
-      "titre": "",
+      "titre": "Mercure",
       "dates": {
-        "arrivee": "",
         "depart": "",
-        "duree_heures": ""
+        "arrivee": "",
+        "duree_heures": 0
       },
-      "position": "",
-      "options": ["OPT1", "OPT2"], // Référence vers options.json
-      "personne++": ["USER789"] // Amis qui rejoignent
+      "options": ["OPT1", "OPT3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE2",
+      "titre": "Vénus",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["OPT2", "OPT4"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE3",
+      "titre": "Terre",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["OPT5", "OPT6"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE4",
+      "titre": "Mars",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["OPT9", "OPT10"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE5",
+      "titre": "Neptune",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["OPT11", "OPT12"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE6",
+      "titre": "Jupiter",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["survol des anneaux", "tempêtes géantes"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE7",
+      "titre": "Saturne",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["lunes diamant"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE8",
+      "titre": "Uranus",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE9",
+      "titre": "Pluton",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["glaces bleutées", "cœurs glacés"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE10",
+      "titre": "Lune",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["base lunaire VIP", "photos 0G"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE11",
+      "titre": "Planète Tomorrowland",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["scènes orbitales", "villas DJ"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE12",
+      "titre": "Plénière Delta",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["after dans les nuages"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE13",
+      "titre": "Planète Veillecharue",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE14",
+      "titre": "Planète Hellfest",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["soirée en apesanteur", "guitares plasma", "bars métal"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE15",
+      "titre": "Planète ardente",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE16",
+      "titre": "Planète Lollapalooza",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["24h/24 de concerts", "food trucks galactiques"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE17",
+      "titre": "Planète we love Green",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["forêts idyllique", "concerts solaires", "villages écolos"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE18",
+      "titre": "Planète Lhuma",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE19",
+      "titre": "Planète Solidays",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["neon cosmique", "pistes de danse flottantes", "bars à oxygène"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE20",
+      "titre": "Tatooine",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["combats de sabres", "écoles de Jedi", "cantinas aliens"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE21",
+      "titre": "Stark",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE22",
+      "titre": "Ragnar",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE23",
+      "titre": "Spock",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["méditation klingon", "bars à warp", "simulateurs de téléportation"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE24",
+      "titre": "Gazorpazorp",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE25",
+      "titre": "Eleven",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": [],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE26",
+      "titre": "Spinjitsu",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["arts martiaux spatiaux"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE27",
+      "titre": "Croutard",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["parcours ninja"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE28",
+      "titre": "Razmo",
+      "dates": {
+        "depart": "",
+        "arrivee": "",
+        "duree_heures": 0
+      },
+      "options": ["salon de thé intergalactique"],
+      "personnes": []
     }
   ]
 }
