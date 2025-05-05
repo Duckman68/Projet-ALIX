@@ -924,3 +924,76 @@ section.singup h1 {
     background-color: #0056b3; /* Bleu plus foncé au survol */
     transform: scale(1.05);
 }
+
+/*selection option*/
+
+table.option{
+    margin:auto;
+}
+
+.options-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+    gap: 20px;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.option-card {
+    flex: 0 0 auto;
+    width: 280px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.option-card input[type="radio"] {
+    display: none;
+}
+
+.option-card input[type="radio"]:checked + .option-content {
+    border: 2px solid #00ffff;
+    background: rgba(0, 100, 100, 0.3);
+}
+
+.option-content {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 100%;
+}
+
+.etape-container h2 {
+    color: #00ffff;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.options-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.options-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.options-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.options-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.8);
+}

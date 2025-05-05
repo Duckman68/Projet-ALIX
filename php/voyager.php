@@ -14,7 +14,6 @@ if (isset($_SESSION['email'])) {
     if ($data !== null) {
         $email = $_SESSION['email'];
         
-        
         foreach ($data["admin"] as $admin) {
             if ($admin["email"] === $email) {
                 $isAdmin = true;
@@ -24,7 +23,6 @@ if (isset($_SESSION['email'])) {
                 break;
             }
         }
-        
         
         if (!$isAdmin) {
             foreach ($data["user"] as $user) {
@@ -39,19 +37,16 @@ if (isset($_SESSION['email'])) {
     }
 }
 
-
-$voyages_file = "../json/voyage.json";
-$voyages_json = file_get_contents($voyages_file);
-$voyages_data = json_decode($voyages_json, true);
-
+$voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Voyager</title>
+    <title>A.L.I.X.</title>
     <meta charset="UTF-8">
     <link href="../css/style.css" rel="stylesheet" />
+    <script src="../js/voyager.js"></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -83,71 +78,73 @@ $voyages_data = json_decode($voyages_json, true);
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
         </a>
     </div>
+    
     <div class="en-tete"></div>
     <div class="espace-voyager"></div>
+    
     <section class="flight">    
+        <form id="voyage-form" action="selection_option.php" method="POST">
+            <div class="flight-inputs">
+                <label for="voyage-select">Sélectionner un voyage :</label>
+                <select name="voyage" id="voyage-select" required>
+                    <option value="">Choisir un voyage</option>
+                    <?php foreach ($voyages_data['voyages'] as $voyage): ?>
+                        <option value="<?php echo $voyage['id']; ?>">
+                            <?php echo $voyage['titre']; ?> (<?php echo $voyage['prix_total']; ?>€)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <input type="hidden" name="voyage-id" id="voyage-id">
 
-        <div class="flight-inputs">
-            <label for="voyage-select">Sélectionner un voyage :</label>
-            <select name="voyage" id="voyage-select" onchange="document.getElementById('voyage-id').value = this.value;">
-    			<option value="#">Choisir un voyage</option>
-    			<?php if (!empty($voyages_data["voyages"])) {
-        			foreach ($voyages_data["voyages"] as $voyage) {
-            			echo "<option value='{$voyage['id']}'>{$voyage['titre']}</option>";
-        			}
-    			}
-   				?>
-			</select>
+                <label>Date de départ :
+                    <input type="date" name="date-voyage" required>
+                </label>
+                <label>Date d'arrivée :
+                    <input type="date" name="date-arrivee" required>
+                </label>
 
-
-            <form action="update_voyage.php" method="POST">
-    			<input type="hidden" name="voyage-id" id="voyage-id">
-    			<label>Date de départ :
-        			<input type="date" name="date-voyage" required>
-    			</label>
-    			<label>Date d'arrivée :
-        			<input type="date" name="date-arrivée" required>
-   				</label>
-    			<button class="submit">Réserver</button>
-			</form>
-
-
-            <table class="nbr-passager">
-                <tr>
-                    <td class="passager">
-                        <div>
-                            <label>Adultes :</label>
-                            <button onclick="changeValue('adultes', -1)">-</button>
-                            <span id="adultes">1</span>
-                            <button onclick="changeValue('adultes', 1)">+</button> 
-                        </div>
-                    </td>
-                    <td class="passager">
-                        <div class="passager">
-                            <label>Enfants :</label>
-                            <button onclick="changeValue('enfants', -1)">-</button>
-                            <span id="enfants">0</span>
-                            <button onclick="changeValue('enfants', 1)">+</button> 
-                        </div>
-                    </td>
-                    <td class="passager">
-                        <div class="passager">
-                            <label>Bébés :</label>
-                            <button onclick="changeValue('bebes', -1)">-</button>
-                            <span id="bebes">0</span>
-                            <button onclick="changeValue('bebes', 1)">+</button> 
-                        </div>
-                    </td>
-                </tr>
-            </table>
+                <table class="nbr-passager">
+                    <tr>
+                        <td class="passager">
+                            <div>
+                                <label>Adultes :</label>
+                                <button type="button" onclick="changeValue('adultes', -1)">-</button>
+                                <span id="adultes">1</span>
+                                <button type="button" onclick="changeValue('adultes', 1)">+</button> 
+                            </div>
+                        </td>
+                        <td class="passager">
+                            <div class="passager">
+                                <label>Enfants :</label>
+                                <button type="button" onclick="changeValue('enfants', -1)">-</button>
+                                <span id="enfants">0</span>
+                                <button type="button" onclick="changeValue('enfants', 1)">+</button> 
+                            </div>
+                        </td>
+                        <td class="passager">
+                            <div class="passager">
+                                <label>Bébés :</label>
+                                <button type="button" onclick="changeValue('bebes', -1)">-</button>
+                                <span id="bebes">0</span>
+                                <button type="button" onclick="changeValue('bebes', 1)">+</button> 
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        <input type="checkbox" id="no-escale">
-        <label for="no-escale">Sans escale</label> 
-        <div class="flight-class">
-            <button class="class-btn">Economy Class</button>
-            <button class="class-btn">Business Class</button>
-            <button class="class-btn">First Class</button>
-        </div>
+            
+            <input type="checkbox" id="no-escale" name="no-escale">
+            <label for="no-escale">Sans escale</label> 
+            
+            <div class="flight-class">
+                <button type="button" class="class-btn active" data-class="economy">Economy Class</button>
+                <button type="button" class="class-btn" data-class="business">Business Class</button>
+                <button type="button" class="class-btn" data-class="first">First Class</button>
+                <input type="hidden" name="flight-class" id="flight-class" value="economy">
+            </div>
+            
+            <button type="submit" class="submit">Choisir les options</button>
+        </form>
     </section>
     <div class="espace-bottom-voyager"></div>
     <div class="systemes">
