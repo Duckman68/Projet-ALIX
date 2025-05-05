@@ -1,36 +1,95 @@
+
+<?php
+session_start();
+
+$pp = "../img/default.png";
+$isLoggedIn = false;
+$isAdmin = false; // Nouvelle variable pour vérifier le statut admin
+
+if (isset($_SESSION['email'])) {
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+
+    if ($data !== null) {
+        $email = $_SESSION['email'];
+        
+        // Vérification dans la section admin
+        foreach ($data["admin"] as $admin) {
+            if ($admin["email"] === $email) {
+                $isAdmin = true;
+                if (!empty($admin["pp"])) {
+                    $pp = $admin["pp"];
+                }
+                break;
+            }
+        }
+        
+        // Si pas admin, vérification dans la section user
+        if (!$isAdmin) {
+            foreach ($data["user"] as $user) {
+                if ($user["email"] === $email) {
+                    if (!empty($user["pp"])) {
+                        $pp = $user["pp"];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>location</title>
+        <title>vol</title>
         <meta charset="UTF-8">
         <link href="../../css/style.css" rel="stylesheet" />
     
     </head>
 <body>
 	<div class="fondpage">
-    <div class="topv2">
+   <body>
+	<video class="fond" autoplay loop muted>
+		<source src="../../img/video.mp4">
+	</video>
+	<div class="topv2">
 		<div class="topleft">
-			<img class="logo" src="../../img/logo.png">
-			<a href="index.html"><h1>A.L.I.X.</h1></a>
+			<a href="index.php">
+				<video class="logo" autoplay muted>
+					<source src="../../img/Logo-3-[cut](site).mp4" type="video/mp4">
+				</video>
+			</a>
 		</div>
 		<ul>
-			<li><a href="../aboutus.html">A propos</a></li>
+			<li><a href="../aboutus.php">A propos</a></li>
 			<li>|</li>
-			<li><a href="../login.php">Connexion</a></li>
-			<li>|</li>
-			<li><a href="../sign-up.php">Inscription</a></li>
-			<li>|</li>
-			<li><a href="../admin.html">Bouton admin temporaire</a></li>
+			<li><a href="../voyager.php">Voyager</a></li>
+			<?php if (!$isLoggedIn): ?>
+				<li>|</li>
+				<li><a href="../login.php">Connexion</a></li>
+				<li>|</li>
+				<li><a href="../sign-up.php">Inscription</a></li>
+			<?php else: ?>
+				<?php if ($isAdmin): ?>
+					<li>|</li>
+					<li><a href="admin.php">Admin</a></li>
+				<?php endif; ?>
+			<?php endif; ?>
 		</ul>
-		<a href="user.php">
-    			<img src="../../img/icon.jpg" alt="Profil" class="pfp">
+		<a href="../user.php">
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'">
 		</a>
 	</div>
 	<div class="option">
-		<a href="s_mercure.html" class="option_bouton">Hébergement</a> 
-		<a href="s_mercure_vol.html" class="option_bouton">Vol</a> 
-		<a href="s_mercure_activite.html" class="option_bouton">Activité</a> 
-		<a href="s_mercure_location.html" class="option_bouton">Location</a> 
+		<a href="s_solaire1_activite.php" class="option_bouton">Activité</a> 
+		<a href="s_solaire1.php" class="option_bouton">Hébergement</a> 
+		<a href="s_solaire1_vol.php" class="option_bouton">Vol</a> 
+		<a href="s_solaire1_location.php" class="option_bouton">Location</a> 
 	</div>
 	
 	<img class="imgplanete" src= "../../img/mercure2.jpg">
