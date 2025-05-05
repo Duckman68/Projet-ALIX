@@ -13,11 +13,6 @@
                 "ETAPE2",
                 "ETAPE3"
             ],
-            "specificites": [
-                "randonnées extrêmes",
-                "nuages acides",
-                "vue sur la Lune"
-            ],
             "prix_total": 3500
         },
         {
@@ -29,11 +24,6 @@
                 "duree_jours": 0
             },
             "etapes": ["ETAPE3","ETAPE4","ETAPE5"],
-            "specificites": [
-                "visite de colonies",
-                "Rallye",
-                "chasse aux météorites"
-            ],
             "prix_total": 4200
         },
         {
@@ -48,11 +38,6 @@
                 "ETAPE6",
                 "ETAPE7",
                 "ETAPE8"
-            ],
-            "specificites": [
-                "survol des anneaux",
-                "tempêtes géantes",
-                "lunes diamant"
             ],
             "prix_total": 5000
         },
@@ -69,11 +54,6 @@
                 "ETAPE9",
                 "ETAPE3"
             ],
-            "specificites": [
-                "glaces bleutées",
-                "cœurs glacés",
-                "retour nostalgique"
-            ],
             "prix_total": 4800
         },
         {
@@ -88,11 +68,6 @@
                 "ETAPE3",
                 "ETAPE10",
                 "ETAPE4"
-            ],
-            "specificites": [
-                "base lunaire VIP",
-                "dômes martiens",
-                "photos 0G"
             ],
             "prix_total": 3800
         },
@@ -109,11 +84,6 @@
                 "ETAPE12",
                 "ETAPE13"
             ],
-            "specificites": [
-                "scènes orbitales",
-                "villas DJ",
-                "after dans les nuages"
-            ],
             "prix_total": 2200
         },
         {
@@ -128,11 +98,6 @@
                 "ETAPE14",
                 "ETAPE15",
                 "ETAPE16"
-            ],
-            "specificites": [
-                "soirée en apesanteur",
-                "guitares plasma",
-                "bars métal"
             ],
             "prix_total": 2400
         },
@@ -149,11 +114,6 @@
                 "ETAPE18",
                 "ETAPE19"
             ],
-            "specificites": [
-                "forêts idyllique",
-                "concerts solaires",
-                "villages écolos"
-            ],
             "prix_total": 1900
         },
         {
@@ -168,11 +128,6 @@
                 "ETAPE19",
                 "ETAPE11",
                 "ETAPE15"
-            ],
-            "specificites": [
-                "neon cosmique",
-                "pistes de danse flottantes",
-                "bars à oxygène"
             ],
             "prix_total": 2100
         },
@@ -189,11 +144,6 @@
                 "ETAPE16",
                 "ETAPE12"
             ],
-            "specificites": [
-                "24h/24 de concerts",
-                "campings thématisés",
-                "food trucks galactiques"
-            ],
             "prix_total": 2300
         },
         {
@@ -208,11 +158,6 @@
                 "ETAPE20",
                 "ETAPE21",
                 "ETAPE22"
-            ],
-            "specificites": [
-                "combats de sabres",
-                "écoles de Jedi",
-                "cantinas aliens"
             ],
             "prix_total": 2700
         },
@@ -229,11 +174,6 @@
                 "ETAPE24",
                 "ETAPE25"
             ],
-            "specificites": [
-                "méditation klingon",
-                "bars à warp",
-                "simulateurs de téléportation"
-            ],
             "prix_total": 2500
         },
         {
@@ -248,11 +188,6 @@
                 "ETAPE26",
                 "ETAPE27",
                 "ETAPE28"
-            ],
-            "specificites": [
-                "arts martiaux spatiaux",
-                "parcours ninja",
-                "salon de thé intergalactique"
             ],
             "prix_total": 2300
         },
@@ -269,11 +204,6 @@
                 "ETAPE14",
                 "ETAPE20"
             ],
-            "specificites": [
-                "concerts sous dôme",
-                "sandboarding",
-                "bars à oxygène"
-            ],
             "prix_total": 3100
         },
         {
@@ -288,11 +218,6 @@
                 "ETAPE17",
                 "ETAPE23",
                 "ETAPE3"
-            ],
-            "specificites": [
-                "randonnées futuristes",
-                "végétaux aliens",
-                "conférences écolos"
             ],
             "prix_total": 2900
         }

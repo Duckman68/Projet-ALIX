@@ -2,20 +2,19 @@
     "paiements": [
         {
             "id_paiement": "PAY123456",
-            "id_user": "1",
+            "id_user": "USER1",
             "id_voyage": "VOY1",
 
             "coordonnees_bancaires": {
-            "numero_carte": "",
+            "numero_carte": "5555 1234 5678 9000",
             "nom_titulaire": "",
-            "date_validite": "12/25",
-            "cryptogramme": "123"
+            "date_validite": "12/81",
+            "cryptogramme": "555"
             },
 
             "transaction": {
             "date": "",
             "montant": "",
-            "devise": "CREDIT",
             "statut": ""
             }
         }
