@@ -2,13 +2,13 @@
 <?php
 session_start();
 
-$pp = "../img/default.png";
+$pp = "../../../img/default.png";
 $isLoggedIn = false;
 $isAdmin = false; // Nouvelle variable pour vérifier le statut admin
 
 if (isset($_SESSION['email'])) {
     $isLoggedIn = true;
-    $json_file = "../json/utilisateurs.json";
+    $json_file = "../../../json/utilisateurs.json";
     $json = file_get_contents($json_file);
     $data = json_decode($json, true);
 
@@ -46,22 +46,22 @@ if (isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>vol</title>
+        <title>A.L.I.X.</title>
         <meta charset="UTF-8">
-        <link href="../../css/style.css" rel="stylesheet" />
+        <link href="../../../css/style.css" rel="stylesheet" />
     
     </head>
 <body>
 	<div class="fondpage">
    <body>
 	<video class="fond" autoplay loop muted>
-		<source src="../../img/video.mp4">
+		<source src="../../../img/video.mp4">
 	</video>
 	<div class="topv2">
 		<div class="topleft">
-			<a href="index.php">
+			<a href="../../index.php">
 				<video class="logo" autoplay muted>
-					<source src="../../img/Logo-3-[cut](site).mp4" type="video/mp4">
+					<source src="../../../img/Logo-3-[cut](site).mp4" type="video/mp4">
 				</video>
 			</a>
 		</div>
@@ -92,7 +92,7 @@ if (isset($_SESSION['email'])) {
 		<a href="s_solaire1_location.php" class="option_bouton">Location</a> 
 	</div>
 	
-	<img class="imgplanete" src= "../../img/mercure2.jpg">
+	<img class="imgplanete" src= "../../../img/mercure2.jpg">
 
 	<div class="recherchev2">
 		<table class="recherche">

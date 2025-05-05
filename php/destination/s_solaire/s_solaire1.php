@@ -2,13 +2,13 @@
 <?php
 session_start();
 
-$pp = "../../img/default.png";
+$pp = "../../../img/default.png";
 $isLoggedIn = false;
 $isAdmin = false; // Nouvelle variable pour vérifier le statut admin
 
 if (isset($_SESSION['email'])) {
     $isLoggedIn = true;
-    $json_file = "../json/utilisateurs.json";
+    $json_file = "../../../json/utilisateurs.json";
     $json = file_get_contents($json_file);
     $data = json_decode($json, true);
 
@@ -46,7 +46,7 @@ if (isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>vol</title>
+        <title>A.L.I.X.</title>
         <meta charset="UTF-8">
         <link href="../../../css/style.css" rel="stylesheet" />
     
