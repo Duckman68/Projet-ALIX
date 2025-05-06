@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>Carte Spatiale Interactive</title>
-        <link rel="stylesheet" href="../basic/styles.css">
+        <link rel="stylesheet" href="../../../css/style.css">
     </head>
     <body>
         <div class="top">
