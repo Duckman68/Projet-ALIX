@@ -103,34 +103,43 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
                     <input type="date" name="date-arrivee" required>
                 </label>
 
-                <table class="nbr-passager">
-                    <tr>
-                        <td class="passager">
-                            <div>
-                                <label>Adultes :</label>
-                                <button type="button" onclick="changeValue('adultes', -1)">-</button>
-                                <span id="adultes">1</span>
-                                <button type="button" onclick="changeValue('adultes', 1)">+</button> 
-                            </div>
-                        </td>
-                        <td class="passager">
-                            <div class="passager">
-                                <label>Enfants :</label>
-                                <button type="button" onclick="changeValue('enfants', -1)">-</button>
-                                <span id="enfants">0</span>
-                                <button type="button" onclick="changeValue('enfants', 1)">+</button> 
-                            </div>
-                        </td>
-                        <td class="passager">
-                            <div class="passager">
-                                <label>Bébés :</label>
-                                <button type="button" onclick="changeValue('bebes', -1)">-</button>
-                                <span id="bebes">0</span>
-                                <button type="button" onclick="changeValue('bebes', 1)">+</button> 
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div class="selecteur-container">
+                <button class="selecteur-bouton" type="button">
+                    <span id="resume">1 Adultes · 0 Enfants · 0 Bébés</span>
+                </button>
+
+                <div class="menu-selecteur" id="menu-selecteur">
+                    <div class="ligne">
+                    <label>Adultes</label>
+                    <div class="controle">
+                        <button type="button" id="adultes-moins">−</button>
+                        <span id="adultes">1</span>
+                        <button type="button" id="adultes-plus">+</button>
+                    </div>
+                    </div>
+
+                    <div class="ligne">
+                    <label>Enfants</label>
+                    <div class="controle">
+                        <button type="button" id="enfants-moins">−</button>
+                        <span id="enfants">0</span>
+                        <button type="button" id="enfants-plus">+</button>
+                    </div>
+                    </div>
+
+                    <div class="ligne">
+                    <label>Bébé</label>
+                    <div class="controle">
+                        <button type="button" id="bebe-moins">−</button>
+                        <span id="bebe">0</span>
+                        <button type="button" id="bebe-plus">+</button>
+                    </div>
+                    </div>
+
+                    <button type="button" id="terminer-btn">Terminer</button>
+                </div>
+                </div>
+
             </div>
             
             <input type="checkbox" id="no-escale" name="no-escale">

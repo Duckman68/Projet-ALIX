@@ -480,6 +480,85 @@ section.about h2, p {
     background-image: url("../img/voy-ikea.png");
     background-size: cover;
 }
+.selecteur-container {
+    position: relative;
+    display: inline-block;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .selecteur-bouton {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #ccc;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    backdrop-filter: blur(3px);
+    transition: background-color 0.2s ease;
+  }
+  
+  .selecteur-bouton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .menu-selecteur {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 270px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #888;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    display: none;
+    z-index: 100;
+    color: white;
+  }
+  
+  .menu-selecteur .ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 0;
+  }
+  
+  .menu-selecteur .controle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .menu-selecteur button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .menu-selecteur button:hover {
+    background-color: #666;
+  }
+  
+  #terminer-btn {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  #terminer-btn:hover {
+    background-color: #0056b3;
+  }
+  
 /*destination*/
 .fondpage{
 	background: black;
