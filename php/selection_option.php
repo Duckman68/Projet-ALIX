@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['options'])) {
     $_SESSION['current_voyage'] = $recap_data;
     
     // Redirection vers la page récapitulative
-    header("Location: recap_commande.php");
+    header("Location: recapitulatif.php");
     exit();
 }
 

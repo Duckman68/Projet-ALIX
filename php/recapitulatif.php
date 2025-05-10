@@ -288,7 +288,7 @@ foreach ($voyage_data['options'] as $option) {
             <!-- Boutons d'action -->
             <div class="action-buttons">
                 <a href="selection_option.php" class="btn btn-modifier">Modifier le voyage</a>
-                <a href="paiement.php" class="btn btn-confirmer">Confirmer et payer</a>
+                <a href="payment.php" class="btn btn-confirmer">Confirmer et payer</a>
             </div>
         </div>
     </div>
