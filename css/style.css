@@ -1106,8 +1106,110 @@ table.option{
 
 /*Recapitulatif*/
 
-div.corps-recap{
-    margin: 100px;
-    background-color: rgba(0, 0, 0, 0.795);
+.corps-recap {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
     border: white solid 1px;
+}
+
+.recap-commande {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 20, 40, 0.5);
+    border-radius: 10px;
+}
+
+.recap-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.recap-section h2 {
+    color: #00ffff;
+    margin-bottom: 15px;
+}
+
+.recap-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.detail-value {
+    color: white;
+}
+
+.option-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(0, 50, 100, 0.3);
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+
+.total-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(0, 80, 120, 0.5);
+    border-radius: 10px;
+    text-align: right;
+}
+
+.total-amount {
+    font-size: 24px;
+    color: #00ffff;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-modifier {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid #00ffff;
+}
+
+.btn-modifier:hover {
+    background: rgba(0, 255, 255, 0.2);
+}
+
+.btn-confirmer {
+    background: #00ffff;
+    color: #003366;
+    border: 2px solid #00ffff;
+}
+
+.btn-confirmer:hover {
+    background: #00ccff;
+    transform: scale(1.05);
 }
