@@ -44,7 +44,7 @@ if (!$voyage_data) {
 }
 
 // Calcul du prix total
-$prix_total = 0;
+$prix_total = $voyage_data['prix'];
 foreach ($voyage_data['options'] as $option) {
     $prix_total += $option['prix'] * $voyage_data['passagers']['adultes'];
     $prix_total += $option['prix'] * $voyage_data['passagers']['enfants'] * 0.7; // 30% de réduction pour les enfants

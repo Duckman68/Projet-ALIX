@@ -15,7 +15,7 @@ $duree = $voyage_data['duree'];
 $classe = htmlspecialchars(ucfirst($voyage_data['classe']));
 $sans_escale = $voyage_data['sans_escale'] ? 'Oui' : 'Non';
 
-$prix_total = 0;
+$prix_total = $voyage_data['prix'];
 foreach ($voyage_data['options'] as $option) {
     $prix_total += $option['prix'] * $voyage_data['passagers']['adultes'];
     $prix_total += $option['prix'] * $voyage_data['passagers']['enfants'] * 0.7;
@@ -24,7 +24,7 @@ foreach ($voyage_data['options'] as $option) {
 // Génération de l'identifiant de transaction
 $transaction_id = strtoupper(bin2hex(random_bytes(5))); // Identifiant unique
 $vendeur = "MI-2_J"; 
-$retour = "../php/retour_paiment.php";
+$retour = "http://localhost:1234/php/retour_paiement.php?status=accepted&montant={$montant_formate}&transaction={$transaction_id}&vendeur={$vendeur}&control={$control}";
 
 // Fonction pour récupérer la clé API
 function getAPIKey($vendeur)
@@ -42,24 +42,6 @@ $montant_formate = number_format($prix_total, 2, '.', '');
 
 // Calcul de la valeur de contrôle
 $control = md5($api_key . "#" . $transaction_id . "#" . $montant_formate . "#" . $vendeur . "#" . $retour . "#");
-
-// Vérification des paramètres
-$errors = [];
-if (empty($transaction_id)) {
-    $errors[] = "L'identifiant de la transaction est manquant.";
-}
-if (empty($montant_formate)) {
-    $errors[] = "Le montant total est manquant ou incorrect.";
-}
-if (empty($vendeur)) {
-    $errors[] = "Le vendeur n'est pas spécifié.";
-}
-if (empty($retour)) {
-    $errors[] = "L'URL de retour est manquante.";
-}
-if (empty($control)) {
-    $errors[] = "La valeur de contrôle n'a pas été générée correctement.";
-}
 
 ?>
 
@@ -105,18 +87,6 @@ if (empty($control)) {
 
     <div class="flight" style="margin-top: 30px;">
         <h2 style="color:#00ffff;">Informations de paiement</h2>
-
-        <!-- Affichage des erreurs -->
-        <?php if (!empty($errors)): ?>
-            <div class="errors">
-                <ul>
-                    <?php foreach ($errors as $error): ?>
-                        <li style="color: red; font-weight: bold;"><?php echo $error; ?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
-
         <form action="https://www.plateforme-smc.fr/cybank/index.php" method="POST">
             <!-- Paramètres cachés pour le paiement -->
             <input type="hidden" name="transaction" value="<?php echo $transaction_id; ?>">
@@ -125,26 +95,7 @@ if (empty($control)) {
             <input type="hidden" name="retour" value="<?php echo $retour; ?>">
             <input type="hidden" name="control" value="<?php echo $control; ?>">
 
-            <!-- Informations de paiement -->
-            <div class="form-group">
-                <label for="nom">Nom sur la carte</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
-            <div class="form-group">
-                <label for="numero">Numéro de carte</label>
-                <input type="text" id="numero" name="numero" maxlength="19" pattern="\d{4} \d{4} \d{4} \d{4}" required placeholder="#### #### #### ####">
-            </div>
-
-            <div class="form-group">
-                <label for="expiration">Date d'expiration</label>
-                <input type="text" id="expiration" name="expiration" placeholder="MM/AA" maxlength="5" pattern="\d{2}/\d{2}" required>
-            </div>
-
-            <div class="form-group">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" maxlength="3" pattern="\d{3}" required>
-            </div>
-            <button type="submit" class="button">Payer <?= $montant_formate ?> €</button>
+            <button type="submit" class="class-btn">Payer <?= $montant_formate ?> €</button>
         </form>
     </div>
 

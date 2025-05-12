@@ -88,7 +88,7 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
                     <option value="">Choisir un voyage</option>
                     <?php foreach ($voyages_data['voyages'] as $voyage): ?>
                         <option value="<?php echo htmlspecialchars($voyage['id']); ?>">
-                            <?php echo htmlspecialchars($voyage['titre']); ?> (<?php echo htmlspecialchars($voyage['prix_total']); ?>€)
+                            <?php echo htmlspecialchars($voyage['titre']); ?> (<?php echo htmlspecialchars($voyage['prix']); ?>€)
                         </option>
                     <?php endforeach; ?>
                 </select>

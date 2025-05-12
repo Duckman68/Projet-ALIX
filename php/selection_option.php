@@ -47,7 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['options'])) {
             'bebes' => $_POST['bebes'] ?? 0
         ],
         'classe' => $_POST['flight-class'] ?? 'economy',
-        'sans_escale' => isset($_POST['no-escale'])
+        'sans_escale' => isset($_POST['no-escale']),
+        'prix' => $selected_voyage['prix']
     ];
     
     // Récupérer les options sélectionnées
@@ -179,6 +180,8 @@ if (isset($_SESSION['email'])) {
             <input type="hidden" name="bebes" value="<?php echo htmlspecialchars($_POST['bebes'] ?? 0); ?>">
             <input type="hidden" name="flight-class" value="<?php echo htmlspecialchars($_POST['flight-class'] ?? 'economy'); ?>">
             <input type="hidden" name="no-escale" value="<?php echo isset($_POST['no-escale']) ? '1' : '0'; ?>">
+            <input type="hidden" name="prix" value="<?php echo htmlspecialchars($selected_voyage['prix']); ?>">
+
 
             <?php foreach ($selected_voyage['etapes'] as $etape_id): 
                 $current_etape = null;

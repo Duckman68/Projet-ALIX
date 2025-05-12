@@ -1,225 +1,169 @@
 {
-    "voyages": [
-        {
-            "id": "VOY1",
-            "titre": "Tour des Terrestres",
-            "dates": {
-                "debut": "2001-01-20",
-                "fin": "2001-01-30",
-                "duree_jours": 10
-            },
-            "etapes": [
-                "ETAPE1",
-                "ETAPE2",
-                "ETAPE3"
-            ],
-            "prix_total": 3500
-        },
-        {
-            "id": "VOY2",
-            "titre": "Odyssée Martienne",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": ["ETAPE3","ETAPE4","ETAPE5"],
-            "prix_total": 4200
-        },
-        {
-            "id": "VOY3",
-            "titre": "Ballet des Géantes",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE6",
-                "ETAPE7",
-                "ETAPE8"
-            ],
-            "prix_total": 5000
-        },
-        {
-            "id": "VOY4",
-            "titre": "Voyage aux Confins",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE5",
-                "ETAPE9",
-                "ETAPE3"
-            ],
-            "prix_total": 4800
-        },
-        {
-            "id": "VOY5",
-            "titre": "Safari Lunaire",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE3",
-                "ETAPE10",
-                "ETAPE4"
-            ],
-            "prix_total": 3800
-        },
-        {
-            "id": "VOY6",
-            "titre": "Trilogie Électro",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE11",
-                "ETAPE12",
-                "ETAPE13"
-            ],
-            "prix_total": 2200
-        },
-        {
-            "id": "VOY7",
-            "titre": "Metal Orbital",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE14",
-                "ETAPE15",
-                "ETAPE16"
-            ],
-            "prix_total": 2400
-        },
-        {
-            "id": "VOY8",
-            "titre": "Green Tour",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE17",
-                "ETAPE18",
-                "ETAPE19"
-            ],
-            "prix_total": 1900
-        },
-        {
-            "id": "VOY9",
-            "titre": "Rave Interstellaire",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE19",
-                "ETAPE11",
-                "ETAPE15"
-            ],
-            "prix_total": 2100
-        },
-        {
-            "id": "VOY10",
-            "titre": "Ultimate Festival",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE14",
-                "ETAPE16",
-                "ETAPE12"
-            ],
-            "prix_total": 2300
-        },
-        {
-            "id": "VOY11",
-            "titre": "Guerre des Étoiles",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE20",
-                "ETAPE21",
-                "ETAPE22"
-            ],
-            "prix_total": 2700
-        },
-        {
-            "id": "VOY12",
-            "titre": "Mission Vulcain",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE23",
-                "ETAPE24",
-                "ETAPE25"
-            ],
-            "prix_total": 2500
-        },
-        {
-            "id": "VOY13",
-            "titre": "Aventure Spinjitzu",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE26",
-                "ETAPE27",
-                "ETAPE28"
-            ],
-            "prix_total": 2300
-        },
-        {
-            "id": "VOY14",
-            "titre": "Festival Martien",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE4",
-                "ETAPE14",
-                "ETAPE20"
-            ],
-            "prix_total": 3100
-        },
-        {
-            "id": "VOY15",
-            "titre": "Geek & Nature",
-            "dates": {
-                "debut": "0000-00-00",
-                "fin": "0000-00-00",
-                "duree_jours": 0
-            },
-            "etapes": [
-                "ETAPE17",
-                "ETAPE23",
-                "ETAPE3"
-            ],
-            "prix_total": 2900
-        }
-    ]
+  "voyages": [
+    {
+      "id": "VOY1",
+      "titre": "Tour des Terrestres",
+      "dates": {
+        "debut": "2001-01-20",
+        "fin": "2001-01-30",
+        "duree_jours": 10
+      },
+      "etapes": ["ETAPE1", "ETAPE2", "ETAPE3"],
+      "prix": 3500
+    },
+    {
+      "id": "VOY2",
+      "titre": "Odyssée Martienne",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE3", "ETAPE4", "ETAPE5"],
+      "prix": 4200
+    },
+    {
+      "id": "VOY3",
+      "titre": "Ballet des Géantes",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE6", "ETAPE7", "ETAPE8"],
+      "prix": 5000
+    },
+    {
+      "id": "VOY4",
+      "titre": "Voyage aux Confins",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE5", "ETAPE9", "ETAPE3"],
+      "prix": 4800
+    },
+    {
+      "id": "VOY5",
+      "titre": "Safari Lunaire",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE3", "ETAPE10", "ETAPE4"],
+      "prix": 3800
+    },
+    {
+      "id": "VOY6",
+      "titre": "Trilogie Électro",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE11", "ETAPE12", "ETAPE13"],
+      "prix": 2200
+    },
+    {
+      "id": "VOY7",
+      "titre": "Metal Orbital",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE14", "ETAPE15", "ETAPE16"],
+      "prix": 2400
+    },
+    {
+      "id": "VOY8",
+      "titre": "Green Tour",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE17", "ETAPE18", "ETAPE19"],
+      "prix": 1900
+    },
+    {
+      "id": "VOY9",
+      "titre": "Rave Interstellaire",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE19", "ETAPE11", "ETAPE15"],
+      "prix": 2100
+    },
+    {
+      "id": "VOY10",
+      "titre": "Ultimate Festival",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE14", "ETAPE16", "ETAPE12"],
+      "prix": 2300
+    },
+    {
+      "id": "VOY11",
+      "titre": "Guerre des Étoiles",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE20", "ETAPE21", "ETAPE22"],
+      "prix": 2700
+    },
+    {
+      "id": "VOY12",
+      "titre": "Mission Vulcain",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE23", "ETAPE24", "ETAPE25"],
+      "prix": 2500
+    },
+    {
+      "id": "VOY13",
+      "titre": "Aventure Spinjitzu",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE26", "ETAPE27", "ETAPE28"],
+      "prix": 2300
+    },
+    {
+      "id": "VOY14",
+      "titre": "Festival Martien",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE4", "ETAPE14", "ETAPE20"],
+      "prix": 3100
+    },
+    {
+      "id": "VOY15",
+      "titre": "Geek & Nature",
+      "dates": {
+        "debut": "0000-00-00",
+        "fin": "0000-00-00",
+        "duree_jours": 0
+      },
+      "etapes": ["ETAPE17", "ETAPE23", "ETAPE3"],
+      "prix": 2900
+    }
+  ]
 }
