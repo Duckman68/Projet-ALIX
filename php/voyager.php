@@ -156,16 +156,6 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
         </form>
     </section>
     <div class="espace-bottom-voyager"></div>
-    <div class="systemes">
-        <table class="systemes">
-            <tr>
-                <td class="voy-solaire"><a href="#"><h1>Système Solaire</h1></a></td>
-                <td class="voy-innuendo"><a href="#"><h1>Système Innuendo</h1></a></td>
-                <td class="voy-tou-doom"><a href="#"><h1>Système Tou-Doom</h1></a></td>
-                <td class="voy-ikea"><a href="#"><h1>Système IKEA</h1></a></td>
-            </tr>
-        </table>
-    </div>
     <div class="bottom">
         <h1>Crédits</h1>
         <div class="textebot">

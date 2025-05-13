@@ -331,40 +331,6 @@ div.espace-bottom-voyager{
     width: 100vw;
 }
 
-div.systemes{
-    background-color: black;
-}
-
-.systemes {
-    width: 100%;
-    table-layout: fixed;
-}
-
-.systemes table{
-    margin: auto;
-    border-spacing: 20px;
-}
-
-.systemes td{
-    margin: 50px;
-    border: 2px solid rgba(30, 6, 58, 0.9);
-    padding: 100px;
-    border-radius: 10px;
-}
-
-.systemes td a{
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: inherit;
-}
-
-.systemes td {
-    font-size: 20px;
-    text-align: center;
-}
-
 section.about h1 {
     font-size: 30px;
     text-align: left;
@@ -461,25 +427,6 @@ section.about h2, p {
 	background-color: #505b64;
 }
 
-.voy-solaire{
-    background-image: url("../img/voy-solaire.png");
-    background-size: cover;
-}
-
-.voy-innuendo{
-    background-image: url("../img/voy-innu.png");
-    background-size: cover;
-}
-
-.voy-tou-doom{
-    background-image: url("../img/voy-tou-doom.png");
-    background-size: cover;
-}
-
-.voy-ikea{
-    background-image: url("../img/voy-ikea.png");
-    background-size: cover;
-}
 .selecteur-container {
     position: relative;
     display: inline-block;
