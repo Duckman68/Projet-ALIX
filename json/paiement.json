@@ -1,9 +1,9 @@
 {
     "paiements": [
         {
-            "id_paiement": "PAY123456",
-            "id_user": "USER1",
-            "id_voyage": "VOY1",
+            "id_paiement": "",
+            "id_user": "",
+            "id_voyage": "",
 
             "coordonnees_bancaires": {
             "numero_carte": "5555 1234 5678 9000",

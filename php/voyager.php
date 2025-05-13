@@ -13,7 +13,6 @@ if (isset($_SESSION['email'])) {
 
     if ($data !== null) {
         $email = $_SESSION['email'];
-        
         foreach ($data["admin"] as $admin) {
             if ($admin["email"] === $email) {
                 $isAdmin = true;
@@ -23,7 +22,6 @@ if (isset($_SESSION['email'])) {
                 break;
             }
         }
-        
         if (!$isAdmin) {
             foreach ($data["user"] as $user) {
                 if ($user["email"] === $email) {
@@ -86,15 +84,14 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
         <form id="voyage-form" action="selection_option.php" method="POST">
             <div class="flight-inputs">
                 <label for="voyage-select">Sélectionner un voyage :</label>
-                <select name="voyage" id="voyage-select" required>
+                <select name="voyage-id" id="voyage-select" required>
                     <option value="">Choisir un voyage</option>
                     <?php foreach ($voyages_data['voyages'] as $voyage): ?>
-                        <option value="<?php echo $voyage['id']; ?>">
-                            <?php echo $voyage['titre']; ?> (<?php echo $voyage['prix_total']; ?>€)
+                        <option value="<?php echo htmlspecialchars($voyage['id']); ?>">
+                            <?php echo htmlspecialchars($voyage['titre']); ?> (<?php echo htmlspecialchars($voyage['prix']); ?>€)
                         </option>
                     <?php endforeach; ?>
                 </select>
-                <input type="hidden" name="voyage-id" id="voyage-id">
 
                 <label>Date de départ :
                     <input type="date" name="date-voyage" required>
@@ -104,42 +101,37 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
                 </label>
 
                 <div class="selecteur-container">
-                <button class="selecteur-bouton" type="button">
-                    <span id="resume">1 Adultes · 0 Enfants · 0 Bébés</span>
-                </button>
-
-                <div class="menu-selecteur" id="menu-selecteur">
-                    <div class="ligne">
-                    <label>Adultes</label>
-                    <div class="controle">
-                        <button type="button" id="adultes-moins">−</button>
-                        <span id="adultes">1</span>
-                        <button type="button" id="adultes-plus">+</button>
+                    <button class="selecteur-bouton" type="button">
+                        <span id="resume">1 Adulte · 0 Enfants · 0 Bébés</span>
+                    </button>
+                    <div class="menu-selecteur" id="menu-selecteur">
+                        <div class="ligne">
+                            <label>Adultes</label>
+                            <div class="controle">
+                                <button type="button" id="adultes-moins">−</button>
+                                <span id="adultes">1</span>
+                                <button type="button" id="adultes-plus">+</button>
+                            </div>
+                        </div>
+                        <div class="ligne">
+                            <label>Enfants</label>
+                            <div class="controle">
+                                <button type="button" id="enfants-moins">−</button>
+                                <span id="enfants">0</span>
+                                <button type="button" id="enfants-plus">+</button>
+                            </div>
+                        </div>
+                        <div class="ligne">
+                            <label>Bébé</label>
+                            <div class="controle">
+                                <button type="button" id="bebe-moins">−</button>
+                                <span id="bebe">0</span>
+                                <button type="button" id="bebe-plus">+</button>
+                            </div>
+                        </div>
+                        <button type="button" id="terminer-btn">Terminer</button>
                     </div>
-                    </div>
-
-                    <div class="ligne">
-                    <label>Enfants</label>
-                    <div class="controle">
-                        <button type="button" id="enfants-moins">−</button>
-                        <span id="enfants">0</span>
-                        <button type="button" id="enfants-plus">+</button>
-                    </div>
-                    </div>
-
-                    <div class="ligne">
-                    <label>Bébé</label>
-                    <div class="controle">
-                        <button type="button" id="bebe-moins">−</button>
-                        <span id="bebe">0</span>
-                        <button type="button" id="bebe-plus">+</button>
-                    </div>
-                    </div>
-
-                    <button type="button" id="terminer-btn">Terminer</button>
                 </div>
-                </div>
-
             </div>
             
             <input type="checkbox" id="no-escale" name="no-escale">
