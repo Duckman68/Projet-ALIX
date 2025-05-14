@@ -82,75 +82,61 @@ if (isset($_SESSION['email'])) {
 	<div class="en-tete"></div>
 	<div class="espace"></div>
 	<div class="recherche">
-		<table class="recherche">
-			<tr>
-				<td class="recherche">
-					<label for="depart">Date de départ :</label>
-					<input type="date" id="depart" name="depart">
-				</td>
-				<td class="recherche">
-					<label for="arrivee">Date d'arrivée :</label>
-					<input type="date" id="arrivee" name="arrivee">
-				</td>
-				<td class="recherche">
-					<input type="text" id="searchInput" placeholder="Recherche de destination">
-					<button onclick="search()">🔍</button>
-				</td>
-			</tr>
-			<tr>
-				<table class="nbr-passager">
-					<tr>
-						<td class="passager">
-							<div>
-								<label>Adultes :</label>
-								<button onclick="changeValue('adultes', -1)">-</button>
-								<span id="adultes">1</span>
-								<button onclick="changeValue('adultes', 1)">+</button> 
-							</div>
-						</td>
-						<td class="passager">
-							<div class="passager">
-								<label>Enfants :</label>
-								<button onclick="changeValue('enfants', -1)">-</button>
-								<span id="enfants">0</span>
-								<button onclick="changeValue('enfants', 1)">+</button> 
-							</div>
-						</td>
-						<td class="passager">
-							<div class="passager">
-								<label>Bébés :</label>
-								<button onclick="changeValue('bebes', -1)">-</button>
-								<span id="bebes">0</span>
-								<button onclick="changeValue('bebes', 1)">+</button> 
-							</div>
-						</td>
-					</tr>
-				</table>
-			</tr>
-		</table>
+    <input type="text" placeholder="Chercher une planète, un système">
+    	<button>Rechercher</button>
 	</div>
+
 	<div class="promotion">
-		<div class="promotion2">
-			<h1>Planètes à découvrir</h1>
-			<a href="#" class="promo-wrapper">
-				<img src="../img/Terre.png" class="promo">
-				<div class="overlay">Voir plus</div>
-			</a>
-			<a href="#" class="promo-wrapper">
-				<img src="../img/Solidays.png" class="promo">
-				<div class="overlay">Voir plus</div>
-			</a>
-			<a href="#" class="promo-wrapper">
-				<img src="../img/Scofiled.png" class="promo">
-				<div class="overlay">Voir plus</div>
-			</a>
-			<a href="#" class="promo-wrapper">
-				<img src="../img/Malm.png" class="promo">
-				<div class="overlay">Voir plus</div>
-			</a>
-		</div>
+		<div id="titre-promo"><h1>Planètes à découvrir</h1></div>
+
+    	<div class="promotion2">
+
+        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	<img src="../img/Terre.png" class="promo">
+            	<div class="promo-content">
+                	<h2>Terre</h2>
+                	<p>Une planète bleue pleine de vie, parfaite pour les amateurs de biodiversité.</p>
+                	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (4.2)</div>
+                	<a href="voyager.php" class="btn-reserver">Réserver</a>
+            	</div>
+            	<div class="overlay">Voir plus</div>
+        	</div>
+
+        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	<img src="../img/Solidays.png" class="promo">
+            	<div class="promo-content">
+                	<h2>Solidays</h2>
+                	<p>Un monde festif où la musique ne s'arrête jamais.</p>
+                	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733; (4.8)</div>
+                	<a href="voyager.php" class="btn-reserver">Réserver</a>
+            	</div>
+           		<div class="overlay">Voir plus</div>
+        	</div>
+
+        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	<img src="../img/Scofiled.png" class="promo">
+            	<div class="promo-content">
+               		<h2>Scofiled</h2>
+                	<p>Pour les amateurs d’évasion et d’énigmes spatiales.</p>
+                	<div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734; (3.7)</div>
+                	<a href="voyager.php" class="btn-reserver">Réserver</a>
+            	</div>
+            	<div class="overlay">Voir plus</div>
+        	</div>
+
+        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	<img src="../img/Malm.png" class="promo">
+            	<div class="promo-content">
+                	<h2>Malm</h2>
+                	<p>Un désert mystérieux aux couchers de soleils spectaculaires.</p>
+                	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (4.0)</div>
+                	<a href="voyager.php" class="btn-reserver">Réserver</a>
+            	</div>
+            	<div class="overlay">Voir plus</div>
+        	</div>
+    	</div>
 	</div>
-	
+
 	<div class = "boutique">
 		<table>
 			<tr>
