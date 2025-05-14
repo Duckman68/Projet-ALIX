@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -6,41 +7,32 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['voyage-id'])) {
     exit();
 }
 
-// Récupération des données du formulaire
+$voyagesData = json_decode(file_get_contents('../json/voyages_enrichis.json'), true);
+$etapesData = json_decode(file_get_contents('../json/etapes.json'), true);
+$optionsData = json_decode(file_get_contents('../json/options.json'), true);
+
 $voyage_id = $_POST['voyage-id'];
-$dates = [
-    'depart' => $_POST['date-voyage'],
-    'arrivee' => $_POST['date-arrivee'],
-    'duree' => (new DateTime($_POST['date-voyage']))->diff(new DateTime($_POST['date-arrivee']))->days
-];
-
-// Chargement des données JSON
-$voyages_data = json_decode(file_get_contents('../json/voyage.json'), true);
-$etapes_data = json_decode(file_get_contents('../json/etapes.json'), true);
-$options_data = json_decode(file_get_contents('../json/options.json'), true);
-
-// Trouver le voyage sélectionné
-$selected_voyage = null;
-foreach ($voyages_data['voyages'] as $voyage) {
-    if ($voyage['id'] === $voyage_id) {
-        $selected_voyage = $voyage;
+$voyage = null;
+foreach ($voyagesData['voyages'] as $v) {
+    if ($v['id'] === $voyage_id) {
+        $voyage = $v;
         break;
     }
 }
-
-if (!$selected_voyage) {
-    header("Location: voyager.php?error=voyage_not_found");
+if (!$voyage) {
+    echo "<p>Voyage non trouvé.</p>";
     exit();
 }
 
-// Gestion de la soumission du formulaire
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['options'])) {
-    // Préparer les données pour la page récapitulative
-    $recap_data = [
+if (isset($_POST['options'])) {
+    $_SESSION['current_voyage'] = [
         'voyage_id' => $voyage_id,
-        'titre' => $selected_voyage['titre'],
-        'dates' => $dates,
-        'options' => [],
+        'titre' => $voyage['titre'],
+        'dates' => [
+            'depart' => $_POST['date-voyage'],
+            'arrivee' => $_POST['date-arrivee'],
+            'duree' => (new DateTime($_POST['date-voyage']))->diff(new DateTime($_POST['date-arrivee']))->days
+        ],
         'passagers' => [
             'adultes' => $_POST['adultes'] ?? 1,
             'enfants' => $_POST['enfants'] ?? 0,
@@ -48,45 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['options'])) {
         ],
         'classe' => $_POST['flight-class'] ?? 'economy',
         'sans_escale' => isset($_POST['no-escale']),
-        'prix' => $selected_voyage['prix']
+        'prix' => $voyage['prix'],
+        'options' => []
     ];
-    
-    // Récupérer les options sélectionnées
+
     foreach ($_POST['options'] as $etape_id => $option_id) {
-        $current_etape = null;
-        foreach ($etapes_data['etapes'] as $etape) {
+        foreach ($etapesData['etapes'] as $etape) {
             if ($etape['id'] === $etape_id) {
-                $current_etape = $etape;
+                foreach ($optionsData['options'] as $opt) {
+                    if ($opt['id'] === $option_id) {
+                        $_SESSION['current_voyage']['options'][] = [
+                            'etape' => $etape['titre'],
+                            'nom' => implode(', ', $opt['activités']),
+                            'prix' => $opt['prix_par_personne']
+                        ];
+                        break;
+                    }
+                }
                 break;
             }
-        }
-        
-        $current_option = null;
-        foreach ($options_data['options'] as $option) {
-            if ($option['id'] === $option_id) {
-                $current_option = $option;
-                break;
-            }
-        }
-        
-        if ($current_etape && $current_option) {
-            $recap_data['options'][] = [
-                'etape' => $current_etape['titre'],
-                'nom' => implode(', ', $current_option['activités']),
-                'prix' => $current_option['prix_par_personne']
-            ];
         }
     }
-    
-    // Stocker en session pour la page récapitulative
-    $_SESSION['current_voyage'] = $recap_data;
-    
-    // Redirection vers la page récapitulative
+
     header("Location: recapitulatif.php");
     exit();
 }
 
-// Vérification de la session utilisateur
 $pp = "../../img/default.png";
 $isLoggedIn = false;
 $isAdmin = false;
@@ -125,21 +104,20 @@ if (isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>A.L.I.X. - Options de voyage</title>
+    <title>A.L.I.X. - Options</title>
     <meta charset="UTF-8">
-    <link href="../../../css/style.css" rel="stylesheet" />
-    </head>
+    <link href="../css/style.css" rel="stylesheet" />
+</head>
 <body>
     <div class="fondpage">
         <video class="fond" autoplay loop muted>
             <source src="../../../img/video.mp4">
         </video>
+
         <div class="topv2">
             <div class="topleft">
                 <a href="index.php">
-                    <video class="logo" autoplay muted>
-                        <source src="../../../img/Logo-3-[cut](site).mp4" type="video/mp4">
-                    </video>
+                    <video class="logo" autoplay muted><source src="../../../img/Logo-3-[cut](site).mp4" type="video/mp4"></video>
                 </a>
             </div>
             <ul>
@@ -147,78 +125,50 @@ if (isset($_SESSION['email'])) {
                 <li>|</li>
                 <li><a href="../../voyager.php">Voyager</a></li>
                 <?php if (!$isLoggedIn): ?>
-                    <li>|</li>
-                    <li><a href="../../login.php">Connexion</a></li>
-                    <li>|</li>
-                    <li><a href="../../sign-up.php">Inscription</a></li>
+                    <li>|</li><li><a href="../../login.php">Connexion</a></li><li>|</li><li><a href="../../sign-up.php">Inscription</a></li>
                 <?php else: ?>
-                    <?php if ($isAdmin): ?>
-                        <li>|</li>
-                        <li><a href="admin.php">Admin</a></li>
-                    <?php endif; ?>
+                    <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
                 <?php endif; ?>
             </ul>
-            <a href="../user.php">
-                <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'">
-            </a>
+            <a href="../user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'"></a>
         </div>
 
-        <img class="imgplanete" src="../../../img/<?php echo strtolower(str_replace(' ', '', $selected_voyage['titre'])); ?>.jpg" onerror="this.src='../../../img/mercure2.jpg'">
-        <h1><?php echo htmlspecialchars($selected_voyage['titre']); ?></h1>
-        <p class="voyage-dates">
-            Du <?php echo date('d/m/Y', strtotime($dates['depart'])); ?> 
-            au <?php echo date('d/m/Y', strtotime($dates['arrivee'])); ?>
-            (<?php echo $dates['duree']; ?> jours)
-        </p>
+        <h1><?= htmlspecialchars($voyage['titre']) ?></h1>
 
-        <form id="options-form" method="POST">
-            <input type="hidden" name="voyage-id" value="<?php echo htmlspecialchars($voyage_id); ?>">
-            <input type="hidden" name="date-voyage" value="<?php echo htmlspecialchars($dates['depart']); ?>">
-            <input type="hidden" name="date-arrivee" value="<?php echo htmlspecialchars($dates['arrivee']); ?>">
-            <input type="hidden" name="adultes" value="<?php echo htmlspecialchars($_POST['adultes'] ?? 1); ?>">
-            <input type="hidden" name="enfants" value="<?php echo htmlspecialchars($_POST['enfants'] ?? 0); ?>">
-            <input type="hidden" name="bebes" value="<?php echo htmlspecialchars($_POST['bebes'] ?? 0); ?>">
-            <input type="hidden" name="flight-class" value="<?php echo htmlspecialchars($_POST['flight-class'] ?? 'economy'); ?>">
-            <input type="hidden" name="no-escale" value="<?php echo isset($_POST['no-escale']) ? '1' : '0'; ?>">
-            <input type="hidden" name="prix" value="<?php echo htmlspecialchars($selected_voyage['prix']); ?>">
+        <form method="POST">
+            <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage_id); ?>">
+            <input type="hidden" name="date-voyage" value="<?= htmlspecialchars($_POST['date-voyage']); ?>">
+            <input type="hidden" name="date-arrivee" value="<?= htmlspecialchars($_POST['date-arrivee']); ?>">
+            <input type="hidden" name="adultes" value="<?= htmlspecialchars($_POST['adultes'] ?? 1); ?>">
+            <input type="hidden" name="enfants" value="<?= htmlspecialchars($_POST['enfants'] ?? 0); ?>">
+            <input type="hidden" name="bebes" value="<?= htmlspecialchars($_POST['bebes'] ?? 0); ?>">
+            <input type="hidden" name="flight-class" value="<?= htmlspecialchars($_POST['flight-class'] ?? 'economy'); ?>">
+            <input type="hidden" name="no-escale" value="<?= isset($_POST['no-escale']) ? '1' : '0'; ?>">
 
-
-            <?php foreach ($selected_voyage['etapes'] as $etape_id): 
-                $current_etape = null;
-                foreach ($etapes_data['etapes'] as $etape) {
-                    if ($etape['id'] === $etape_id) {
-                        $current_etape = $etape;
-                        break;
-                    }
-                }
-                if (!$current_etape) continue;
-            ?>
-            
-            <div class="etape-container">
-                <h2><?php echo htmlspecialchars($current_etape['titre']); ?></h2>
-                <div class="options-container">
-                    <?php foreach ($current_etape['options'] as $option_id): 
-                        $current_option = null;
-                        foreach ($options_data['options'] as $option) {
-                            if ($option['id'] === $option_id) {
-                                $current_option = $option;
-                                break;
-                            }
-                        }
-                        if (!$current_option) continue;
-                    ?>
-                    <label class="option-card">
-                        <input type="radio" name="options[<?php echo $etape_id; ?>]" value="<?php echo $option_id; ?>" required>
-                        <div class="option-content">
-                            <div class="option-details">
-                                <h3><?php echo htmlspecialchars(implode(', ', $current_option['activités'])); ?></h3>
-                                <p class="price"><?php echo htmlspecialchars($current_option['prix_par_personne']); ?> € / personne</p>
-                            </div>
-                        </div>
-                    </label>
-                    <?php endforeach; ?>
+            <?php foreach ($voyage['etapes'] as $etape_id): ?>
+                <?php
+                foreach ($etapesData['etapes'] as $etape) {
+                    if ($etape['id'] === $etape_id):
+                ?>
+                <div class="etape-container">
+                    <h2><?= htmlspecialchars($etape['titre']) ?></h2>
+                    <div class="options-container">
+                        <?php foreach ($etape['options'] as $opt_id): ?>
+                            <?php
+                            foreach ($optionsData['options'] as $opt) {
+                                if ($opt['id'] === $opt_id): ?>
+                                <label class="option-card">
+                                    <input type="radio" name="options[<?= $etape_id ?>]" value="<?= $opt_id ?>" required>
+                                    <div class="option-content">
+                                        <h3><?= htmlspecialchars(implode(', ', $opt['activités'])) ?></h3>
+                                        <p><?= htmlspecialchars($opt['prix_par_personne']) ?> € / personne</p>
+                                    </div>
+                                </label>
+                            <?php endif; } ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
-            </div>
+                <?php endif; } ?>
             <?php endforeach; ?>
 
             <div class="form-actions">
@@ -229,10 +179,7 @@ if (isset($_SESSION['email'])) {
         <div class="bottom">
             <h1>Crédits</h1>
             <div class="textebot">
-                <h2>Nassim</h2>
-                <h2>Atahan</h2>
-                <h2>Romain</h2>
-                <h2>Gabin</h2>
+                <h2>Nassim</h2><h2>Atahan</h2><h2>Romain</h2><h2>Gabin</h2>
             </div>
         </div>
     </div>

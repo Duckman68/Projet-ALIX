@@ -426,6 +426,50 @@ section.about h2, p {
     color : white;
 }
 
+.search-bar {
+    text-align: center;
+    margin: 40px auto 20px;
+}
+
+.search-bar input[type="text"] {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    max-width: 80%;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #ffb347;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #ff9900;
+}
+
+.no-result {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 30px;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid #f00;
+    border-radius: 10px;
+    padding: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .flight {
     margin-top: 5%;
     padding: 40px;
@@ -1184,7 +1228,6 @@ table.option{
 }
 
 /*Recapitulatif*/
-
 .corps-recap {
     max-width: 1000px;
     margin: 50px auto;

@@ -37,7 +37,7 @@ if (isset($_SESSION['email'])) {
 
 $voyages_data = json_decode(file_get_contents("../json/voyages_enrichis.json"), true);
 $voyages = $voyages_data['voyages'] ?? [];
-
+$searchQuery = strtolower($_GET['search'] ?? '');
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,11 @@ $voyages = $voyages_data['voyages'] ?? [];
     <div class="en-tete"></div>
     <div class="espace-voyager"></div>
 
-    <section class="flight">    
+    <section class="flight">
+<form method="get" action="voyager.php" class="search-bar">
+    <input type="text" name="search" placeholder="Rechercher une destination..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+    <button type="submit">Rechercher</button>
+</form>    
         <form id="voyage-form" action="selection_option.php" method="POST">
             <div class="flight-inputs">
                 <label for="voyage-select">Sélectionner un voyage :</label>
@@ -151,10 +155,18 @@ $voyages = $voyages_data['voyages'] ?? [];
     </section>
     <div class="results-container">
     <h2>Voyages disponibles</h2>
+    <?php
+    $hasResult = false;
+    ?>
         <?php
         $motCle = $_GET['search'] ?? '';
+        $found = false;
 
         foreach ($voyages as $voyage) {
+            if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
+            $found = true;
+        if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
+        $hasResult = true;
             if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
 
             $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
@@ -179,7 +191,9 @@ $voyages = $voyages_data['voyages'] ?? [];
             echo "</div>";
         }
         ?>
-    </div>
+    <?php if (!$found): ?>
+    <p class="no-result">Aucune destination ne correspond à votre recherche.</p>
+<?php endif; ?>
 
     <div class="espace-bottom-voyager"></div>
     <div class="bottom">
