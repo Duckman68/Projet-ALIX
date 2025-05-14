@@ -58,56 +58,83 @@ div.espace{
     width: 100vw;
 }
 
-div.promotion{
+.promotion {
     background-color: black;
     width: 100vw;
+    padding: 40px 0;
+}
+
+#titre-promo {
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.promotion2 {
     display: flex;
-	align-items: center;
-	justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
-
-div.promotion2{
-    margin : auto;
-
-}
-
-.promo{
-    width: 100%;
-    max-width: 300px; 
-}
-
-
 
 .promo-wrapper {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(53, 15, 95, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
     overflow: hidden;
+    transition: transform 0.3s;
+    width: 500px; /* Ajustable */
+}
+
+.promo-wrapper:hover {
+    transform: scale(1.03);
+}
+
+.promo {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+.promo-content {
+    padding: 15px;
+    flex: 1;
+}
+
+.rating {
+    color: #FFD700;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btn-reserver {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #0099ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-reserver:hover {
+    background-color: #007acc;
+}
+
+
+.btn-reserver:hover {
+    background-color: #007acc;
 }
 
 .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: rgba(0, 0, 0, 0.6); 
-    color: rgb(255, 255, 255);
-    text-align: center;
-    font-size: 16px;
-    padding: 10px 0;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    transform: translateY(100%);
+    display: none;
 }
 
-.promo-wrapper:hover .overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.promo-wrapper:hover .promo {
-    transform: scale(1.1);
-}
 
 
 div.boutique {
@@ -124,16 +151,69 @@ div.bottom{
 	padding: 20px;
 }
 
-div.recherche{
-	position: relative;
-	top: 4vh;
-    margin-left: 30%;
-	margin-right: 30%;
-    background-color: rgba(41, 8, 78, 0.9);
-    padding: 5px;
-    border-radius: 10px;
+div.recherche {
+    position: relative;
+    top: 5vh;
+    width: 90%;
+    max-width: 900px;
+    height: 45px;
+    margin: 0 auto;
+    padding: 2px;
+    background-color: rgba(53, 15, 95, 0.85); /* Violet sombre avec transparence */
+    border: 1px solid rgba(0, 153, 255, 0.4); /* Bleu néon */
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 12px rgba(0, 153, 255, 0.2);
+    transition: box-shadow 0.3s ease;
     z-index: 2;
 }
+
+div.recherche:hover {
+    box-shadow: 0 0 18px rgba(0, 153, 255, 0.4);
+}
+
+div.recherche input[type="text"] {
+    flex: 1;
+    height: 100%;
+    padding: 0 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+    outline: none;
+}
+
+div.recherche input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+div.recherche button {
+    height: 90%;
+    padding: 0 20px;
+    margin-right: 6px;
+    background: rgba(0, 153, 255, 0.2); /* Bleu semi-transparent */
+    border: 1px solid rgba(0, 153, 255, 0.4);
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+div.recherche button:hover {
+    background: rgba(0, 153, 255, 0.4);
+    transform: scale(1.05);
+}
+
+
+
 div.recherchev2{
 	position: relative;
 	top: -5vh;
