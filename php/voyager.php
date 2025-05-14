@@ -35,7 +35,9 @@ if (isset($_SESSION['email'])) {
     }
 }
 
-$voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
+$voyages_data = json_decode(file_get_contents("../json/voyages_enrichis.json"), true);
+$voyages = $voyages_data['voyages'] ?? [];
+
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +81,7 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
     
     <div class="en-tete"></div>
     <div class="espace-voyager"></div>
-    
+
     <section class="flight">    
         <form id="voyage-form" action="selection_option.php" method="POST">
             <div class="flight-inputs">
@@ -147,6 +149,38 @@ $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
             <button type="submit" class="submit">Choisir les options</button>
         </form>
     </section>
+    <div class="results-container">
+    <h2>Voyages disponibles</h2>
+        <?php
+        $motCle = $_GET['search'] ?? '';
+
+        foreach ($voyages as $voyage) {
+            if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
+
+            $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
+            if (!file_exists($imagePath)) {
+                $imagePath = "../php/map/images/Mars.png";
+            }
+
+            echo "<div class='result'>";
+            echo "<img src='" . $imagePath . "' alt='planète' class='carte-planete'>";
+            echo "<h3>" . htmlspecialchars($voyage['titre']) . "</h3>";
+            echo "<p>" . nl2br(htmlspecialchars(substr($voyage['contenu_complet'], 0, 400))) . "...</p>";
+            echo "<form method='post' action='selection_option.php'>";
+            echo "<input type='hidden' name='voyage-id' value='" . htmlspecialchars($voyage['id']) . "'>";
+            echo "<input type='hidden' name='date-voyage' value='" . date('Y-m-d') . "'>";
+            echo "<input type='hidden' name='date-arrivee' value='" . date('Y-m-d', strtotime('+7 days')) . "'>";
+            echo "<input type='hidden' name='adultes' value='1'>";
+            echo "<input type='hidden' name='enfants' value='0'>";
+            echo "<input type='hidden' name='bebes' value='0'>";
+            echo "<input type='hidden' name='flight-class' value='economy'>";
+            echo "<button type='submit' class='search-btn'>Voir ce voyage</button>";
+            echo "</form>";
+            echo "</div>";
+        }
+        ?>
+    </div>
+
     <div class="espace-bottom-voyager"></div>
     <div class="bottom">
         <h1>Crédits</h1>

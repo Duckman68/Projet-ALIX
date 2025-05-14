@@ -427,6 +427,35 @@ section.about h2, p {
 	background-color: #505b64;
 }
 
+.results-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00ffff55;
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.result:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00ffff55;
+}
+
+.result h3 {
+    color: #00ffff;
+    margin-top: 0;
+}
+
+.result p {
+    line-height: 1.5;
+}
+
 .selecteur-container {
     position: relative;
     display: inline-block;
@@ -491,7 +520,29 @@ section.about h2, p {
   .menu-selecteur button:hover {
     background-color: #666;
   }
+
+    .ligne {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+    .controle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
   
+  .controle button {
+    background-color: #007bff;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
   #terminer-btn {
     margin-top: 10px;
     width: 100%;
@@ -500,6 +551,7 @@ section.about h2, p {
     padding: 8px;
     border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
   }
   
   #terminer-btn:hover {
