@@ -3,309 +3,352 @@
     {
       "id": "ETAPE1",
       "titre": "Mercure",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT1", "OPT3", "OPT42"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["MER1", "MER2", "MER3"],
       "personnes": []
     },
     {
       "id": "ETAPE2",
       "titre": "Vénus",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT2", "OPT4", "OPT43"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["VÉN1", "VÉN2", "VÉN3"],
       "personnes": []
     },
     {
       "id": "ETAPE3",
       "titre": "Terre",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT5", "OPT6", "OPT44"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["TER1", "TER2", "TER3"],
       "personnes": []
     },
     {
       "id": "ETAPE4",
       "titre": "Mars",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT9", "OPT10", "OPT14"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["MAR1", "MAR2", "MAR3"],
       "personnes": []
     },
     {
       "id": "ETAPE5",
       "titre": "Neptune",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT11", "OPT12", "OPT41"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["NEP1", "NEP2", "NEP3"],
       "personnes": []
     },
     {
       "id": "ETAPE6",
       "titre": "Jupiter",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT7", "OPT8", "OPT40"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["JUP1", "JUP2", "JUP3"],
       "personnes": []
     },
     {
       "id": "ETAPE7",
       "titre": "Saturne",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT9", "OPT16", "OPT29"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SAT1", "SAT2", "SAT3"],
       "personnes": []
     },
     {
       "id": "ETAPE8",
       "titre": "Uranus",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT10", "OPT18", "OPT27"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["URA1", "URA2", "URA3"],
       "personnes": []
     },
     {
       "id": "ETAPE9",
       "titre": "Pluton",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT11", "OPT19", "OPT30"],
+      "systeme": "Système Solaire",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["PLU1", "PLU2", "PLU3"],
       "personnes": []
     },
+    
     {
       "id": "ETAPE10",
-      "titre": "Lune",
+      "titre": "Planète Solidays",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT13", "OPT15", "OPT39"],
+      "options": ["SOL1", "SOL2", "SOL3"],
       "personnes": []
     },
     {
       "id": "ETAPE11",
-      "titre": "Planète Tomorrowland",
+      "titre": "Planète we love Green",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT16", "OPT17", "OPT18"],
+      "options": ["WEL1", "WEL2", "WEL3"],
       "personnes": []
     },
     {
       "id": "ETAPE12",
-      "titre": "Plénière Delta",
+      "titre": "Planète Hellfest",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT18", "OPT20", "OPT25"],
+      "options": ["HEL1", "HEL2", "HEL3"],
       "personnes": []
     },
     {
       "id": "ETAPE13",
-      "titre": "Planète Veillecharue",
+      "titre": "Planète ardente",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT21", "OPT26", "OPT35"],
+      "options": ["ARD1", "ARD2", "ARD3"],
       "personnes": []
     },
     {
       "id": "ETAPE14",
-      "titre": "Planète Hellfest",
+      "titre": "Planète Tomorrowland",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT19", "OPT20", "OPT21"],
+      "options": ["TOM1", "TOM2", "TOM3"],
       "personnes": []
     },
     {
       "id": "ETAPE15",
-      "titre": "Planète ardente",
+      "titre": "Plénière Delta",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT20", "OPT25", "OPT31"],
+      "options": ["PLÉ1", "PLÉ2", "PLÉ3"],
       "personnes": []
     },
     {
       "id": "ETAPE16",
-      "titre": "Planète Lollapalooza",
+      "titre": "Planète Lhuma",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT28", "OPT30", "OPT33"],
+      "options": ["LHU1", "LHU2", "LHU3"],
       "personnes": []
     },
     {
       "id": "ETAPE17",
-      "titre": "Planète we love Green",
+      "titre": "Planète Lollapalooza",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT22", "OPT23", "OPT24"],
+      "options": ["LOL1", "LOL2", "LOL3"],
       "personnes": []
     },
     {
       "id": "ETAPE18",
-      "titre": "Planète Lhuma",
+      "titre": "Planète Veillecharue",
+      "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
-        "duree_heures": 0
+        "duree_jours": 0
       },
-      "options": ["OPT22", "OPT24", "OPT44"],
+      "options": ["VEI1", "VEI2", "VEI3"],
       "personnes": []
     },
+    
     {
       "id": "ETAPE19",
-      "titre": "Planète Solidays",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT25", "OPT26", "OPT27"],
+      "titre": "Scofield",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SCO1", "SCO2", "SCO3"],
       "personnes": []
     },
     {
       "id": "ETAPE20",
       "titre": "Tatooine",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT31", "OPT32", "OPT33"],
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["TAT1", "TAT2", "TAT3"],
       "personnes": []
     },
     {
       "id": "ETAPE21",
-      "titre": "Stark",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT31", "OPT34", "OPT37"],
+      "titre": "Spock",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SPO1", "SPO2", "SPO3"],
       "personnes": []
     },
     {
       "id": "ETAPE22",
-      "titre": "Ragnar",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT32", "OPT36", "OPT38"],
+      "titre": "Gazorpazorp",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["GAZ1", "GAZ2", "GAZ3", "GAZ4", "GAZ5", "GAZ6"],
       "personnes": []
     },
     {
       "id": "ETAPE23",
-      "titre": "Spock",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT34", "OPT35", "OPT36"],
+      "titre": "Croutard",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["CRO1", "CRO2", "CRO3"],
       "personnes": []
     },
     {
       "id": "ETAPE24",
-      "titre": "Gazorpazorp",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT35", "OPT37", "OPT39"],
+      "titre": "Stark",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["STA1", "STA2", "STA3"],
       "personnes": []
     },
     {
       "id": "ETAPE25",
       "titre": "Eleven",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT36", "OPT38", "OPT40"],
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["ELE1", "ELE2", "ELE3"],
       "personnes": []
     },
     {
       "id": "ETAPE26",
-      "titre": "Spinjitsu",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT37", "OPT39", "OPT41"],
+      "titre": "Ragnar",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["RAG1", "RAG2", "RAG3"],
       "personnes": []
     },
     {
       "id": "ETAPE27",
-      "titre": "Croutard",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT38", "OPT40", "OPT42"],
+      "titre": "Spinjitsu",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SPI1", "SPI2", "SPI3", "SPI4", "SPI5", "SPI6"],
       "personnes": []
     },
     {
       "id": "ETAPE28",
       "titre": "Razmo",
-      "dates": {
-        "depart": "",
-        "arrivee": "",
-        "duree_heures": 0
-      },
-      "options": ["OPT39", "OPT41", "OPT43"],
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["RAZ1", "RAZ2", "RAZ3"],
+      "personnes": []
+    },
+    
+    {
+      "id": "ETAPE29",
+      "titre": "Malm",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["MAL1", "MAL2", "MAL3", "MAL4", "MAL5", "MAL6"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE30",
+      "titre": "Friheten",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["FRI1", "FRI2", "FRI3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE31",
+      "titre": "Knoxhult",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["KNO1", "KNO2", "KNO3", "KNO4", "KNO5", "KNO6"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE32",
+      "titre": "Tåsjön",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["TÅS1", "TÅS2", "TÅS3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE33",
+      "titre": "Lappdunort",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["LAP1", "LAP2", "LAP3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE34",
+      "titre": "Skogssvingel",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SKO1", "SKO2", "SKO3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE35",
+      "titre": "Ramsele",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["RAM1", "RAM2", "RAM3", "RAM4", "RAM5", "RAM6"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE36",
+      "titre": "Ljungsbro",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["LJU1", "LJU2", "LJU3", "LJU4", "LJU5", "LJU6"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE37",
+      "titre": "Tuvkornel",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["TUV1", "TUV2", "TUV3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE38",
+      "titre": "Slattika",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SLA1", "SLA2", "SLA3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE39",
+      "titre": "Akernejlika",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["AKE1", "AKE2", "AKE3"],
       "personnes": []
     }
   ]
