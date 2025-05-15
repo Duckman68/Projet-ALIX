@@ -103,7 +103,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>  
     <meta charset="UTF-8">
     <title>A.L.I.X.</title>
-    <link href="../css/style.css" rel="stylesheet" />
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
+	<script src="../js/theme.js" defer></script><!---->
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -132,6 +133,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="admin.php">Admin</a></li>
                 <?php endif; ?>
             <?php endif; ?>
+            <li>|</li>
+			<button id="theme-switch">Mode jour/nuit</button><!---->
         </ul>
         <a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

@@ -39,7 +39,8 @@ if (isset($_SESSION['email'])) {
 <head>	
 	<meta charset="UTF-8">
 	<title>A.L.I.X.</title>
-	<link href="../css/style.css" rel="stylesheet" />
+	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
+	<script src="../js/theme.js" defer></script><!---->
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -59,6 +60,8 @@ if (isset($_SESSION['email'])) {
 			<li><a href="voyager.php">Voyager</a></li>
 			<li>|</li>
 			<li><a href="login.php">Connexion</a></li>
+            <li>|</li>
+			<button id="theme-switch">Mode jour/nuit</button><!---->
 		</ul>
 		<a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

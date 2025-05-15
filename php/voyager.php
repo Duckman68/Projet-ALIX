@@ -45,7 +45,8 @@ $searchQuery = strtolower($_GET['search'] ?? '');
 <head>
     <title>A.L.I.X.</title>
     <meta charset="UTF-8">
-    <link href="../css/style.css" rel="stylesheet" />
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
+	<script src="../js/theme.js" defer></script><!---->
     <script src="../js/voyager.js"></script>
 </head>
 <body>
@@ -73,6 +74,8 @@ $searchQuery = strtolower($_GET['search'] ?? '');
                     <li><a href="admin.php">Admin</a></li>
                 <?php endif; ?>
             <?php endif; ?>
+            <li>|</li>
+			<button id="theme-switch">Mode jour/nuit</button><!---->
         </ul>
         <a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

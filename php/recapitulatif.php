@@ -55,7 +55,8 @@ foreach ($voyage_data['options'] as $option) {
 <head>
     <meta charset="UTF-8">
     <title>A.L.I.X.</title>
-    <link href="../css/style.css" rel="stylesheet" />
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
+	<script src="../js/theme.js" defer></script><!---->
 </head>
 <body>
 <video class="fond" autoplay loop muted><source src="../img/video.mp4"></video>
@@ -75,6 +76,8 @@ foreach ($voyage_data['options'] as $option) {
         <?php else: ?>
             <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
         <?php endif; ?>
+        <li>|</li>
+			<button id="theme-switch">Mode jour/nuit</button><!---->
     </ul>
     <a href="user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'"></a>
 </div>

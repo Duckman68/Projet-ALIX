@@ -106,7 +106,8 @@ if (isset($_SESSION['email'])) {
 <head>
     <title>A.L.I.X. - Options</title>
     <meta charset="UTF-8">
-    <link href="../css/style.css" rel="stylesheet" />
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
+	<script src="../js/theme.js" defer></script><!---->
 </head>
 <body>
     <div class="fondpage">
@@ -114,7 +115,7 @@ if (isset($_SESSION['email'])) {
             <source src="../../../img/video.mp4">
         </video>
 
-        <div class="topv2">
+        <div class="top">
             <div class="topleft">
                 <a href="index.php">
                     <video class="logo" autoplay muted><source src="../../../img/Logo-3-[cut](site).mp4" type="video/mp4"></video>
@@ -129,6 +130,8 @@ if (isset($_SESSION['email'])) {
                 <?php else: ?>
                     <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
                 <?php endif; ?>
+                <li>|</li>
+			    <button id="theme-switch">Mode jour/nuit</button><!---->
             </ul>
             <a href="../user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'"></a>
         </div>
