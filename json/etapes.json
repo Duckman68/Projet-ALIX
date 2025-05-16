@@ -5,7 +5,7 @@
       "titre": "Mercure",
       "systeme": "Système Solaire",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["MER1", "MER2", "MER3"],
+      "options": ["OPT1", "MER2", "MER3"],
       "personnes": []
     },
     {

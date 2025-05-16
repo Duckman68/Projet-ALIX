@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['voyage-id'])) {
     exit();
 }
 
-$voyagesData = json_decode(file_get_contents('../json/voyages_enrichis.json'), true);
+$voyagesData = json_decode(file_get_contents('../json/voyage.json'), true);
 $etapesData = json_decode(file_get_contents('../json/etapes.json'), true);
 $optionsData = json_decode(file_get_contents('../json/options.json'), true);
 

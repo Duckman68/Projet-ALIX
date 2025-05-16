@@ -35,7 +35,7 @@ if (isset($_SESSION['email'])) {
     }
 }
 
-$voyages_data = json_decode(file_get_contents("../json/voyages_enrichis.json"), true);
+$voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
 $voyages = $voyages_data['voyages'] ?? [];
 $searchQuery = strtolower($_GET['search'] ?? '');
 ?>

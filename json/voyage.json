@@ -1,9 +1,12 @@
-[
+{  
+  
+  "voyages": [
   {
     "id": "VOY1",
     "titre": "Sollinea",
     "dates": { "debut": "2399-03-14", "fin": "2399-03-23", "duree_jours": 10 },
     "recurence": "2 ans",
+    "etapes": ["ETAPE1","ETAPE2","ETAPE3"],
     "prix": 3500,
     "camp_de_base": "VÉNUS — Station Aether 9"
   },
@@ -12,6 +15,7 @@
     "titre": "Pass’Stellaire",
     "dates": { "debut": "2399-05-05", "fin": "2399-05-14", "duree_jours": 10 },
     "recurence": "4 ans",
+    "etapes": ["ETAPE4","ETAPE5","ETAPE9"],
     "prix": 950,
     "camp_de_base": "MARS — Dôme de Lamis"
   },
@@ -20,6 +24,7 @@
     "titre": "Velmora",
     "dates": { "debut": "2399-05-25", "fin": "2399-06-04", "duree_jours": 11 },
     "recurence": "6 ans",
+    "etapes": ["ETAPE6","ETAPE7","ETAPE8"],
     "prix": 8900,
     "camp_de_base": "SATURNE — Station HALO-V"
   },
@@ -28,6 +33,7 @@
     "titre": "Dromæa",
     "dates": { "debut": "2399-08-10", "fin": "2399-08-18", "duree_jours": 9 },
     "recurence": "3 ans",
+    "etapes": ["ETAPE10","ETAPE11","ETAPE12"],
     "prix": 2200,
     "camp_de_base": "PLANÈTE SOLIDAYS — Oasis Sonique"
   },
@@ -36,6 +42,7 @@
     "titre": "Spectalys",
     "dates": { "debut": "2399-10-21", "fin": "2399-10-29", "duree_jours": 9 },
     "recurence": "3 ans",
+    "etapes": ["ETAPE13","ETAPE14","ETAPE15"],
     "prix": 2100,
     "camp_de_base": "PLANÈTE ARDENTE — Dôme Pyrosyne"
   },
@@ -44,6 +51,7 @@
     "titre": "Floræa",
     "dates": { "debut": "2399-12-02", "fin": "2399-12-11", "duree_jours": 10 },
     "recurence": "5 ans",
+    "etapes": ["ETAPE16","ETAPE17","ETAPE18"],
     "prix": 1900,
     "camp_de_base": "PLANÈTE LHUMA — Dôme Éclosia"
   },
@@ -52,6 +60,7 @@
     "titre": "Solkarra",
     "dates": { "debut": "2400-02-07", "fin": "2400-02-15", "duree_jours": 9 },
     "recurence": "5 ans",
+    "etapes": ["ETAPE19","ETAPE20","ETAPE21"],
     "prix": 2700,
     "camp_de_base": "SCOFIELD — Fort Nexar"
   },
@@ -60,6 +69,7 @@
     "titre": "Valgrynd",
     "dates": { "debut": "2400-03-22", "fin": "2400-03-30", "duree_jours": 9 },
     "recurence": "4 ans",
+    "etapes": ["ETAPE22","ETAPE23","ETAPE24"],
     "prix": 2600,
     "camp_de_base": "GAZORPAZORP — Bastion d’Orakh"
   },
@@ -68,6 +78,7 @@
     "titre": "Emberis",
     "dates": { "debut": "2400-05-05", "fin": "2400-05-14", "duree_jours": 10 },
     "recurence": "7 ans",
+    "etapes": ["ETAPE25","ETAPE26","ETAPE27"],
     "prix": 2500,
     "camp_de_base": "ELEVEN — Sanctuaire de Fyriss"
   },
@@ -76,6 +87,7 @@
     "titre": "Élyär",
     "dates": { "debut": "2400-06-30", "fin": "2400-07-08", "duree_jours": 9 },
     "recurence": "5 ans",
+    "etapes": ["ETAPE28","ETAPE27","ETAPE22"],
     "prix": 12800,
     "camp_de_base": "RAZMO — Pavillon Aérien de Lumea"
   },
@@ -84,6 +96,7 @@
     "titre": "Orrhalm",
     "dates": { "debut": "2400-08-15", "fin": "2400-08-23", "duree_jours": 9 },
     "recurence": "3 ans",
+    "etapes": ["ETAPE29","ETAPE30","ETAPE31"],
     "prix": 2400,
     "camp_de_base": "MALM — Résidence PLY-45"
   },
@@ -92,6 +105,7 @@
     "titre": "Strataliis",
     "dates": { "debut": "2400-09-07", "fin": "2400-09-16", "duree_jours": 10 },
     "recurence": "3 ans",
+    "etapes": ["ETAPE32","ETAPE33","ETAPE34"],
     "prix": 2500,
     "camp_de_base": "TÅSJÖN — Refuge Sølvhavn"
   },
@@ -100,6 +114,7 @@
     "titre": "Ztryka",
     "dates": { "debut": "2400-09-29", "fin": "2400-10-07", "duree_jours": 9 },
     "recurence": "4 ans",
+    "etapes": ["ETAPE35","ETAPE36","ETAPE37"],
     "prix": 2600,
     "camp_de_base": "RAMSELE — Bloc Kinésis"
   },
@@ -108,6 +123,7 @@
     "titre": "Esthün",
     "dates": { "debut": "2400-10-20", "fin": "2400-10-29", "duree_jours": 10 },
     "recurence": "4 ans",
+    "etapes": ["ETAPE38","ETAPE39","ETAPE31"],
     "prix": 2700,
     "camp_de_base": "SLATTIKA — Pavillon Blanc"
   },
@@ -116,7 +132,9 @@
     "titre": "Alene",
     "dates": { "debut": "2400-11-10", "fin": "2400-11-19", "duree_jours": 10 },
     "recurence": "6 ans",
+    "etapes": ["ETAPE36","ETAPE29","ETAPE35"],
     "prix": 2500,
     "camp_de_base": "LJUNGSBRO — Module Iskaar"
   }
 ]
+}
