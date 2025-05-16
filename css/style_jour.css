@@ -87,6 +87,7 @@ div.espace{
     overflow: hidden;
     transition: transform 0.3s;
     width: 500px; /* Ajustable */
+    margin: 20px; padding: 15px;
 }
 
 .promo-wrapper:hover {
@@ -154,7 +155,7 @@ div.bottom{
 
 div.recherche {
     position: relative;
-    top: 5vh;
+    top: 3vh;
     width: 90%;
     max-width: 900px;
     height: 45px;

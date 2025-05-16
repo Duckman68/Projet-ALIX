@@ -93,30 +93,39 @@ if (isset($_SESSION['email'])) {
 		<div id="titre-promo"><h1>Planètes à découvrir</h1></div>
 
     	<div class="promotion2">
-
-        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+	<table>
+            <tr>
+            	<td>
+        	<div class="promo-wrapper">
             	<img src="../img/Terre.png" class="promo">
             	<div class="promo-content">
+            	
+          
                 	<h2>Terre</h2>
                 	<p>Une planète bleue pleine de vie, parfaite pour les amateurs de biodiversité.</p>
                 	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (4.2)</div>
                 	<a href="voyager.php" class="btn-reserver">Réserver</a>
             	</div>
-            	<div class="overlay">Voir plus</div>
-        	</div>
-
-        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	</div>
+            	</td>
+            
+  
+	    	<td>
+        	<div class="promo-wrapper">
             	<img src="../img/Solidays.png" class="promo">
             	<div class="promo-content">
                 	<h2>Solidays</h2>
                 	<p>Un monde festif où la musique ne s'arrête jamais.</p>
                 	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9733; (4.8)</div>
                 	<a href="voyager.php" class="btn-reserver">Réserver</a>
-            	</div>
-           		<div class="overlay">Voir plus</div>
-        	</div>
+                </div>
+                </div>
+                </td>
+     	    </tr>
+     	    <tr>
+     	    	<td>
 
-        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+        	<div class="promo-wrapper">
             	<img src="../img/Scofiled.png" class="promo">
             	<div class="promo-content">
                		<h2>Scofiled</h2>
@@ -124,10 +133,10 @@ if (isset($_SESSION['email'])) {
                 	<div class="rating">&#9733;&#9733;&#9733;&#9734;&#9734; (3.7)</div>
                 	<a href="voyager.php" class="btn-reserver">Réserver</a>
             	</div>
-            	<div class="overlay">Voir plus</div>
-        	</div>
-
-        	<div class="promo-wrapper" style="margin: 20px; padding: 15px;">
+            	</div>
+            	</td>
+		<td>
+        	<div class="promo-wrapper">
             	<img src="../img/Malm.png" class="promo">
             	<div class="promo-content">
                 	<h2>Malm</h2>
@@ -135,9 +144,11 @@ if (isset($_SESSION['email'])) {
                 	<div class="rating">&#9733;&#9733;&#9733;&#9733;&#9734; (4.0)</div>
                 	<a href="voyager.php" class="btn-reserver">Réserver</a>
             	</div>
-            	<div class="overlay">Voir plus</div>
-        	</div>
-    	</div>
+            	</div>
+            	</td>
+            </tr>
+        </table>
+    	
 	</div>
 
 	<div class = "boutique">
