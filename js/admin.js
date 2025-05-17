@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Éléments du DOM
     const filterButtons = document.querySelectorAll('.bouton-recherche button');
     const searchInput = document.getElementById('search-input');
@@ -6,58 +6,70 @@ document.addEventListener('DOMContentLoaded', function() {
     const userRows = document.querySelectorAll('tbody tr');
 
     // Fonction pour filtrer par rôle
-    function filterByRole(role) {
-        userRows.forEach(row => {
-            const rowRole = row.getAttribute('data-role');
-            if (role === 'all' || rowRole === role) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
+    function filtrerParRole(role) {
+        userRows.forEach(ligne => {
+            const roleLigne = ligne.getAttribute('data-role');
+            ligne.style.display = (role === 'all' || roleLigne === role) ? '' : 'none';
         });
     }
 
-    // Fonction pour rechercher par nom/prénom
-    function searchUsers() {
-        const searchTerm = searchInput.value.toLowerCase();
-        
-        userRows.forEach(row => {
-            const name = row.cells[0].textContent.toLowerCase();
-            const firstName = row.cells[1].textContent.toLowerCase();
-            const isVisible = name.includes(searchTerm) || firstName.includes(searchTerm);
-            
-            // Considère aussi le filtre actif
-            const currentFilter = document.querySelector('.bouton-recherche button.active')?.dataset.filter || 'all';
-            const rowRole = row.getAttribute('data-role');
-            const roleMatches = currentFilter === 'all' || rowRole === currentFilter;
-            
-            row.style.display = isVisible && roleMatches ? '' : 'none';
+    // Fonction de recherche
+    function rechercherUtilisateurs() {
+        const terme = searchInput.value.toLowerCase();
+        const filtreActif = document.querySelector('.bouton-recherche button.active')?.dataset.filter || 'all';
+
+        userRows.forEach(ligne => {
+            const nom = ligne.cells[0].textContent.toLowerCase();
+            const prenom = ligne.cells[1].textContent.toLowerCase();
+            const role = ligne.getAttribute('data-role');
+
+            const correspond = nom.includes(terme) || prenom.includes(terme);
+            const roleOk = filtreActif === 'all' || role === filtreActif;
+
+            ligne.style.display = correspond && roleOk ? '' : 'none';
         });
     }
 
-    // Gestion des boutons de filtre
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Retire la classe active de tous les boutons
+    // Gestion des filtres
+    filterButtons.forEach(bouton => {
+        bouton.addEventListener('click', function () {
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Ajoute la classe active au bouton cliqué
             this.classList.add('active');
-            
-            // Applique le filtre
-            const filter = this.dataset.filter;
-            filterByRole(filter);
+            filtrerParRole(this.dataset.filter);
         });
     });
 
-    // Gestion de la recherche
-    searchButton.addEventListener('click', searchUsers);
-    searchInput.addEventListener('keyup', function(e) {
-        if (e.key === 'Enter') {
-            searchUsers();
-        }
+    // Gestion recherche
+    searchButton.addEventListener('click', rechercherUtilisateurs);
+    searchInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter') rechercherUtilisateurs();
     });
 
-    // Active le filtre "Tous" par défaut
+    // Appliquer filtre par défaut
     document.querySelector('.bouton-recherche button[data-filter="all"]').click();
+
+    // ✅ Simulation mise à jour avec délai
+    document.querySelectorAll(".select-role").forEach(select => {
+        select.addEventListener("change", function (e) {
+            e.preventDefault();
+
+            const champ = this;
+            const formulaire = champ.closest("form");
+            const nouvelleValeur = champ.value;
+
+            // Désactiver le champ et simuler chargement
+            champ.disabled = true;
+            champ.innerHTML = `<option selected>⏳ mise à jour...</option>`;
+
+            setTimeout(() => {
+                const champCache = document.createElement("input");
+                champCache.type = "hidden";
+                champCache.name = "new_role";
+                champCache.value = nouvelleValeur;
+                formulaire.appendChild(champCache);
+
+                formulaire.submit();
+            }, 2000);
+        });
+    });
 });

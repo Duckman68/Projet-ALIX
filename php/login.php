@@ -83,6 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<title>A.L.I.X.</title>
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
+    <script src="../js/validation_connexion.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -119,21 +120,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         	unset($_SESSION['erreur']);
     	}
     	?>
-        <form action="login.php" method="POST">
-            <div class="input-box">
-                <input type="email" name="email" placeholder="Adresse e-mail" required>
+        <form id="form-connexion" action="connexion.php" method="POST">
+            <div id="erreurs" class="error-message"></div>
+
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Adresse e-mail" required>
             </div>
 
-            <div class="input-box">
-                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+            <div class="form-group">
+                <div class="champ-mdp">
+                    <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Mot de passe" required>
+                    <button type="button" class="oeil-bouton" data-cible="mot_de_passe">👁</button>
+                </div>
             </div>
 
-            <div class="remember-forgot">
-                <label><input type="checkbox"> Se souvenir de moi</label>
-                <a href="#">Mot de passe oublié ?</a>
-            </div>
-
-            <button type="submit" class="login">Se connecter</button>
+            <button type="submit" class="submit">Connexion</button>
         </form>
 
         <div class="register-link">
