@@ -13,7 +13,7 @@
       "titre": "Vénus",
       "systeme": "Système Solaire",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["VÉN1", "VÉN2", "VÉN3"],
+      "options": ["VEN1", "VEN2", "VEN3"],
       "personnes": []
     },
     {

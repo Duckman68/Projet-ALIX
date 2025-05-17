@@ -122,11 +122,11 @@ if (isset($_SESSION['email'])) {
                 </a>
             </div>
             <ul>
-                <li><a href="../../aboutus.php">A propos</a></li>
+                <li><a href="aboutus.php">A propos</a></li>
                 <li>|</li>
-                <li><a href="../../voyager.php">Voyager</a></li>
+                <li><a href="voyager.php">Voyager</a></li>
                 <?php if (!$isLoggedIn): ?>
-                    <li>|</li><li><a href="../../login.php">Connexion</a></li><li>|</li><li><a href="../../sign-up.php">Inscription</a></li>
+                    <li>|</li><li><a href="login.php">Connexion</a></li><li>|</li><li><a href="sign-up.php">Inscription</a></li>
                 <?php else: ?>
                     <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
                 <?php endif; ?>
@@ -161,9 +161,10 @@ if (isset($_SESSION['email'])) {
                             foreach ($optionsData['options'] as $opt) {
                                 if ($opt['id'] === $opt_id): ?>
                                 <label class="option-card">
-                                    <input type="radio" name="options[<?= $etape_id ?>]" value="<?= $opt_id ?>" required>
+                                    <input type="checkbox" name="options[<?= $etape_id ?>]" value="<?= $opt_id ?>">
                                     <div class="option-content">
                                         <h3><?= htmlspecialchars(implode(', ', $opt['activités'])) ?></h3>
+                                        <p><?= htmlspecialchars(implode(',',$opt['descriptif'])) ?></p>
                                         <p><?= htmlspecialchars($opt['prix_par_personne']) ?> € / personne</p>
                                     </div>
                                 </label>

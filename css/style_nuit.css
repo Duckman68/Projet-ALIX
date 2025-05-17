@@ -1154,11 +1154,11 @@ table.option{
     transition: transform 0.3s ease;
 }
 
-.option-card input[type="radio"] {
+.option-card input[type="checkbox"] {
     display: none;
 }
 
-.option-card input[type="radio"]:checked + .option-content {
+.option-card input[type="checkbox"]:checked + .option-content {
     border: 2px solid #00ffff;
     background: rgba(0, 100, 100, 0.3);
 }

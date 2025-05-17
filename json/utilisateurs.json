@@ -108,6 +108,24 @@
                 "consultes": [],
                 "achetes": []
             }
+        },
+        {
+            "id_user": "7",
+            "role": "membre",
+            "nom": "cal",
+            "prenom": "romain",
+            "email": "r@gmail.com",
+            "mot_de_passe": "a",
+            "phone": "",
+            "address": "",
+            "sign-date": "17\/05\/2025",
+            "login-date": "17-05-2025 19:06",
+            "historique": "",
+            "pp": "..\/img\/default.png",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
+            }
         }
     ]
 }
