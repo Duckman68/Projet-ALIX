@@ -41,6 +41,7 @@ if (isset($_SESSION['email'])) {
 	<title>A.L.I.X.</title>
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
+    <script src="../js/validation_inscription.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -79,25 +80,33 @@ if (isset($_SESSION['email'])) {
             </div>
         <?php endif; ?>
         
-        <form action="inscription.php" method="POST">
+       <form id="form-inscription" action="inscription.php" method="POST">
+            <div id="erreurs" class="error-message"></div>
+
             <div class="form-group">
-                <input type="text" name="nom" placeholder="Nom" required value="<?php echo htmlspecialchars($_POST['nom'] ?? ''); ?>">
+                <input type="text" name="nom" id="nom" placeholder="Nom" required value="<?php echo htmlspecialchars($_POST['nom'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
-                <input type="text" name="prenom" placeholder="Prénom" required value="<?php echo htmlspecialchars($_POST['prenom'] ?? ''); ?>">
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom" required value="<?php echo htmlspecialchars($_POST['prenom'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
-                <input type="email" name="email" placeholder="Adresse e-mail" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                <input type="email" name="email" id="email" placeholder="Adresse e-mail" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
             </div>
 
             <div class="form-group">
-                <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
+                <div class="champ-mdp">
+                    <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Mot de passe" required>
+                    <button type="button" class="oeil-bouton" data-cible="mot_de_passe">👁</button>
+                </div>
             </div>
 
             <div class="form-group">
-                <input type="password" name="confirmation_mot_de_passe" placeholder="Confirmation du mot de passe" required>
+                <div class="champ-mdp">
+                    <input type="password" name="confirmation_mot_de_passe" id="confirmation_mot_de_passe" placeholder="Confirmation du mot de passe" required>
+                    <button type="button" class="oeil-bouton" data-cible="confirmation_mot_de_passe">👁</button>
+                </div>
             </div>
 
             <button type="submit" class="submit">S'inscrire</button>

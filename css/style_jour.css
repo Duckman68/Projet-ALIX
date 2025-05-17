@@ -728,13 +728,14 @@ section.login h1 {
 }
 
 .input-box input {
-    width: 75%;
+    width: 100%;
     padding: 15px;
     outline: none;
     background-color: transparent;
     border: 2px solid rgba(255,255,255,0.2);
     color: white;
     padding-right: 40px;
+    box-sizing: border-box;
 }
 
 .input-box input::placeholder {
@@ -826,13 +827,14 @@ section.singup h1 {
 }
 
 .form-group input {
-    width: 75%;
+    width: 100%;
     padding: 15px;
     outline: none;
     background-color: transparent;
     border: 2px solid rgba(255,255,255,0.2);
     color: white;
     padding-right: 40px;
+    box-sizing: border-box;
 }
 
 .form-group input::placeholder {
@@ -880,6 +882,31 @@ section.singup h1 {
     text-decoration: underline
 }
 
+.champ-mdp {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.champ-mdp input {
+    width: 100%;
+    padding-right: 40px; /* espace pour l'œil */
+    box-sizing: border-box;
+}
+
+.oeil-bouton {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #aaa;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
 
 /* Profil Section */
 .espace-profil {
@@ -926,14 +953,15 @@ section.singup h1 {
 }
 
 .form-group-login input {
-    width: 75%;
+    width: 100%;
     padding: 15px;
     outline: none;
     background-color: transparent;
     border: 2px solid rgba(255,255,255,0.2);
     color: white;
     padding-right: 40px;
-    font-size: 16px
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 .form-group-login input:focus {

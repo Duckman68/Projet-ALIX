@@ -116,7 +116,7 @@ if (isset($data["user"])) {
 					<td>
 						<form method="post" action="update_role.php" style="display:inline;">
 							<input type="hidden" name="email" value="<?php echo htmlspecialchars($user['email']); ?>">
-							<select name="new_role" onchange="this.form.submit()">
+							<select name="new_role" class="select-role" >
 								<option value="vip" <?php echo $user['role'] === 'vip' ? 'selected' : ''; ?>>VIP</option>
 								<option value="membre" <?php echo $user['role'] === 'membre' ? 'selected' : ''; ?>>Membre</option>
 								<option value="banni" <?php echo $user['role'] === 'banni' ? 'selected' : ''; ?>>Banni</option>
