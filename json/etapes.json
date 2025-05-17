@@ -5,7 +5,7 @@
       "titre": "Mercure",
       "systeme": "Système Solaire",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["OPT1", "MER2", "MER3"],
+      "options": ["MER1", "MER2", "MER3"],
       "personnes": []
     },
     {
@@ -135,14 +135,14 @@
     },
     {
       "id": "ETAPE15",
-      "titre": "Plénière Delta",
+      "titre": "Planète Delta",
       "systeme": "Système Innuendo",
       "dates": {
         "depart": "",
         "arrivee": "",
         "duree_jours": 0
       },
-      "options": ["PLÉ1", "PLÉ2", "PLÉ3"],
+      "options": ["DEL1", "DEL2", "DEL3"],
       "personnes": []
     },
     {

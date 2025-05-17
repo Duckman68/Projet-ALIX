@@ -1,224 +1,816 @@
 {
   "options": [
     {
-      "id": "OPT1",
-      "activités": ["randonnées extrêmes"],
+      "id": "VEN1",
+      "activités": ["Pilotage de drones atmosphériques"],
+      "descriptif": ["Prise en main d’un mini-drone à travers les courants violents de Vénus."],
       "prix_par_personne": 150
     },
     {
-      "id": "OPT2",
-      "activités": ["nuages acides"],
-      "prix_par_personne": 80
+      "id": "VEN2",
+      "activités": ["Bain solaire UV filtré"],
+      "descriptif": ["Relaxation sous lumière simulée, reconstituant les bénéfices des rayons sans exposition réelle."],
+      "prix_par_personne": 150
     },
     {
-      "id": "OPT3",
-      "activités": ["vue sur la Lune"],
-      "prix_par_personne": 50
+      "id": "VEN3",
+      "activités": ["Dégustation céleste"],
+      "descriptif": ["Repas gastronomique à base de composants sublimés en microgravité."],
+      "prix_par_personne": 150
     },
     {
-      "id": "OPT4",
-      "activités": ["visite de colonies"],
-      "prix_par_personne": 200
+      "id": "MER1",
+      "activités": ["Randonnée thermique"],
+      "descriptif": ["Exploration guidée sur les crêtes rocheuses, en combinaison thermorégulée."],
+      "prix_par_personne": 180
     },
     {
-      "id": "OPT5",
-      "activités": ["Rallye"],
-      "prix_par_personne": 300
+      "id": "MER2",
+      "activités": ["Geysers métalliques"],
+      "descriptif": ["Observation d’éjections naturelles de mercure liquide en toute sécurité."],
+      "prix_par_personne": 180
     },
     {
-      "id": "OPT6",
-      "activités": ["chasse aux météorites"],
+      "id": "MER3",
+      "activités": ["Dîner fusion extrême"],
+      "descriptif": ["Plats saisis à haute température, servis dans des capsules à l’ambiance minérale."],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "TER1",
+      "activités": ["Parc végétal immersif"],
+      "descriptif": ["Balade libre dans une forêt vivante avec faune simulée."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "TER2",
+      "activités": ["Brunch terroir"],
+      "descriptif": ["Spécialités terriennes réinterprétées à partir d’ingrédients biosynthétiques."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "TER3",
+      "activités": ["Atelier poterie"],
+      "descriptif": ["Modelage libre suivi d’une cuisson rapide en orbite."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "MAR1",
+      "activités": ["Mini-serre"],
+      "descriptif": ["Chaque voyageur plante une graine et suit son évolution dans un espace dédié."],
+      "prix_par_personne": 20
+    },
+    {
+      "id": "MAR2",
+      "activités": ["Participation collective"],
+      "descriptif": ["Les repas et l’entretien des lieux sont organisés en tours de service."],
+      "prix_par_personne": 20
+    },
+    {
+      "id": "MAR3",
+      "activités": ["Jeu gravitationnel"],
+      "descriptif": ["Partie libre en gravité réduite dans un espace pressurisé."],
+      "prix_par_personne": 20
+    },
+    {
+      "id": "NEP1",
+      "activités": ["Séance d’observation"],
+      "descriptif": ["Période de calme individuel face à Neptune, dans un cylindre orbital d’observation."],
+      "prix_par_personne": 15
+    },
+    {
+      "id": "NEP2",
+      "activités": ["Repos auditif"],
+      "descriptif": ["Silence immersif en casque sensoriel."],
+      "prix_par_personne": 15
+    },
+    {
+      "id": "NEP3",
+      "activités": ["Exploration lumineuse"],
+      "descriptif": ["Déambulation libre dans le module, guidée par des jeux de lumière bleutée."],
+      "prix_par_personne": 15
+    },
+    {
+      "id": "PLU1",
+      "activités": ["Vue orbitale continue"],
+      "descriptif": ["Observation depuis un hublot panoramique de la Capsule Oubliée."],
+      "prix_par_personne": 18
+    },
+    {
+      "id": "PLU2",
+      "activités": ["Lettre différée"],
+      "descriptif": ["Message personnel rédigé et programmé pour un envoi différé vers la Terre."],
+      "prix_par_personne": 18
+    },
+    {
+      "id": "PLU3",
+      "activités": ["Fréquences du vide"],
+      "descriptif": ["Écoute passive des ondes spatiales traduites en basse vibration."],
+      "prix_par_personne": 18
+    },
+    {
+      "id": "SAT1",
+      "activités": ["Survol des anneaux"],
+      "descriptif": ["Observation depuis une capsule vitrée pilotée sur trajectoire circulaire autour des anneaux de Saturne."],
+      "prix_par_personne": 420
+    },
+    {
+      "id": "SAT2",
+      "activités": ["Cryo-harmonisation"],
+      "descriptif": ["Exposition contrôlée à un environnement à -60 °C pour stimulation corporelle."],
+      "prix_par_personne": 420
+    },
+    {
+      "id": "SAT3",
+      "activités": ["Concert atmosphérique"],
+      "descriptif": ["Performance privée où les données des vents de Saturne sont interprétées en direct par une intelligence musicale, diffusées dans un salon acoustique panoramique."],
+      "prix_par_personne": 420
+    },
+    {
+      "id": "JUP1",
+      "activités": ["Immersion visuelle"],
+      "descriptif": ["Projection immersive à 360° des systèmes atmosphériques de Jupiter depuis le Vortex-Class Orbiter."],
+      "prix_par_personne": 610
+    },
+    {
+      "id": "JUP2",
+      "activités": ["Vol inversé"],
+      "descriptif": ["Simulation de gravité inversée à travers une capsule stabilisée autour de Jupiter."],
+      "prix_par_personne": 610
+    },
+    {
+      "id": "JUP3",
+      "activités": ["Repas en microgravité"],
+      "descriptif": ["Dégustation de plats conçus pour flottaison et capture sensorielle en microgravité."],
+      "prix_par_personne": 610
+    },
+    {
+      "id": "URA1",
+      "activités": ["Randonnée orbitale"],
+      "descriptif": ["Déplacement assisté autour du module en combinaison fixée en orbite lente d’Uranus."],
+      "prix_par_personne": 330
+    },
+    {
+      "id": "URA2",
+      "activités": ["Portrait astral"],
+      "descriptif": ["Visualisation en direct de constantes biologiques traduites en tracé graphique."],
+      "prix_par_personne": 330
+    },
+    {
+      "id": "URA3",
+      "activités": ["Journal sensoriel"],
+      "descriptif": ["Enregistrement d’un ressenti physiologique sous forme de données."],
+      "prix_par_personne": 330
+    },
+    {
+      "id": "SOL1",
+      "activités": ["Cercle de basses"],
+      "descriptif": ["Session d’ouverture collective dans une salle vibratoire."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "SOL2",
+      "activités": ["Tissage visuel"],
+      "descriptif": ["Création de toiles réactives à la lumière dans l’atelier communautaire."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "SOL3",
+      "activités": ["Atelier corps-son"],
+      "descriptif": ["Exploration du lien entre mouvement et pulsation dans une salle amplifiée."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "WEL1",
+      "activités": ["Balade audio-nature"],
+      "descriptif": ["Promenade guidée avec casque traduisant les données des plantes en sons."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "WEL2",
+      "activités": ["Installation photosensible"],
+      "descriptif": ["Expérience lumineuse dans une serre qui réagit aux ondes électromagnétiques corporelles."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "WEL3",
+      "activités": ["Veillée bioacoustique"],
+      "descriptif": ["Écoute collective d’une symphonie composée à partir des fréquences végétales locales."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "HEL1",
+      "activités": ["Mur de son"],
+      "descriptif": ["Immersion sonore verticale dans une salle de projection infrabasse."],
       "prix_par_personne": 250
     },
     {
-      "id": "OPT7",
-      "activités": ["survol des anneaux"],
-      "prix_par_personne": 400
+      "id": "HEL2",
+      "activités": ["Mix brut"],
+      "descriptif": ["Utilisation de machines analogiques massives pour composer un son personnel."],
+      "prix_par_personne": 250
     },
     {
-      "id": "OPT8",
-      "activités": ["tempêtes géantes"],
-      "prix_par_personne": 180
+      "id": "HEL3",
+      "activités": ["Clôture stroboscopique"],
+      "descriptif": ["Dernier mix collectif dans un tunnel lumineux rythmé par la foule."],
+      "prix_par_personne": 250
     },
     {
-      "id": "OPT9",
-      "activités": ["lunes diamant"],
+      "id": "ARD1",
+      "activités": ["Marche des fréquences"],
+      "descriptif": ["Parcours corporel guidé au rythme de basses continues dans un canyon sonore."],
       "prix_par_personne": 220
     },
     {
-      "id": "OPT10",
-      "activités": ["glaces bleutées"],
-      "prix_par_personne": 120
-    },
-    {
-      "id": "OPT11",
-      "activités": ["cœurs glacés"],
-      "prix_par_personne": 160
-    },
-    {
-      "id": "OPT12",
-      "activités": ["retour nostalgique"],
-      "prix_par_personne": 90
-    },
-    {
-      "id": "OPT13",
-      "activités": ["base lunaire VIP"],
-      "prix_par_personne": 500
-    },
-    {
-      "id": "OPT14",
-      "activités": ["dômes martiens"],
-      "prix_par_personne": 350
-    },
-    {
-      "id": "OPT15",
-      "activités": ["photos 0G"],
-      "prix_par_personne": 200
-    },
-    {
-      "id": "OPT16",
-      "activités": ["scènes orbitales"],
-      "prix_par_personne": 180
-    },
-    {
-      "id": "OPT17",
-      "activités": ["villas DJ"],
-      "prix_par_personne": 400
-    },
-    {
-      "id": "OPT18",
-      "activités": ["after dans les nuages"],
-      "prix_par_personne": 150
-    },
-    {
-      "id": "OPT19",
-      "activités": ["soirée en apesanteur"],
-      "prix_par_personne": 300
-    },
-    {
-      "id": "OPT20",
-      "activités": ["guitares plasma"],
-      "prix_par_personne": 100
-    },
-    {
-      "id": "OPT21",
-      "activités": ["bars métal"],
-      "prix_par_personne": 70
-    },
-    {
-      "id": "OPT22",
-      "activités": ["forêts idyllique"],
-      "prix_par_personne": 80
-    },
-    {
-      "id": "OPT23",
-      "activités": ["concerts solaires"],
-      "prix_par_personne": 120
-    },
-    {
-      "id": "OPT24",
-      "activités": ["villages écolos"],
-      "prix_par_personne": 60
-    },
-    {
-      "id": "OPT25",
-      "activités": ["neon cosmique"],
-      "prix_par_personne": 90
-    },
-    {
-      "id": "OPT26",
-      "activités": ["pistes de danse flottantes"],
-      "prix_par_personne": 110
-    },
-    {
-      "id": "OPT27",
-      "activités": ["bars à oxygène"],
-      "prix_par_personne": 75
-    },
-    {
-      "id": "OPT28",
-      "activités": ["24h/24 de concerts"],
-      "prix_par_personne": 200
-    },
-    {
-      "id": "OPT29",
-      "activités": ["campings thématisés"],
-      "prix_par_personne": 85
-    },
-    {
-      "id": "OPT30",
-      "activités": ["food trucks galactiques"],
-      "prix_par_personne": 45
-    },
-    {
-      "id": "OPT31",
-      "activités": ["combats de sabres"],
-      "prix_par_personne": 180
-    },
-    {
-      "id": "OPT32",
-      "activités": ["écoles de Jedi"],
+      "id": "ARD2",
+      "activités": ["Tatouage d’onde"],
+      "descriptif": ["Impression temporaire sur peau d’un motif sonore personnalisé."],
       "prix_par_personne": 220
     },
     {
-      "id": "OPT33",
-      "activités": ["cantinas aliens"],
-      "prix_par_personne": 65
+      "id": "ARD3",
+      "activités": ["Rave du Néant"],
+      "descriptif": ["Session de danse en salle obscure, guidée uniquement par les vibrations au sol."],
+      "prix_par_personne": 220
     },
     {
-      "id": "OPT34",
-      "activités": ["méditation klingon"],
-      "prix_par_personne": 95
+      "id": "TOM1",
+      "activités": ["Session sunrise"],
+      "descriptif": ["Performance musicale lente au lever du soleil local, dans une capsule transparente."],
+      "prix_par_personne": 190
     },
     {
-      "id": "OPT35",
-      "activités": ["bars à warp"],
-      "prix_par_personne": 55
+      "id": "TOM2",
+      "activités": ["Déambulation stroboscopique"],
+      "descriptif": ["Parcours libre dans des allées pulsées par la lumière."],
+      "prix_par_personne": 190
     },
     {
-      "id": "OPT36",
-      "activités": ["simulateurs de téléportation"],
-      "prix_par_personne": 150
+      "id": "TOM3",
+      "activités": ["Harmonie de masse"],
+      "descriptif": ["Mouvement collectif synchronisé en orbite autour d’un dôme sonore."],
+      "prix_par_personne": 190
     },
     {
-      "id": "OPT37",
-      "activités": ["arts martiaux spatiaux"],
-      "prix_par_personne": 130
-    },
-    {
-      "id": "OPT38",
-      "activités": ["parcours ninja"],
+      "id": "DEL1",
+      "activités": ["Mix mémoire"],
+      "descriptif": ["Recomposition d’un morceau à partir d’archives audio personnalisées."],
       "prix_par_personne": 170
     },
     {
-      "id": "OPT39",
-      "activités": ["salon de thé intergalactique"],
-      "prix_par_personne": 40
+      "id": "DEL2",
+      "activités": ["Confession auditive"],
+      "descriptif": ["Enregistrement d’un témoignage ou souvenir marquant du voyage."],
+      "prix_par_personne": 170
     },
     {
-      "id": "OPT40",
-      "activités": ["concerts sous dôme"],
-      "prix_par_personne": 160
+      "id": "DEL3",
+      "activités": ["Bal orbital"],
+      "descriptif": ["Cérémonie de clôture dans une salle rotative ouverte aux styles libres."],
+      "prix_par_personne": 170
     },
     {
-      "id": "OPT41",
-      "activités": ["sandboarding"],
+      "id": "LHU1",
+      "activités": ["Balade sensorielle"],
+      "descriptif": ["Promenade guidée dans une serre immersive en gravité réduite, au cœur d’un biotope régulé."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "LHU2",
+      "activités": ["Cuisine végétale"],
+      "descriptif": ["Préparation collective de plats crus à base de produits cultivés sur place."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "LHU3",
+      "activités": ["Cercle de résonance"],
+      "descriptif": ["Session d’écoute partagée utilisant des instruments acoustiques naturels."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "LOL1",
+      "activités": ["Observation lente"],
+      "descriptif": ["Suivi d’un organisme en croissance sur un cycle court dans un écosystème suspendu."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "LOL2",
+      "activités": ["Souffle dirigé"],
+      "descriptif": ["Pratique respiratoire autour d’un bassin sonore alimenté par des plantes réactives."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "LOL3",
+      "activités": ["Lecture collective"],
+      "descriptif": ["Textes philosophiques lus à voix basse dans une salle d’écoute suspendue."],
+      "prix_par_personne": 90
+    },
+    {
+      "id": "VEI1",
+      "activités": ["Parcours nu-pieds"],
+      "descriptif": ["Sentier végétal multisensoriel avec stations gustatives et auditives."],
+      "prix_par_personne": 100
+    },
+    {
+      "id": "VEI2",
+      "activités": ["Souvenir vivant"],
+      "descriptif": ["Plantation d’un fragment végétal contenant une empreinte sonore personnelle."],
+      "prix_par_personne": 100
+    },
+    {
+      "id": "VEI3",
+      "activités": ["Concert organique"],
+      "descriptif": ["Performance en direct entre musiciens, IA végétales et capteurs biologiques."],
+      "prix_par_personne": 100
+    },
+    {
+      "id": "SCO1",
+      "activités": ["Manœuvres de survie"],
+      "descriptif": ["Parcours tactique dans les couloirs abandonnés du bastion de Fort Nexar."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "SCO2",
+      "activités": ["Rituel du feu lent"],
+      "descriptif": ["Méditation silencieuse face à une flamme artificielle en chambre close."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "SCO3",
+      "activités": ["Salle du Jugement"],
+      "descriptif": ["Simulation de débrief collectif dans une salle froide, sans interface numérique."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "TAT1",
+      "activités": ["Marche du crépuscule"],
+      "descriptif": ["Progression en ligne à travers les crêtes vitrifiées balayées par les vents ioniques."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "TAT2",
+      "activités": ["Gravure solaire"],
+      "descriptif": ["Dessin au laser thermique sur plaque translucide, en plein désert de la Zone d’Exil Z-3."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "TAT3",
+      "activités": ["Veillée sans nom"],
+      "descriptif": ["Lecture collective de récits de résistance au coin d’un feu captif."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "SPO1",
+      "activités": ["Exploration sonore"],
+      "descriptif": ["Écoute des bruits internes du corps dans une salle d’écho prolongé sous la Cryo-Voûte."],
+      "prix_par_personne": 250
+    },
+    {
+      "id": "SPO2",
+      "activités": ["Codex gelé"],
+      "descriptif": ["Écriture libre dans un carnet thermique lisible uniquement par températures négatives."],
+      "prix_par_personne": 250
+    },
+    {
+      "id": "SPO3",
+      "activités": ["Chant des survivants"],
+      "descriptif": ["Vocalises guidées dans une grotte acoustique, enregistrées sur cristal audio."],
+      "prix_par_personne": 250
+    },
+    {
+      "id": "GAZ1",
+      "activités": ["Course des remparts"],
+      "descriptif": ["Parcours chronométré sur passerelles métalliques suspendues."],
+      "prix_par_personne": 310
+    },
+    {
+      "id": "GAZ2",
+      "activités": ["Chambre de frappe"],
+      "descriptif": ["Entraînement intensif aux gestes de percussion, sans contact."],
+      "prix_par_personne": 310
+    },
+    {
+      "id": "GAZ3",
+      "activités": ["Rite de la tension"],
+      "descriptif": ["Posture de maintien prolongé dans une pièce de gravité oscillante."],
+      "prix_par_personne": 310
+    },
+    {
+      "id": "CRO1",
+      "activités": ["Exploration encadrée"],
+      "descriptif": ["Progression lente dans les galeries effondrées avec balise individuelle."],
+      "prix_par_personne": 280
+    },
+    {
+      "id": "CRO2",
+      "activités": ["Décryptage spectral"],
+      "descriptif": ["Analyse de symboles muraux et essais d’interprétation collective."],
+      "prix_par_personne": 280
+    },
+    {
+      "id": "CRO3",
+      "activités": ["Serment de nuit"],
+      "descriptif": ["Cérémonie nocturne de silence autour d’un brasero à faisceau."],
+      "prix_par_personne": 280
+    },
+    {
+      "id": "STA1",
+      "activités": ["Marche d’isolement"],
+      "descriptif": ["Sortie en solitaire sur 8km balisés, sans liaison vocale."],
+      "prix_par_personne": 295
+    },
+    {
+      "id": "STA2",
+      "activités": ["Récit à la flamme"],
+      "descriptif": ["Chaque participant raconte un souvenir devant les autres, en cercle clos."],
+      "prix_par_personne": 295
+    },
+    {
+      "id": "STA3",
+      "activités": ["Offrande de pierre"],
+      "descriptif": ["Dépôt d’un objet personnel sculpté à la main dans l’autel de givre."],
+      "prix_par_personne": 295
+    },    
+    {
+      "id": "ELE1",
+      "activités": ["Bain de braise"],
+      "descriptif": ["Station d’immersion sèche dans une cavité thermique à cristaux chauffés."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "ELE2",
+      "activités": ["Trace noire"],
+      "descriptif": ["Dessin au charbon sur plaque céramique, fondu dans le four central."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "ELE3",
+      "activités": ["Repos de pierre"],
+      "descriptif": ["Sieste guidée sur dalle volcanique vibrante, sans son, sans lumière."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "RAG1",
+      "activités": ["Marche en cercle"],
+      "descriptif": ["Progression lente sur anneau brûlant, chacun à son rythme."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "RAG2",
+      "activités": ["Souffle libre"],
+      "descriptif": ["Exercices respiratoires autour d’une cheminée thermale active."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "RAG3",
+      "activités": ["Frappe unique"],
+      "descriptif": ["Chaque voyageur forge un outil simple, en un seul coup de marteau."],
+      "prix_par_personne": 240
+    },
+    {
+      "id": "SPI1",
+      "activités": ["Chute contrôlée"],
+      "descriptif": ["Descente encadrée dans un harnais gravimétrique jusqu’au centre de la cavité."],
+      "prix_par_personne": 280
+    },
+    {
+      "id": "SPI2",
+      "activités": ["Chant de cendre"],
+      "descriptif": ["Vocalisation prolongée dans une salle d’écho thermique."],
+      "prix_par_personne": 280
+    },
+    {
+      "id": "SPI3",
+      "activités": ["Encoche de mémoire"],
+      "descriptif": ["Incision rituelle sur paroi basaltique, contenant un symbole personnel."],
+      "prix_par_personne": 280
+    },
+    
+
+    {
+      "id": "RAZ1",
+      "activités": ["Masterclass gravité zéro"],
+      "descriptif": ["Avec instructeur orbital certifié, découvrez les transitions du sol vers l’air, puis vers l’immobilité."],
+      "prix_par_personne": 1850
+    },
+    {
+      "id": "RAZ2",
+      "activités": ["Salle d’ancrage miroir"],
+      "descriptif": ["Entraînement personnalisé avec correction posturale projetée à 360°."],
+      "prix_par_personne": 1850
+    },
+    {
+      "id": "RAZ3",
+      "activités": ["Bain flottant chromatique"],
+      "descriptif": ["Bassin hémisphérique infusé de lumières lentes et sons internes, conçu pour la réintégration du souffle."],
+      "prix_par_personne": 1850
+    },
+    {
+      "id": "SPI4",
+      "activités": ["Danse inertielle"],
+      "descriptif": ["Combinaison d’impulsions vectorielles, sous contrôle IA, pour travailler fluidité et réaction."],
+      "prix_par_personne": 2150
+    },
+    {
+      "id": "SPI5",
+      "activités": ["Tracés dynamiques"],
+      "descriptif": ["Pistes interactives où chaque geste déclenche une note ou une lumière."],
+      "prix_par_personne": 2150
+    },
+    {
+      "id": "SPI6",
+      "activités": ["Echo-holo"],
+      "descriptif": ["Vos mouvements sont enregistrés et transformés en sculpture lumineuse animée, projetée en orbite privée."],
+      "prix_par_personne": 2150
+    },
+    {
+      "id": "GAZ4",
+      "activités": ["Marche responsive"],
+      "descriptif": ["Sentier flottant dont la surface change selon votre rythme."],
+      "prix_par_personne": 1450
+    },
+    {
+      "id": "GAZ5",
+      "activités": ["Projection gestuelle immersive"],
+      "descriptif": ["Chaque mouvement crée un motif en réalité augmentée dans une salle obscure à fleur de sol."],
+      "prix_par_personne": 1450
+    },
+    {
+      "id": "GAZ6",
+      "activités": ["Session miroir à deux"],
+      "descriptif": ["Un autre corps, une autre cadence, un espace partagé sans contact. Luxueux, sobre, et inoubliable."],
+      "prix_par_personne": 1450
+    },
+    {
+      "id": "MAL1",
+      "activités": ["Repos total"],
+      "descriptif": ["Alcôves d’isolement ajustables au bruit, à la lumière et à la température."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "MAL2",
+      "activités": ["Massage structurel"],
+      "descriptif": ["Soin corporel par pression automatique ciblée, en gravité faible."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "MAL3",
+      "activités": ["Lecture horizontale"],
+      "descriptif": ["Bibliothèque flottante en lit incliné, avec assistant de page à reconnaissance oculaire."],
+      "prix_par_personne": 260
+    },
+    {
+      "id": "FRI1",
+      "activités": ["Hamac dynamique"],
+      "descriptif": ["Filets tendus en orbite douce, adaptés à la respiration."],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "FRI2",
+      "activités": ["Infusion lente"],
+      "descriptif": ["Dégustation d’infusions tièdes sur table en lévitation."],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "FRI3",
+      "activités": ["Sieste musicale"],
+      "descriptif": ["Pièce sonore minimale, avec pulsations douces et nappes de flûte synthétique."],
+      "prix_par_personne": 180
+    },
+    {
+      "id": "KNO1",
+      "activités": ["Table vide"],
+      "descriptif": ["Espace de tri, d’écriture ou de classement d’idées."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "KNO2",
+      "activités": ["Marche carrée"],
+      "descriptif": ["Promenade sur chemin modulaire à quatre côtés, en boucle lente."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "KNO3",
+      "activités": ["Coffre de fin"],
+      "descriptif": ["Chaque participant repart avec une boîte contenant un objet utile qu’il a choisi, plié, et validé."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "TÅS1",
+      "activités": ["Veille du matin"],
+      "descriptif": ["Écoute guidée du silence dans un fauteuil chauffant orienté plein est."],
       "prix_par_personne": 140
     },
     {
-      "id": "OPT42",
-      "activités": ["randonnées futuristes"],
+      "id": "TÅS2",
+      "activités": ["Cuisine de saison"],
+      "descriptif": ["Préparation participative de plats simples à base de racines, d’algues et de graines locales."],
+      "prix_par_personne": 140
+    },
+    {
+      "id": "TÅS3",
+      "activités": ["Écriture verticale"],
+      "descriptif": ["Prise de note suspendue, en position debout face à une paroi claire."],
+      "prix_par_personne": 140
+    },
+    {
+      "id": "LAP1",
+      "activités": ["Marche filaire"],
+      "descriptif": ["Promenade silencieuse, seul ou en binôme, sur un sentier en fibre tissée réactive, dont le sol varie selon la fréquence des pas."],
       "prix_par_personne": 110
     },
     {
-      "id": "OPT43",
-      "activités": ["végétaux aliens"],
-      "prix_par_personne": 70
+      "id": "LAP2",
+      "activités": ["Cabane de laine"],
+      "descriptif": ["Petit abri où l’on entre seul pour dessiner ou écrire, dans une lumière filtrée."],
+      "prix_par_personne": 110
     },
     {
-      "id": "OPT44",
-      "activités": ["conférences écolos"],
-      "prix_par_personne": 50
+      "id": "LAP3",
+      "activités": ["Pause élémentaire"],
+      "descriptif": ["Dégustation lente d’un plat froid, d’une boisson chaude, et d’un silence tempéré."],
+      "prix_par_personne": 110
+    },
+    {
+      "id": "SKO1",
+      "activités": ["Lecture suspendue"],
+      "descriptif": ["Lecture à voix basse sur plateforme mobile entre deux troncs dans la forêt suspendue."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "SKO2",
+      "activités": ["Mouvement lent"],
+      "descriptif": ["Pratique guidée du relâchement musculaire et articulaire, en gravité partielle."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "SKO3",
+      "activités": ["Lanterne mémoire"],
+      "descriptif": ["Chaque participant éclaire un petit objet personnel dans une lanterne de verre, laissée dans la canopée."],
+      "prix_par_personne": 130
+    },
+    {
+      "id": "RAM1",
+      "activités": ["Séquences vectorielles"],
+      "descriptif": ["Séries de gestes codifiés dans une salle à gravité oscillante."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "RAM2",
+      "activités": ["Suspension rythmique"],
+      "descriptif": ["Exercices de maintien sur harnais souple en orbite lente."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "RAM3",
+      "activités": ["Récupération guidée"],
+      "descriptif": ["Programme de repos musculaire ciblé avec éclairage pulsé."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "LJU1",
+      "activités": ["Pente mobile"],
+      "descriptif": ["Montée et descente contrôlée sur sol incliné auto-ajustable."],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "LJU2",
+      "activités": ["Rotation continue"],
+      "descriptif": ["Module de pivot en appui libre, sous contrôle respiratoire."],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "LJU3",
+      "activités": ["Course flottante"],
+      "descriptif": ["Boucle de marche et course rapide en gravité réduite."],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "TUV1",
+      "activités": ["Circuit de transfert"],
+      "descriptif": ["Enchaînement libre entre plateformes à hauteurs variables."],
+      "prix_par_personne": 170
+    },
+    {
+      "id": "TUV2",
+      "activités": ["Grille de sauts"],
+      "descriptif": ["Plancher lumineux réactif aux impacts, avec séquences audio-guidées."],
+      "prix_par_personne": 170
+    },
+    {
+      "id": "TUV3",
+      "activités": ["Mur des gestes"],
+      "descriptif": ["Mur interactif projetant des formes à reproduire en rythme."],
+      "prix_par_personne": 170
+    },
+    {
+      "id": "SLA1",
+      "activités": ["Tracé guidé"],
+      "descriptif": ["Initiation à l’encre liquide sur support lisse, en silence total."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "SLA2",
+      "activités": ["Module d’épure"],
+      "descriptif": ["Composition d’images avec formes basiques, encadrée par une IA esthétique."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "SLA3",
+      "activités": ["Pause lumineuse"],
+      "descriptif": ["Moment de repos allongé sous un puits de lumière naturelle stabilisée."],
+      "prix_par_personne": 210
+    },
+    {
+      "id": "AKE1",
+      "activités": ["Sculpture manuelle"],
+      "descriptif": ["Taille libre d’un bloc de grès synthétique, sans outils mécaniques."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "AKE2",
+      "activités": ["Atelier du geste"],
+      "descriptif": ["Reproduction en argile de formes dictées par la mémoire sensorielle."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "AKE3",
+      "activités": ["Réalité fixe"],
+      "descriptif": ["Projection d’une œuvre figée dans un espace clos, à contempler seul."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "KNO4",
+      "activités": ["Marche contemplative"],
+      "descriptif": ["Lente traversée des cercles intérieurs, chaque pas ajustant la lumière ambiante."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "KNO5",
+      "activités": ["Œuvre laissée"],
+      "descriptif": ["Contribution personnelle sous forme de son, de mot, ou de forme, intégrée au cycle suivant."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "KNO6",
+      "activités": ["Archivage muet"],
+      "descriptif": ["Impression d’une trace personnelle sur feuille translucide, remise dans un coffret scellé."],
+      "prix_par_personne": 160
+    },
+    {
+      "id": "LJU4",
+      "activités": ["Marche de silence"],
+      "descriptif": ["Boucle courte à réaliser seul, chaque matin, sans distraction."],
+      "prix_par_personne": 220
+    },
+    {
+      "id": "LJU5",
+      "activités": ["Chambre flottante"],
+      "descriptif": ["Espace de repos en apesanteur partielle, lumière fixe, température constante."],
+      "prix_par_personne": 220
+    },
+    {
+      "id": "LJU6",
+      "activités": ["Journal manuel"],
+      "descriptif": ["Carnet physique à compléter à la main, sans écran ni consigne."],
+      "prix_par_personne": 220
+    },
+    {
+      "id": "MAL4",
+      "activités": ["Repas individuel"],
+      "descriptif": ["Menu simple servi à heure fixe, sans dialogue."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "MAL5",
+      "activités": ["Écoute isolée"],
+      "descriptif": ["Espace audio avec sélection de sons lents, choisis à l’aveugle."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "MAL6",
+      "activités": ["Objet à assembler"],
+      "descriptif": ["Kit personnel à construire seul, sans notice, à emporter à la fin du séjour."],
+      "prix_par_personne": 190
+    },
+    {
+      "id": "RAM4",
+      "activités": ["Présence croisée"],
+      "descriptif": ["Vous êtes deux, assis l’un en face de l’autre, sans consigne."],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "RAM5",
+      "activités": ["Geste choisi"],
+      "descriptif": ["Chacun pose un objet sur la table centrale, sans échange verbal."],
+      "prix_par_personne": 200
+    },
+    {
+      "id": "RAM6",
+      "activités": ["Sortie commune"],
+      "descriptif": ["Vous pouvez quitter la pièce ensemble ou séparément, selon votre choix."],
+      "prix_par_personne": 200
     }
   ]
 }
