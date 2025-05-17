@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', function () {
         else if (value < 0) value = 0;
 
         span.textContent = value;
+
         updateResume();
+        updateHiddenInputs();
     }
 
     // Mettre à jour le résumé
@@ -51,6 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('resume').textContent = resumeText;
     }
 
+    // Mettre à jour les champs hidden du formulaire
+    function updateHiddenInputs() {
+        document.getElementById('adultes-input').value = document.getElementById('adultes').textContent;
+        document.getElementById('enfants-input').value = document.getElementById('enfants').textContent;
+        document.getElementById('bebes-input').value = document.getElementById('bebe').textContent;
+    }
+
     // Initialisation au chargement
     updateResume();
+    updateHiddenInputs();
 });

@@ -36,8 +36,20 @@ if (isset($_SESSION['email'])) {
 }
 
 $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
-$voyages = $voyages_data['voyages'] ?? [];
+$voyages_all = $voyages_data['voyages'] ?? [];
+
 $searchQuery = strtolower($_GET['search'] ?? '');
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$voyagesParPage = 10;
+
+$voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery) {
+    return $searchQuery === '' || stripos($voyage['titre'], $searchQuery) !== false;
+});
+
+$totalVoyages = count($voyagesFiltres);
+$totalPages = max(1, ceil($totalVoyages / $voyagesParPage));
+$debut = ($page - 1) * $voyagesParPage;
+$voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +57,8 @@ $searchQuery = strtolower($_GET['search'] ?? '');
 <head>
     <title>A.L.I.X.</title>
     <meta charset="UTF-8">
-    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
-	<script src="../js/theme.js" defer></script><!---->
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" />
+    <script src="../js/theme.js" defer></script>
     <script src="../js/voyager.js"></script>
 </head>
 <body>
@@ -75,10 +87,10 @@ $searchQuery = strtolower($_GET['search'] ?? '');
                 <?php endif; ?>
             <?php endif; ?>
             <li>|</li>
-			<button id="theme-switch">Mode jour/nuit</button><!---->
+            <button id="theme-switch">Mode jour/nuit</button>
         </ul>
         <a href="user.php">
-            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+            <img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
         </a>
     </div>
     
@@ -86,18 +98,19 @@ $searchQuery = strtolower($_GET['search'] ?? '');
     <div class="espace-voyager"></div>
 
     <section class="flight">
-<form method="get" action="voyager.php" class="search-bar">
-    <input type="text" name="search" placeholder="Rechercher une destination..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
-    <button type="submit">Rechercher</button>
-</form>    
+        <form method="get" action="voyager.php" class="search-bar">
+            <input type="text" name="search" placeholder="Rechercher une destination..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+            <button type="submit">Rechercher</button>
+        </form>    
+
         <form id="voyage-form" action="selection_option.php" method="POST">
             <div class="flight-inputs">
                 <label for="voyage-select">Sélectionner un voyage :</label>
                 <select name="voyage-id" id="voyage-select" required>
                     <option value="">Choisir un voyage</option>
                     <?php foreach ($voyages_data['voyages'] as $voyage): ?>
-                        <option value="<?php echo htmlspecialchars($voyage['id']); ?>">
-                            <?php echo htmlspecialchars($voyage['titre']); ?> (<?php echo htmlspecialchars($voyage['prix']); ?>€)
+                        <option value="<?= htmlspecialchars($voyage['id']); ?>">
+                            <?= htmlspecialchars($voyage['titre']); ?> (<?= htmlspecialchars($voyage['prix']); ?>€)
                         </option>
                     <?php endforeach; ?>
                 </select>
@@ -142,61 +155,72 @@ $searchQuery = strtolower($_GET['search'] ?? '');
                     </div>
                 </div>
             </div>
-            
+
             <input type="checkbox" id="no-escale" name="no-escale">
             <label for="no-escale">Sans escale</label> 
-            
+
             <div class="flight-class">
                 <button type="button" class="class-btn active" data-class="economy">Economy Class</button>
                 <button type="button" class="class-btn" data-class="business">Business Class</button>
                 <button type="button" class="class-btn" data-class="first">First Class</button>
                 <input type="hidden" name="flight-class" id="flight-class" value="economy">
             </div>
-            
+
+            <input type="hidden" name="adultes" id="adultes-input" value="1">
+            <input type="hidden" name="enfants" id="enfants-input" value="0">
+            <input type="hidden" name="bebes" id="bebes-input" value="0">
+
             <button type="submit" class="submit">Choisir les options</button>
         </form>
     </section>
+
     <div class="results-container">
-    <h2>Voyages disponibles</h2>
-    <?php
-    $hasResult = false;
-    ?>
-        <?php
-        $motCle = $_GET['search'] ?? '';
-        $found = false;
+        <h2>Voyages disponibles</h2>
+        <?php if (empty($voyages)): ?>
+            <p class="no-result">Aucune destination ne correspond à votre recherche.</p>
+        <?php else: ?>
+            <?php foreach ($voyages as $voyage): ?>
+                <?php
+                    $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
+                    if (!file_exists($imagePath)) {
+                        $imagePath = "../php/map/images/Mars.png";
+                    }
+                ?>
+                <div class="result">
+                    <img src="<?= $imagePath ?>" alt="planète" class="carte-planete">
+                    <h3><?= htmlspecialchars($voyage['titre']) ?></h3>
+                    <p><?= nl2br(htmlspecialchars(substr($voyage['contenu_complet'], 0, 400))) ?>...</p>
+                    <form method="post" action="selection_option.php">
+                        <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage['id']) ?>">
+                        <input type="hidden" name="date-voyage" value="<?= date('Y-m-d') ?>">
+                        <input type="hidden" name="date-arrivee" value="<?= date('Y-m-d', strtotime('+7 days')) ?>">
+                        <input type="hidden" name="adultes" value="1">
+                        <input type="hidden" name="enfants" value="0">
+                        <input type="hidden" name="bebes" value="0">
+                        <input type="hidden" name="flight-class" value="economy">
+                        <button type="submit" class="search-btn">Voir ce voyage</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
 
-        foreach ($voyages as $voyage) {
-            if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
-            $found = true;
-        if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
-        $hasResult = true;
-            if ($motCle && stripos($voyage['titre'], $motCle) === false) continue;
-
-            $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
-            if (!file_exists($imagePath)) {
-                $imagePath = "../php/map/images/Mars.png";
-            }
-
-            echo "<div class='result'>";
-            echo "<img src='" . $imagePath . "' alt='planète' class='carte-planete'>";
-            echo "<h3>" . htmlspecialchars($voyage['titre']) . "</h3>";
-            echo "<p>" . nl2br(htmlspecialchars(substr($voyage['contenu_complet'], 0, 400))) . "...</p>";
-            echo "<form method='post' action='selection_option.php'>";
-            echo "<input type='hidden' name='voyage-id' value='" . htmlspecialchars($voyage['id']) . "'>";
-            echo "<input type='hidden' name='date-voyage' value='" . date('Y-m-d') . "'>";
-            echo "<input type='hidden' name='date-arrivee' value='" . date('Y-m-d', strtotime('+7 days')) . "'>";
-            echo "<input type='hidden' name='adultes' value='1'>";
-            echo "<input type='hidden' name='enfants' value='0'>";
-            echo "<input type='hidden' name='bebes' value='0'>";
-            echo "<input type='hidden' name='flight-class' value='economy'>";
-            echo "<button type='submit' class='search-btn'>Voir ce voyage</button>";
-            echo "</form>";
-            echo "</div>";
-        }
-        ?>
-    <?php if (!$found): ?>
-    <p class="no-result">Aucune destination ne correspond à votre recherche.</p>
-<?php endif; ?>
+            <!-- PAGINATION -->
+            <div class="pagination" style="text-align:center;margin-top:20px;">
+                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <?php
+                        $params = $_GET;
+                        $params['page'] = $i;
+                        $url = 'voyager.php?' . http_build_query($params);
+                    ?>
+                    <a href="<?= htmlspecialchars($url) ?>"
+                       style="display:inline-block;margin:0 5px;padding:6px 12px;border-radius:4px;
+                              background-color:<?= $i === $page ? '#666' : '#444' ?>;
+                              color:white;text-decoration:none;">
+                        <?= $i ?>
+                    </a>
+                <?php endfor; ?>
+            </div>
+        <?php endif; ?>
+    </div>
 
     <div class="espace-bottom-voyager"></div>
     <div class="bottom">
