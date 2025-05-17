@@ -1,7 +1,8 @@
 <?php
 session_start();
+$isLoggedIn = isset($_SESSION['email']);
 
-// Gestion de la déconnexion
+// Déconnexion
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: login.php");
@@ -14,85 +15,64 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
+// Chargement des données
 $json_file = "../json/utilisateurs.json";
-$json = file_get_contents($json_file);
-$data = json_decode($json, true);
+$data = json_decode(file_get_contents($json_file), true);
+if ($data === null) die("Erreur JSON");
 
-if ($data === null) {
-    die("Erreur lors de la lecture du JSON");
-}
-
-// Initialisation avec valeurs par défaut
-$nom = $prenom = $phone = $address = "";
-$email = $_SESSION['email'];
-$pp = "../img/default.png";
+// Initialisation
+$email_session = $_SESSION['email'];
 $isAdmin = false;
-$isLoggedIn = true;
+$pp = "../img/default.png";
+$utilisateur = null;
 
-// Recherche dans les admins d'abord
-foreach ($data["admin"] as $admin) {
-    if ($admin["email"] === $email) {
-        $nom = $admin["nom"];
-        $prenom = $admin["prenom"];
-        $phone = $admin["phone"];
-        $address = $admin["address"];
-        $pp = $admin["pp"];
+// Recherche de l'utilisateur
+foreach ($data["admin"] as &$admin) {
+    if ($admin["email"] === $email_session) {
+        $utilisateur = &$admin;
         $isAdmin = true;
         break;
     }
 }
-
-// Si pas admin, recherche dans les users
-if (empty($nom)) {
-    foreach ($data["user"] as $user) {
-        if ($user["email"] === $email) {
-            $nom = $user["nom"];
-            $prenom = $user["prenom"];
-            $phone = $user["phone"];
-            $address = $user["address"];
-            $pp = $user["pp"] ?? $pp;
+if (!$utilisateur) {
+    foreach ($data["user"] as &$user) {
+        if ($user["email"] === $email_session) {
+            $utilisateur = &$user;
             break;
         }
     }
 }
 
+// Si aucun utilisateur trouvé
+if (!$utilisateur) {
+    die("Utilisateur introuvable.");
+}
+
+// Initialisation des valeurs
+$nom = $utilisateur["nom"] ?? "";
+$prenom = $utilisateur["prenom"] ?? "";
+$email = $utilisateur["email"] ?? "";
+$phone = $utilisateur["phone"] ?? "";
+$address = $utilisateur["address"] ?? "";
+$pp = $utilisateur["pp"] ?? $pp;
+
 // Traitement du formulaire
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nom_complet = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $address = $_POST['address'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $nom = $_POST['nom'] ?? $nom;
+    $prenom = $_POST['prenom'] ?? $prenom;
+    $email = $_POST['email'] ?? $email;
+    $phone = $_POST['phone'] ?? $phone;
+    $address = $_POST['address'] ?? $address;
 
-    $nomPrenom = explode(' ', trim($nom_complet), 2);
-    $nom = $nomPrenom[0];
-    $prenom = $nomPrenom[1];
+    $utilisateur["nom"] = $nom;
+    $utilisateur["prenom"] = $prenom;
+    $utilisateur["email"] = $email;
+    $utilisateur["phone"] = $phone;
+    $utilisateur["address"] = $address;
 
-    foreach ($data["user"] as &$user) {
-        if ($user["email"] === $_SESSION['email']) {
-            $user["nom"] = $nom;
-            $user["prenom"] = $prenom;
-            $user["phone"] = $phone;
-            $user["address"] = $address;
-            $user["email"] = $email;
-            $_SESSION['email'] = $email;
-            break;
-        }
-    }
-    
-    if ($isAdmin) {
-        foreach ($data["admin"] as &$admin) {
-            if ($admin["email"] === $_SESSION['email']) {
-                $admin["nom"] = $nom;
-                $admin["prenom"] = $prenom;
-                $admin["phone"] = $phone;
-                $admin["address"] = $address;
-                $admin["email"] = $email;
-                break;
-            }
-        }
-    }
+    $_SESSION['email'] = $email;
 
-    file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
+    file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     header("Location: user.php");
     exit();
 }
@@ -105,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>A.L.I.X.</title>
     <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
+    <script src="../js/modification_profil.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -147,24 +128,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="image" src="<?php echo htmlspecialchars($pp); ?>" class="profil-img">
             <h2>Mon Profil</h2>
             
-            <form method="POST" action="user.php">
-                <div class="form-group">
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($nom . ' ' . $prenom); ?>" required>
+            <form method="POST" action="user.php" id="form-profil">
+                <div class="form-group champ-modifiable">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>" disabled required>
+                    <button type="button" class="btn-editer" data-champ="nom">✏️</button>
+                    <button type="button" class="btn-valider" data-champ="nom" style="display: none;">✅</button>
+                    <button type="button" class="btn-annuler" data-champ="nom" style="display: none;">❌</button>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group champ-modifiable">
+                    <label for="prenom">Prénom :</label>
+                    <input type="text" id="prenom" name="prenom" value="<?php echo htmlspecialchars($prenom); ?>" disabled required>
+                    <button type="button" class="btn-editer" data-champ="prenom">✏️</button>
+                    <button type="button" class="btn-valider" data-champ="prenom" style="display: none;">✅</button>
+                    <button type="button" class="btn-annuler" data-champ="prenom" style="display: none;">❌</button>
+                </div>
+
+                <div class="form-group champ-modifiable">
                     <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
+                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" disabled required>
+                    <button type="button" class="btn-editer" data-champ="email">✏️</button>
+                    <button type="button" class="btn-valider" data-champ="email" style="display: none;">✅</button>
+                    <button type="button" class="btn-annuler" data-champ="email" style="display: none;">❌</button>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group champ-modifiable">
                     <label for="phone">Tél :</label>
-                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>">
+                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>" disabled>
+                    <button type="button" class="btn-editer" data-champ="phone">✏️</button>
+                    <button type="button" class="btn-valider" data-champ="phone" style="display: none;">✅</button>
+                    <button type="button" class="btn-annuler" data-champ="phone" style="display: none;">❌</button>
                 </div>
-                <div class="form-group">
+
+                <div class="form-group champ-modifiable">
                     <label for="address">Adresse :</label>
-                    <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>">
+                    <input type="text" id="address" name="address" value="<?php echo htmlspecialchars($address); ?>" disabled>
+                    <button type="button" class="btn-editer" data-champ="address">✏️</button>
+                    <button type="button" class="btn-valider" data-champ="address" style="display: none;">✅</button>
+                    <button type="button" class="btn-annuler" data-champ="address" style="display: none;">❌</button>
                 </div>
-                <button type="submit" class="btn-submit">Mettre à jour</button>
+
+                <button type="submit" class="btn-submit" id="bouton-soumettre" style="display: none;">Soumettre les modifications</button>
                 <a href="?logout=1" class="btn-logout">Se déconnecter</a>
             </form>
         </section>

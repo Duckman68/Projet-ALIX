@@ -83,7 +83,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<title>A.L.I.X.</title>
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
-    <script src="../js/validation_connexion.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -120,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         	unset($_SESSION['erreur']);
     	}
     	?>
-        <form id="form-connexion" action="connexion.php" method="POST">
+        <form id="form-connexion" action="login.php" method="POST">
             <div id="erreurs" class="error-message"></div>
 
             <div class="form-group">
