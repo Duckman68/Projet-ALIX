@@ -1145,7 +1145,7 @@ section.singup h1 {
 
 .selection-logement {
     display: block;
-    width: 250px; /* Ajuste la largeur selon tes besoins */
+    width: 250px; 
     cursor: pointer;
     border-radius: 10px;
     overflow: hidden;
@@ -1193,8 +1193,8 @@ section.singup h1 {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin: 30px auto; /* Centre horizontalement et ajoute un espace en haut */
-    display: block; /* Pour le centrer correctement */
+    margin: 30px auto; 
+    display: block; 
     text-align: center;
 }
 
@@ -1206,55 +1206,12 @@ section.singup h1 {
 
 /*selection option*/
 
-table.option{
-    margin:auto;
-}
 
-.options-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto; 
-    gap: 20px;
-    padding: 15px 0;
-    margin-bottom: 30px;
-}
-
-.option-card {
-    flex: 0 0 auto;
-    width: 280px;
-    background: rgba(204, 230, 255, 0.7);
-    border-radius: 8px;
-    padding: 15px;
-    transition: transform 0.3s ease;
-}
-
-.option-card input[type="checkbox"] {
-    display: none;
-}
-
-.option-card input[type="checkbox"]:checked + .option-content {
-    border: 2px solid #00ffff;
-    background: rgba(0, 100, 100, 0.3);
-}
-
-.option-content {
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 100%;
-}
-
-.etape-container h2 {
-    color: rgb(46, 0, 70);
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.options-container {
+table.option {
+    margin: auto;
+  }
+  
+  .options-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -1262,47 +1219,84 @@ table.option{
     padding: 15px 0;
     margin: 0 auto 30px;
     max-width: 1200px;
-}
-
-.option-card {
-    flex: 0 0 280px;
-    background: rgba(204, 230, 255, 0.7);
-    border-radius: 8px;
-    padding: 15px;
-    transition: transform 0.3s ease;
-    margin: 10px;
-}
-
-.etape-container {
+    overflow-x: auto;
+  }
+  
+  .etape-container {
     text-align: center;
     margin: 0 auto;
     max-width: 1200px;
     padding: 20px;
-}
-
-.options-container::-webkit-scrollbar {
+  }
+  
+  .etape-container h2 {
+    color: #00ffff;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+  }
+  
+  /* Plus de border sur .option-card */
+  .option-card {
+    flex: 0 0 280px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    padding: 0;        /* Le padding passe maintenant sur .option-content */
+    margin: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  /* On cache toujours la checkbox native */
+  .option-card input[type="checkbox"] {
     display: none;
-}
-
-.option-content {
+  }
+  
+  /* Le « wrapper » du contenu porte désormais la bordure */
+  .option-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    height: 100%;
     padding: 15px;
-}
-
-.option-details h3 {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-.price {
+    border: 2px solid transparent;   /* bordure par défaut invisible */
+    border-radius: 8px;
+    transition: border-color 0.3s ease,
+                background 0.3s ease;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Survol de la carte → bordure turquoise */
+  .option-card:hover .option-content {
+    border-color: #00ffff;
+  }
+  
+  /* Option cochée → même border + fond coloré */
+  .option-card input[type="checkbox"]:checked + .option-content {
+    border-color: #000000;
+    background: rgba(0, 255, 255, 0.3);
+  }
+  
+  .option-descriptif {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #fff;
+  }
+  
+  .price {
+    margin-top: 0.5rem;
     font-weight: bold;
     color: #00ffff;
     font-size: 1.2em;
-}
+  }
+  
+  .options-container::-webkit-scrollbar {
+    display: none;
+  }
+  
 
 /*Recapitulatif*/
 .corps-recap {

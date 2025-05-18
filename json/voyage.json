@@ -87,7 +87,7 @@
     "titre": "Élyär",
     "dates": { "debut": "2400-06-30", "fin": "2400-07-08", "duree_jours": 9 },
     "recurence": "5 ans",
-    "etapes": ["ETAPE28","ETAPE27","ETAPE22"],
+    "etapes": ["ETAPE28","ETAPE27.1","ETAPE22.1"],
     "prix": 12800,
     "camp_de_base": "RAZMO — Pavillon Aérien de Lumea"
   },
@@ -123,7 +123,7 @@
     "titre": "Esthün",
     "dates": { "debut": "2400-10-20", "fin": "2400-10-29", "duree_jours": 10 },
     "recurence": "4 ans",
-    "etapes": ["ETAPE38","ETAPE39","ETAPE31"],
+    "etapes": ["ETAPE38","ETAPE39","ETAPE31.1"],
     "prix": 2700,
     "camp_de_base": "SLATTIKA — Pavillon Blanc"
   },
@@ -132,7 +132,7 @@
     "titre": "Alene",
     "dates": { "debut": "2400-11-10", "fin": "2400-11-19", "duree_jours": 10 },
     "recurence": "6 ans",
-    "etapes": ["ETAPE36","ETAPE29","ETAPE35"],
+    "etapes": ["ETAPE36.1","ETAPE29.1","ETAPE35.1"],
     "prix": 2500,
     "camp_de_base": "LJUNGSBRO — Module Iskaar"
   }

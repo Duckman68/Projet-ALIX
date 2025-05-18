@@ -211,7 +211,15 @@
       "titre": "Gazorpazorp",
       "systeme": "Système Tou-Doom",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["GAZ1", "GAZ2", "GAZ3", "GAZ4", "GAZ5", "GAZ6"],
+      "options": ["GAZ1", "GAZ2", "GAZ3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE22.1",
+      "titre": "Gazorpazorp",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["GAZ4", "GAZ5", "GAZ6"],
       "personnes": []
     },
     {
@@ -251,7 +259,15 @@
       "titre": "Spinjitsu",
       "systeme": "Système Tou-Doom",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["SPI1", "SPI2", "SPI3", "SPI4", "SPI5", "SPI6"],
+      "options": ["SPI1", "SPI2", "SPI3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE27.1",
+      "titre": "Spinjitsu",
+      "systeme": "Système Tou-Doom",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["SPI4", "SPI5", "SPI6"],
       "personnes": []
     },
     {
@@ -268,7 +284,15 @@
       "titre": "Malm",
       "systeme": "Système IKEA",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["MAL1", "MAL2", "MAL3", "MAL4", "MAL5", "MAL6"],
+      "options": ["MAL1", "MAL2", "MAL3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE29.1",
+      "titre": "Malm",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["MAL4", "MAL5", "MAL6"],
       "personnes": []
     },
     {
@@ -284,7 +308,15 @@
       "titre": "Knoxhult",
       "systeme": "Système IKEA",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["KNO1", "KNO2", "KNO3", "KNO4", "KNO5", "KNO6"],
+      "options": ["KNO1", "KNO2", "KNO3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE31.1",
+      "titre": "Knoxhult",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["KNO4", "KNO5", "KNO6"],
       "personnes": []
     },
     {
@@ -316,7 +348,15 @@
       "titre": "Ramsele",
       "systeme": "Système IKEA",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["RAM1", "RAM2", "RAM3", "RAM4", "RAM5", "RAM6"],
+      "options": ["RAM1", "RAM2", "RAM3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE35.1",
+      "titre": "Ramsele",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["RAM4", "RAM5", "RAM6"],
       "personnes": []
     },
     {
@@ -324,7 +364,15 @@
       "titre": "Ljungsbro",
       "systeme": "Système IKEA",
       "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
-      "options": ["LJU1", "LJU2", "LJU3", "LJU4", "LJU5", "LJU6"],
+      "options": ["LJU1", "LJU2", "LJU3"],
+      "personnes": []
+    },
+    {
+      "id": "ETAPE36.1",
+      "titre": "Ljungsbro",
+      "systeme": "Système IKEA",
+      "dates": { "depart": "", "arrivee": "", "duree_jours": 0 },
+      "options": ["LJU4", "LJU5", "LJU6"],
       "personnes": []
     },
     {
