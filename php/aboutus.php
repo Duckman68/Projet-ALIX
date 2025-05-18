@@ -75,6 +75,9 @@ if (isset($_SESSION['email'])) {
 				<?php endif; ?>
 			<?php endif; ?>
 			<li>|</li>
+			<li>
+                <a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a>
+            </li>
 			<button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
 		</ul>
 		<a href="user.php">

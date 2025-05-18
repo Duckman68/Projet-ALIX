@@ -62,8 +62,14 @@ if (isset($_POST['options'])) {
         }
     }
 
-    header("Location: recapitulatif.php");
-    exit();
+    if ($_POST['action'] === 'recapitulatif') {
+        header("Location: recapitulatif.php");
+        exit();
+    } elseif ($_POST['action'] === 'panier') {
+        $_SESSION['panier'][] = $_SESSION['current_voyage'];
+        header("Location: panier.php");
+        exit();
+    }
 }
 
 $pp = "../../img/default.png";
@@ -131,6 +137,9 @@ if (isset($_SESSION['email'])) {
                     <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
                 <?php endif; ?>
                 <li>|</li>
+                <li>
+                    <a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a>
+                </li>
 			    <button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
             </ul>
             <a href="../user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'"></a>
@@ -176,7 +185,8 @@ if (isset($_SESSION['email'])) {
             <?php endforeach; ?>
 
             <div class="form-actions">
-                <button type="submit" class="btn-envoyer">Voir le récapitulatif</button>
+                <button type="submit" name="action" value="recapitulatif" class="btn-envoyer">Voir le récapitulatif</button>
+                <button type="submit" name="action" value="panier" class="btn-panier">Ajouter au panier</button>
             </div>
         </form>
 

@@ -88,6 +88,9 @@ foreach ($voyage_data['options'] as $option) {
             <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
         <?php endif; ?>
         <li>|</li>
+        <li>
+            <a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a>
+        </li>
 		<button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
     </ul>
     <a href="user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'"></a>

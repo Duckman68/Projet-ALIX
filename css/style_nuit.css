@@ -1494,3 +1494,111 @@ table.option {
     background: #00ccff;
     transform: scale(1.05);
 }
+
+
+
+/*Panier*/
+section.panier {
+    margin: 50px auto;
+    max-width: 1000px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+}
+
+.panier-item {
+    background-color: rgba(255,255,255,0.07);
+    border: 1px solid #00ffff55;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-supprimer, .btn-ajouter-panier {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-supprimer {
+    background-color: #ff4444;
+    color: white;
+}
+.btn-supprimer:hover {
+    background-color: #cc0000;
+}
+
+.btn-ajouter-panier {
+    background-color: #00c896;
+    color: white;
+}
+.btn-ajouter-panier:hover {
+    background-color: #009b75;
+}
+
+.panier-vide {
+    background-color: rgba(255, 0, 0, 0.05);
+    color: white;
+    border: 1px solid red;
+    padding: 20px;
+    border-radius: 10px;
+}
+section.panier {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+}
+
+.panier-item {
+    background-color: rgba(255,255,255,0.07);
+    border: 1px solid #00ffff55;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.panier-item h3 {
+    color: #00ffff;
+}
+
+.btn-supprimer {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-supprimer:hover {
+    background-color: #cc0000;
+}
+
+.btn-ajouter-panier {
+    background-color: #00c896;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-ajouter-panier:hover {
+    background-color: #009b75;
+}
+
+.panier-vide {
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid red;
+}

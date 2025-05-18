@@ -1502,3 +1502,112 @@ table.option {
     background: #00ccff;
     transform: scale(1.05);
 }
+
+
+
+/*Panier*/
+section.panier {
+    margin: 50px auto;
+    max-width: 1000px;
+    background-color: #f4f9ff;
+    padding: 30px;
+    border-radius: 15px;
+    color: black;
+}
+
+.panier-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-supprimer, .btn-ajouter-panier {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-supprimer {
+    background-color: #ff4444;
+    color: white;
+}
+.btn-supprimer:hover {
+    background-color: #cc0000;
+}
+
+.btn-ajouter-panier {
+    background-color: #007acc;
+    color: white;
+}
+.btn-ajouter-panier:hover {
+    background-color: #005999;
+}
+
+.panier-vide {
+    background-color: #ffcccc;
+    color: black;
+    border: 1px solid red;
+    padding: 20px;
+    border-radius: 10px;
+}
+section.panier {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #f4f9ff;
+    padding: 30px;
+    border-radius: 15px;
+    color: black;
+}
+
+.panier-item {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.panier-item h3 {
+    color: #0077cc;
+}
+
+.btn-supprimer {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-supprimer:hover {
+    background-color: #cc0000;
+}
+
+.btn-ajouter-panier {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-ajouter-panier:hover {
+    background-color: #0077aa;
+}
+
+.panier-vide {
+    text-align: center;
+    background-color: #ffcccc;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid red;
+}
+
