@@ -997,6 +997,31 @@ section.singup h1 {
     transform: scale(1.05);
 }
 
+.champ-modifiable {
+    position: relative;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.champ-modifiable input {
+    flex: 1;
+}
+
+.champ-modifiable button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #00ffff;
+    transition: transform 0.2s;
+}
+
+.champ-modifiable button:hover {
+    transform: scale(1.2);
+}
+
 /* Page Admin */
 
 .admin-container {
