@@ -147,7 +147,7 @@ foreach ($voyage_data['options'] as $option) {
         <div class="action-buttons">
             <a href="selection_option.php" class="btn btn-modifier">Modifier le voyage</a>
             <?php if ($isLoggedIn): ?>
-                <a href="paiement.php" class="btn btn-confirmer">Confirmer et payer</a>
+                <a href="payment.php" class="btn btn-confirmer">Confirmer et payer</a>
             <?php else: ?>
                 <a href="login.php?redirect=recapitulatif" class="btn btn-confirmer">Se connecter pour payer</a>
             <?php endif; ?>

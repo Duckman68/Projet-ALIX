@@ -156,16 +156,6 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
                 </div>
             </div>
 
-            <input type="checkbox" id="no-escale" name="no-escale">
-            <label for="no-escale">Sans escale</label> 
-
-            <div class="flight-class">
-                <button type="button" class="class-btn active" data-class="economy">Economy Class</button>
-                <button type="button" class="class-btn" data-class="business">Business Class</button>
-                <button type="button" class="class-btn" data-class="first">First Class</button>
-                <input type="hidden" name="flight-class" id="flight-class" value="economy">
-            </div>
-
             <input type="hidden" name="adultes" id="adultes-input" value="1">
             <input type="hidden" name="enfants" id="enfants-input" value="0">
             <input type="hidden" name="bebes" id="bebes-input" value="0">
@@ -179,29 +169,42 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
         <?php if (empty($voyages)): ?>
             <p class="no-result">Aucune destination ne correspond à votre recherche.</p>
         <?php else: ?>
+        <div class="hotel-style-list">
             <?php foreach ($voyages as $voyage): ?>
-                <?php
-                    $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
-                    if (!file_exists($imagePath)) {
-                        $imagePath = "../php/map/images/Mars.png";
-                    }
-                ?>
-                <div class="result">
-                    <img src="<?= $imagePath ?>" alt="planète" class="carte-planete">
-                    <h3><?= htmlspecialchars($voyage['titre']) ?></h3>
-                    <p><?= nl2br(htmlspecialchars(substr($voyage['contenu_complet'], 0, 400))) ?>...</p>
-                    <form method="post" action="selection_option.php">
-                        <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage['id']) ?>">
-                        <input type="hidden" name="date-voyage" value="<?= date('Y-m-d') ?>">
-                        <input type="hidden" name="date-arrivee" value="<?= date('Y-m-d', strtotime('+7 days')) ?>">
-                        <input type="hidden" name="adultes" value="1">
-                        <input type="hidden" name="enfants" value="0">
-                        <input type="hidden" name="bebes" value="0">
-                        <input type="hidden" name="flight-class" value="economy">
-                        <button type="submit" class="search-btn">Voir ce voyage</button>
-                    </form>
-                </div>
-            <?php endforeach; ?>
+            <?php
+            $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
+            if (!file_exists($imagePath)) {
+                $imagePath = "../php/map/images/Mars.png";
+            }
+            ?>
+            <div class="voyage-card">
+                <img src="<?= $imagePath ?>" alt="planète" class="voyage-img">
+                <div class="voyage-details">
+    <h3><?= htmlspecialchars($voyage['titre']) ?></h3>
+    <div class="voyage-content">
+        <p class="voyage-desc">
+            <?= nl2br(substr($voyage['descriptif'], 0, 300)) ?>
+        </p>
+        <div class="voyage-meta">
+            <span class="price"><?= htmlspecialchars($voyage['prix']) ?> €</span>
+            <form method="post" action="selection_option.php">
+                <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage['id']) ?>">
+                <input type="hidden" name="date-voyage" value="<?= date('Y-m-d') ?>">
+                <input type="hidden" name="date-arrivee" value="<?= date('Y-m-d', strtotime('+7 days')) ?>">
+                <input type="hidden" name="adultes" value="1">
+                <input type="hidden" name="enfants" value="0">
+                <input type="hidden" name="bebes" value="0">
+                <button type="submit" class="btn-reserver">Réserver</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        <?php endforeach; ?>
+        </div>
+
 
             <!-- PAGINATION -->
             <div class="pagination" style="text-align:center;margin-top:20px;">
