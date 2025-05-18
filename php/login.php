@@ -51,8 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $user["login-date"] = $login_date;
             
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
-            
-            header("Location: user.php");
+            $redirectPage = $_SESSION['redirect_after_login'] ?? 'user.php';
+            unset($_SESSION['redirect_after_login']);
+            header("Location: $redirectPage");
             exit();
         }
     }
@@ -64,8 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $admin["login-date"] = $login_date;
             
             file_put_contents($json_file, json_encode($data, JSON_PRETTY_PRINT));
-            
-            header("Location: user.php");
+            $redirectPage = $_SESSION['redirect_after_login'] ?? 'user.php';
+            unset($_SESSION['redirect_after_login']);
+            header("Location: $redirectPage");
             exit();
         }
     }

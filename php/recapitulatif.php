@@ -6,6 +6,12 @@ $pp = "../img/default.png";
 $isLoggedIn = false;
 $isAdmin = false;
 
+if (!isset($_SESSION['email'])) {
+    $_SESSION['redirect_after_login'] = "recapitulatif.php";
+    header("Location: login.php");
+    exit();
+}
+
 if (isset($_SESSION['email'])) {
     $isLoggedIn = true;
     $json_file = "../json/utilisateurs.json";
@@ -140,7 +146,11 @@ foreach ($voyage_data['options'] as $option) {
 
         <div class="action-buttons">
             <a href="selection_option.php" class="btn btn-modifier">Modifier le voyage</a>
-            <a href="payment.php" class="btn btn-confirmer">Confirmer et payer</a>
+            <?php if ($isLoggedIn): ?>
+                <a href="paiement.php" class="btn btn-confirmer">Confirmer et payer</a>
+            <?php else: ?>
+                <a href="login.php?redirect=recapitulatif" class="btn btn-confirmer">Se connecter pour payer</a>
+            <?php endif; ?>
         </div>
     </div>
 </div>
