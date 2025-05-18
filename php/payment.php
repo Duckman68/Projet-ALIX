@@ -67,7 +67,7 @@ $control = md5($api_key . "#" . $transaction_id . "#" . $montant_formate . "#" .
     <div class="top">
         <div class="topleft">
             <a href="index.php">
-                <video class="logo" autoplay muted>
+                <video id="logo-video" class="logo" autoplay muted>
                     <source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
                 </video>
             </a>

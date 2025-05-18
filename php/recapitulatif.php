@@ -69,7 +69,7 @@ foreach ($voyage_data['options'] as $option) {
 <div class="top">
     <div class="topleft">
         <a href="index.php">
-            <video class="logo" autoplay muted><source src="../img/Logo-3-[cut](site).mp4" type="video/mp4"></video>
+            <video id="logo-video" class="logo" autoplay muted><source src="../img/Logo-3-[cut](site).mp4" type="video/mp4"></video>
         </a>
     </div>
     <ul>
@@ -82,7 +82,7 @@ foreach ($voyage_data['options'] as $option) {
             <?php if ($isAdmin): ?><li>|</li><li><a href="admin.php">Admin</a></li><?php endif; ?>
         <?php endif; ?>
         <li>|</li>
-			<button id="theme-switch">Mode jour/nuit</button><!---->
+		<button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
     </ul>
     <a href="user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'"></a>
 </div>

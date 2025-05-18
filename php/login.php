@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<div class="top">
 		<div class="topleft">
             <a href="index.php">
-				<video class="logo" autoplay muted>
+				<video id="logo-video" class="logo" autoplay muted>
 					<source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
 				</video>
 			</a>
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<li>|</li>
 			<li><a href="sign-up.php">Inscription</a></li>
             <li>|</li>
-			<button id="theme-switch">Mode jour/nuit</button><!---->
+			<button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
 		</ul>
 		<a href="user.php">
             <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">

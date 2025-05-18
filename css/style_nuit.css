@@ -8,6 +8,7 @@ body{
     text-align: center;
 	color: white;
     font-family: 'Aspirin', sans-serif;
+    background-color: black;
     overflow-x: hidden;
 }
 
@@ -33,6 +34,19 @@ div.top{
 	padding: 20px;
 	z-index: 10;
 }
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    color: inherit;
+}
+.theme-toggle:hover {
+    transform: scale(1.2);
+}
+
 div.topv2{
     display: flex;
 	width: 100%;
