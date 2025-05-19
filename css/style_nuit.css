@@ -167,66 +167,52 @@ div.bottom{
 	padding: 20px;
 }
 
-div.recherche {
-    position: relative;
-    top: 3vh;
-    width: 90%;
-    max-width: 900px;
-    height: 45px;
-    margin: 0 auto;
-    padding: 2px;
-    background-color: rgba(53, 15, 95, 0.85); /* Violet sombre avec transparence */
-    border: 1px solid rgba(0, 153, 255, 0.4); /* Bleu néon */
-    border-radius: 30px;
+.recherche {
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+.recherche input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 500px;
+    border: 1px solid rgba(0, 153, 255, 0.4);
+    border-right: none;
+    border-radius: 30px 0 0 30px;
+    outline: none;
+    background-color: rgba(53, 15, 95, 0.85);
+    color: white;
     backdrop-filter: blur(10px);
     box-shadow: 0 0 12px rgba(0, 153, 255, 0.2);
-    transition: box-shadow 0.3s ease;
-    z-index: 2;
 }
 
-div.recherche:hover {
-    box-shadow: 0 0 18px rgba(0, 153, 255, 0.4);
-}
-
-div.recherche input[type="text"] {
-    flex: 1;
-    height: 100%;
-    padding: 0 20px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1rem;
-    font-family: 'Segoe UI', sans-serif;
-    outline: none;
-}
-
-div.recherche input[type="text"]::placeholder {
+.recherche input[type="text"]::placeholder {
     color: rgba(255, 255, 255, 0.4);
     letter-spacing: 1px;
     font-size: 0.95rem;
 }
 
-div.recherche button {
-    height: 90%;
-    padding: 0 20px;
-    margin-right: 6px;
-    background: rgba(0, 153, 255, 0.2); /* Bleu semi-transparent */
+.recherche button {
+    padding: 10px 16px;
+    font-size: 16px;
+    background: rgba(0, 153, 255, 0.2);
     border: 1px solid rgba(0, 153, 255, 0.4);
-    border-radius: 25px;
+    border-radius: 0 30px 30px 0;
     color: white;
     cursor: pointer;
     font-weight: bold;
-    font-family: 'Segoe UI', sans-serif;
     text-transform: uppercase;
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-div.recherche button:hover {
+.recherche button:hover {
     background: rgba(0, 153, 255, 0.4);
     transform: scale(1.05);
 }
+
 
 
 
@@ -377,7 +363,6 @@ td.recherche{
 td.passager{
 	padding: 0px 10px;
 }
-
 
 
 .boutique td{

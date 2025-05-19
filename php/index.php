@@ -88,8 +88,10 @@ if (isset($_SESSION['email'])) {
 	<div class="en-tete"></div>
 	<div class="espace"></div>
 	<div class="recherche">
-    <input type="text" placeholder="Chercher une planète, un système">
-    	<button>Rechercher</button>
+    	<form action="recherche.php" method="GET" class="mini-recher">
+    		<input type="text" name="q" placeholder="Chercher une planète, un voyage" required>
+    		<button type="submit">Rechercher</button>
+		</form>
 	</div>
 
 	<div class="promotion">

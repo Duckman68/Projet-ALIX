@@ -1,0 +1,157 @@
+<?php
+session_start();
+$query = isset($_GET['q']) ? strtolower(trim($_GET['q'])) : '';
+
+$voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
+$etapes_data = json_decode(file_get_contents("../json/etapes.json"), true);
+
+$pp = "../img/default.png";
+$isLoggedIn = false;
+$isAdmin = false;
+
+if (isset($_SESSION['email'])) {
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+
+    if ($data !== null) {
+        $email = $_SESSION['email'];
+        foreach ($data["admin"] as $admin) {
+            if ($admin["email"] === $email) {
+                $isAdmin = true;
+                if (!empty($admin["pp"])) {
+                    $pp = $admin["pp"];
+                }
+                break;
+            }
+        }
+        if (!$isAdmin) {
+            foreach ($data["user"] as $user) {
+                if ($user["email"] === $email) {
+                    if (!empty($user["pp"])) {
+                        $pp = $user["pp"];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
+
+// Résultats
+$results = [];
+$matching_etape_ids = [];
+
+if ($etapes_data && isset($etapes_data['etapes'])) {
+    foreach ($etapes_data['etapes'] as $etape) {
+        if (stripos($etape['titre'], $query) !== false) {
+            $matching_etape_ids[] = $etape['id'];
+        }
+    }
+}
+
+if ($query && $voyages_data && isset($voyages_data['voyages'])) {
+    foreach ($voyages_data['voyages'] as $voyage) {
+        $matchTitre = stripos($voyage['titre'], $query) !== false;
+        $matchEtape = false;
+
+        foreach ($voyage['etapes'] as $etape_id) {
+            if (in_array($etape_id, $matching_etape_ids)) {
+                $matchEtape = true;
+                break;
+            }
+        }
+
+        if ($matchTitre || $matchEtape) {
+            $results[] = $voyage;
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de recherche</title>
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet">
+    <script src="../js/theme.js" defer></script>
+</head>
+<body>
+    <video class="fond" autoplay loop muted>
+        <source src="../img/video.mp4" type="video/mp4">
+    </video>
+
+    <div class="top">
+        <div class="topleft">
+            <a href="index.php">
+                <video id="logo-video" class="logo" autoplay muted>
+                    <source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
+                </video>
+            </a>
+        </div>
+        <ul>
+            <li><a href="aboutus.php">A propos</a></li>
+            <li>|</li>
+            <li><a href="voyager.php">Voyager</a></li>
+            <?php if (!$isLoggedIn): ?>
+                <li>|</li>
+                <li><a href="login.php">Connexion</a></li>
+                <li>|</li>
+                <li><a href="sign-up.php">Inscription</a></li>
+            <?php else: ?>
+                <?php if ($isAdmin): ?>
+                    <li>|</li>
+                    <li><a href="admin.php">Admin</a></li>
+                <?php endif; ?>
+            <?php endif; ?>
+            <li>|</li>
+            <li><a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a></li>
+            <button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
+        </ul>
+        <a href="user.php">
+            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+        </a>
+    </div>
+
+    <div class="espace"></div>
+
+    <div class="recherche">
+        <form action="recherche.php" method="GET" class="recherche">
+            <input type="text" name="q" placeholder="Chercher une planète, un voyage" required value="<?php echo htmlspecialchars($query); ?>">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+
+    <div class="flight">
+        <h1 style="text-align:center; margin-top: 40px;">Résultats pour "<?php echo htmlspecialchars($query); ?>"</h1>
+
+        <?php if (empty($results)): ?>
+            <p style="text-align:center;">Aucun voyage trouvé.</p>
+        <?php else: ?>
+            <ul style="list-style: none; padding: 0; max-width: 900px; margin: 30px auto;">
+                <?php foreach ($results as $voyage): ?>
+                    <li style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: white;">
+                        <h2><?php echo htmlspecialchars($voyage['titre']); ?></h2>
+                        <p><strong>Camp de base :</strong> <?php echo htmlspecialchars($voyage['camp_de_base']); ?></p>
+                        <p><strong>Prix :</strong> <?php echo htmlspecialchars($voyage['prix']); ?> crédits</p>
+                        <a href="voyager.php?id=<?php echo $voyage['id']; ?>" class="btn-reserver">Réserver</a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+
+    <div class="bottom">
+        <h1>Crédits</h1>
+        <div class="textebot">
+            <h2>Nassim</h2>
+            <h2>Atahan</h2>
+            <h2>Romain</h2>
+            <h2>Gabin</h2>
+        </div>
+    </div>
+</body>
+</html>

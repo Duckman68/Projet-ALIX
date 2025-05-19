@@ -111,8 +111,6 @@ foreach ($voyage_data['options'] as $option) {
                 </div>
                 <div>
                     <div class="detail-item"><span class="detail-label">Durée :</span><span class="detail-value"><?= $voyage_data['dates']['duree']; ?> jours</span></div>
-                    <div class="detail-item"><span class="detail-label">Classe :</span><span class="detail-value"><?= ucfirst($voyage_data['classe']); ?> Class</span></div>
-                    <div class="detail-item"><span class="detail-label">Sans escale :</span><span class="detail-value"><?= $voyage_data['sans_escale'] ? 'Oui' : 'Non'; ?></span></div>
                 </div>
             </div>
         </div>
