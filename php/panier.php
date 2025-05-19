@@ -1,27 +1,62 @@
 <?php
 session_start();
 
-// Redirection vers login si non connecté
-if (!isset($_SESSION['email'])) {
-    header("Location: login.php");
-    exit();
-}
+$isLoggedIn = false;
+$isAdmin = false;
+$pp = "../img/default.png";
 
-// Supprimer un voyage du panier
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer'])) {
-    $index = intval($_POST['supprimer']);
-    if (isset($_SESSION['panier'][$index])) {
-        unset($_SESSION['panier'][$index]);
-        $_SESSION['panier'] = array_values($_SESSION['panier']); // Réindexe
+// Connexion active
+if (isset($_SESSION['email'])) {
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+    $email = $_SESSION['email'];
+
+    foreach ($data["admin"] as $admin) {
+        if ($admin["email"] === $email) {
+            $isAdmin = true;
+            if (!empty($admin["pp"])) {
+                $pp = $admin["pp"];
+            }
+            break;
+        }
+    }
+    if (!$isAdmin) {
+        foreach ($data["user"] as $user) {
+            if ($user["email"] === $email && !empty($user["pp"])) {
+                $pp = $user["pp"];
+                break;
+            }
+        }
     }
 }
 
-// Accéder à un voyage pour paiement
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payer'])) {
-    $index = intval($_POST['payer']);
+// Initialisation du panier
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
+$panier = $_SESSION['panier'];
+
+// Suppression d’un élément
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'supprimer') {
+    $index = (int) $_POST['index'];
     if (isset($_SESSION['panier'][$index])) {
-        $_SESSION['current_voyage'] = $_SESSION['panier'][$index];
+        unset($_SESSION['panier'][$index]);
+        $_SESSION['panier'] = array_values($_SESSION['panier']); // Réindexer
+    }
+    header("Location: panier.php");
+    exit();
+}
+
+// Paiement
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'payer') {
+    if ($isLoggedIn && isset($panier[0])) {
+        $_SESSION['current_voyage'] = $panier[0];
         header("Location: recapitulatif.php");
+        exit();
+    } else {
+        header("Location: login.php");
         exit();
     }
 }
@@ -36,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payer'])) {
     <script src="../js/theme.js" defer></script>
 </head>
 <body>
-    <video class="fond" autoplay muted loop>
+    <video class="fond" autoplay loop muted>
         <source src="../img/video.mp4">
     </video>
 
@@ -50,6 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payer'])) {
         </div>
         <ul>
             <li><a href="aboutus.php">A propos</a></li>
+            <li>|</li>
+            <li><a href="voyager.php">Voyager</a></li>
             <?php if (!$isLoggedIn): ?>
                 <li>|</li>
                 <li><a href="login.php">Connexion</a></li>
@@ -62,67 +99,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['payer'])) {
                 <?php endif; ?>
             <?php endif; ?>
             <li>|</li>
-            <li><a href="panier.php" class="panier-icon">🛒</a></li>
-			<button id="theme-switch">Mode jour/nuit</button><!---->
+            <li><a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a></li>
+            <button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
         </ul>
         <a href="user.php">
-            <img src="<?php echo htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+            <img src="<?= htmlspecialchars($pp) ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
         </a>
     </div>
 
     <div class="en-tete"></div>
+    <div class="espace"></div>
     <div class="espace-voyager"></div>
 
     <section class="panier">
-    <h1>Mon Panier</h1>
+        <h2>Mon Panier</h2>
 
-    <?php
-    $panier = $_SESSION['panier'] ?? [];
-    if (empty($panier)) {
-        echo '<div class="panier-vide">Votre panier est vide.</div>';
-    } else {
-        $prix_total = 0;
-        echo '<div class="panier-liste">';
-        foreach ($panier as $index => $voyage) {
-            $description = "Du " . date('d/m/Y', strtotime($voyage['dates']['depart'])) . " au " . date('d/m/Y', strtotime($voyage['dates']['arrivee'])) . " (" . $voyage['dates']['duree'] . " jours)";
-            $nbAdultes = intval($voyage['passagers']['adultes'] ?? 0);
-            $nbEnfants = intval($voyage['passagers']['enfants'] ?? 0);
-            $prixBase = intval($voyage['prix']);
-            $prixOptions = 0;
+        <?php if (empty($panier)) : ?>
+            <div class="panier-vide">🛒 Votre panier est vide.</div>
+        <?php else: ?>
+            <?php $prix_total = 0; ?>
+            <?php foreach ($panier as $index => $voyage): ?>
+                <?php
+                    $prix_total += $voyage['prix'];
+                    if (!empty($voyage['options'])) {
+                        foreach ($voyage['options'] as $opt) {
+                            $prix_total += $opt['prix'];
+                        }
+                    }
+                ?>
+                <div class="panier-item">
+                    <h3><?= htmlspecialchars($voyage['titre']) ?></h3>
+                    <p>📅 Dates : <?= htmlspecialchars($voyage['dates']['depart']) ?> → <?= htmlspecialchars($voyage['dates']['arrivee']) ?></p>
+                    <p>🧳 Classe : <?= htmlspecialchars($voyage['classe']) ?> <?= $voyage['sans_escale'] ? '(Sans escale)' : '' ?></p>
+                    <p>👨‍👩‍👧 Passagers : Adultes <?= $voyage['passagers']['adultes'] ?>, Enfants <?= $voyage['passagers']['enfants'] ?>, Bébés <?= $voyage['passagers']['bebes'] ?></p>
 
-            if (!empty($voyage['options']) && is_array($voyage['options'])) {
-                foreach ($voyage['options'] as $opt) {
-                    $prixOptions += $opt['prix'] * $nbAdultes;
-                    $prixOptions += $opt['prix'] * $nbEnfants * 0.7;
-                }
-            }
+                    <?php if (!empty($voyage['options'])): ?>
+                        <p>🔧 Options :</p>
+                        <ul>
+                            <?php foreach ($voyage['options'] as $opt): ?>
+                                <li><?= $opt['etape'] ?> : <?= $opt['nom'] ?> (+<?= $opt['prix'] ?>€)</li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
 
-            $prixVoyage = ($prixBase * $nbAdultes) + ($prixBase * $nbEnfants * 0.7) + $prixOptions;
-            $prix_total += $prixVoyage;
+                    <form method="POST" action="panier.php">
+                        <input type="hidden" name="index" value="<?= $index ?>">
+                        <input type="hidden" name="action" value="supprimer">
+                        <button type="submit" class="btn-supprimer">🗑 Supprimer</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
 
-            echo '<div class="panier-item">';
-            echo "<h3>" . htmlspecialchars($voyage['titre']) . "</h3>";
-            echo "<p>" . htmlspecialchars($description) . "</p>";
-            echo "<p><strong>Total :</strong> " . number_format($prixVoyage, 2) . " €</p>";
-
-            echo '<form method="POST" style="display:inline-block;">';
-            echo '<input type="hidden" name="supprimer" value="' . $index . '">';
-            echo '<button class="btn-supprimer" type="submit">Supprimer</button>';
-            echo '</form>';
-
-            echo '<form method="POST" style="display:inline-block; margin-left: 20px;">';
-            echo '<input type="hidden" name="payer" value="' . $index . '">';
-            echo '<button class="btn-ajouter-panier" type="submit">Payer</button>';
-            echo '</form>';
-
-            echo '</div>';
-        }
-        echo '</div>';
-
-        echo '<div style="margin-top: 30px; text-align: right;"><h2>Total global : ' . number_format($prix_total, 2) . ' €</h2></div>';
-    }
-    ?>
-</section>
+            <div class="panier-total">
+                <h3>Total : <?= $prix_total ?> €</h3>
+                <form method="POST" action="panier.php">
+                    <input type="hidden" name="action" value="payer">
+                    <button class="btn-ajouter-panier">💳 Payer</button>
+                </form>
+            </div>
+        <?php endif; ?>
+    </section>
 
     <div class="bottom">
         <h1>Crédits</h1>

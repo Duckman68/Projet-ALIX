@@ -1509,10 +1509,17 @@ table.option {
 section.panier {
     margin: 50px auto;
     max-width: 1000px;
-    background-color: #f4f9ff;
+    width: 90%;
+    background-color: #f0f8ff;
     padding: 30px;
     border-radius: 15px;
-    color: black;
+    color: #000;
+}
+
+.panier-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .panier-item {
@@ -1520,7 +1527,17 @@ section.panier {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 10px;
-    margin-bottom: 20px;
+}
+
+.panier-item h3 {
+    color: #0077cc;
+}
+
+.panier-item ul {
+    margin: 10px 0;
+    padding-left: 20px;
+    list-style-type: square;
+    color: #333;
 }
 
 .btn-supprimer, .btn-ajouter-panier {
@@ -1540,64 +1557,9 @@ section.panier {
 }
 
 .btn-ajouter-panier {
-    background-color: #007acc;
-    color: white;
-}
-.btn-ajouter-panier:hover {
-    background-color: #005999;
-}
-
-.panier-vide {
-    background-color: #ffcccc;
-    color: black;
-    border: 1px solid red;
-    padding: 20px;
-    border-radius: 10px;
-}
-section.panier {
-    margin: 50px auto;
-    width: 90%;
-    max-width: 1000px;
-    background-color: #f4f9ff;
-    padding: 30px;
-    border-radius: 15px;
-    color: black;
-}
-
-.panier-item {
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.panier-item h3 {
-    color: #0077cc;
-}
-
-.btn-supprimer {
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-supprimer:hover {
-    background-color: #cc0000;
-}
-
-.btn-ajouter-panier {
     background-color: #0099cc;
     color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
 }
-
 .btn-ajouter-panier:hover {
     background-color: #0077aa;
 }
@@ -1611,3 +1573,9 @@ section.panier {
     border: 1px solid red;
 }
 
+.panier-total {
+    text-align: right;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
