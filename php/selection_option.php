@@ -117,11 +117,8 @@ if (isset($_SESSION['email'])) {
 </head>
 <body>
     <div class="fondpage">
-        <video class="fond" autoplay loop muted>
-            <source src="../../../img/video.mp4">
-        </video>
 
-        <div class="top">
+        <div class="topv2">
             <div class="topleft">
                 <a href="index.php">
                     <video id="logo-video" class="logo" autoplay muted><source src="../../../img/Logo-3-[cut](site).mp4" type="video/mp4"></video>
