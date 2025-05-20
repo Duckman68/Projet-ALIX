@@ -77,6 +77,7 @@ if ($query && $voyages_data && isset($voyages_data['voyages'])) {
     <title>Résultats de recherche</title>
     <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet">
     <script src="../js/theme.js" defer></script>
+    <script src="../js/tri_recherche.js" defer></script>
 </head>
 <body>
     <video class="fond" autoplay loop muted>
@@ -126,6 +127,20 @@ if ($query && $voyages_data && isset($voyages_data['voyages'])) {
 
 
     <div class="flight">
+        <div class="tri">
+            <label for="sort-select">Trier par :</label>
+            <select id="sort-select">
+                <option value="default">Par défaut</option>
+                <option value="prix-asc">Prix croissant</option>
+                <option value="prix-desc">Prix décroissant</option>
+                <option value="duree-asc">Durée croissante</option>
+                <option value="duree-desc">Durée décroissante</option>
+                <option value="date-asc">Date de début croissante</option>
+                <option value="date-desc">Date de début décroissante</option>
+            </select>
+        </div>
+
+
         <h1 style="text-align:center; margin-top: 40px;">Résultats pour "<?php echo htmlspecialchars($query); ?>"</h1>
 
         <?php if (empty($results)): ?>
@@ -133,12 +148,19 @@ if ($query && $voyages_data && isset($voyages_data['voyages'])) {
         <?php else: ?>
             <ul style="list-style: none; padding: 0; max-width: 900px; margin: 30px auto;">
                 <?php foreach ($results as $voyage): ?>
-                    <li style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: white;">
-                        <h2><?php echo htmlspecialchars($voyage['titre']); ?></h2>
-                        <p><strong>Camp de base :</strong> <?php echo htmlspecialchars($voyage['camp_de_base']); ?></p>
-                        <p><strong>Prix :</strong> <?php echo htmlspecialchars($voyage['prix']); ?> crédits</p>
-                        <a href="voyager.php?id=<?php echo $voyage['id']; ?>" class="btn-reserver">Réserver</a>
-                    </li>
+                <li class="voyage-item"
+                    data-prix="<?= htmlspecialchars($voyage['prix']) ?>"
+                    data-date="<?= htmlspecialchars($voyage['dates']['debut']) ?>"
+                    data-duree="<?= htmlspecialchars($voyage['dates']['duree_jours']) ?>"
+                    style="background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 20px; margin-bottom: 20px; color: white;">
+    
+                    <h2><?= htmlspecialchars($voyage['titre']) ?></h2>
+                    <p><strong>Camp de base :</strong> <?= htmlspecialchars($voyage['camp_de_base']) ?></p>
+                    <p><strong>Prix :</strong> <?= htmlspecialchars($voyage['prix']) ?> crédits</p>
+                    <p><strong>Durée :</strong> <?= htmlspecialchars($voyage['dates']['duree_jours']) ?> jours</p>
+                    <p><strong>Date de début :</strong> <?= htmlspecialchars($voyage['dates']['debut']) ?></p>
+                    <a href="voyager.php?id=<?= $voyage['id'] ?>" class="btn-reserver">Réserver</a>
+                </li>
                 <?php endforeach; ?>
             </ul>
         <?php endif; ?>

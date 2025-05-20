@@ -1572,3 +1572,58 @@ section.panier {
     padding-left: 20px;
     text-align: left;
 }
+
+
+/*Page recherche*/
+
+.tri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 40px auto;
+    padding: 15px 25px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(7px);
+    max-width: fit-content;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.tri label {
+    font-size: 20px;
+    margin-right: 8px;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.tri select {
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+}
+
+.tri select:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tri select option {
+    background-color: #121212;
+    color: white;
+}
+
+
+.tri select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+

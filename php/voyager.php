@@ -37,14 +37,33 @@ if (isset($_SESSION['email'])) {
 
 $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
 $voyages_all = $voyages_data['voyages'] ?? [];
+$etapes_data = json_decode(file_get_contents("../json/etapes.json"), true);
+
 
 $searchQuery = strtolower($_GET['search'] ?? '');
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $voyagesParPage = 10;
 
-$voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery) {
-    return $searchQuery === '' || stripos($voyage['titre'], $searchQuery) !== false;
+$voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery, $etapes_data) {
+    if ($searchQuery === '') return true;
+
+    // Cherche dans le titre
+    if (stripos($voyage['titre'], $searchQuery) !== false) return true;
+
+    // Cherche dans le camp de base
+    if (stripos($voyage['camp_de_base'], $searchQuery) !== false) return true;
+
+    // Cherche dans les noms des étapes
+    foreach ($voyage['etapes'] as $etape_id) {
+        if (!empty($etapes_data[$etape_id]) && stripos($etapes_data[$etape_id], $searchQuery) !== false) {
+            return true;
+        }
+    }
+
+    return false;
 });
+
+
 
 $totalVoyages = count($voyagesFiltres);
 $totalPages = max(1, ceil($totalVoyages / $voyagesParPage));
