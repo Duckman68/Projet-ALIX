@@ -10,43 +10,43 @@
             "phone": "0788968842",
             "address": "78500 Sartrouville",
             "sign-date": "",
-            "login-date": "21-05-2025 08:18",
+            "login-date": "21-05-2025 16:36",
             "historique": "",
             "pp": "..\/img\/cartman.jpg",
             "voyage": {
                 "consultes": [],
                 "achetes": [
                     {
-                        "voyage_id": "VOY6",
-                        "titre": "Floræa",
+                        "voyage_id": "VOY10",
+                        "titre": "Élyär",
                         "dates": {
-                            "depart": "2025-05-05",
-                            "arrivee": "2025-05-30",
-                            "duree": 25
+                            "depart": "2025-05-01",
+                            "arrivee": "2025-05-31",
+                            "duree": 30
                         },
                         "passagers": {
-                            "adultes": "2",
-                            "enfants": "1",
-                            "bebes": "0"
+                            "adultes": "11",
+                            "enfants": "2",
+                            "bebes": "4"
                         },
                         "classe": "economy",
                         "sans_escale": true,
-                        "prix": 1900,
+                        "prix": 12800,
                         "options": [
                             {
-                                "etape": "Planète Lhuma",
-                                "nom": "Cuisine végétale",
-                                "prix": 130
+                                "etape": "Razmo",
+                                "nom": "Salle d’ancrage miroir",
+                                "prix": 1850
                             },
                             {
-                                "etape": "Planète Lollapalooza",
-                                "nom": "Observation lente",
-                                "prix": 90
+                                "etape": "Spinjitsu",
+                                "nom": "Echo-holo",
+                                "prix": 2150
                             },
                             {
-                                "etape": "Planète Veillecharue",
-                                "nom": "Souvenir vivant",
-                                "prix": 100
+                                "etape": "Gazorpazorp",
+                                "nom": "Projection gestuelle immersive",
+                                "prix": 1450
                             }
                         ]
                     }
@@ -136,12 +136,47 @@
             "phone": "911",
             "address": "Très loin",
             "sign-date": "28\/03\/2025",
-            "login-date": "16-05-2025 13:53",
+            "login-date": "21-05-2025 15:35",
             "historique": "",
             "pp": "..\/img\/rastalion.jpg",
             "voyage": {
                 "consultes": [],
-                "achetes": []
+                "achetes": [
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "2025-05-21",
+                            "arrivee": "2025-05-28",
+                            "duree": 7
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": true,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Geysers métalliques",
+                                "prix": 180
+                            },
+                            {
+                                "etape": "Vénus",
+                                "nom": "Pilotage de drones atmosphériques",
+                                "prix": 150
+                            },
+                            {
+                                "etape": "Terre",
+                                "nom": "Atelier poterie",
+                                "prix": 90
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {

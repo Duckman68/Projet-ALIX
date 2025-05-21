@@ -178,6 +178,49 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </section>
     </div>
 
+    <div class="historique-achat">
+        <h2>Voyages achetés</h2>
+        <table>
+            <tr>
+                <th>Destination</th>
+                <th>Étapes</th>
+                <th>Prix</th>
+                <th>Détail</th>
+            </tr>
+            <?php if (!empty($utilisateur['voyage']['achetes'])): ?>
+                <?php foreach ($utilisateur['voyage']['achetes'] as $v): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($v['titre']) ?></td>
+                        <td>
+                            <?php
+                            $etapes = array_map(function($opt) {
+                                return htmlspecialchars($opt['etape']);
+                            }, $v['options'] ?? []);
+                            echo implode(", ", $etapes);
+                            ?>
+                        </td>
+                        <td>
+                            <?php
+                            $base = $v['prix'] * $v['passagers']['adultes'] + $v['prix'] * 0.7 * $v['passagers']['enfants'];
+                            $total_options = 0;
+                            foreach ($v['options'] ?? [] as $opt) {
+                                $total_options += $opt['prix'] * $v['passagers']['adultes'] + $opt['prix'] * 0.7 * $v['passagers']['enfants'];
+                            }
+                            echo number_format($base + $total_options, 2, '.', '') . " €";
+                            ?>
+                        </td>
+                        <td>
+                            <a href="details_voyage.php?id=<?= urlencode($v['voyage_id']) ?>">Voir</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <tr><td colspan="4">Aucun voyage acheté.</td></tr>
+            <?php endif; ?>
+        </table>
+    </div>
+
+
     <div class="espace-bottom-login"></div>
     <div class="bottom">
         <h1>Crédits</h1>

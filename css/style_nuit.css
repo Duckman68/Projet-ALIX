@@ -1277,6 +1277,17 @@ section.singup h1 {
     transform: scale(1.2);
 }
 
+.historique-achat h2, .historique-achat a{
+    color: #00ffff;
+}
+
+
+.historique-achat table, .historique-achat td{
+    border: solid 1px;
+    margin: auto;
+}
+
+
 /* Page Admin */
 
 .admin-container {
@@ -1802,3 +1813,72 @@ section.panier {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
+/*Details voyage*/
+
+.detail-voyage-container {
+    max-width: 900px;
+    margin: 100px auto 50px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.detail-voyage-container h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #00ffff;
+    margin-bottom: 30px;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detail-section h2 {
+    color: #00ffff;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.detail-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.option-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #00ffff;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.retour-bouton {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00ffff;
+    color: #003366;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.retour-bouton:hover {
+    background-color: #00ccff;
+    transform: scale(1.05);
+}

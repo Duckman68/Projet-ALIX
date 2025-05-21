@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 if (
     isset($_GET['transaction']) &&
     isset($_GET['status']) &&
@@ -25,7 +27,55 @@ if (
     }
 
     if ($status === "accepted") {
+
+        // Vérifie que les données de session sont bien présentes
+        if (isset($_SESSION['email']) && isset($_SESSION['current_voyage'])) {
+            $email = $_SESSION['email'];
+            $voyage = $_SESSION['current_voyage'];
+
+            $fichier_utilisateurs = '../json/utilisateurs.json';
+            $utilisateurs = json_decode(file_get_contents($fichier_utilisateurs), true);
+
+            $trouve = false;
+
+            // Cherche dans les admins
+            foreach ($utilisateurs['admin'] as &$admin) {
+                if (isset($admin['email']) && $admin['email'] === $email) {
+                    if (!isset($admin['voyage']['achetes'])) {
+                        $admin['voyage']['achetes'] = [];
+                    }
+                    $admin['voyage']['achetes'][] = $voyage;
+                    $trouve = true;
+                    break;
+                }
+            }
+
+            // Cherche dans les users si non trouvé chez les admins
+            if (!$trouve) {
+                foreach ($utilisateurs['user'] as &$user) {
+                    if (isset($user['email']) && $user['email'] === $email) {
+                        if (!isset($user['voyage']['achetes'])) {
+                            $user['voyage']['achetes'] = [];
+                        }
+                        $user['voyage']['achetes'][] = $voyage;
+                        break;
+                    }
+                }
+            }
+
+            file_put_contents($fichier_utilisateurs, json_encode($utilisateurs, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+            // Nettoie la session si nécessaire
+            unset($_SESSION['current_voyage']);
+        } else {
+            echo "Erreur : utilisateur non connecté ou voyage non défini.";
+            exit(); // Empêche la redirection
+        }
+
+        // Aucune sortie avant cette ligne sinon header() échoue
         header("Location: index.php");
+        exit();
+
     } elseif ($status === "declined") {
         echo "Paiement refusé pour la transaction : $transaction_id";
     } else {

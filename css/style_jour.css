@@ -175,7 +175,7 @@ div.bottom{
   .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;+
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto 30px;
   }
@@ -1283,6 +1283,18 @@ section.singup h1 {
     transform: scale(1.2);
 }
 
+.historique-achat h2, .historique-achat a{
+    color: #00ffff;
+}
+
+
+.historique-achat table, .historique-achat td{
+    border: solid 1px;
+    margin: auto;
+    color: white;
+}
+
+
 /* Page Admin */
 
 .admin-container {
@@ -1806,4 +1818,75 @@ section.panier {
     outline: none;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/*Details voyage*/
+
+.detail-voyage-container {
+    max-width: 900px;
+    margin: 100px auto 50px;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: rgba(240, 248, 255, 0.85);
+    border: 2px solid rgba(0, 100, 200, 0.3);
+    color: black;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 15px rgba(0, 100, 200, 0.2);
+}
+
+.detail-voyage-container h1 {
+    text-align: center;
+    font-size: 28px;
+    color: #0077cc;
+    margin-bottom: 30px;
+}
+
+.detail-section {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.detail-section h2 {
+    color: #0077cc;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.detail-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #0077cc;
+}
+
+.option-item {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-left: 4px solid #0077cc;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.retour-bouton {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #0077cc;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.retour-bouton:hover {
+    background-color: #0056a3;
+    transform: scale(1.05);
 }
