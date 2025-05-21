@@ -85,6 +85,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	<title>A.L.I.X.</title>
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
+    <script src="../js/validation_connexion.js" defer></script>
+
 </head>
 <body>
     <video class="fond" autoplay loop muted>

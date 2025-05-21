@@ -10,12 +10,47 @@
             "phone": "0788968842",
             "address": "78500 Sartrouville",
             "sign-date": "",
-            "login-date": "18-05-2025 09:04",
+            "login-date": "21-05-2025 08:18",
             "historique": "",
             "pp": "..\/img\/cartman.jpg",
             "voyage": {
                 "consultes": [],
-                "achetes": []
+                "achetes": [
+                    {
+                        "voyage_id": "VOY6",
+                        "titre": "Floræa",
+                        "dates": {
+                            "depart": "2025-05-05",
+                            "arrivee": "2025-05-30",
+                            "duree": 25
+                        },
+                        "passagers": {
+                            "adultes": "2",
+                            "enfants": "1",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": true,
+                        "prix": 1900,
+                        "options": [
+                            {
+                                "etape": "Planète Lhuma",
+                                "nom": "Cuisine végétale",
+                                "prix": 130
+                            },
+                            {
+                                "etape": "Planète Lollapalooza",
+                                "nom": "Observation lente",
+                                "prix": 90
+                            },
+                            {
+                                "etape": "Planète Veillecharue",
+                                "nom": "Souvenir vivant",
+                                "prix": 100
+                            }
+                        ]
+                    }
+                ]
             }
         },
         {
