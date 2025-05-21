@@ -21,7 +21,7 @@ video.fond{
 	right: 0;
 	top: 0;
 	bottom: 0;
-	z-index: -1;
+	z-index: -2000;
 }
 
 div.top{
@@ -160,19 +160,19 @@ div.boutique {
 	background-color: black;
 }
 
-div.bottom{
-	height: 25vh;
-    width : 100vw;
-	background-color:rgb(22, 22, 22);
-	padding: 20px;
-}
+
 
 .site-footer {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0);
     color: #fff;
     padding: 40px 15px 20px;
     font-size: 0.95em;
+    z-index:100;
   }
+  footer.site-footer {
+    background: rgb(0, 0, 0);
+  }
+  
   
   .footer-grid {
     display: grid;
@@ -971,7 +971,7 @@ div.espace-login{
 }
 
 div.espace-bottom-login{
-    height: 17vh;
+    height: 5vh;
     width: 100vw;
     padding-top: 10%;
 }
