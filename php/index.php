@@ -168,15 +168,71 @@ if (isset($_SESSION['email'])) {
 		</table>
 	</div>
 	
-	<div class="bottom">
-		<h1>Crédits</h1>
-		<div class="textebot">
-			<h2>Nassim</h2>
-			<h2>Atahan</h2>
-			<h2>Romain</h2>
-			<h2>Gabin</h2>
-		</div>
-	</div>
+	<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-links">
+      <h3>Liens rapides</h3>
+      <ul>
+        <li><a href="index.php">Accueil</a></li>
+        <li><a href="voyager.php">Voyager</a></li>
+        <li><a href="aboutus.php">À propos</a></li>
+        <li><a href="login.php">Connexion</a></li>
+      </ul>
+      
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/votre-profil" target="_blank" rel="noopener">
+          <img src="../img/link.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/votre-profil" target="_blank" rel="noopener">
+          <img src="../img/insta.jpeg" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/votrepage" target="_blank" rel="noopener">
+          <img src="../img/facebook.png" alt="Facebook">
+        </a>
+        <a href="https://x.com/votre-profil" target="_blank" rel="noopener">
+          <img src="../img/X.jpeg" alt="X">
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p><strong>Mail :</strong> <a href="mailto:contact@alix.com">contact@alix.com</a></p>
+      <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+      <p><strong>Adresse :</strong><br>
+        <a href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-%C3%89lys%C3%A9es,+75008+Paris"
+           target="_blank" rel="noopener">
+          Avenue des Champs-Élysées, 75008 Paris
+        </a>
+      </p>
+    </div>
+
+    <div class="footer-newsletter">
+      <h3>Newsletter</h3>
+      <p>Inscrivez-vous pour recevoir nos offres exclusives :</p>
+      <form class="newsletter-form" action="#" method="post">
+        <input type="email" name="email" placeholder="Votre email" required>
+        <button type="submit">S’abonner</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-credits">Nassim | Atahan | Romain | Gabin</p>
+    <p>© <?= date('Y') ?> A.L.I.X. — Tous droits réservés.</p>
+    <button class="back-to-top"
+            aria-label="Retour en haut"
+            onclick="window.scrollTo({top:0, behavior:'smooth'});">
+      <!-- Flèche CSS dessinée en pseudo-élément -->
+    </button>
+  </div>
+</footer>
+
+
+
+
+
+
 </body>
 </html>
 
