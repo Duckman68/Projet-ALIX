@@ -180,16 +180,16 @@ if (isset($_SESSION['email'])) {
       </ul>
       
       <div class="footer-social">
-        <a href="https://www.linkedin.com/in/votre-profil" target="_blank" rel="noopener">
+        <a href="https://www.linkedin.com/in/alix-exp%C3%A9rience-60b037367/" target="_blank" rel="noopener">
           <img src="../img/link.png" alt="LinkedIn">
         </a>
-        <a href="https://www.instagram.com/votre-profil" target="_blank" rel="noopener">
+        <a href="https://www.instagram.com/alix_experience?igsh=MTV4dDV2YWpsczdqNQ==" target="_blank" rel="noopener">
           <img src="../img/insta.jpeg" alt="Instagram">
         </a>
-        <a href="https://www.facebook.com/votrepage" target="_blank" rel="noopener">
+        <a href="https://www.facebook.com/profile.php?id=61576688187239" target="_blank" rel="noopener">
           <img src="../img/facebook.png" alt="Facebook">
         </a>
-        <a href="https://x.com/votre-profil" target="_blank" rel="noopener">
+        <a href="https://x.com/alix_experience" target="_blank" rel="noopener">
           <img src="../img/X.jpeg" alt="X">
         </a>
       </div>
@@ -223,7 +223,7 @@ if (isset($_SESSION['email'])) {
     <button class="back-to-top"
             aria-label="Retour en haut"
             onclick="window.scrollTo({top:0, behavior:'smooth'});">
-      <!-- Flèche CSS dessinée en pseudo-élément -->
+  
     </button>
   </div>
 </footer>
