@@ -106,6 +106,9 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
                 <?php endif; ?>
             <?php endif; ?>
             <li>|</li>
+            <li>
+                <a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a>
+            </li>
             <button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
         </ul>
         <a href="user.php">
@@ -120,66 +123,6 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
         <form method="get" action="voyager.php" class="search-bar">
             <input type="text" name="search" placeholder="Rechercher une destination..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
             <button type="submit">Rechercher</button>
-        </form>    
-
-        <form id="voyage-form" action="selection_option.php" method="POST">
-            <div class="flight-inputs">
-                <label for="voyage-select">Sélectionner un voyage :</label>
-                <select name="voyage-id" id="voyage-select" required>
-                    <option value="">Choisir un voyage</option>
-                    <?php foreach ($voyages_data['voyages'] as $voyage): ?>
-                        <option value="<?= htmlspecialchars($voyage['id']); ?>">
-                            <?= htmlspecialchars($voyage['titre']); ?> (<?= htmlspecialchars($voyage['prix']); ?>€)
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-
-                <label>Date de départ :
-                    <input type="date" name="date-voyage" required>
-                </label>
-                <label>Date d'arrivée :
-                    <input type="date" name="date-arrivee" required>
-                </label>
-
-                <div class="selecteur-container">
-                    <button class="selecteur-bouton" type="button">
-                        <span id="resume">1 Adulte · 0 Enfants · 0 Bébés</span>
-                    </button>
-                    <div class="menu-selecteur" id="menu-selecteur">
-                        <div class="ligne">
-                            <label>Adultes</label>
-                            <div class="controle">
-                                <button type="button" id="adultes-moins">−</button>
-                                <span id="adultes">1</span>
-                                <button type="button" id="adultes-plus">+</button>
-                            </div>
-                        </div>
-                        <div class="ligne">
-                            <label>Enfants</label>
-                            <div class="controle">
-                                <button type="button" id="enfants-moins">−</button>
-                                <span id="enfants">0</span>
-                                <button type="button" id="enfants-plus">+</button>
-                            </div>
-                        </div>
-                        <div class="ligne">
-                            <label>Bébé</label>
-                            <div class="controle">
-                                <button type="button" id="bebe-moins">−</button>
-                                <span id="bebe">0</span>
-                                <button type="button" id="bebe-plus">+</button>
-                            </div>
-                        </div>
-                        <button type="button" id="terminer-btn">Terminer</button>
-                    </div>
-                </div>
-            </div>
-
-            <input type="hidden" name="adultes" id="adultes-input" value="1">
-            <input type="hidden" name="enfants" id="enfants-input" value="0">
-            <input type="hidden" name="bebes" id="bebes-input" value="0">
-
-            <button type="submit" class="submit">Choisir les options</button>
         </form>
     </section>
 
@@ -210,9 +153,6 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
                 <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage['id']) ?>">
                 <input type="hidden" name="date-voyage" value="<?= date('Y-m-d') ?>">
                 <input type="hidden" name="date-arrivee" value="<?= date('Y-m-d', strtotime('+7 days')) ?>">
-                <input type="hidden" name="adultes" value="1">
-                <input type="hidden" name="enfants" value="0">
-                <input type="hidden" name="bebes" value="0">
                 <button type="submit" class="btn-reserver">Réserver</button>
             </form>
         </div>

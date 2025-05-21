@@ -760,66 +760,70 @@ section.about h2, p {
     position: relative;
     display: inline-block;
     font-family: 'Segoe UI', sans-serif;
-  }
-  
-  .selecteur-bouton {
+    font-size: 18px; /* + taille globale */
+}
+
+.selecteur-bouton {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #ccc;
     color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 6px;
     cursor: pointer;
     backdrop-filter: blur(3px);
     transition: background-color 0.2s ease;
-  }
-  
-  .selecteur-bouton:hover {
+}
+
+.selecteur-bouton:hover {
     background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  .menu-selecteur {
+}
+
+.menu-selecteur {
     position: absolute;
-    top: 110%;
+    top: 115%;
     left: 0;
-    width: 270px;
+    width: 320px;
     background-color: rgba(0, 0, 0, 0.85);
     border: 1px solid #888;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    padding: 15px;
+    padding: 20px;
     display: none;
     z-index: 100;
     color: white;
-  }
-  
-  .menu-selecteur .ligne {
+    font-size: 17px;
+}
+
+.menu-selecteur .ligne {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 12px 0;
-  }
-  
-  .menu-selecteur .controle {
+    margin: 16px 0;
+}
+
+.menu-selecteur .controle {
     display: flex;
     align-items: center;
-    gap: 8px;
-  }
-  
-  .menu-selecteur button {
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
+    gap: 10px;
+}
+
+.menu-selecteur button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
     border: none;
     background-color: #444;
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.2s;
-  }
-  
-  .menu-selecteur button:hover {
+}
+
+.menu-selecteur button:hover {
     background-color: #666;
-  }
+}
+
 
     .ligne {
     display: flex;
@@ -1403,7 +1407,7 @@ section.singup h1 {
 
 .selection-logement {
     display: block;
-    width: 250px; /* Ajuste la largeur selon tes besoins */
+    width: 250px;
     cursor: pointer;
     border-radius: 10px;
     overflow: hidden;
@@ -1554,6 +1558,16 @@ table.option {
   .options-container::-webkit-scrollbar {
     display: none;
   }
+
+  #menu-selecteur {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#menu-selecteur.visible {
+    display: block;
+}
+
   
 
 

@@ -6,14 +6,14 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
+$voyagesData = json_decode(file_get_contents('../json/voyage.json'), true);
+$etapesData = json_decode(file_get_contents('../json/etapes.json'), true);
+$optionsData = json_decode(file_get_contents('../json/options.json'), true);
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['voyage-id'])) {
     header("Location: voyager.php");
     exit();
 }
-
-$voyagesData = json_decode(file_get_contents('../json/voyage.json'), true);
-$etapesData = json_decode(file_get_contents('../json/etapes.json'), true);
-$optionsData = json_decode(file_get_contents('../json/options.json'), true);
 
 $voyage_id = $_POST['voyage-id'];
 $voyage = null;
@@ -28,7 +28,7 @@ if (!$voyage) {
     exit();
 }
 
-if (isset($_POST['options'])) {
+if (isset($_POST['adultes'])) {
     $_SESSION['current_voyage'] = [
         'voyage_id' => $voyage_id,
         'titre' => $voyage['titre'],
@@ -38,9 +38,9 @@ if (isset($_POST['options'])) {
             'duree' => (new DateTime($_POST['date-voyage']))->diff(new DateTime($_POST['date-arrivee']))->days
         ],
         'passagers' => [
-            'adultes' => $_POST['adultes'] ?? 1,
-            'enfants' => $_POST['enfants'] ?? 0,
-            'bebes' => $_POST['bebes'] ?? 0
+            'adultes' => $_POST['adultes'],
+            'enfants' => $_POST['enfants'],
+            'bebes' => $_POST['bebes']
         ],
         'classe' => $_POST['flight-class'] ?? 'economy',
         'sans_escale' => isset($_POST['no-escale']),
@@ -48,32 +48,29 @@ if (isset($_POST['options'])) {
         'options' => []
     ];
 
-    foreach ($_POST['options'] as $etape_id => $option_id) {
-        foreach ($etapesData['etapes'] as $etape) {
-            if ($etape['id'] === $etape_id) {
-                foreach ($optionsData['options'] as $opt) {
-                    if ($opt['id'] === $option_id) {
-                        $_SESSION['current_voyage']['options'][] = [
-                            'etape' => $etape['titre'],
-                            'nom' => implode(', ', $opt['activités']),
-                            'prix' => $opt['prix_par_personne']
-                        ];
-                        break;
+    if (isset($_POST['options'])) {
+        foreach ($_POST['options'] as $etape_id => $option_id) {
+            foreach ($etapesData['etapes'] as $etape) {
+                if ($etape['id'] === $etape_id) {
+                    foreach ($optionsData['options'] as $opt) {
+                        if ($opt['id'] === $option_id) {
+                            $_SESSION['current_voyage']['options'][] = [
+                                'etape' => $etape['titre'],
+                                'nom' => implode(', ', $opt['activités']),
+                                'prix' => $opt['prix_par_personne']
+                            ];
+                            break;
+                        }
                     }
+                    break;
                 }
-                break;
             }
         }
     }
 
-    if ($_POST['action'] === 'recapitulatif') {
-        header("Location: recapitulatif.php");
-        exit();
-    } elseif ($_POST['action'] === 'panier') {
-        $_SESSION['panier'][] = $_SESSION['current_voyage'];
-        header("Location: panier.php");
-        exit();
-    }
+    $_SESSION['panier'][] = $_SESSION['current_voyage'];
+    header("Location: recapitulatif.php");
+    exit();
 }
 
 $pp = "../../img/default.png";
@@ -118,8 +115,9 @@ if (isset($_SESSION['email'])) {
     <meta charset="UTF-8">
     <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
+    <script src="../js/option.js" defer></script>
 </head>
-<body>
+<body data-prix-base="<?= htmlspecialchars($voyage['prix']) ?>">
     <div class="fondpage">
 
         <div class="topv2">
@@ -146,17 +144,49 @@ if (isset($_SESSION['email'])) {
             <a href="../user.php"><img src="<?= htmlspecialchars($pp); ?>" alt="Profil" class="pfp" onerror="this.src='../../img/default.png'"></a>
         </div>
 
-        <h1><?= htmlspecialchars($voyage['titre']) ?></h1>
+        <h1 style="font-size: 50px;"><?= htmlspecialchars($voyage['titre']) ?></h1>
 
         <form method="POST">
+                <div class="selecteur-container">
+                    <button class="selecteur-bouton" type="button">
+                        <span id="resume">1 Adulte · 0 Enfants · 0 Bébés</span>
+                    </button>
+                    <div class="menu-selecteur" id="menu-selecteur">
+                        <div class="ligne">
+                            <label>Adultes</label>
+                            <div class="controle">
+                                <button type="button" id="adultes-moins">−</button>
+                                <span id="adultes">1</span>
+                                <button type="button" id="adultes-plus">+</button>
+                            </div>
+                        </div>
+                        <div class="ligne">
+                            <label>Enfants</label>
+                            <div class="controle">
+                                <button type="button" id="enfants-moins">−</button>
+                                <span id="enfants">0</span>
+                                <button type="button" id="enfants-plus">+</button>
+                            </div>
+                        </div>
+                        <div class="ligne">
+                            <label>Bébé</label>
+                            <div class="controle">
+                                <button type="button" id="bebe-moins">−</button>
+                                <span id="bebe">0</span>
+                                <button type="button" id="bebe-plus">+</button>
+                            </div>
+                        </div>
+                        <button type="button" id="terminer-btn">Terminer</button>
+                    </div>
+                </div>
+
+
             <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage_id); ?>">
             <input type="hidden" name="date-voyage" value="<?= htmlspecialchars($_POST['date-voyage']); ?>">
             <input type="hidden" name="date-arrivee" value="<?= htmlspecialchars($_POST['date-arrivee']); ?>">
-            <input type="hidden" name="adultes" value="<?= htmlspecialchars($_POST['adultes'] ?? 1); ?>">
-            <input type="hidden" name="enfants" value="<?= htmlspecialchars($_POST['enfants'] ?? 0); ?>">
-            <input type="hidden" name="bebes" value="<?= htmlspecialchars($_POST['bebes'] ?? 0); ?>">
-            <input type="hidden" name="flight-class" value="<?= htmlspecialchars($_POST['flight-class'] ?? 'economy'); ?>">
-            <input type="hidden" name="no-escale" value="<?= isset($_POST['no-escale']) ? '1' : '0'; ?>">
+            <input type="hidden" name="adultes" id="adultes-input" value="1">
+            <input type="hidden" name="enfants" id="enfants-input" value="0">
+            <input type="hidden" name="bebes" id="bebes-input" value="0">
 
             <?php foreach ($voyage['etapes'] as $etape_id): ?>
                 <?php
@@ -186,8 +216,10 @@ if (isset($_SESSION['email'])) {
             <?php endforeach; ?>
 
             <div class="form-actions">
-                <button type="submit" name="action" value="recapitulatif" class="btn-envoyer">Voir le récapitulatif</button>
-                <button type="submit" name="action" value="panier" class="btn-panier">Ajouter au panier</button>
+                <div id="prix-total" style="font-size: 20px; font-weight: bold; margin: 20px 0;">
+                    Prix total : <span id="prix-valeur">0</span> €
+                </div>
+                <button type="submit" class="btn-envoyer">Ajouter au panier et voir le récapitulatif</button>
             </div>
         </form>
 

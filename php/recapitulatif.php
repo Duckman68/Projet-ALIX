@@ -49,10 +49,10 @@ if (!$voyage_data) {
 
 // Calcul du prix total
 $adultes = $voyage_data['passagers']['adultes'];
-$enfants = $voyage_data['passagers']['enfants'];
-$bebes = $voyage_data['passagers']['bebes'];
-$prix_base = $voyage_data['prix'];
+$enfants = $voyage_data['passagers']['enfants']; 
+$bebes = $voyage_data['passagers']['bebe'];
 
+$prix_base = $voyage_data['prix'];
 $prix_total = ($prix_base * $adultes) + ($prix_base * 0.7 * $enfants);
 
 foreach ($voyage_data['options'] as $option) {

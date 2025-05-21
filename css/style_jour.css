@@ -760,13 +760,15 @@ div.espace-bottom-voyager{
     position: relative;
     display: inline-block;
     font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
   }
   
   .selecteur-bouton {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #ccc;
     color: #000000;
-    padding: 8px 15px;
+    padding: 12px 20px;
+    font-size: 18px;
     border-radius: 5px;
     cursor: pointer;
     backdrop-filter: blur(3px);
@@ -781,7 +783,7 @@ div.espace-bottom-voyager{
     position: absolute;
     top: 110%;
     left: 0;
-    width: 270px;
+    width: 320px;
     background-color: rgba(204, 230, 255, 0.85);
     border: 1px solid #888;
     border-radius: 8px;
@@ -790,6 +792,7 @@ div.espace-bottom-voyager{
     display: none;
     z-index: 100;
     color: black;
+    font-size: 17px;
   }
   
   .menu-selecteur .ligne {
@@ -806,7 +809,7 @@ div.espace-bottom-voyager{
   }
   
   .menu-selecteur button {
-    width: 30px;
+    width: 36px;
     height: 30px;
     font-size: 18px;
     border: none;
@@ -1564,6 +1567,14 @@ table.option {
     display: none;
   }
   
+#menu-selecteur {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#menu-selecteur.visible {
+    display: block;
+}
 
 /*Recapitulatif*/
 .corps-recap {
