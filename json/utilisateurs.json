@@ -10,7 +10,7 @@
             "phone": "0788968842",
             "address": "78500 Sartrouville",
             "sign-date": "",
-            "login-date": "21-05-2025 16:36",
+            "login-date": "21-05-2025 17:00",
             "historique": "",
             "pp": "..\/img\/cartman.jpg",
             "voyage": {
@@ -47,6 +47,40 @@
                                 "etape": "Gazorpazorp",
                                 "nom": "Projection gestuelle immersive",
                                 "prix": 1450
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY3",
+                        "titre": "Velmora",
+                        "dates": {
+                            "depart": "2025-05-06",
+                            "arrivee": "2025-05-31",
+                            "duree": 25
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": true,
+                        "prix": 8900,
+                        "options": [
+                            {
+                                "etape": "Jupiter",
+                                "nom": "Vol inversé",
+                                "prix": 610
+                            },
+                            {
+                                "etape": "Saturne",
+                                "nom": "Survol des anneaux",
+                                "prix": 420
+                            },
+                            {
+                                "etape": "Uranus",
+                                "nom": "Journal sensoriel",
+                                "prix": 330
                             }
                         ]
                     }
