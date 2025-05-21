@@ -176,7 +176,7 @@ if (isset($_SESSION['email'])) {
         <li><a href="index.php">Accueil</a></li>
         <li><a href="voyager.php">Voyager</a></li>
         <li><a href="aboutus.php">À propos</a></li>
-        <li><a href="login.php">Connexion</a></li>
+        <li><a href="Panier.php">Panier</a></li>
       </ul>
       
       <div class="footer-social">
