@@ -48,25 +48,26 @@ if (isset($_POST['adultes'])) {
         'options' => []
     ];
 
-    if (isset($_POST['options'])) {
-        foreach ($_POST['options'] as $etape_id => $option_id) {
-            foreach ($etapesData['etapes'] as $etape) {
-                if ($etape['id'] === $etape_id) {
-                    foreach ($optionsData['options'] as $opt) {
-                        if ($opt['id'] === $option_id) {
-                            $_SESSION['current_voyage']['options'][] = [
-                                'etape' => $etape['titre'],
-                                'nom' => implode(', ', $opt['activités']),
-                                'prix' => $opt['prix_par_personne']
-                            ];
-                            break;
-                        }
+    foreach ($_POST['options'] as $etape_id => $option_ids) {
+    foreach ($option_ids as $option_id) {
+        foreach ($etapesData['etapes'] as $etape) {
+            if ($etape['id'] === $etape_id) {
+                foreach ($optionsData['options'] as $opt) {
+                    if ($opt['id'] === $option_id) {
+                        $_SESSION['current_voyage']['options'][] = [
+                            'etape' => $etape['titre'],
+                            'nom'   => implode(', ', $opt['activités']),
+                            'prix'  => $opt['prix_par_personne']
+                        ];
+                        break;
                     }
-                    break;
                 }
+                break;
             }
         }
     }
+}
+
 
     $_SESSION['panier'][] = $_SESSION['current_voyage'];
     header("Location: recapitulatif.php");
@@ -201,7 +202,7 @@ if (isset($_SESSION['email'])) {
                             foreach ($optionsData['options'] as $opt) {
                                 if ($opt['id'] === $opt_id): ?>
                                 <label class="option-card">
-                                    <input type="checkbox" name="options[<?= $etape_id ?>]" value="<?= $opt_id ?>">
+                                    <input type="checkbox" name="options[<?= $etape_id ?>][]" value="<?= $opt_id ?>">
                                     <div class="option-content">
                                         <h3><?= htmlspecialchars(implode(', ', $opt['activités'])) ?></h3>
                                         <p><?= htmlspecialchars(implode(',',$opt['descriptif'])) ?></p>

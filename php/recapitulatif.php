@@ -55,8 +55,12 @@ $bebes = $voyage_data['passagers']['bebe'];
 $prix_base = $voyage_data['prix'];
 $prix_total = ($prix_base * $adultes) + ($prix_base * 0.7 * $enfants);
 
-foreach ($voyage_data['options'] as $option) {
-    $prix_total += ($option['prix'] * $adultes) + ($option['prix'] * $enfants * 0.7);
+// Ajout des prix des options sélectionnées
+if (!empty($voyage_data['options'])) {
+    foreach ($voyage_data['options'] as $option) {
+        $prix_opt = $option['prix'] ?? 0;
+        $prix_total += ($prix_opt * $adultes) + ($prix_opt * 0.7 * $enfants);
+    }
 }
 ?>
 
