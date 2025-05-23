@@ -43,7 +43,7 @@ Bienvenue dans le projet A.L.I.X, une plateforme immersive de réservation de vo
 
 ## Auteurs  
 
-LANDIER Gabin
-CALVANO Romain
-BERRANDOU Nassim
+LANDIER Gabin  
+CALVANO Romain  
+BERRANDOU Nassim  
 OZSOLAK Atahan
