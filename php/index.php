@@ -159,10 +159,10 @@ if (isset($_SESSION['email'])) {
 	<div class = "boutique">
 		<table>
 			<tr>
-				<td><a href="produit1.html"> <img src = "../img/produit1.jpg" class="produit"> </a></td>
-				<td><a href="produit2.html"> <img src = "../img/produit2.jpg" class="produit"> </a></td>
-				<td><a href="produit3.html"> <img src = "../img/produit3.jpg" class="produit"> </a></td>
-				<td><a href="produit4.html"> <img src = "../img/produit4.jpg" class="produit"> </a></td>
+				<td><a href="produit/produit1.html"> <img src = "../img/produit1.jpg" class="produit"> </a></td>
+				<td><a href="produit/produit2.html"> <img src = "../img/produit2.jpg" class="produit"> </a></td>
+				<td><a href="produit/produit3.html"> <img src = "../img/produit3.jpg" class="produit"> </a></td>
+				<td><a href="produit/produit4.html"> <img src = "../img/produit4.jpg" class="produit"> </a></td>
 				<td class="boutton"><a href = "boutique.html" ><h2><strong>Aller a la boutique</strong></h2></a></td>
 			</tr>
 		</table>
