@@ -32,9 +32,11 @@ Bienvenue dans le projet A.L.I.X, une plateforme immersive de réservation de vo
    cd Projet-ALIX
 
 2. Démarre un serveur local :
+   ```bash
     php -S localhost:8000
     
 3. Accède à l'application :
+   ```bash
     http://localhost:8000/
 
 ---
