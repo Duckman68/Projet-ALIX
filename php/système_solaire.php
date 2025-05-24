@@ -1,16 +1,52 @@
+<?php
+session_start();
+
+$pp = "../img/default.png"; // Image par défaut
+$isLoggedIn = false;
+$isAdmin = false;
+
+if (isset($_SESSION['email'])) {
+    $isLoggedIn = true;
+    $json_file = "../json/utilisateurs.json";
+    $json = file_get_contents($json_file);
+    $data = json_decode($json, true);
+    $email = $_SESSION['email'];
+
+    foreach ($data["admin"] as $admin) {
+        if ($admin["email"] === $email) {
+            $isAdmin = true;
+            if (!empty($admin["pp"])) {
+                $pp = $admin["pp"];
+            }
+            break;
+        }
+    }
+
+    if (!$isAdmin) {
+        foreach ($data["user"] as $user) {
+            if ($user["email"] === $email && !empty($user["pp"])) {
+                $pp = $user["pp"];
+                break;
+            }
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>Carte Spatiale Interactive</title>
-        <link rel="stylesheet" href="../map/basic/styles.css">
+        <title>Système Solaire</title>
+        <link id="theme-style" rel="stylesheet" href="../css/style_nuit.css">
+        <script src="../js/theme.js" defer></script>
     </head>
     <body>
         <div class="top">
             <div class="topleft">
                 <a href="index.php">
-                    <video class="logo" autoplay muted loop>
-                        <source src="../basic/Logo-3-[cut](site).mp4" type="video/mp4">
+                    <video id="logo-video" class="logo" autoplay muted>
+                        <source src="../img/Logo-3-[cut](site).mp4" type="video/mp4">
                     </video>
                 </a>
             </div>
@@ -18,15 +54,30 @@
                 <li><a href="aboutus.php">A propos</a></li>
                 <li>|</li>
                 <li><a href="voyager.php">Voyager</a></li>
+                <?php if (!$isLoggedIn): ?>
+                    <li>|</li>
+                    <li><a href="login.php">Connexion</a></li>
+                    <li>|</li>
+                    <li><a href="sign-up.php">Inscription</a></li>
+                <?php else: ?>
+                    <?php if ($isAdmin): ?>
+                        <li>|</li>
+                        <li><a href="admin.php">Admin</a></li>
+                    <?php endif; ?>
+                <?php endif; ?>
                 <li>|</li>
-                <li><a href="login.php">Connexion</a></li>
+                <li><a href="panier.php" title="Voir le panier" class="panier-icon">🛒</a></li>
+                <button id="theme-toggle" class="theme-toggle" title="Changer le thème">☀️</button>
             </ul>
+            <a href="user.php">
+                <img src="<?= htmlspecialchars($pp) ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
+            </a>
         </div>
         <div class="en-tete"></div>
         <section class="solar-section">
             <?xml version="1.0" encoding="UTF-8"?>
             <svg id="SolarSystem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1674 954.05">
-                <image href="../map/basic/images/stars.jpg" x="0" y="0" width="1674" height="954.05" preserveAspectRatio="xMidYMid slice"/>   
+                <image href="images/stars.jpg" x="0" y="0" width="1674" height="954.05" preserveAspectRatio="xMidYMid slice"/>   
             <defs>
                 <style>
                 .cls-1 {
@@ -103,109 +154,109 @@
                 </linearGradient>
 
                 <pattern id="sunPattern" patternUnits="userSpaceOnUse" width="324" height="324" patternTransform="translate(53.5 310.05)">
-                    <image href="../map/basic/images/Sun1.png" width="324" height="330" />
+                    <image href="images/Sun1.png" width="324" height="330" />
                 </pattern>
                 <pattern id="saturnPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1154 436.55)">
-                    <image href="../map/basic/images/saturn without rings.png" width="72" height="72" />
+                    <image href="images/saturn without rings.png" width="72" height="72" />
                 </pattern>
                 <pattern id="mercurePattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate(694 462.55)">
-                    <image href="../map/basic/images/Mercure.png" width="20" height="20" />
+                    <image href="images/Mercure.png" width="20" height="20" />
                 </pattern>
                 <pattern id="venusPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(558 454.55)">
-                    <image href="../map/basic/images/Venus.png" width="36" height="36" />
+                    <image href="images/Venus.png" width="36" height="36" />
                 </pattern>
                 <pattern id="terrePattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(630 454.55)">
-                    <image href="../map/basic/images/Terre.png" width="36" height="36" />
+                    <image href="images/Terre.png" width="36" height="36" />
                 </pattern>
                 <pattern id="marsPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(702 454.55)">
-                    <image href="../map/basic/images/Mars.png" width="36" height="36" />
+                    <image href="images/Mars.png" width="36" height="36" />
                 </pattern>
                 <pattern id="jupiterPattern" patternUnits="userSpaceOnUse" width="106" height="106" patternTransform="translate(877 419.55)">
-                    <image href="../map/basic/images/Jupiter.png" width="106" height="106" />
+                    <image href="images/Jupiter.png" width="106" height="106" />
                 </pattern>
                 <pattern id="uranusPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1368.5 436.55)">
-                    <image href="../map/basic/images/Uranus.png" width="72" height="72" />
+                    <image href="images/Uranus.png" width="72" height="72" />
                 </pattern>
                 <pattern id="neptunePattern" patternUnits="userSpaceOnUse" width="54" height="54" patternTransform="translate(1584.5 445.3)">
-                    <image href="../map/basic/images/Neptune.png" width="54" height="54" />
+                    <image href="images/Neptune.png" width="54" height="54" />
                 </pattern>
 
                 <!-- Terre - Lune -->
                 <pattern id="earthMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(657 490.55)">
-                    <image href="../basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Mars - Lunes -->
                 <pattern id="marsMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(729 490.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="marsMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(738 454.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Jupiter - Lunes -->
                 <pattern id="jupiterMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(936 391.55)">
-                    <image href="../map/basic/Lune.png" width="18" height="18" />
+                    <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 <pattern id="jupiterMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1035 508.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="jupiterMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1008 472.55)">
-                    <image href="../map/basic/Lune.png" width="18" height="18" />
+                    <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 <pattern id="jupiterMoon4Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1044 436.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Saturne - Lunes -->
                 <pattern id="saturnMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1125 418.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="saturnMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1188 562.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="saturnMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1233 553.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="saturnMoon4Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1269 517.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="saturnMoon5Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1278 481.55)">
-                    <image href="../map/basic/Lune.png" width="18" height="18" />
+                    <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 <pattern id="saturnMoon6Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1305 454.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="saturnMoon7Pattern" patternUnits="userSpaceOnUse" width="27" height="27" patternTransform="translate(1215 382.55)">
-                    <image href="../map/basic/Lune.png" width="27" height="27" />
+                    <image href="images/Lune.png" width="27" height="27" />
                 </pattern>
                 <pattern id="saturnMoon8Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1197 382.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Uranus - Lunes -->
                 <pattern id="uranusMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1467 508.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="uranusMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1440 490.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="uranusMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1458 463.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="uranusMoon4Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1440 436.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Neptune - Lunes -->
                 <pattern id="neptuneMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1611 508.55)">
-                    <image href="../map/basic/Lune.png" width="18" height="18" />
+                    <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 <pattern id="neptuneMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1665 481.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 <pattern id="neptuneMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1629 427.55)">
-                    <image href="../map/basic/Lune.png" width="9" height="9" />
+                    <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
             </defs>
             <g id="NeptuneGroup">
@@ -272,6 +323,7 @@
                 </g>
             </g>
             </svg>
+
             <div class="sidebar">
                 <h2>Système Solaire</h2>
                 <ul class="planet-list">
@@ -296,15 +348,6 @@
                 <div id="popup-content"></div>
             </div>
         </section>
-        <div class="bottom">
-            <h1>Crédits</h1>
-            <div class="textebot">
-                <h2>Nassim</h2>
-                <h2>Atahan</h2>
-                <h2>Romain</h2>
-                <h2>Gabin</h2>
-            </div>
-        </div>
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const planetItems = document.querySelectorAll(".planet-list li");
@@ -313,8 +356,7 @@
                 const popupContent = document.getElementById("popup-content");
                 const overlay = document.querySelector(".overlay");
                 const closeBtn = document.querySelector(".popup-close");
-
-                const allSvgElements = Array.from(document.querySelectorAll('[class^="cls-"]'));
+                const allSvgElements = Array.from(document.querySelectorAll('[class^="cls-"], .Moon'));
 
                 const planetsData = {
                     soleil: {
@@ -326,7 +368,7 @@
                         temperature: "5 500 °C",
                         composition: "Hydrogène, Hélium",
                         color: "#FFA500",
-                        image: "../basic/images/sun.jpg"
+                        image: "images/sun.jpg"
                     },
                     mercure: {
                         nom: "Mercure",
@@ -337,7 +379,7 @@
                         temperature: "-173°C à 427°C",
                         composition: "Fer, Roche",
                         color: "#A9A9A9",
-                        image: "../basic/images/mercury.jpg"
+                        image: "images/mercury.jpg"
                     },
                     venus: {
                         nom: "Vénus",
@@ -348,7 +390,7 @@
                         temperature: "462°C",
                         composition: "CO2",
                         color: "#E6B87F",
-                        image: "../basic/images/venus.jpg"
+                        image: "images/venus.jpg"
                     },
                     terre: {
                         nom: "Terre",
@@ -359,7 +401,7 @@
                         temperature: "-88°C à 58°C",
                         composition: "Eau, Roche, Oxygène",
                         color: "#4B92DB",
-                        image: "../basic/images/earth.jpg"
+                        image: "images/Terre.png"
                     },
                     mars: {
                         nom: "Mars",
@@ -370,7 +412,7 @@
                         temperature: "-153°C à 20°C",
                         composition: "Fer, Roche",
                         color: "#E27B58",
-                        image: "../basic/images/mars.jpg"
+                        image: "images/mars.jpg"
                     },
                     jupiter: {
                         nom: "Jupiter",
@@ -381,7 +423,7 @@
                         temperature: "-145°C",
                         composition: "Gaz",
                         color: "#E4BE7E",
-                        image: "../basic/images/jupiter.jpg"
+                        image: "images/jupiter.jpg"
                     },
                     saturne: {
                         nom: "Saturne",
@@ -392,7 +434,7 @@
                         temperature: "-178°C",
                         composition: "Gaz, Glace",
                         color: "#EAC782",
-                        image: "../basic/images/saturn.jpg"
+                        image: "images/saturn.jpg"
                     },
                     uranus: {
                         nom: "Uranus",
@@ -403,7 +445,7 @@
                         temperature: "-224°C",
                         composition: "Glace, Méthane",
                         color: "#ADD8E6",
-                        image: "../basic/images/uranus.jpg"
+                        image: "images/uranus.jpg"
                     },
                     neptune: {
                         nom: "Neptune",
@@ -414,7 +456,7 @@
                         temperature: "-218°C",
                         composition: "Glace, Gaz",
                         color: "#2A52BE",
-                        image: "../basic/images/neptune.jpg"
+                        image: "images/neptune.jpg"
                     }
                 };
 
@@ -465,6 +507,7 @@
                                 <p><strong>Distance:</strong> ${p.distance}</p>
                                 <p><strong>Température:</strong> ${p.temperature}</p>
                                 <p><strong>Composition:</strong> ${p.composition}</p>
+                                ${p.nom.toLowerCase().includes("soleil") ? "" : `<p><button class="popup-go" onclick="window.location.href='voyager.php?planete=${encodeURIComponent(p.nom)}'">Voir les voyages</button></p>`}
                             </div>
                         </div>`;
                     popup.style.display = "block";
@@ -499,5 +542,75 @@
                 });
             });
         </script>
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="voyager.php">Voyager</a></li>
+                        <li><a href="aboutus.php">À propos</a></li>
+                        <li><a href="Panier.php">Panier</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/alix-exp%C3%A9rience-60b037367/" target="_blank" rel="noopener">
+                        <img src="../img/link.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/alix_experience?igsh=MTV4dDV2YWpsczdqNQ==" target="_blank" rel="noopener">
+                        <img src="../img/insta.jpeg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61576688187239" target="_blank" rel="noopener">
+                        <img src="../img/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://x.com/alix_experience" target="_blank" rel="noopener">
+                        <img src="../img/X.jpeg" alt="X">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Mail :</strong>
+                        <a href="mailto:contact@alix.com">contact@alix.com</a>
+                    </p>
+                    <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                    <p>
+                        <strong>Adresse :</strong><br>
+                        <a
+                        href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-%C3%89lys%C3%A9es,+75008+Paris"
+                        target="_blank"
+                        rel="noopener"
+                        >
+                        Avenue des Champs-Élysées, 75008 Paris
+                        </a>
+                    </p>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Inscrivez-vous pour recevoir nos offres exclusives :</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <input
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        required
+                        >
+                        <button type="submit">S’abonner</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-credits">Nassim | Atahan | Romain | Gabin</p>
+                <p>© <?= date('Y') ?> A.L.I.X. — Tous droits réservés.</p>
+                <button
+                class="back-to-top"
+                aria-label="Retour en haut"
+                onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+                ></button>
+            </div>
+        </footer>
     </body>
 </html>
