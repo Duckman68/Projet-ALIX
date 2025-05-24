@@ -12,6 +12,7 @@ body{
     overflow-x: hidden;
 }
 
+
 video.fond{
 	width: 100vw;
 	height: 100vh;
@@ -166,7 +167,7 @@ div.bottom{
 }
 
 .site-footer {
-    background: rgba(255, 253, 253, 0.85);
+    background: rgb(255, 255, 255);
     color: #000000;
     padding: 40px 15px 20px;
     font-size: 0.95em;
@@ -236,6 +237,7 @@ div.bottom{
   .footer-contact p,
   .footer-newsletter p {
     line-height: 1.4;
+    color : black;
   }
   
   .footer-contact a {
@@ -290,8 +292,14 @@ div.bottom{
     font-weight: bold;
     opacity: 0.8;
     margin: 10px 0;
+    color: #000;
   }
   
+  .site-footer .footer-bottom p {
+    color: #000;
+  }
+
+
   .back-to-top {
     position: absolute;
     right: 20px;
@@ -1901,3 +1909,90 @@ section.panier {
     background-color: #0056a3;
     transform: scale(1.05);
 }
+
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #222;
+  }
+  
+  body.light-mode a {
+    color: #2f179b;
+  }
+  
+  body.light-mode .top,
+  body.light-mode .site-footer {
+    background-color: #fff;
+  }
+  
+  body.light-mode .top ul li a,
+  body.light-mode .top ul li,
+  body.light-mode .theme-toggle {
+    color: #222;
+  }
+  
+  body.light-mode .boutique-grid,
+  body.light-mode .footer-grid {
+    background: transparent;
+  }
+  
+  body.light-mode .produit-card {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  body.light-mode .produit-card h3 {
+    color: #2f179b;
+  }
+  
+  body.light-mode .produit-card .btn-voir {
+    background: #2f179b;
+    color: #fff;
+  }
+  
+  body.light-mode .produit-card .btn-voir:hover {
+    background: #4a118b;
+  }
+  
+  body.light-mode .footer-links ul li a,
+  body.light-mode .footer-contact a {
+    color: #222;
+  }
+  
+  body.light-mode .footer-grid h3 {
+    color: #2f179b;
+  }
+  
+  body.light-mode .footer-social a img {
+    filter: none;
+  }
+  
+  body.light-mode .newsletter-form input[type="email"],
+  body.light-mode .newsletter-form button {
+    background: #fff;
+    color: #222;
+    border: 1px solid #ccc;
+  }
+  
+  body.light-mode .newsletter-form button {
+    background: #2f179b;
+    color: #fff;
+  }
+  
+  body.light-mode .newsletter-form button:hover {
+    background: #4a118b;
+  }
+  
+  body.light-mode .back-to-top {
+    border-color: #222;
+  }
+  
+  body.light-mode .back-to-top::before,
+  body.light-mode .back-to-top::after {
+    background: #222;
+    border-bottom-color: #222;
+  }
+  
+  body.light-mode .footer-bottom {
+    border-top-color: rgba(0,0,0,0.1);
+  }
+  
