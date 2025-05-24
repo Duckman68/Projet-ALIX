@@ -9,9 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const erreurs = document.getElementById("erreurs");
-    const compteur = document.getElementById("compteur-mdp");
+    const compteurMdp = document.getElementById("compteur-mdp");
+    const compteurConf = document.getElementById("compteur-confirmation");
 
-    // Boutons œil
     document.querySelectorAll(".oeil-bouton").forEach(bouton => {
         bouton.addEventListener("click", () => {
             const cibleId = bouton.dataset.cible;
@@ -27,12 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Compteur pour le mot de passe
-    champs.motdepasse.addEventListener("input", () => {
-        compteur.textContent = `${champs.motdepasse.value.length} caractères`;
-    });
+    if (champs.motdepasse && compteurMdp) {
+        champs.motdepasse.addEventListener("input", () => {
+            compteurMdp.textContent = `${champs.motdepasse.value.length}`;
+        });
+    }
 
-    // Validation formulaire
+    if (champs.confirmation && compteurConf) {
+        champs.confirmation.addEventListener("input", () => {
+            compteurConf.textContent = `${champs.confirmation.value.length}`;
+        });
+    }
+
     formulaire.addEventListener("submit", (e) => {
         e.preventDefault();
         erreurs.innerHTML = "";
@@ -43,6 +49,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 valide = false;
                 erreurs.innerHTML += `<p>Le champ ${cle} est obligatoire.</p>`;
             }
+        }
+
+        if (champs.motdepasse.value.length < 8) {
+            valide = false;
+            erreurs.innerHTML += `<p>Le mot de passe doit contenir au moins 8 caractères.</p>`;
         }
 
         if (champs.motdepasse.value !== champs.confirmation.value) {

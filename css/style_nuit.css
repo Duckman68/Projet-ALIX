@@ -161,7 +161,6 @@ div.boutique {
 }
 
 
-
 .site-footer {
     background: rgba(0, 0, 0, 0);
     color: #fff;
@@ -1062,6 +1061,7 @@ section.login h1 {
     font-weight: lighter;
 }
 
+
 /*singup*/
 
 div.espace-singup{
@@ -1161,7 +1161,7 @@ section.singup h1 {
 
 .champ-mdp input {
     width: 100%;
-    padding-right: 40px; /* espace pour l'œil */
+    padding-right: 20px; /* espace pour l'œil */
     box-sizing: border-box;
 }
 
@@ -1178,6 +1178,15 @@ section.singup h1 {
     display: flex;
     align-items: center;
 }
+
+.compteur-mdp {
+    position: absolute;
+    color: #aaa;
+    font-weight: bold;
+    right: 40px;
+    font-size: 16px;
+}
+
 
 /* Profil Section */
 .espace-profil {
@@ -2220,14 +2229,11 @@ section.solar-section {
     transform-origin: 1611.75px 472.55px;
 }
   
-video.logo {
-    height: 60px;
-    width: auto;
-}
+
 
 .pfp {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     object-fit: cover;
 }

@@ -10,7 +10,7 @@
             "phone": "0788968842",
             "address": "78500 Sartrouville",
             "sign-date": "",
-            "login-date": "21-05-2025 17:00",
+            "login-date": "24-05-2025 21:46",
             "historique": "",
             "pp": "..\/img\/cartman.jpg",
             "voyage": {
@@ -284,6 +284,24 @@
                         ]
                     }
                 ]
+            }
+        },
+        {
+            "id_user": "8",
+            "role": "membre",
+            "nom": "Landier",
+            "prenom": "Gabin",
+            "email": "gabinlandier@gmail.com",
+            "mot_de_passe": "aaaaaaaa",
+            "phone": "0788968842",
+            "address": "3 rue Vaucanson",
+            "sign-date": "24\/05\/2025",
+            "login-date": "",
+            "historique": "",
+            "pp": "..\/img\/default.png",
+            "voyage": {
+                "consultes": [],
+                "achetes": []
             }
         }
     ]

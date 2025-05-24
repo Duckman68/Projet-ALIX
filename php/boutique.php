@@ -77,22 +77,22 @@ if (isset($_SESSION['email'])) {
       <div class="produit-card">
         <img src="../img/produit1.jpg" alt="Produit 1">
         <h3>Produit 1</h3>
-        <a href="produit/produit1.html" class="btn-voir">Voir</a>
+        <a href="produit/produit1.php" class="btn-voir">Voir</a>
       </div>
       <div class="produit-card">
         <img src="../img/produit2.jpg" alt="Produit 2">
         <h3>Produit 2</h3>
-        <a href="produit/produit2.html" class="btn-voir">Voir</a>
+        <a href="produit/produit2.php" class="btn-voir">Voir</a>
       </div>
       <div class="produit-card">
         <img src="../img/produit3.jpg" alt="Produit 3">
         <h3>Produit 3</h3>
-        <a href="produit/produit3.html" class="btn-voir">Voir</a>
+        <a href="produit/produit3.php" class="btn-voir">Voir</a>
       </div>
       <div class="produit-card">
         <img src="../img/produit4.jpg" alt="Produit 4">
         <h3>Produit 4</h3>
-        <a href="produit/produit4.html" class="btn-voir">Voir</a>
+        <a href="produit/produit4.php" class="btn-voir">Voir</a>
       </div>
     </div>
   </div>

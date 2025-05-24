@@ -101,15 +101,26 @@ if (isset($_SESSION['email'])) {
             <div class="form-group">
                 <div class="champ-mdp">
                     <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Mot de passe" required>
+					<span class="compteur-mdp" id="compteur-mdp">0</span>
                     <button type="button" class="oeil-bouton" data-cible="mot_de_passe">👁</button>
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="champ-mdp">
-                    <input type="password" name="confirmation_mot_de_passe" id="confirmation_mot_de_passe" placeholder="Confirmation du mot de passe" required>
-                    <button type="button" class="oeil-bouton" data-cible="confirmation_mot_de_passe">👁</button>
-                </div>
+					<input type="password" name="confirmation_mot_de_passe" id="confirmation_mot_de_passe" placeholder="Confirmation du mot de passe" required>
+					<span class="compteur-mdp" id="compteur-confirmation">0</span>
+					<button type="button" class="oeil-bouton" data-cible="confirmation_mot_de_passe">👁</button>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<input type="tel" name="tel" id="tel" placeholder="Téléphone" value="<?php echo htmlspecialchars($_POST['tel'] ?? ''); ?>">
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="adresse" id="adresse" placeholder="Adresse" value="<?php echo htmlspecialchars($_POST['adresse'] ?? ''); ?>">
+			</div>
             </div>
 
             <button type="submit" class="submit">S'inscrire</button>
