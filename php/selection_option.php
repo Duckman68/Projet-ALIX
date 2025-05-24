@@ -10,12 +10,34 @@ $voyagesData = json_decode(file_get_contents('../json/voyage.json'), true);
 $etapesData = json_decode(file_get_contents('../json/etapes.json'), true);
 $optionsData = json_decode(file_get_contents('../json/options.json'), true);
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['voyage-id'])) {
+if (
+    ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['voyage-id']))
+    && !isset($_GET['edit'], $_SESSION['edition_voyage'])
+) {
     header("Location: voyager.php");
     exit();
 }
 
-$voyage_id = $_POST['voyage-id'];
+
+if (isset($_GET['edit']) && isset($_SESSION['edition_voyage'])) {
+    $edition = true;
+    $voyage_data = $_SESSION['edition_voyage'];
+    $voyage_id = $voyage_data['voyage_id']; // on récupère l'id du voyage
+    $passagers = $voyage_data['passagers'];
+    $options_preselectionnees = $voyage_data['options'];
+    $selected_options = [];
+
+    foreach ($options_preselectionnees as $opt) {
+        $etape = $opt['etape'];
+        $nom = $opt['nom'];
+        $selected_options[$etape][] = $nom;
+    }
+} else {
+    $edition = false;
+    $voyage_id = $_POST['voyage-id'];
+}
+
+
 $voyage = null;
 foreach ($voyagesData['voyages'] as $v) {
     if ($v['id'] === $voyage_id) {
@@ -49,27 +71,33 @@ if (isset($_POST['adultes'])) {
     ];
 
     foreach ($_POST['options'] as $etape_id => $option_ids) {
-    foreach ($option_ids as $option_id) {
-        foreach ($etapesData['etapes'] as $etape) {
-            if ($etape['id'] === $etape_id) {
-                foreach ($optionsData['options'] as $opt) {
-                    if ($opt['id'] === $option_id) {
-                        $_SESSION['current_voyage']['options'][] = [
-                            'etape' => $etape['titre'],
-                            'nom'   => implode(', ', $opt['activités']),
-                            'prix'  => $opt['prix_par_personne']
-                        ];
-                        break;
+        foreach ($option_ids as $option_id) {
+            foreach ($etapesData['etapes'] as $etape) {
+                if ($etape['id'] === $etape_id) {
+                    foreach ($optionsData['options'] as $opt) {
+                        if ($opt['id'] === $option_id) {
+                            $_SESSION['current_voyage']['options'][] = [
+                                'etape' => $etape['titre'],
+                                'nom'   => implode(', ', $opt['activités']),
+                                'prix'  => $opt['prix_par_personne']
+                            ];
+                            break;
+                        }
                     }
+                    break;
                 }
-                break;
             }
         }
     }
-}
 
-
-    $_SESSION['panier'][] = $_SESSION['current_voyage'];
+    if ($edition) {
+    // Vider tout le panier et ne garder que le voyage modifié
+        $_SESSION['panier'] = [$_SESSION['current_voyage']];
+        unset($_SESSION['edition_voyage'], $_SESSION['edition_index']);
+    }
+    else {
+        $_SESSION['panier'][] = $_SESSION['current_voyage'];
+    }
     header("Location: recapitulatif.php");
     exit();
 }
@@ -114,8 +142,8 @@ if (isset($_SESSION['email'])) {
 <head>
     <title>A.L.I.X. - Options</title>
     <meta charset="UTF-8">
-    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
-	<script src="../js/theme.js" defer></script><!---->
+    <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" />
+    <script src="../js/theme.js" defer></script>
     <script src="../js/option.js" defer></script>
 </head>
 <body data-prix-base="<?= htmlspecialchars($voyage['prix']) ?>">
@@ -148,72 +176,75 @@ if (isset($_SESSION['email'])) {
         <h1 style="font-size: 50px;"><?= htmlspecialchars($voyage['titre']) ?></h1>
 
         <form method="POST">
-                <div class="selecteur-container">
-                    <button class="selecteur-bouton" type="button">
-                        <span id="resume">1 Adulte · 0 Enfants · 0 Bébés</span>
-                    </button>
-                    <div class="menu-selecteur" id="menu-selecteur">
-                        <div class="ligne">
-                            <label>Adultes</label>
-                            <div class="controle">
-                                <button type="button" id="adultes-moins">−</button>
-                                <span id="adultes">1</span>
-                                <button type="button" id="adultes-plus">+</button>
-                            </div>
+            <div class="selecteur-container">
+                <button class="selecteur-bouton" type="button">
+                    <span id="resume"><?= $edition ? "{$passagers['adultes']} Adulte(s) · {$passagers['enfants']} Enfant(s) · {$passagers['bebes']} Bébé(s)" : "1 Adulte · 0 Enfant · 0 Bébé" ?></span>
+                </button>
+                <div class="menu-selecteur" id="menu-selecteur">
+                    <div class="ligne">
+                        <label>Adultes</label>
+                        <div class="controle">
+                            <button type="button" id="adultes-moins">−</button>
+                            <span id="adultes"><?= $edition ? $passagers['adultes'] : 1 ?></span>
+                            <button type="button" id="adultes-plus">+</button>
                         </div>
-                        <div class="ligne">
-                            <label>Enfants</label>
-                            <div class="controle">
-                                <button type="button" id="enfants-moins">−</button>
-                                <span id="enfants">0</span>
-                                <button type="button" id="enfants-plus">+</button>
-                            </div>
-                        </div>
-                        <div class="ligne">
-                            <label>Bébé</label>
-                            <div class="controle">
-                                <button type="button" id="bebe-moins">−</button>
-                                <span id="bebe">0</span>
-                                <button type="button" id="bebe-plus">+</button>
-                            </div>
-                        </div>
-                        <button type="button" id="terminer-btn">Terminer</button>
                     </div>
+                    <div class="ligne">
+                        <label>Enfants</label>
+                        <div class="controle">
+                            <button type="button" id="enfants-moins">−</button>
+                            <span id="enfants"><?= $edition ? $passagers['enfants'] : 0 ?></span>
+                            <button type="button" id="enfants-plus">+</button>
+                        </div>
+                    </div>
+                    <div class="ligne">
+                        <label>Bébé</label>
+                        <div class="controle">
+                            <button type="button" id="bebe-moins">−</button>
+                            <span id="bebe"><?= $edition ? $passagers['bebes'] : 0 ?></span>
+                            <button type="button" id="bebe-plus">+</button>
+                        </div>
+                    </div>
+                    <button type="button" id="terminer-btn">Terminer</button>
                 </div>
-
+            </div>
 
             <input type="hidden" name="voyage-id" value="<?= htmlspecialchars($voyage_id); ?>">
             <input type="hidden" name="date-voyage" value="<?= htmlspecialchars($_POST['date-voyage']); ?>">
             <input type="hidden" name="date-arrivee" value="<?= htmlspecialchars($_POST['date-arrivee']); ?>">
-            <input type="hidden" name="adultes" id="adultes-input" value="1">
-            <input type="hidden" name="enfants" id="enfants-input" value="0">
-            <input type="hidden" name="bebes" id="bebes-input" value="0">
+            <input type="hidden" name="adultes" id="adultes-input" value="<?= $edition ? $passagers['adultes'] : 1 ?>">
+            <input type="hidden" name="enfants" id="enfants-input" value="<?= $edition ? $passagers['enfants'] : 0 ?>">
+            <input type="hidden" name="bebes" id="bebes-input" value="<?= $edition ? $passagers['bebes'] : 0 ?>">
 
             <?php foreach ($voyage['etapes'] as $etape_id): ?>
-                <?php
-                foreach ($etapesData['etapes'] as $etape) {
-                    if ($etape['id'] === $etape_id):
-                ?>
-                <div class="etape-container">
-                    <h2><?= htmlspecialchars($etape['titre']) ?></h2>
-                    <div class="options-container">
-                        <?php foreach ($etape['options'] as $opt_id): ?>
-                            <?php
-                            foreach ($optionsData['options'] as $opt) {
-                                if ($opt['id'] === $opt_id): ?>
-                                <label class="option-card">
-                                    <input type="checkbox" name="options[<?= $etape_id ?>][]" value="<?= $opt_id ?>">
-                                    <div class="option-content">
-                                        <h3><?= htmlspecialchars(implode(', ', $opt['activités'])) ?></h3>
-                                        <p><?= htmlspecialchars(implode(',',$opt['descriptif'])) ?></p>
-                                        <p><?= htmlspecialchars($opt['prix_par_personne']) ?> € / personne</p>
-                                    </div>
-                                </label>
-                            <?php endif; } ?>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-                <?php endif; } ?>
+                <?php foreach ($etapesData['etapes'] as $etape): ?>
+                    <?php if ($etape['id'] === $etape_id): ?>
+                        <div class="etape-container">
+                            <h2><?= htmlspecialchars($etape['titre']) ?></h2>
+                            <div class="options-container">
+                                <?php foreach ($etape['options'] as $opt_id): ?>
+                                    <?php foreach ($optionsData['options'] as $opt): ?>
+                                        <?php if ($opt['id'] === $opt_id): ?>
+                                            <?php
+                                            $etape_titre = $etape['titre'];
+                                            $nom_opt = implode(', ', $opt['activités']);
+                                            $is_checked = $edition && isset($selected_options[$etape_titre]) && in_array($nom_opt, $selected_options[$etape_titre]);
+                                            ?>
+                                            <label class="option-card">
+                                                <input type="checkbox" name="options[<?= $etape_id ?>][]" value="<?= $opt_id ?>" <?= $is_checked ? 'checked' : '' ?>>
+                                                <div class="option-content">
+                                                    <h3><?= htmlspecialchars($nom_opt) ?></h3>
+                                                    <p><?= htmlspecialchars(implode(',', $opt['descriptif'])) ?></p>
+                                                    <p><?= htmlspecialchars($opt['prix_par_personne']) ?> € / personne</p>
+                                                </div>
+                                            </label>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             <?php endforeach; ?>
 
             <div class="form-actions">
@@ -223,76 +254,6 @@ if (isset($_SESSION['email'])) {
                 <button type="submit" class="btn-envoyer">Ajouter au panier et voir le récapitulatif</button>
             </div>
         </form>
-
-        <footer class="site-footer">
-		<div class="footer-grid">
-			<div class="footer-links">
-				<h3>Liens rapides</h3>
-				<ul>
-					<li><a href="index.php">Accueil</a></li>
-					<li><a href="voyager.php">Voyager</a></li>
-					<li><a href="aboutus.php">À propos</a></li>
-					<li><a href="Panier.php">Panier</a></li>
-				</ul>
-				<div class="footer-social">
-					<a href="https://www.linkedin.com/in/alix-exp%C3%A9rience-60b037367/" target="_blank" rel="noopener">
-					<img src="../img/link.png" alt="LinkedIn">
-					</a>
-					<a href="https://www.instagram.com/alix_experience?igsh=MTV4dDV2YWpsczdqNQ==" target="_blank" rel="noopener">
-					<img src="../img/insta.jpeg" alt="Instagram">
-					</a>
-					<a href="https://www.facebook.com/profile.php?id=61576688187239" target="_blank" rel="noopener">
-					<img src="../img/facebook.png" alt="Facebook">
-					</a>
-					<a href="https://x.com/alix_experience" target="_blank" rel="noopener">
-					<img src="../img/X.jpeg" alt="X">
-					</a>
-				</div>
-			</div>
-
-			<div class="footer-contact">
-				<h3>Contact</h3>
-				<p>
-					<strong>Mail :</strong>
-					<a href="mailto:contact@alix.com">contact@alix.com</a>
-				</p>
-				<p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
-				<p>
-					<strong>Adresse :</strong><br>
-					<a
-					href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-%C3%89lys%C3%A9es,+75008+Paris"
-					target="_blank"
-					rel="noopener"
-					>
-					Avenue des Champs-Élysées, 75008 Paris
-					</a>
-				</p>
-			</div>
-
-			<div class="footer-newsletter">
-				<h3>Newsletter</h3>
-				<p>Inscrivez-vous pour recevoir nos offres exclusives :</p>
-				<form class="newsletter-form" action="#" method="post">
-					<input
-					type="email"
-					name="email"
-					placeholder="Votre email"
-					required
-					>
-					<button type="submit">S’abonner</button>
-				</form>
-			</div>
-		</div>
-
-		<div class="footer-bottom">
-			<p class="footer-credits">Nassim | Atahan | Romain | Gabin</p>
-			<p>© <?= date('Y') ?> A.L.I.X. — Tous droits réservés.</p>
-			<button
-			class="back-to-top"
-			aria-label="Retour en haut"
-			onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
-			></button>
-		</div>
-	</footer>
+    </div>
 </body>
 </html>

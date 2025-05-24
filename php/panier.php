@@ -138,7 +138,6 @@ if (isset($_POST['payer'])) {
             <div class="panier-item">
                 <h3><?= htmlspecialchars($voyage['titre']) ?></h3>
                 <p>📅 Dates : <?= htmlspecialchars($voyage['dates']['depart']) ?> → <?= htmlspecialchars($voyage['dates']['arrivee']) ?> (<?= $voyage['dates']['duree'] ?> jours)</p>
-                <p>🧳 Classe : <?= htmlspecialchars($voyage['classe']) ?> <?= $voyage['sans_escale'] ? '(Sans escale)' : '' ?></p>
                 <p>👨‍👩‍👧‍👦 Passagers : Adultes <?= $nb_adultes ?>, Enfants <?= $nb_enfants ?>, Bébés <?= $nb_bebes ?></p>
                 <?php if (!empty($voyage['options'])): ?>
                     <p>🔧 Options :</p>
@@ -148,6 +147,10 @@ if (isset($_POST['payer'])) {
                         <?php endforeach; ?>
                     </ul>
                 <?php endif; ?>
+                <form method="POST" action="modifier_panier.php">
+                    <input type="hidden" name="index" value="<?= $index ?>">
+                    <button type="submit" class="btn-ajouter-panier">✏️ Modifier</button>
+                </form>
                 <form method="POST" action="panier.php">
                     <input type="hidden" name="index" value="<?= $index ?>">
                     <input type="hidden" name="supprimer" value="1">

@@ -149,7 +149,10 @@ if (!empty($voyage_data['options'])) {
         </div>
 
         <div class="action-buttons">
-            <a href="selection_option.php" class="btn btn-modifier">Modifier le voyage</a>
+            <form method="POST" action="modifier_panier.php" style="display:inline;">
+                <input type="hidden" name="modifier_depuis_recap" value="1">
+                <button type="submit" class="btn btn-modifier">Modifier le voyage</button>
+            </form>
             <?php if ($isLoggedIn): ?>
                 <a href="payment.php" class="btn btn-confirmer">Confirmer et payer</a>
             <?php else: ?>

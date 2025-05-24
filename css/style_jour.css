@@ -1700,10 +1700,10 @@ section.panier {
     margin: 50px auto;
     max-width: 1000px;
     width: 90%;
-    background-color: #f0f8ff;
+    background-color: #f8f9fa;
     padding: 30px;
     border-radius: 15px;
-    color: #000;
+    color: #222;
 }
 
 .panier-liste {
@@ -1717,10 +1717,12 @@ section.panier {
     border: 1px solid #ccc;
     padding: 20px;
     border-radius: 10px;
+    text-align: center;
+    color: #222;
 }
 
 .panier-item h3 {
-    color: #0077cc;
+    color: #005fa3;
 }
 
 .panier-item ul {
@@ -1728,6 +1730,8 @@ section.panier {
     padding-left: 20px;
     list-style-type: square;
     color: #333;
+    display: inline-block;
+    text-align: left;
 }
 
 .btn-supprimer, .btn-ajouter-panier {
@@ -1736,53 +1740,48 @@ section.panier {
     border-radius: 5px;
     font-weight: bold;
     cursor: pointer;
+    color: white;
 }
 
 .btn-supprimer {
-    background-color: #ff4444;
-    color: white;
+    background-color: #e74c3c;
 }
 .btn-supprimer:hover {
-    background-color: #cc0000;
+    background-color: #c0392b;
 }
 
 .btn-ajouter-panier {
-    background-color: #0099cc;
-    color: white;
+    background-color: #3498db;
 }
 .btn-ajouter-panier:hover {
-    background-color: #0077aa;
+    background-color: #2980b9;
 }
 
 .panier-vide {
     text-align: center;
-    background-color: #ffcccc;
+    background-color: #ffe6e6;
     padding: 20px;
     border-radius: 10px;
     font-weight: bold;
-    border: 1px solid red;
+    border: 1px solid #e74c3c;
+    color: #c0392b;
 }
 
 .panier-total {
-    text-align: right;
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 18px;
     text-align: center;
-    font-size: 1.3em;
     margin-top: 30px;
-}
-.panier-item p, .panier-item ul li {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin: 5px 0;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #222;
 }
 
-.panier-item ul {
-    margin: 10px 0 0 0;
-    padding-left: 20px;
-    text-align: left;
+.panier-item p {
+    color: #222;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px 0;
 }
+
 
 /*Page recherche*/
 
@@ -1996,3 +1995,119 @@ body.light-mode {
     border-top-color: rgba(0,0,0,0.1);
   }
   
+  /* === MODE JOUR BOUTIQUE === */
+
+:root {
+  --bg-light: #f5f5fa;
+  --accent-1: #007acc;
+  --accent-2: #00b894;
+  --card-bg: #ffffff;
+}
+
+div.boutique {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-light) 100%);
+  padding: 100px 20px;
+}
+
+div.boutique h1 {
+  font-size: 3rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+div.boutique .boutique-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+div.boutique .produit-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div.boutique .produit-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+}
+
+div.boutique .produit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+div.boutique .produit-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #f0f0f0;
+  transition: transform 0.4s ease;
+}
+
+div.boutique .produit-card:hover img {
+  transform: scale(1.05);
+}
+
+div.boutique .produit-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: var(--accent-1);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+div.boutique .produit-card .btn-voir {
+  margin: auto 0 1.5rem;
+  padding: 12px 32px;
+  background: var(--accent-1);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+div.boutique .produit-card .btn-voir:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+div.boutique .retour {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+div.boutique .retour p a {
+  color: var(--accent-1);
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+div.boutique .retour p a:hover {
+  color: var(--accent-2);
+  transform: translateX(-6px);
+}
+
+div.espace-bottom-boutique {
+  height: 3vh;
+  width: 100vw;
+  padding-top: 6.5%;
+}

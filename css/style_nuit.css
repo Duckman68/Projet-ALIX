@@ -1574,7 +1574,7 @@ table.option {
 /*Recapitulatif*/
 .corps-recap {
     max-width: 1000px;
-    margin: 50px auto;
+    margin: 170px auto;
     padding: 30px;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 15px;
@@ -1704,6 +1704,7 @@ section.panier {
     border: 1px solid #00ffff55;
     padding: 20px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .panier-item h3 {
@@ -1715,6 +1716,8 @@ section.panier {
     padding-left: 20px;
     list-style-type: square;
     color: #ccc;
+    display: inline-block;
+    text-align: left;
 }
 
 .btn-supprimer, .btn-ajouter-panier {
