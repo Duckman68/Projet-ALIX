@@ -37,39 +37,51 @@ if (isset($_SESSION['email'])) {
 
 $voyages_data = json_decode(file_get_contents("../json/voyage.json"), true);
 $voyages_all = $voyages_data['voyages'] ?? [];
-$etapes_data = json_decode(file_get_contents("../json/etapes.json"), true);
+
+$etapes_raw = json_decode(file_get_contents("../json/etapes.json"), true);
+
+
+if (isset($etapes_raw['etapes'])) {
+    $etapes_data = $etapes_raw['etapes'];
+} else {
+    $etapes_data = $etapes_raw;
+}
+
+// 🔁 Conversion : id => titre
+$etapes_assoc = [];
+foreach ($etapes_data as $etape) {
+    if (isset($etape['id'], $etape['titre'])) {
+        $etapes_assoc[$etape['id']] = $etape['titre'];
+    }
+}
 
 
 $searchQuery = strtolower($_GET['search'] ?? '');
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
 $voyagesParPage = 5;
 
-$voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery, $etapes_data) {
+// 🔍 Filtrage sur titre du voyage ou titre des étapes
+$voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery, $etapes_assoc) {
+    $searchQuery = strtolower($searchQuery);
+
     if ($searchQuery === '') return true;
 
-    // Cherche dans le titre
-    if (stripos($voyage['titre'], $searchQuery) !== false) return true;
+    if (stripos(strtolower($voyage['titre']), $searchQuery) !== false) return true;
 
-    // Cherche dans le camp de base
-    if (stripos($voyage['camp_de_base'], $searchQuery) !== false) return true;
-
-    // Cherche dans les noms des étapes
     foreach ($voyage['etapes'] as $etape_id) {
-        if (!empty($etapes_data[$etape_id]) && stripos($etapes_data[$etape_id], $searchQuery) !== false) {
-            return true;
-        }
+        $etape_nom = $etapes_assoc[$etape_id] ?? '';
+        if (stripos(strtolower($etape_nom), $searchQuery) !== false) return true;
     }
 
     return false;
 });
-
-
 
 $totalVoyages = count($voyagesFiltres);
 $totalPages = max(1, ceil($totalVoyages / $voyagesParPage));
 $debut = ($page - 1) * $voyagesParPage;
 $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
 ?>
+
 
 <!DOCTYPE html>
 <html>

@@ -58,6 +58,25 @@ $pp = $utilisateur["pp"] ?? $pp;
 
 // Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // ✅ Gestion de l'image AVANT le header/exit
+    if (isset($_FILES['pp']) && $_FILES['pp']['error'] === UPLOAD_ERR_OK) {
+        $upload_dir = "../img/profil/";
+        if (!is_dir($upload_dir)) mkdir($upload_dir, 0755, true);
+
+        $ext = pathinfo($_FILES['pp']['name'], PATHINFO_EXTENSION);
+        $filename = uniqid("pp_", true) . "." . strtolower($ext);
+        $filepath = $upload_dir . $filename;
+
+        $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        if (in_array($_FILES['pp']['type'], $allowed_types)) {
+            move_uploaded_file($_FILES['pp']['tmp_name'], $filepath);
+            $utilisateur["pp"] = $filepath;
+            $pp = $filepath;
+        }
+    }
+
+    // ✅ Traitement des autres champs
     $nom = $_POST['nom'] ?? $nom;
     $prenom = $_POST['prenom'] ?? $prenom;
     $email = $_POST['email'] ?? $email;
@@ -77,6 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -129,10 +149,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="espace-profil">
         <section class="profil-form-login">
-            <input type="image" src="<?php echo htmlspecialchars($pp); ?>" class="profil-img">
-            <h2>Mon Profil</h2>
-            
-            <form method="POST" action="user.php" id="form-profil">
+            <form method="POST" action="user.php" enctype="multipart/form-data" id="form-profil">
+                <label for="pp" class="profil-img-label">
+                    <img src="<?php echo htmlspecialchars($pp); ?>" class="profil-img" id="preview-image" alt="Photo de profil">
+                </label>
+                <input type="file" name="pp" id="pp" accept="image/*" style="display: none;">
+
+                <h2>Mon Profil</h2>
+
                 <div class="form-group champ-modifiable">
                     <label for="nom">Nom :</label>
                     <input type="text" id="nom" name="nom" value="<?php echo htmlspecialchars($nom); ?>" disabled required>

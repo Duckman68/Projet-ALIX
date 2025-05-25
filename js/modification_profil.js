@@ -2,54 +2,62 @@ document.addEventListener("DOMContentLoaded", () => {
     const champs = document.querySelectorAll(".champ-modifiable");
     const boutonSoumettre = document.getElementById("bouton-soumettre");
 
-    // Pour suivre si au moins une modification a été validée
     let modificationFaite = false;
 
-    // Parcours de chaque champ modifiable
     champs.forEach((groupe) => {
         const champ = groupe.querySelector("input");
         const editer = groupe.querySelector(".btn-editer");
         const valider = groupe.querySelector(".btn-valider");
         const annuler = groupe.querySelector(".btn-annuler");
 
-        // On sauvegarde la valeur initiale pour pouvoir annuler
         let valeurInitiale = champ.value;
 
-        // 👉 Clic sur le bouton ✏️
         editer.addEventListener("click", () => {
-            champ.disabled = false;                         // On rend le champ modifiable
-            champ.focus();                                  // Focus automatique
-            editer.style.display = "none";                  // On masque ✏️
-            valider.style.display = "inline-block";         // On affiche ✅
-            annuler.style.display = "inline-block";         // On affiche ❌
+            champ.disabled = false;
+            champ.focus();
+            editer.style.display = "none";
+            valider.style.display = "inline-block";
+            annuler.style.display = "inline-block";
         });
 
-        // ❌ Annulation de la modification
         annuler.addEventListener("click", () => {
-            champ.value = valeurInitiale;                   // On remet la valeur d'origine
-            champ.disabled = true;                          // On désactive le champ
+            champ.value = valeurInitiale;
+            champ.disabled = true;
             editer.style.display = "inline-block";
             valider.style.display = "none";
             annuler.style.display = "none";
         });
 
-        // ✅ Validation de la modification
         valider.addEventListener("click", () => {
-            valeurInitiale = champ.value;                   // On enregistre la nouvelle valeur
-            champ.disabled = true;                          // On désactive le champ visuellement
+            valeurInitiale = champ.value;
+            champ.disabled = true;
             editer.style.display = "inline-block";
             valider.style.display = "none";
             annuler.style.display = "none";
             modificationFaite = true;
-            boutonSoumettre.style.display = "inline-block"; // On affiche le bouton Soumettre
+            boutonSoumettre.style.display = "inline-block";
         });
     });
 
-    // ✅ Avant l'envoi du formulaire, activer tous les champs pour qu'ils soient bien envoyés
+    // ✅ Activer tous les champs avant l'envoi
     const formulaire = document.getElementById("form-profil");
     formulaire.addEventListener("submit", () => {
         formulaire.querySelectorAll("input").forEach(input => {
             input.disabled = false;
         });
     });
+
+    // 📷 Prévisualisation de la photo de profil sélectionnée
+    const fileInput = document.getElementById("pp");
+    const previewImage = document.getElementById("preview-image");
+
+    if (fileInput && previewImage) {
+        fileInput.addEventListener("change", (e) => {
+            const [file] = e.target.files;
+            if (file) {
+                previewImage.src = URL.createObjectURL(file);
+                boutonSoumettre.style.display = "inline-block"; // Affiche le bouton Soumettre si image changée
+            }
+        });
+    }
 });

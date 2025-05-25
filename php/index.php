@@ -164,7 +164,7 @@ if (isset($_SESSION['email'])) {
 				<td><a href="produit/produit2.html"> <img src = "../img/produit2.jpg" class="produit"> </a></td>
 				<td><a href="produit/produit3.html"> <img src = "../img/produit3.jpg" class="produit"> </a></td>
 				<td><a href="produit/produit4.html"> <img src = "../img/produit4.jpg" class="produit"> </a></td>
-				<td class="boutton"><a href = "boutique.php " ><h2><strong>Aller a la boutique</strong></h2></a></td>
+				<td class="boutton"><a href = "boutique.php" class="btn btn-confirmer"><h2><strong>Aller a la boutique</strong></h2></a></td>
 			</tr>
 		</table>
 	</div>
