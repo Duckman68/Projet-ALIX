@@ -112,8 +112,6 @@ if (isset($_SESSION['email'])) {
         <p><strong>Départ :</strong> <?php echo $date_depart; ?></p>
         <p><strong>Retour :</strong> <?php echo $date_retour; ?></p>
         <p><strong>Durée :</strong> <?php echo $duree; ?> jours</p>
-        <p><strong>Classe :</strong> <?php echo $classe; ?> Class</p>
-        <p><strong>Sans escale :</strong> <?php echo $sans_escale; ?></p>
         <p><strong>Total à payer :</strong> <span style="color:#00ffff;font-size:20px;"><?php echo $prix_total; ?> €</span></p>
     </div>
 
