@@ -62,6 +62,7 @@ if (!empty($voyage_data['options'])) {
         $prix_total += ($prix_opt * $adultes) + ($prix_opt * 0.7 * $enfants);
     }
 }
+
 ?>
 
 <!DOCTYPE html>

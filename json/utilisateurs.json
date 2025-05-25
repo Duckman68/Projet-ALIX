@@ -18,7 +18,7 @@
                 "achetes": [
                     {
                         "voyage_id": "VOY10",
-                        "titre": "\u00c9ly\u00e4r",
+                        "titre": "Élyär",
                         "dates": {
                             "depart": "2025-05-01",
                             "arrivee": "2025-05-31",
@@ -35,7 +35,7 @@
                         "options": [
                             {
                                 "etape": "Razmo",
-                                "nom": "Salle d\u2019ancrage miroir",
+                                "nom": "Salle d’ancrage miroir",
                                 "prix": 1850
                             },
                             {
@@ -69,7 +69,7 @@
                         "options": [
                             {
                                 "etape": "Jupiter",
-                                "nom": "Vol invers\u00e9",
+                                "nom": "Vol inversé",
                                 "prix": 610
                             },
                             {
@@ -97,7 +97,7 @@
             "phone": "063456789",
             "address": "95000 Cergy",
             "sign-date": "",
-            "login-date": "25-05-2025 11:40",
+            "login-date": "25-05-2025 12:40",
             "historique": "",
             "pp": "..\/img\/profil\/pp_6833018c7ae362.62292959.jpg",
             "voyage": {
@@ -122,7 +122,166 @@
                         "options": [
                             {
                                 "etape": "Mercure",
-                                "nom": "D\u00eener fusion extr\u00eame",
+                                "nom": "Dîner fusion extrême",
+                                "prix": 180
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "",
+                            "arrivee": "",
+                            "duree": 0
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Geysers métalliques",
+                                "prix": 180
+                            },
+                            {
+                                "etape": "Mercure",
+                                "nom": "Dîner fusion extrême",
+                                "prix": 180
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "2025-05-25",
+                            "arrivee": "2025-06-01",
+                            "duree": 7
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Terre",
+                                "nom": "Atelier poterie",
+                                "prix": 90
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "2025-05-25",
+                            "arrivee": "2025-06-01",
+                            "duree": 7
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Dîner fusion extrême",
+                                "prix": 180
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "",
+                            "arrivee": "",
+                            "duree": 0
+                        },
+                        "passagers": {
+                            "adultes": "1",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Dîner fusion extrême",
+                                "prix": 180
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "",
+                            "arrivee": "",
+                            "duree": 0
+                        },
+                        "passagers": {
+                            "adultes": "3",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Randonnée thermique",
+                                "prix": 180
+                            },
+                            {
+                                "etape": "Mercure",
+                                "nom": "Geysers métalliques",
+                                "prix": 180
+                            }
+                        ]
+                    },
+                    {
+                        "voyage_id": "VOY1",
+                        "titre": "Sollinea",
+                        "dates": {
+                            "depart": "",
+                            "arrivee": "",
+                            "duree": 0
+                        },
+                        "passagers": {
+                            "adultes": "3",
+                            "enfants": "0",
+                            "bebes": "0"
+                        },
+                        "classe": "economy",
+                        "sans_escale": false,
+                        "prix": 3500,
+                        "options": [
+                            {
+                                "etape": "Mercure",
+                                "nom": "Randonnée thermique",
+                                "prix": 180
+                            },
+                            {
+                                "etape": "Mercure",
+                                "nom": "Geysers métalliques",
                                 "prix": 180
                             }
                         ]
@@ -193,7 +352,7 @@
             "email": "bobmarley@alix.cy",
             "mot_de_passe": "puff4life",
             "phone": "911",
-            "address": "Tr\u00e8s loin",
+            "address": "Très loin",
             "sign-date": "28\/03\/2025",
             "login-date": "21-05-2025 15:35",
             "historique": "",
@@ -220,12 +379,12 @@
                         "options": [
                             {
                                 "etape": "Mercure",
-                                "nom": "Geysers m\u00e9talliques",
+                                "nom": "Geysers métalliques",
                                 "prix": 180
                             },
                             {
-                                "etape": "V\u00e9nus",
-                                "nom": "Pilotage de drones atmosph\u00e9riques",
+                                "etape": "Vénus",
+                                "nom": "Pilotage de drones atmosphériques",
                                 "prix": 150
                             },
                             {
@@ -273,12 +432,12 @@
                         "options": [
                             {
                                 "etape": "Mercure",
-                                "nom": "Geysers m\u00e9talliques",
+                                "nom": "Geysers métalliques",
                                 "prix": 180
                             },
                             {
-                                "etape": "V\u00e9nus",
-                                "nom": "Bain solaire UV filtr\u00e9",
+                                "etape": "Vénus",
+                                "nom": "Bain solaire UV filtré",
                                 "prix": 150
                             }
                         ]
