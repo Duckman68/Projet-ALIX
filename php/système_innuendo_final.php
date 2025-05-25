@@ -73,9 +73,8 @@ if (isset($_SESSION['email'])) {
                 <img src="<?= htmlspecialchars($pp) ?>" alt="Profil" class="pfp" onerror="this.src='../img/default.png'">
             </a>
         </div>
-        <div class="en-tete"></div>
+
         <section class="innuendo-zone">
-          <?xml version="1.0" encoding="UTF-8"?>
           <svg id="SolarSystem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1627 433">
             <image href="images/stars.jpg" x="0" y="0" width="1627" height="433" preserveAspectRatio="xMidYMid slice"/> 
           <defs>
@@ -281,25 +280,11 @@ if (isset($_SESSION['email'])) {
               <circle id="InnuendoRing3" class="cls-ring innuendo-ring innuendo-ring-3" cx="216.5" cy="216.5" r="165"/>
             </g>
           </svg>
-            <aside class="innuendo-sidebar">
-                <h2>Planètes</h2>
-                <ul class="innuendo-list">
-                    <li data-target="solidays">Solidays</li>
-                    <li data-target="we-love-green">We Love Green</li>
-                    <li data-target="hellfest">Hellfest</li>
-                    <li data-target="ardente">Ardente</li>
-                    <li data-target="tomorrowland">Tomorrowland</li>
-                    <li data-target="delta">Delta</li>
-                    <li data-target="lhuma">Lhuma</li>
-                    <li data-target="lollapalooza">Lollapalooza</li>
-                    <li data-target="veillecharue">Veillecharue</li>
-                </ul>
-            </aside>
         </section>
         
         <section class="toudoum-zone">
-            <?xml version="1.0" encoding="UTF-8"?>
                 <svg id="ToudoumSystem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1659.5 433">
+                    <image href="images/stars.jpg" x="0" y="0" width="1659.5" height="433" preserveAspectRatio="xMidYMid slice"/> 
                 <defs>
                     <style>
                     .cls-1 {
@@ -356,37 +341,37 @@ if (isset($_SESSION['email'])) {
                         stroke-width: 2;
                     }
                     </style>
-                <pattern id="sunPattern" patternUnits="userSpaceOnUse" width="432" height="432" patternTransform="translate(25 410)">
+                <pattern id="sun1Pattern" patternUnits="userSpaceOnUse" width="432" height="432" patternTransform="translate(25 410)">
                     <image href="images/Sun1.png" width="432" height="432" />
                 </pattern>
-                <pattern id="scofieldPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
+                <pattern id="scofieldPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(486 198)">
                     <image href="images/saturn without rings.png" width="36" height="36" />
                 </pattern>
-                <pattern id="tatooinePattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate()">
+                <pattern id="tatooinePattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate(566 206)">
                     <image href="images/Mercure.png" width="20" height="20" />
                 </pattern>
-                <pattern id="spockPattern" patternUnits="userSpaceOnUse" width="106" height="106" patternTransform="translate()">
+                <pattern id="spockPattern" patternUnits="userSpaceOnUse" width="106" height="106" patternTransform="translate(661 162)">
                     <image href="images/Venus.png" width="106" height="106" />
                 </pattern>
-                <pattern id="gazorpazorpPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
+                <pattern id="gazorpazorpPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(832 197.97)">
                     <image href="images/Terre.png" width="36" height="36" />
                 </pattern>
-                <pattern id="croutardPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
+                <pattern id="croutardPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(928.76 197.97)">
                     <image href="images/Mars.png" width="36" height="36" />
                 </pattern>
-                <pattern id="starkPattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate()">
+                <pattern id="starkPattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate(1012 205)">
                     <image href="images/Jupiter.png" width="20" height="20" />
                 </pattern>
-                <pattern id="elevenPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate()">
+                <pattern id="elevenPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1115 180)">
                     <image href="images/Uranus.png" width="72" height="72" />
                 </pattern>
-                <pattern id="ragnarPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate()">
+                <pattern id="ragnarPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1329.5 180)">
                     <image href="images/Neptune.png" width="72" height="72" />
                 </pattern>
-                <pattern id="spinjitsuPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate()">
+                <pattern id="spinjitsuPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate(1505.5 188.75)">
                     <image href="images/Neptune.png" width="54.5" height="54.5" />
                 </pattern>
-                <pattern id="razmoPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate()">
+                <pattern id="razmoPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate(1623.5 189.98)">
                     <image href="images/Neptune.png" width="54.5" height="54.5" />
                 </pattern>
 
@@ -396,151 +381,134 @@ if (isset($_SESSION['email'])) {
                 </pattern>
                 
                 <!-- tatooine - Lunes -->
-                <pattern id="tatooineMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="tatooineMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(557 186.39)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="tatooineMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="tatooineMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(575.5 195.39)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="tatooineMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="tatooineMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(584.5 226)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Spock - Lunes -->
-                <pattern id="spockMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
+                <pattern id="spockMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(758 283.72)">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="spockMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="spockMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(733.67 148.5)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="spockMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
+                <pattern id="spockMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(742.67 128.28)">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 
                 <!-- Gazorpazorp - Lunes -->
-                <pattern id="gazorpazorpMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="gazorpazorpMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(850 261)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="gazorpazorpMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="gazorpazorpMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(859 233.97)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="gazorpazorpMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="gazorpazorpMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(868 197.97)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Croutard - Lunes -->
-                <pattern id="croutardMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="croutardMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(955.76 233.97)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Eleven - Lunes -->
-                <pattern id="elevenMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="elevenMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1230 261)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="elevenMoon2Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
+                <pattern id="elevenMoon2Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1239 225)">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="elevenMoon3Pattern" patternUnits="userSpaceOnUse" width="27" height="27" patternTransform="translate()">
+                <pattern id="elevenMoon3Pattern" patternUnits="userSpaceOnUse" width="27" height="27" patternTransform="translate(1176 126)">
                     <image href="images/Lune.png" width="27" height="27" />
                 </pattern>
                 
                 <!-- Ragnar - Lunes -->
-                <pattern id="ragnarMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="ragnarMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1428 252)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Spinjitsu - Lunes -->
-                <pattern id="spinjitsuMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
+                <pattern id="spinjitsuMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1532 252)">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="spinjitsuMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="spinjitsuMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1586 225)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="spinjitsuMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="spinjitsuMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1550 171)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Razmo - Lunes -->
-                <pattern id="razmoMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
+                <pattern id="razmoMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1650.5 233.98)">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 </defs>
                 <g id="RazmoGroup">
-                    <circle id="Razmo" class="cls-1" cx="1641.5" cy="215.98" r="18"/>
-                    <circle id="MoonRazmo2" class="cls-6" cx="1655" cy="238.48" r="4.5"/>
+                    <circle id="Razmo" class="cls-1" cx="1641.5" cy="215.98" r="18" fill="url(#razmoPattern)" style="fill: url(#razmoPattern);"/>
+                    <circle id="MoonRazmo2" class="cls-6" cx="1655" cy="238.48" r="4.5" fill="url(#razmoMoonPattern)" style="fill: url(#razmoMoonPattern);"/>
                 </g>
                 <g id="SpinjitsuGroup">
-                    <circle id="Spinjitsu" class="cls-4" cx="1532.75" cy="216" r="27.25"/>
-                    <circle id="SpinjitsuMoon3" class="cls-6" cx="1541" cy="261" r="9"/>
-                    <circle id="SpinjitsuMoon2" class="cls-6" cx="1590.5" cy="229.5" r="4.5"/>
-                    <circle id="SpinjitsuMoon1" class="cls-6" cx="1554.5" cy="175.5" r="4.5"/>
+                    <circle id="Spinjitsu" class="cls-4" cx="1532.75" cy="216" r="27.25" fill="url(#spinjitsuPattern)" style="fill: url(#spinjitsuPattern);"/>
+                    <circle id="SpinjitsuMoon3" class="cls-6" cx="1541" cy="261" r="9" fill="url(#spinjitsuMoon3Pattern)" style="fill: url(#spinjitsuMoon3Pattern);"/>
+                    <circle id="SpinjitsuMoon2" class="cls-6" cx="1590.5" cy="229.5" r="4.5" fill="url(#spinjitsuMoon2Pattern)" style="fill: url(#spinjitsuMoon2Pattern);"/>
+                    <circle id="SpinjitsuMoon1" class="cls-6" cx="1554.5" cy="175.5" r="4.5" fill="url(#spinjitsuMoon1Pattern)" style="fill: url(#spinjitsuMoon1Pattern);"/>
                 </g>
                 <g id="RagnarGroup">
-                    <circle id="Ragnar" class="cls-9" cx="1365.5" cy="216" r="36"/>
-                    <circle id="RagnarMoon4" class="cls-6" cx="1432.5" cy="256.5" r="4.5"/>
+                    <circle id="Ragnar" class="cls-9" cx="1365.5" cy="216" r="36" fill="url(#ragnarPattern)" style="fill: url(#ragnarPattern);"/>
+                    <circle id="RagnarMoon4" class="cls-6" cx="1432.5" cy="256.5" r="4.5" fill="url(#ragnarMoonPattern)" style="fill: url(#ragnarMoonPattern);"/>
                 </g>
                 <g id="ElevenGroup">
-                    <circle id="Eleven" class="cls-8" cx="1151" cy="216" r="36"/>
-                    <circle id="ElevenMoon5" class="cls-6" cx="1234.5" cy="265.5" r="4.5"/>
-                    <circle id="ElevenMoon4" class="cls-6" cx="1248" cy="234" r="9"/>
-                    <circle id="ElevenMoon2" class="cls-6" cx="1189.5" cy="139.5" r="13.5"/>
+                    <circle id="Eleven" class="cls-8" cx="1151" cy="216" r="36" fill="url(#elevenPattern)" style="fill: url(#elevenPattern);"/>
+                    <circle id="ElevenMoon5" class="cls-6" cx="1234.5" cy="265.5" r="4.5" fill="url(#elevenMoon1Pattern)" style="fill: url(#elevenMoon1Pattern);"/>
+                    <circle id="ElevenMoon4" class="cls-6" cx="1248" cy="234" r="9" fill="url(#elevenMoon2Pattern)" style="fill: url(#elevenMoon2Pattern);"/>
+                    <circle id="ElevenMoon2" class="cls-6" cx="1189.5" cy="139.5" r="13.5" fill="url(#elevenMoon3Pattern)" style="fill: url(#elevenMoon3Pattern);"/>
                 </g>
-                <circle id="Stark" class="cls-11" cx="1022" cy="215" r="10"/>
+                <circle id="Stark" class="cls-11" cx="1022" cy="215" r="10" fill="url(#starkPattern)" style="fill: url(#starkPattern);"/>
                 <g id="CroutardGroup">
-                    <circle id="Croutard" class="cls-1" cx="946.76" cy="215.97" r="18"/>
-                    <circle id="MoonCroutard2" class="cls-6" cx="960.26" cy="238.47" r="4.5"/>
+                    <circle id="Croutard" class="cls-1" cx="946.76" cy="215.97" r="18" fill="url(#croutardPattern)" style="fill: url(#croutardPattern);"/>
+                    <circle id="MoonCroutard2" class="cls-6" cx="960.26" cy="238.47" r="4.5" fill="url(#croutardMoonPattern)" style="fill: url(#croutardMoonPattern);"/>
                 </g>
                 <g id="GazorpazorpGroup">
-                    <circle id="Gazorpazorp" class="cls-1" cx="850" cy="215.97" r="18"/>
-                    <circle id="MoonGazorpazorp3" class="cls-6" cx="854.5" cy="265.5" r="4.5"/>
-                    <circle id="MoonGazorpazorp2" class="cls-6" cx="863.5" cy="238.47" r="4.5"/>
-                    <circle id="MoonGazorpazorp1" class="cls-6" cx="872.5" cy="202.47" r="4.5"/>
+                    <circle id="Gazorpazorp" class="cls-1" cx="850" cy="215.97" r="18" fill="url(#gazorpazorpPattern)" style="fill: url(#gazorpazorpPattern);"/>
+                    <circle id="MoonGazorpazorp3" class="cls-6" cx="854.5" cy="265.5" r="4.5" fill="url(#gazorpazorpMoon1Pattern)" style="fill: url(#gazorpazorpMoon1Pattern);"/>
+                    <circle id="MoonGazorpazorp2" class="cls-6" cx="863.5" cy="238.47" r="4.5" fill="url(#gazorpazorpMoon2Pattern)" style="fill: url(#gazorpazorpMoon2Pattern);"/>
+                    <circle id="MoonGazorpazorp1" class="cls-6" cx="872.5" cy="202.47" r="4.5" fill="url(#gazorpazorpMoon3Pattern)" style="fill: url(#gazorpazorpMoon3Pattern);"/>
                 </g>
                 <g id="SpockGroup">
-                    <circle id="Spock" class="cls-7" cx="714" cy="215" r="53"/>
-                    <circle id="SpockMoon3" class="cls-6" cx="767" cy="292.72" r="9"/>
-                    <circle id="SpockMoon2" class="cls-6" cx="738.17" cy="153" r="4.5"/>
-                    <circle id="SpockMoon1" class="cls-6" cx="751.67" cy="137.28" r="9"/>
+                    <circle id="Spock" class="cls-7" cx="714" cy="215" r="53" fill="url(#spockPattern)" style="fill: url(#spockPattern);"/>
+                    <circle id="SpockMoon3" class="cls-6" cx="767" cy="292.72" r="9" fill="url(#spockMoon3Pattern)" style="fill: url(#spockMoon3Pattern);"/>
+                    <circle id="SpockMoon2" class="cls-6" cx="738.17" cy="153" r="4.5" fill="url(#spockMoon2Pattern)" style="fill: url(#spockMoon2Pattern);"/>
+                    <circle id="SpockMoon1" class="cls-6" cx="751.67" cy="137.28" r="9" fill="url(#spockMoon1Pattern)" style="fill: url(#spockMoon1Pattern);"/>
                 </g>
                 <g id="TatooineGroup">
-                    <circle id="Tatooine" class="cls-5" cx="576" cy="216" r="10"/>
-                    <circle id="TatooineMoon3" class="cls-6" cx="589" cy="230.5" r="4.5"/>
-                    <circle id="TatooineMoon2" class="cls-6" cx="580" cy="199.89" r="4.5"/>
-                    <circle id="TatooineMoon1" class="cls-6" cx="561.5" cy="190.89" r="4.5"/>
+                    <circle id="Tatooine" class="cls-5" cx="576" cy="216" r="10" fill="url(#tatooinePattern)" style="fill: url(#tatooinePattern);"/>
+                    <circle id="TatooineMoon3" class="cls-6" cx="589" cy="230.5" r="4.5" fill="url(#tatooineMoon3Pattern)" style="fill: url(#tatooineMoon3Pattern);"/>
+                    <circle id="TatooineMoon2" class="cls-6" cx="580" cy="199.89" r="4.5" fill="url(#tatooineMoon2Pattern)" style="fill: url(#tatooineMoon2Pattern);"/>
+                    <circle id="TatooineMoon1" class="cls-6" cx="561.5" cy="190.89" r="4.5" fill="url(#tatooineMoon1Pattern)" style="fill: url(#tatooineMoon1Pattern);"/>
                 </g>
                 <g id="ScofieldGroup">
-                    <circle id="Scofield" class="cls-10" cx="504" cy="216" r="18" fill="url(#)" style="fill: url(#);"/>
+                    <circle id="Scofield" class="cls-10" cx="504" cy="216" r="18" fill="url(#scofieldPattern)" style="fill: url(#scofieldPattern);"/>
                     <circle id="ScofieldMoon" class="cls-6" cx="517.5" cy="238.5" r="4.5" fill="url(#scofieldMoonPattern)" style="fill: url(#scofieldMoonPattern);"/>
                 </g>
                 <g id="SunGroup">
-                    <circle id="SunRing1" class="cls-3" cx="216.5" cy="216.5" r="216" fill="url(#sunPattern)" style="fill: url(#sunPattern); stroke: none;"/>
+                    <circle id="Sun" class="cls-3" cx="216.5" cy="216.5" r="162" fill="url(#sun1Pattern)" style="fill: url(#sun1Pattern); stroke: none;"/>
                     <circle id="InnuendoRing1" class="cls-ring innuendo-ring innuendo-ring-1" cx="216.5" cy="216.5" r="165"/>
                     <circle id="InnuendoRing2" class="cls-ring innuendo-ring innuendo-ring-2" cx="216.5" cy="216.5" r="165"/>
                     <circle id="InnuendoRing3" class="cls-ring innuendo-ring innuendo-ring-3" cx="216.5" cy="216.5" r="165"/>
                 </g>
-                <circle id="Sun" class="cls-2" cx="215.5" cy="215.5" r="162"/>
                 </svg>
-
-                <aside class="toudoum-sidebar">
-                <h2>Planètes</h2>
-                <ul class="toudoum-list">
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                    <li data-target=""></li>
-                </ul>
-            </aside>
         </section>
 
         <section class="ikea-zone">
-            <?xml version="1.0" encoding="UTF-8"?>
-            <svg id="SolarSystem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1655.25 433">
+            <svg id="IkeaSystem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1655.25 433">
+                <image href="images/stars.jpg" x="0" y="0" width="1655.25" height="433" preserveAspectRatio="xMidYMid slice"/> 
             <defs>
                 <style>
                 .cls-1 {
@@ -666,19 +634,246 @@ if (isset($_SESSION['email'])) {
 <script>
 // Script JavaScript interactif pour innuendo
 
-const planetMap = {
-    "solidays": "Solidays",
-    "we-love-green": "We_Love_Green",
-    "hellfest": "Hellfest",
-    "ardente": "Ardente",
-    "tomorrowland": "Tomorrowland",
-    "delta": "Delta",
-    "lhuma": "Lhuma",
-    "lollapalooza": "Lollapalooza",
-    "veillecharue": "Veillecharue"
+const systemPlanetData = {
+  innuendo: {
+    map: {
+      "solidays": "Solidays",
+      "we-love-green": "We_Love_Green",
+      "hellfest": "Hellfest",
+      "ardente": "Ardente",
+      "tomorrowland": "Tomorrowland",
+      "delta": "Delta",
+      "lhuma": "Lhuma",
+      "lollapalooza": "Lollapalooza",
+      "veillecharue": "Veillecharue"
+    },
+    svgId: "SolarSystem",
+    listClass: ".innuendo-list"
+  },
+  toudoum: {
+    map: {
+      "scofield": "Scofield",
+      "tatooine": "Tatooine",
+      "spock": "Spock",
+      "gazorpazorp": "Gazorpazorp",
+      "croutard": "Croutard",
+      "stark": "Stark",
+      "eleven": "Eleven",
+      "ragnar": "Ragnar",
+      "spinjitsu": "Spinjitsu",
+      "razmo": "Razmo"
+    },
+    svgId: "ToudoumSystem",
+    listClass: ".toudoum-list"
+  },
+  ikea: {
+    map: {
+      "malm": "Malm",
+      "friheten": "Friheten",
+      "knoxhult": "Knoxhult",
+      "tåsjön": "Tåsjön",
+      "lappdunort": "Lappdunort",
+      "skogssvingel": "Skogssvingel",
+      "ramsele": "Ramsele",
+      "ljungsbro": "Ljungsbro",
+      "tuvkornel": "Tuvkornel",
+      "slattika": "Slattika",
+      "akernejlika": "Akernejlika"
+    },
+    svgId: "IkeaSystem", // ⚠️ Tu dois renommer ce `id="SolarSystem"` en `id="IkeaSystem"`
+    listClass: ".ikea-list"
+  }
 };
 
-const planets = Object.keys(planetMap);
+// Infos des popups (exemple réduit — tu peux compléter)
+const popupData = {
+  // 🌱 Innuendo
+  "solidays": {
+    nom: "Solidays",
+    description: "Planète de la solidarité musicale.",
+    couleur: "#10B981",
+    image: "images/solidays.png"
+  },
+  "we-love-green": {
+    nom: "We Love Green",
+    description: "Planète éco-responsable et engagée.",
+    couleur: "#C1272D",
+    image: "images/welovegreen.png"
+  },
+  "hellfest": {
+    nom: "Hellfest",
+    description: "Planète du métal et de l'enfer sonore.",
+    couleur: "#3B82F6",
+    image: "images/hellfest.png"
+  },
+  "ardente": {
+    nom: "Ardente",
+    description: "Planète flamboyante des sons électrisants.",
+    couleur: "#9E005D",
+    image: "images/ardente.png"
+  },
+  "tomorrowland": {
+    nom: "Tomorrowland",
+    description: "Planète de la fête futuriste.",
+    couleur: "#9E005D",
+    image: "images/tomorrowland.png"
+  },
+  "delta": {
+    nom: "Delta",
+    description: "Planète des flux sonores multiples.",
+    couleur: "#FCEE21",
+    image: "images/delta.png"
+  },
+  "lhuma": {
+    nom: "Lhuma",
+    description: "Planète de la nature et des sens.",
+    couleur: "#F7931E",
+    image: "images/lhuma.png"
+  },
+  "lollapalooza": {
+    nom: "Lollapalooza",
+    description: "Planète de l'éclectisme sonore global.",
+    couleur: "#736357",
+    image: "images/lollapalooza.png"
+  },
+  "veillecharue": {
+    nom: "Veillecharue",
+    description: "Planète ancestrale des voix rurales.",
+    couleur: "#00FFFF",
+    image: "images/veillecharue.png"
+  },
+
+  // ⚔️ Tou-Doom
+  "scofield": {
+    nom: "Scofield",
+    description: "Planète carcérale du groove tactique.",
+    couleur: "#10B981",
+    image: "images/scofield.png"
+  },
+  "tatooine": {
+    nom: "Tatooine",
+    description: "Planète aride aux deux soleils, berceau des rebelles.",
+    couleur: "#C084FC",
+    image: "images/tatooine.png"
+  },
+  "spock": {
+    nom: "Spock",
+    description: "Planète logique et stratégique de l'esprit calme.",
+    couleur: "#3B82F6",
+    image: "images/spock.png"
+  },
+  "gazorpazorp": {
+    nom: "Gazorpazorp",
+    description: "Planète explosive où la folie règne.",
+    couleur: "#EF4444",
+    image: "images/gazorpazorp.png"
+  },
+  "croutard": {
+    nom: "Croutard",
+    description: "Planète féline aux instincts rusés.",
+    couleur: "#A3A3A3",
+    image: "images/croutard.png"
+  },
+  "stark": {
+    nom: "Stark",
+    description: "Planète glaciale du devoir et des loups.",
+    couleur: "#FCEE21",
+    image: "images/stark.png"
+  },
+  "eleven": {
+    nom: "Eleven",
+    description: "Planète psychique de l'ombre et des gaufres.",
+    couleur: "#F59E0B",
+    image: "images/eleven.png"
+  },
+  "ragnar": {
+    nom: "Ragnar",
+    description: "Planète des guerriers vikings intrépides.",
+    couleur: "#4B5563",
+    image: "images/ragnar.png"
+  },
+  "spinjitsu": {
+    nom: "Spinjitsu",
+    description: "Planète des ninjas en rotation continue.",
+    couleur: "#00FFFF",
+    image: "images/spinjitsu.png"
+  },
+  "razmo": {
+    nom: "Razmo",
+    description: "Planète du bricolage spatial déjanté.",
+    couleur: "#EF4444",
+    image: "images/razmo.png"
+  },
+
+  // 🧊 IKEA
+  "malm": {
+    nom: "Malm",
+    description: "Planète du rangement intergalactique.",
+    couleur: "#F59E0B",
+    image: "images/malm.png"
+  },
+  "friheten": {
+    nom: "Friheten",
+    description: "Planète du confort modulable et des siestes cosmiques.",
+    couleur: "#10B981",
+    image: "images/friheten.png"
+  },
+  "knoxhult": {
+    nom: "Knoxhult",
+    description: "Planète compacte au design minimaliste.",
+    couleur: "#3B82F6",
+    image: "images/knoxhult.png"
+  },
+  "tåsjön": {
+    nom: "Tåsjön",
+    description: "Planète aquatique d’origine suédoise.",
+    couleur: "#9E005D",
+    image: "images/tasjon.png"
+  },
+  "lappdunort": {
+    nom: "Lappdunort",
+    description: "Planète froide au cœur douillet.",
+    couleur: "#9E005D",
+    image: "images/lappdunort.png"
+  },
+  "skogssvingel": {
+    nom: "Skogssvingel",
+    description: "Planète végétale et apaisante.",
+    couleur: "#FCEE21",
+    image: "images/skogssvingel.png"
+  },
+  "ramsele": {
+    nom: "Ramsele",
+    description: "Planète lumineuse aux ondes douces.",
+    couleur: "#F7931E",
+    image: "images/ramsele.png"
+  },
+  "ljungsbro": {
+    nom: "Ljungsbro",
+    description: "Planète chocolatée au nom suédois.",
+    couleur: "#736357",
+    image: "images/ljungsbro.png"
+  },
+  "tuvkornel": {
+    nom: "Tuvkornel",
+    description: "Planète fleurie des douceurs cosmiques.",
+    couleur: "#00FFFF",
+    image: "images/tuvkornel.png"
+  },
+  "slattika": {
+    nom: "Slattika",
+    description: "Planète discrète aux mystères plats.",
+    couleur: "#EF4444",
+    image: "images/slattika.png"
+  },
+  "akernejlika": {
+    nom: "Akernejlika",
+    description: "Planète des rangements secrets et noms imprononçables.",
+    couleur: "#3B82F6",
+    image: "images/akernejlika.png"
+  }
+};
+
 
 const popup = document.getElementById("popup");
 const overlay = document.querySelector(".innuendo-overlay");
@@ -686,142 +881,162 @@ const popupTitle = document.getElementById("popup-title");
 const popupContent = document.getElementById("popup-content");
 const closeBtn = document.getElementById("popup-close");
 
-function highlightPlanet(key) {
-    const all = document.querySelectorAll("#SolarSystem circle, .innuendo-ring");
-    all.forEach(el => {
-        el.classList.add("dim-everything");
-        el.classList.remove("glow-target");
+function setupSystemInteractions(systemKey) {
+  const system = systemPlanetData[systemKey];
+  const { map, svgId, listClass } = system;
+
+  const svg = document.getElementById(svgId);
+  const items = document.querySelectorAll(`${listClass} li`);
+
+  items.forEach(item => {
+    const key = item.dataset.planet;
+    if (!key) return;
+    item.addEventListener("mouseenter", () => highlight(map[key], svg));
+    item.addEventListener("mouseleave", () => reset(svg));
+    item.addEventListener("click", e => {
+      e.preventDefault();
+      showPopup(key);
     });
-    const targetId = planetMap[key];
-    const target = document.getElementById(targetId);
-    if (target) {
-        target.classList.remove("dim-everything");
-        target.classList.add("glow-target");
+  });
+
+  Object.entries(map).forEach(([key, id]) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.style.cursor = "pointer";
+      el.addEventListener("mouseenter", () => highlight(id, svg));
+      el.addEventListener("mouseleave", () => reset(svg));
+      el.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        showPopup(key);
+      });
     }
+  });
 }
 
-function resetHighlight() {
-    document.querySelectorAll("#SolarSystem circle, .innuendo-ring").forEach(el => {
-        el.classList.remove("dim-everything", "glow-target");
-    });
-    document.querySelectorAll(".sidebar-highlight").forEach(el => {
-        el.classList.remove("sidebar-highlight");
-    });
+function highlight(id, svg) {
+  const all = svg.querySelectorAll("circle, .innuendo-ring");
+  all.forEach(el => {
+    el.classList.add("dim-everything");
+    el.classList.remove("glow-target");
+  });
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.remove("dim-everything");
+    target.classList.add("glow-target");
+  }
+}
+
+function reset(svg) {
+  svg.querySelectorAll("circle, .innuendo-ring").forEach(el => {
+    el.classList.remove("dim-everything", "glow-target");
+  });
 }
 
 function showPopup(key) {
-    const data = {
-        "solidays": {
-            nom: "Solidays",
-            description: "Planète de la solidarité musicale.",
-            couleur: "#10B981",
-            image: "images/solidays.png"
-        },
-        "we-love-green": {
-            nom: "We Love Green",
-            description: "Planète éco-responsable et engagée.",
-            couleur: "#C1272D",
-            image: "images/welovegreen.png"
-        },
-        "hellfest": {
-            nom: "Hellfest",
-            description: "Planète du métal et de l'enfer sonore.",
-            couleur: "#3B82F6",
-            image: "images/hellfest.png"
-        },
-        "ardente": {
-            nom: "Ardente",
-            description: "Planète flamboyante des sons électrisants.",
-            couleur: "#9E005D",
-            image: "images/ardente.png"
-        },
-        "tomorrowland": {
-            nom: "Tomorrowland",
-            description: "Planète de la fête futuriste.",
-            couleur: "#9E005D",
-            image: "images/tomorrowland.png"
-        },
-        "delta": {
-            nom: "Delta",
-            description: "Planète des flux sonores multiples.",
-            couleur: "#FCEE21",
-            image: "images/delta.png"
-        },
-        "lhuma": {
-            nom: "Lhuma",
-            description: "Planète de la nature et des sens.",
-            couleur: "#F7931E",
-            image: "images/lhuma.png"
-        },
-        "lollapalooza": {
-            nom: "Lollapalooza",
-            description: "Planète de l'éclectisme sonore global.",
-            couleur: "#736357",
-            image: "images/lollapalooza.png"
-        },
-        "veillecharue": {
-            nom: "Veillecharue",
-            description: "Planète ancestrale des voix rurales.",
-            couleur: "#00FFFF",
-            image: "images/veillecharue.png"
-        }
-    };
-    if (!data[key]) return;
-    popupTitle.textContent = data[key].nom;
-    popupContent.innerHTML = `
-        <div class="popup-planet-visual">
-            <div class="popup-planet-icon" style="background-color:${data[key].couleur}; background-image: url('${data[key].image}'); background-size: cover;"></div>
-        </div>
-        <div class="popup-info">
-            <p>${data[key].description}</p>
-            <button class="popup-go" onclick="window.location.href='voyager.php?planete=${encodeURIComponent(data[key].nom)}'">Voir les voyages</button>
-        </div>
-    `;
-    popup.style.display = "block";
-    overlay.style.display = "block";
-    document.body.style.overflow = "hidden";
+  if (!popupData[key]) return;
+  const data = popupData[key];
+  popupTitle.textContent = data.nom;
+  popupContent.innerHTML = `
+    <div class="popup-planet-visual">
+      <div class="popup-planet-icon" style="background-color:${data.couleur}; background-image: url('${data.image}');"></div>
+    </div>
+    <div class="popup-info">
+      <p>${data.description}</p>
+      <button class="popup-go" onclick="window.location.href='voyager.php?planete=${encodeURIComponent(data.nom)}'">Voir les voyages</button>
+    </div>
+  `;
+  popup.style.display = "block";
+  overlay.style.display = "block";
+  document.body.style.overflow = "hidden";
 }
 
 function closePopup() {
-    popup.style.display = "none";
-    overlay.style.display = "none";
-    document.body.style.overflow = "auto";
-    resetHighlight();
+  popup.style.display = "none";
+  overlay.style.display = "none";
+  document.body.style.overflow = "auto";
 }
-
-document.querySelectorAll(".innuendo-list li").forEach(item => {
-    const key = item.dataset.planet;
-    item.addEventListener("mouseenter", () => highlightPlanet(key));
-    item.addEventListener("mouseleave", resetHighlight);
-    item.addEventListener("click", e => {
-        e.preventDefault();
-        showPopup(key);
-    });
-});
-
-Object.entries(planetMap).forEach(([key, id]) => {
-    const el = document.getElementById(id);
-    if (el) {
-        el.style.cursor = "pointer";
-        el.addEventListener("mouseenter", () => highlightPlanet(key));
-        el.addEventListener("mouseleave", resetHighlight);
-        el.addEventListener("click", e => {
-            e.preventDefault();
-            e.stopPropagation();
-            showPopup(key);
-        });
-    }
-});
 
 if (closeBtn) closeBtn.addEventListener("click", closePopup);
 if (overlay) overlay.addEventListener("click", closePopup);
 document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && popup.style.display === "block") {
-        closePopup();
-    }
+  if (e.key === "Escape" && popup.style.display === "block") {
+    closePopup();
+  }
 });
 
-
+// ⚙️ Initialisation pour tous les systèmes
+Object.keys(systemPlanetData).forEach(setupSystemInteractions);
 </script>
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.php">Accueil</a></li>
+                        <li><a href="voyager.php">Voyager</a></li>
+                        <li><a href="aboutus.php">À propos</a></li>
+                        <li><a href="Panier.php">Panier</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/alix-exp%C3%A9rience-60b037367/" target="_blank" rel="noopener">
+                        <img src="../img/link.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.instagram.com/alix_experience?igsh=MTV4dDV2YWpsczdqNQ==" target="_blank" rel="noopener">
+                        <img src="../img/insta.jpeg" alt="Instagram">
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=61576688187239" target="_blank" rel="noopener">
+                        <img src="../img/facebook.png" alt="Facebook">
+                        </a>
+                        <a href="https://x.com/alix_experience" target="_blank" rel="noopener">
+                        <img src="../img/X.jpeg" alt="X">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Mail :</strong>
+                        <a href="mailto:contact@alix.com">contact@alix.com</a>
+                    </p>
+                    <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                    <p>
+                        <strong>Adresse :</strong><br>
+                        <a
+                        href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-%C3%89lys%C3%A9es,+75008+Paris"
+                        target="_blank"
+                        rel="noopener"
+                        >
+                        Avenue des Champs-Élysées, 75008 Paris
+                        </a>
+                    </p>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Newsletter</h3>
+                    <p>Inscrivez-vous pour recevoir nos offres exclusives :</p>
+                    <form class="newsletter-form" action="#" method="post">
+                        <input
+                        type="email"
+                        name="email"
+                        placeholder="Votre email"
+                        required
+                        >
+                        <button type="submit">S’abonner</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-credits">Nassim | Atahan | Romain | Gabin</p>
+                <p>© <?= date('Y') ?> A.L.I.X. — Tous droits réservés.</p>
+                <button
+                class="back-to-top"
+                aria-label="Retour en haut"
+                onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+                ></button>
+            </div>
+        </footer>
 </body>
 </html>

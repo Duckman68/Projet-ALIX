@@ -75,7 +75,6 @@ if (isset($_SESSION['email'])) {
         </div>
         <div class="en-tete"></div>
         <section class="solar-section">
-            <?xml version="1.0" encoding="UTF-8"?>
             <svg id="SolarSystem" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1674 954.05">
                 <image href="images/stars.jpg" x="0" y="0" width="1674" height="954.05" preserveAspectRatio="xMidYMid slice"/>   
             <defs>

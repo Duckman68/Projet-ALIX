@@ -2602,21 +2602,20 @@ video.logo {
 }
 
 .innuendo-popup {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(64, 115, 255, 0.5);
-    border-radius: 15px;
-    padding: 25px;
-    width: 450px;
-    max-width: 90%;
-    z-index: 100;
+    z-index: 1000;
+    background: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
     display: none;
-    backdrop-filter: blur(10px);
-    animation: innuendoPopup 0.5s forwards;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
 
 @keyframes innuendoPopup {
     from {
@@ -2718,4 +2717,20 @@ video.logo {
 
 .innuendo-popup-info {
     flex: 1;
+}
+
+#SolarSystem,
+#ToudoumSystem,
+#IkeaSystem {
+    width: 98%;
+    height: auto;
+    display: block;
+}
+
+
+.innuendo-zone,
+.toudoum-zone,
+.ikea-zone {
+    margin: 0;
+    padding: 0;
 }
