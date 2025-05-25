@@ -44,7 +44,8 @@ if (isset($_SESSION['email'])) {
 <html>
 <head>	
 	<meta charset="UTF-8">
-	<title>A.L.I.X.</title>
+	<title>A.L.I.X. - A propos</title>
+	<link rel="icon" href="../img/favicon.png" type="image/png">
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
 </head>

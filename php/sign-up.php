@@ -39,6 +39,7 @@ if (isset($_SESSION['email'])) {
 <head>	
 	<meta charset="UTF-8">
 	<title>A.L.I.X.</title>
+	<link rel="icon" href="../img/favicon.png" type="image/png">
 	<link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" /><!---->
 	<script src="../js/theme.js" defer></script><!---->
     <script src="../js/validation_inscription.js" defer></script>

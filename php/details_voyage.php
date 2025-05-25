@@ -64,6 +64,7 @@ $sans_escale = $voyage['sans_escale'] ? 'Oui' : 'Non';
 <head>
     <meta charset="UTF-8">
     <title>Détail du Voyage</title>
+	<link rel="icon" href="../img/favicon.png" type="image/png">
     <link id="theme-style" rel="stylesheet" href="../css/style_nuit.css">
     <script src="../js/theme.js" defer></script>
 </head>

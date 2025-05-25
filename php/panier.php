@@ -65,6 +65,7 @@ if (isset($_POST['payer'])) {
 <head>
     <meta charset="UTF-8">
     <title>Panier</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
     <link id="theme-style" rel="stylesheet" href="../css/style_nuit.css">
     <script src="../js/theme.js" defer></script>
 </head>

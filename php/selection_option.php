@@ -141,6 +141,7 @@ if (isset($_SESSION['email'])) {
 <html lang="fr">
 <head>
     <title>A.L.I.X. - Options</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
     <meta charset="UTF-8">
     <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" />
     <script src="../js/theme.js" defer></script>

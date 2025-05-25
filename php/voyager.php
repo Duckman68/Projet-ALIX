@@ -42,7 +42,7 @@ $etapes_data = json_decode(file_get_contents("../json/etapes.json"), true);
 
 $searchQuery = strtolower($_GET['search'] ?? '');
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
-$voyagesParPage = 10;
+$voyagesParPage = 5;
 
 $voyagesFiltres = array_filter($voyages_all, function ($voyage) use ($searchQuery, $etapes_data) {
     if ($searchQuery === '') return true;
@@ -75,6 +75,7 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
 <html>
 <head>
     <title>A.L.I.X.</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png">
     <meta charset="UTF-8">
     <link id="theme-style" href="../css/style_nuit.css" rel="stylesheet" />
     <script src="../js/theme.js" defer></script>
@@ -134,7 +135,7 @@ $voyages = array_slice($voyagesFiltres, $debut, $voyagesParPage);
         <div class="hotel-style-list">
             <?php foreach ($voyages as $voyage): ?>
             <?php
-            $imagePath = "../php/map/images/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
+            $imagePath = "../img/" . strtolower(str_replace(' ', '_', $voyage['titre'])) . ".png";
             if (!file_exists($imagePath)) {
                 $imagePath = "../php/map/images/Mars.png";
             }
