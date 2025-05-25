@@ -281,20 +281,20 @@ if (isset($_SESSION['email'])) {
               <circle id="InnuendoRing3" class="cls-ring innuendo-ring innuendo-ring-3" cx="216.5" cy="216.5" r="165"/>
             </g>
           </svg>
-        <aside class="innuendo-sidebar">
-            <h2>Planètes</h2>
-            <ul class="innuendo-list">
-                <li data-target="solidays">Solidays</li>
-                <li data-target="we-love-green">We Love Green</li>
-                <li data-target="hellfest">Hellfest</li>
-                <li data-target="ardente">Ardente</li>
-                <li data-target="tomorrowland">Tomorrowland</li>
-                <li data-target="delta">Delta</li>
-                <li data-target="lhuma">Lhuma</li>
-                <li data-target="lollapalooza">Lollapalooza</li>
-                <li data-target="veillecharue">Veillecharue</li>
-            </ul>
-        </aside>
+            <aside class="innuendo-sidebar">
+                <h2>Planètes</h2>
+                <ul class="innuendo-list">
+                    <li data-target="solidays">Solidays</li>
+                    <li data-target="we-love-green">We Love Green</li>
+                    <li data-target="hellfest">Hellfest</li>
+                    <li data-target="ardente">Ardente</li>
+                    <li data-target="tomorrowland">Tomorrowland</li>
+                    <li data-target="delta">Delta</li>
+                    <li data-target="lhuma">Lhuma</li>
+                    <li data-target="lollapalooza">Lollapalooza</li>
+                    <li data-target="veillecharue">Veillecharue</li>
+                </ul>
+            </aside>
         </section>
         
         <section class="toudoum-zone">
@@ -359,109 +359,109 @@ if (isset($_SESSION['email'])) {
                 <pattern id="sunPattern" patternUnits="userSpaceOnUse" width="432" height="432" patternTransform="translate(25 410)">
                     <image href="images/Sun1.png" width="432" height="432" />
                 </pattern>
-                <pattern id="scofieldPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(486 198)">
+                <pattern id="scofieldPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
                     <image href="images/saturn without rings.png" width="36" height="36" />
                 </pattern>
-                <pattern id="tatooinePattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate(566 206)">
+                <pattern id="tatooinePattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate()">
                     <image href="images/Mercure.png" width="20" height="20" />
                 </pattern>
-                <pattern id="spockPattern" patternUnits="userSpaceOnUse" width="106" height="106" patternTransform="translate(661 162)">
+                <pattern id="spockPattern" patternUnits="userSpaceOnUse" width="106" height="106" patternTransform="translate()">
                     <image href="images/Venus.png" width="106" height="106" />
                 </pattern>
-                <pattern id="gazorpazorpPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(832 197.97)">
+                <pattern id="gazorpazorpPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
                     <image href="images/Terre.png" width="36" height="36" />
                 </pattern>
-                <pattern id="croutardPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate(928.76 197.97)">
+                <pattern id="croutardPattern" patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="translate()">
                     <image href="images/Mars.png" width="36" height="36" />
                 </pattern>
-                <pattern id="starkPattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate(1044 205)">
+                <pattern id="starkPattern" patternUnits="userSpaceOnUse" width="20" height="20" patternTransform="translate()">
                     <image href="images/Jupiter.png" width="20" height="20" />
                 </pattern>
-                <pattern id="elevenPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1147 180)">
+                <pattern id="elevenPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate()">
                     <image href="images/Uranus.png" width="72" height="72" />
                 </pattern>
-                <pattern id="ragnarPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate(1361.5 180)">
+                <pattern id="ragnarPattern" patternUnits="userSpaceOnUse" width="72" height="72" patternTransform="translate()">
                     <image href="images/Neptune.png" width="72" height="72" />
                 </pattern>
-                <pattern id="spinjitsuPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate(1537.5 188.75)">
+                <pattern id="spinjitsuPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate()">
                     <image href="images/Neptune.png" width="54.5" height="54.5" />
                 </pattern>
-                <pattern id="razmoPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate(1537.5 188.75)">
+                <pattern id="razmoPattern" patternUnits="userSpaceOnUse" width="54.5" height="54.5" patternTransform="translate()">
                     <image href="images/Neptune.png" width="54.5" height="54.5" />
                 </pattern>
 
                 <!-- Scofield - Lune -->
-                <pattern id="scofieldMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(513 234)">
+                <pattern id="scofieldMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- tatooine - Lunes -->
-                <pattern id="tatooineMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(557 186.39)">
+                <pattern id="tatooineMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="tatooineMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(575.5 195.39)">
+                <pattern id="tatooineMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="tatooineMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(575.5 195.39)">
+                <pattern id="tatooineMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 
                 <!-- Spock - Lunes -->
-                <pattern id="spockMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(742.67 128.28)">
+                <pattern id="spockMoon1Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="spockMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(733.67 148.5)">
+                <pattern id="spockMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="spockMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(758 283.72)">
+                <pattern id="spockMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
                 
                 <!-- Gazorpazorp - Lunes -->
-                <pattern id="gazorpazorpMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(868 197.97)">
+                <pattern id="gazorpazorpMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="gazorpazorpMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(859 233.97)">
+                <pattern id="gazorpazorpMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="gazorpazorpMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(850 261)">
+                <pattern id="gazorpazorpMoon3Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Croutard - Lunes -->
-                <pattern id="croutardMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(955.76 233.97)">
+                <pattern id="croutardMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Eleven - Lunes -->
-                <pattern id="elevenMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1208 126)">
+                <pattern id="elevenMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="elevenMoon2Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1271 225)">
+                <pattern id="elevenMoon2Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="elevenMoon3Pattern" patternUnits="userSpaceOnUse" width="27" height="27" patternTransform="translate(1262 261)">
+                <pattern id="elevenMoon3Pattern" patternUnits="userSpaceOnUse" width="27" height="27" patternTransform="translate()">
                     <image href="images/Lune.png" width="27" height="27" />
                 </pattern>
                 
                 <!-- Ragnar - Lunes -->
-                <pattern id="ragnarMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1460 252)">
+                <pattern id="ragnarMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Spinjitsu - Lunes -->
-                <pattern id="spinjitsuMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate(1564 252)">
+                <pattern id="spinjitsuMoon3Pattern" patternUnits="userSpaceOnUse" width="18" height="18" patternTransform="translate()">
                     <image href="images/Lune.png" width="18" height="18" />
                 </pattern>
-                <pattern id="spinjitsuMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1618 225)">
+                <pattern id="spinjitsuMoon2Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
-                <pattern id="spinjitsuMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1582 171)">
+                <pattern id="spinjitsuMoon1Pattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
 
                 <!-- Razmo - Lunes -->
-                <pattern id="razmoMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate(1460 252)">
+                <pattern id="razmoMoonPattern" patternUnits="userSpaceOnUse" width="9" height="9" patternTransform="translate()">
                     <image href="images/Lune.png" width="9" height="9" />
                 </pattern>
                 </defs>
@@ -537,6 +537,123 @@ if (isset($_SESSION['email'])) {
                 </ul>
             </aside>
         </section>
+
+        <section class="ikea-zone">
+            <?xml version="1.0" encoding="UTF-8"?>
+            <svg id="SolarSystem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1655.25 433">
+            <defs>
+                <style>
+                .cls-1 {
+                    fill: #9e005d;
+                }
+
+                .cls-2 {
+                    fill: red;
+                }
+
+                .cls-2, .cls-3 {
+                    stroke: red;
+                    stroke-miterlimit: 10;
+                }
+
+                .cls-4 {
+                    fill: aqua;
+                }
+
+                .cls-5 {
+                    fill: #c1272d;
+                }
+
+                .cls-6 {
+                    fill: #4d4d4d;
+                }
+
+                .cls-7 {
+                    fill: blue;
+                }
+
+                .cls-3 {
+                    fill: none;
+                }
+
+                .cls-8 {
+                    fill: #f7931e;
+                }
+
+                .cls-9 {
+                    fill: #736357;
+                }
+
+                .cls-10 {
+                    fill: lime;
+                }
+
+                .cls-11 {
+                    fill: #fcee21;
+                }
+                </style>
+            </defs>
+            <g id="AkernejlikaGroup">
+                <circle id="Akernejlika" class="cls-5" cx="1637.75" cy="216" r="10"/>
+                <circle id="AkernejlikaMoon3" class="cls-6" cx="1650.75" cy="230.5" r="4.5"/>
+                <circle id="AkernejlikaMoon2" class="cls-6" cx="1641.75" cy="199.89" r="4.5"/>
+                <circle id="AkernejlikaMoon1" class="cls-6" cx="1623.25" cy="190.89" r="4.5"/>
+            </g>
+            <g id="SlattikaGroup">
+                <circle id="Slattika" class="cls-1" cx="1571.5" cy="215.98" r="18"/>
+                <circle id="MoonSlattika2" class="cls-6" cx="1585" cy="238.48" r="4.5"/>
+            </g>
+            <g id="TuvkornelGroup">
+                <circle id="Tuvkornel" class="cls-4" cx="1462.75" cy="216" r="27.25"/>
+                <circle id="TuvkornelMoon3" class="cls-6" cx="1471" cy="261" r="9"/>
+                <circle id="TuvkornelMoon2" class="cls-6" cx="1520.5" cy="229.5" r="4.5"/>
+                <circle id="TuvkornelMoon1" class="cls-6" cx="1484.5" cy="175.5" r="4.5"/>
+            </g>
+            <g id="LjungsbroGroup">
+                <circle id="Ljungsbro" class="cls-9" cx="1318.5" cy="216" r="36"/>
+                <circle id="LjungsbroMoon4" class="cls-6" cx="1385.5" cy="256.5" r="4.5"/>
+            </g>
+            <g id="RamseleGroup">
+                <circle id="Ramsele" class="cls-8" cx="1104" cy="216" r="36"/>
+                <circle id="RamseleMoon5" class="cls-6" cx="1187.5" cy="265.5" r="4.5"/>
+                <circle id="RamseleMoon4" class="cls-6" cx="1201" cy="234" r="9"/>
+                <circle id="RamseleMoon2" class="cls-6" cx="1142.5" cy="139.5" r="13.5"/>
+            </g>
+            <circle id="Skogssvingel" class="cls-11" cx="1000" cy="215" r="10"/>
+            <g id="LappdunortGroup">
+                <circle id="Lappdunort" class="cls-1" cx="924.76" cy="215.97" r="18"/>
+                <circle id="MoonLappdunort2" class="cls-6" cx="938.26" cy="238.47" r="4.5"/>
+            </g>
+            <g id="TåsjönGroup">
+                <circle id="Tåsjön" class="cls-1" cx="828" cy="215.97" r="18"/>
+                <circle id="MoonTåsjön3" class="cls-6" cx="832.5" cy="265.5" r="4.5"/>
+                <circle id="MoonTåsjön2" class="cls-6" cx="841.5" cy="238.47" r="4.5"/>
+                <circle id="MoonTåsjön1" class="cls-6" cx="850.5" cy="202.47" r="4.5"/>
+            </g>
+            <g id="KnoxhultGroup">
+                <circle id="Knoxhult" class="cls-7" cx="692" cy="215" r="53"/>
+                <circle id="KnoxhultMoon3" class="cls-6" cx="745" cy="292.72" r="9"/>
+                <circle id="KnoxhultMoon2" class="cls-6" cx="716.17" cy="153" r="4.5"/>
+                <circle id="KnoxhultMoon1" class="cls-6" cx="729.67" cy="137.28" r="9"/>
+            </g>
+            <g id="FrihetenGroup">
+                <circle id="Friheten" class="cls-5" cx="563" cy="216" r="10"/>
+                <circle id="FrihetenMoon3" class="cls-6" cx="576" cy="230.5" r="4.5"/>
+                <circle id="FrihetenMoon2" class="cls-6" cx="567" cy="199.89" r="4.5"/>
+                <circle id="FrihetenMoon1" class="cls-6" cx="548.5" cy="190.89" r="4.5"/>
+            </g>
+            <g id="MalmGroup">
+                <circle id="Malm" class="cls-10" cx="491" cy="216" r="18"/>
+                <circle id="MalmMoon" class="cls-6" cx="504.5" cy="238.5" r="4.5"/>
+            </g>
+            <g id="SunGroup">
+                <circle id="SunRing1" class="cls-3" cx="216.5" cy="216.5" r="216"/>
+            </g>
+            <circle id="Sun" class="cls-2" cx="215.5" cy="215.5" r="162"/>
+            </svg>
+        </section>
+
+               
 
 <div class="innuendo-popup" id="popup">
     <button class="innuendo-popup-close" id="popup-close">×</button>
