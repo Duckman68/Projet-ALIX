@@ -7,10 +7,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $mot_de_passe = $_POST['mot_de_passe'];
     $confirmation = $_POST['confirmation_mot_de_passe'];
+    $tel = trim($_POST['tel'] ?? '');
+    $adresse = trim($_POST['adresse'] ?? '');
 
-    // Validation
     if (empty($nom) || empty($prenom) || empty($email) || empty($mot_de_passe)) {
         $_SESSION['inscription_error'] = "Tous les champs sont obligatoires.";
+        header("Location: sign-up.php");
+        exit();
+    }
+
+    if (strlen($mot_de_passe) < 8) {
+        $_SESSION['inscription_error'] = "Le mot de passe doit contenir au moins 8 caractères.";
         header("Location: sign-up.php");
         exit();
     }
@@ -21,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Vérification email existant
     $fichier_json = '../json/utilisateurs.json';
     $donnees = [];
 
@@ -38,40 +44,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Génération de l'ID
     $max_id = 0;
-    
-    // Parcourir les admins pour trouver l'ID max
+
     foreach ($donnees['admin'] ?? [] as $admin) {
         if (isset($admin['id_user']) && intval($admin['id_user']) > $max_id) {
             $max_id = intval($admin['id_user']);
         }
     }
-    
-    // Parcourir les users pour trouver l'ID max
+
     foreach ($donnees['user'] ?? [] as $user) {
         if (isset($user['id_user']) && intval($user['id_user']) > $max_id) {
             $max_id = intval($user['id_user']);
         }
     }
-    
-    $nouvel_id = strval($max_id + 1); // Nouvel ID (le max + 1)
 
-    // Création utilisateur
+    $nouvel_id = strval($max_id + 1);
+
     $utilisateur = [
-        'id_user' => $nouvel_id, // Ajout de l'ID généré
+        'id_user' => $nouvel_id,
         'role' => "membre",
         'nom' => $nom,
         'prenom' => $prenom,
         'email' => $email,
         'mot_de_passe' => $mot_de_passe,
-        'phone' => "",
-        'address' => "",
+        'phone' => $tel,
+        'address' => $adresse,
         'sign-date' => date("d/m/Y"),
         'login-date' => "",
         'historique' => "",
         'pp' => "../img/default.png",
-        'voyage' => [ // Ajout de la structure voyage pour cohérence
+        'voyage' => [
             'consultes' => [],
             'achetes' => []
         ]

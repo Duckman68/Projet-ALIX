@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email");
     const motdepasse = document.getElementById("mot_de_passe");
     const erreurs = document.getElementById("erreurs");
+    const compteur = document.getElementById("compteur-mdp");
 
-    // Afficher/masquer le mot de passe
     const bouton = document.querySelector(".oeil-bouton");
     bouton.addEventListener("click", () => {
         if (motdepasse.type === "password") {
@@ -16,7 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Validation avant soumission
+    if (motdepasse && compteur) {
+        motdepasse.addEventListener("input", () => {
+            compteur.textContent = motdepasse.value.length;
+        });
+    }
+
     formulaire.addEventListener("submit", (e) => {
         e.preventDefault();
         erreurs.innerHTML = "";

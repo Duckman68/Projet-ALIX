@@ -136,6 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="form-group">
                 <div class="champ-mdp">
                     <input type="password" name="mot_de_passe" id="mot_de_passe" placeholder="Mot de passe" required>
+					<span class="compteur-mdp" id="compteur-mdp">0</span>
                     <button type="button" class="oeil-bouton" data-cible="mot_de_passe">👁</button>
                 </div>
             </div>

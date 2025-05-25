@@ -150,7 +150,9 @@ div.espace{
     display: none;
 }
 
-
+.details p{
+    color: black;
+}
 
 div.boutique {
     padding-top: 50px;
@@ -1070,6 +1072,8 @@ section.login h1 {
     font-weight: lighter;
 }
 
+
+
 /*singup*/
 
 div.espace-singup{
@@ -1185,6 +1189,13 @@ section.singup h1 {
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+.compteur-mdp {
+    color: #aaa;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 8px;
 }
 
 /* Profil Section */
